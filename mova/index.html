@@ -207,6 +207,16 @@ td.det{color:var(--muted)}
 .opt h3{font-size:22px;margin-top:16px}
 .opt .pp{font-family:"Inter Tight",Inter,sans-serif;font-size:30px;font-weight:800;margin-top:8px}
 .opt .pp small{font-size:14px;color:var(--muted);font-weight:500;margin-left:4px}
+.climb{margin-top:20px}
+.climb .label{color:var(--lime)}
+.bars{display:grid;gap:12px;margin-top:16px}
+.bar{display:grid;grid-template-columns:92px 1fr 56px;align-items:center;gap:14px;font-size:15px}
+.bar .m{color:var(--muted)}
+.bar .track{height:14px;border-radius:999px;background:var(--card2);border:1px solid var(--border);overflow:hidden}
+.bar .fill{display:block;height:100%;background:var(--muted);border-radius:999px}
+.bar.now .fill{background:var(--lime)}
+.bar .v{font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:20px;text-align:right;font-variant-numeric:tabular-nums}
+.bar.now .v{color:var(--lime)}
 .newopts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:28px auto 0;max-width:760px}
 .newopts li{border:1px solid var(--border);background:var(--card);border-radius:14px;padding:14px 18px;min-width:0;flex:1 1 180px;text-align:center}
 .newopts b{display:block;color:var(--lime);font-size:17px}
@@ -244,10 +254,18 @@ td.det{color:var(--muted)}
   <h2>What you've <span class="lime">built</span> so far</h2>
   <p class="sub">£8,161 booked from £1,252 of ads in just over 6 weeks. Every option below keeps all of this.</p>
   <div class="stats">
-   <div class="card stat"><div class="n">32</div><p>new members signed up from 52 consults, a 62% close rate</p></div>
+   <div class="card stat"><div class="n">32</div><p>new members signed up from 52 consults</p></div>
    <div class="card stat"><div class="n">7 of 7</div><p>intro members went on to a monthly membership</p></div>
    <div class="card stat"><div class="n">£472</div><p>a month in new memberships</p></div>
    <div class="card stat"><div class="n">£1.47</div><p>per lead on your mums and babies ad, one of the best we've seen</p></div>
+  </div>
+  <div class="card climb">
+   <div class="label">Your close rate, month by month</div>
+   <div class="bars">
+    <div class="bar"><span class="m">September</span><span class="track"><span class="fill" style="width:54%"></span></span><span class="v">54%</span></div>
+    <div class="bar now"><span class="m">October</span><span class="track"><span class="fill" style="width:78%"></span></span><span class="v">78%</span></div>
+   </div>
+   <p class="foot">October is month to date. More of the people you meet now become members.</p>
   </div>
  </div>
 </section>

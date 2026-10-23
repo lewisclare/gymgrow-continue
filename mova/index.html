@@ -218,6 +218,62 @@ td.det{color:var(--muted)}
 .bar .v{font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:20px;text-align:right;font-variant-numeric:tabular-nums}
 .bar.now .v{color:var(--lime)}
 .opt .foot{margin-top:14px}
+.cmp{margin-top:36px;overflow:hidden}
+.cmp table{width:100%;border-collapse:separate;border-spacing:0;font-size:16px;table-layout:fixed}
+.cmp col.f{width:auto}.cmp col.p,.cmp col.s,.cmp col.c{width:22%}
+.cmp th,.cmp td{padding:14px 18px;border-bottom:1px solid var(--border);vertical-align:middle;background:none;text-align:center}
+.cmp th:first-child,.cmp td:first-child{text-align:left}
+.cmp thead th{font-size:13px;letter-spacing:.04em;color:var(--text);font-weight:700;padding-top:22px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+.cmp thead th .pp{display:block;font-family:"Inter Tight",Inter,sans-serif;font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-top:6px;text-transform:none}
+.cmp thead th .per{display:block;font-size:13px;color:var(--muted);font-weight:500;letter-spacing:0;text-transform:none;margin-top:2px}
+.cmp .p{background:var(--card2);border-left:2px solid var(--lime);border-right:2px solid var(--lime)}
+.cmp thead .p{border-top:2px solid var(--lime);border-radius:16px 16px 0 0}
+.cmp tbody tr:last-child .p{border-bottom:2px solid var(--lime);border-radius:0 0 16px 16px}
+.cmp .s,.cmp .c{background:var(--card)}
+.cmp thead .s,.cmp thead .c{border-radius:16px 16px 0 0}
+.cmp tbody tr:last-child .s,.cmp tbody tr:last-child .c{border-radius:0 0 16px 16px}
+.cmp tbody tr:last-child td{border-bottom-color:transparent}
+.cmp tbody tr:last-child td.p{border-bottom-color:var(--lime)}
+.cmp td.f{color:var(--text)}
+.cmp td.f small{display:block;color:var(--small);font-size:13px}
+.cmp td.v{font-weight:700}
+.cmp td.s.v,.cmp td.c.v{color:var(--muted);font-weight:500}
+.yes,.no{display:inline-block;width:22px;height:22px;border-radius:50%;position:relative;vertical-align:middle}
+.yes{border:2px solid var(--lime)}
+.yes:after{content:"";position:absolute;left:5px;top:5px;width:8px;height:4px;border-left:2px solid var(--lime);border-bottom:2px solid var(--lime);transform:rotate(-45deg)}
+.yes.v{border-color:var(--violet)}.yes.v:after{border-color:var(--violet)}
+.no{border:2px solid #6E7580}
+.no:before,.no:after{content:"";position:absolute;left:4px;top:8px;width:10px;height:2px;background:#6E7580}
+.no:before{transform:rotate(45deg)}.no:after{transform:rotate(-45deg)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.cmp .s,.cmp .c{border-left:6px solid var(--bg)}
+.cmp thead .tg{display:inline-block;background:var(--lime);color:var(--ink);font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:10px}
+.cmp thead .nm{display:block;text-transform:none}
+.cmp thead th .pp.np{font-size:clamp(18px,2.4vw,22px);color:var(--muted)}
+.cmp tr.chat td{background:var(--card2)}
+.cmp tr.chat td.f{font-weight:700}
+.cmp td.nope{color:#FF8A8A!important;font-weight:700!important}
+.cmp td.only{color:var(--lime)!important;font-weight:800!important}
+.chatnote{margin-top:24px;padding:16px 20px;border:1.5px solid var(--lime);border-radius:14px;background:var(--card2);font-size:16px}
+.chatnote b{color:var(--lime)}
+.cmpw{overflow-x:auto}
+@media (max-width:760px){
+ .cmp table{font-size:12px}
+ .cmp col.f{width:31%}.cmp col.p,.cmp col.s,.cmp col.c{width:23%}
+ .cmp th,.cmp td{padding:10px 4px}
+ .cmp th:first-child,.cmp td:first-child{padding-left:2px}
+ .cmp thead th{font-size:10px;letter-spacing:0}
+ .cmp thead th .pp{font-size:19px}
+ .cmp thead th .pp.np{font-size:13px}
+ .cmp thead th .per{font-size:10px}
+ .cmp thead .tg{font-size:8px;padding:3px 6px;letter-spacing:.03em}
+ .cmp td.v{font-size:11px}
+ .cmp td.f small{font-size:10px}
+ .cmp .s,.cmp .c{border-left-width:3px}
+ .yes,.no{width:18px;height:18px}
+ .yes:after{left:4px;top:4px;width:6px;height:3px}
+ .no:before,.no:after{left:3px;top:6px;width:8px}
+}
 .newopts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:28px auto 0;max-width:760px}
 .newopts li{border:1px solid var(--border);background:var(--card);border-radius:14px;padding:14px 18px;min-width:0;flex:1 1 180px;text-align:center}
 .newopts b{display:block;color:var(--lime);font-size:17px}
@@ -341,39 +397,22 @@ td.det{color:var(--muted)}
  <div class="wrap">
   <h2>Your options, <span class="lime">from here</span></h2>
   <p class="sub">Everything stays set up on all three: your leads, your CRM, your bookings and your reviews.</p>
-  <div class="grid g3">
-   <div class="card hl opt">
-    <span class="tagline">Recommended</span>
-    <h3>GymGrow Pro with the 4 for £35</h3>
-    <div class="pp">£697<small>every 4 weeks</small></div>
-    <ul class="ticks c">
-     <li>4 for £35 live in place of courses</li>
-     <li>Live coaching calls, Monday to Friday</li>
-     <li>Text support for bugs and fixes</li>
-     <li>Request new features for the software</li>
-     <li>Website build free (worth £995)</li>
-    </ul>
-    <p class="foot">No one-to-one chat support. To keep that, choose option 3.</p>
-   </div>
-   <div class="card opt">
-    <span class="tagline o">Option 2</span>
-    <h3>GymGrow Software for December and January</h3>
-    <div class="pp">£397<small>per month</small></div>
-    <ul class="ticks c">
-     <li>Run your own ads in the software</li>
-     <li>Keep Grow HQ, Grow Sales CRM and all your leads</li>
-     <li>Step back up in February with no new set-up</li>
-    </ul>
-   </div>
-   <div class="card opt">
-    <span class="tagline o">Option 3</span>
-    <h3>Stay on your current plan</h3>
-    <ul class="ticks c">
-     <li>Keep your one-to-one chat support</li>
-     <li>4 for £35 live in place of courses</li>
-     <li>Everything you have now, nothing to change</li>
-    </ul>
-   </div>
+  <div class="chatnote"><b>One-to-one chat is only on option 3.</b> On Pro and Software you can still text us about bugs and feature requests, and we'll fix them.</div>
+  <div class="cmp cmpw">
+   <table>
+    <colgroup><col class="f"><col class="p"><col class="s"><col class="c"></colgroup>
+    <thead><tr><th><span class="sr">What’s included</span></th><th class="p"><span class="tg">Recommended</span><span class="nm">1. GymGrow Pro</span><span class="pp">£697</span><span class="per">every 4 weeks</span></th><th class="s"><span class="nm">2. GymGrow Software</span><span class="pp">£397</span><span class="per">per month, Dec and Jan</span></th><th class="c"><span class="nm">3. Your current plan</span><span class="pp np">Stay as you are</span><span class="per">nothing to change</span></th></tr></thead>
+    <tbody>
+     <tr><td class="f">4 for £35 in place of courses<small>No Ads Manager needed</small></td><td class="p"><span class="yes" role="img" aria-label="Included"></span></td><td class="s"><span class="yes" role="img" aria-label="Included"></span></td><td class="c"><span class="yes" role="img" aria-label="Included"></span></td></tr>
+     <tr><td class="f">Grow HQ + Grow Sales CRM</td><td class="p"><span class="yes" role="img" aria-label="Included"></span></td><td class="s"><span class="yes" role="img" aria-label="Included"></span></td><td class="c"><span class="yes" role="img" aria-label="Included"></span></td></tr>
+     <tr><td class="f">Ads, run in the software</td><td class="p"><span class="yes" role="img" aria-label="Included"></span></td><td class="s"><span class="yes" role="img" aria-label="Included"></span></td><td class="c"><span class="yes" role="img" aria-label="Included"></span></td></tr>
+     <tr><td class="f">Live coaching calls<small>Monday to Friday</small></td><td class="p"><span class="yes" role="img" aria-label="Included"></span></td><td class="s"><span class="no" role="img" aria-label="Not included"></span></td><td class="c"><span class="yes" role="img" aria-label="Included"></span></td></tr>
+     <tr><td class="f">Coaching tutorials + training library</td><td class="p"><span class="yes" role="img" aria-label="Included"></span></td><td class="s"><span class="no" role="img" aria-label="Not included"></span></td><td class="c"><span class="yes" role="img" aria-label="Included"></span></td></tr>
+     <tr><td class="f">Bugs and feature requests, by text</td><td class="p"><span class="yes" role="img" aria-label="Included"></span></td><td class="s v ">Tech support only</td><td class="c"><span class="yes" role="img" aria-label="Included"></span></td></tr>
+     <tr><td class="f">Website build<small>worth £995</small></td><td class="p v green">FREE</td><td class="s"><span class="no" role="img" aria-label="Not included"></span></td><td class="c"><span class="no" role="img" aria-label="Not included"></span></td></tr>
+     <tr class="chat"><td class="f">One-to-one chat with the team</td><td class="p v nope">Not included</td><td class="s v nope">Not included</td><td class="c v only">Included</td></tr>
+    </tbody>
+   </table>
   </div>
   <p class="foot">Ad spend is paid direct to Meta. Any change starts from your next renewal.</p>
  </div>

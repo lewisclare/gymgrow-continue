@@ -274,6 +274,7 @@ td.det{color:var(--muted)}
  .yes:after{left:4px;top:4px;width:6px;height:3px}
  .no:before,.no:after{left:3px;top:6px;width:8px}
 }
+.g2x2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px}@media (max-width:760px){.g2x2{grid-template-columns:1fr}}
 .newopts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:28px auto 0;max-width:760px}
 .newopts li{border:1px solid var(--border);background:var(--card);border-radius:14px;padding:14px 18px;min-width:0;flex:1 1 180px;text-align:center}
 .newopts b{display:block;color:var(--lime);font-size:17px}
@@ -293,28 +294,44 @@ td.det{color:var(--muted)}
  <div class="wrap">
   <img src="../logo-white.png" alt="GYMGROW" width="655" height="118">
   <p class="kick">New options for your gym</p>
-  <h1 class="money">Keep growing with GymGrow, <span class="lime">at a cost that fits</span></h1>
-  <p class="sub">Thank you for everything you've put in so far. Here are new ways to keep going, built around what you need now.</p>
+  <h1 class="money">Keep growing <span class="lime">with GymGrow</span></h1>
+  <p class="sub">Thank you for everything you've put in so far. Your needs have changed, so here are new ways to keep growing with GymGrow, built around what you need now.</p>
   <ul class="newopts">
-   <li><b>GymGrow Pro</b><span>A more affordable plan</span></li>
-   <li><b>GymGrow Software</b><span>Keep your leads and CRM</span></li>
-   <li><b>Free website</b><span>Worth £995, with Pro</span></li>
+   <li><b>GymGrow Pro</b><span>Coaching calls and the software</span></li>
+   <li><b>GymGrow Software</b><span>The platform on its own</span></li>
+   <li><b>Free website</b><span>Built for you, with Pro</span></li>
   </ul>
   <a class="btn" href="#options">See your new options</a>
-  <p class="later"><a href="#wins">Or see what you keep first</a></p>
+  <p class="later"><a href="#wins">Or see what's included first</a></p>
  </div>
 </section>
 
-<!-- 2 what stays -->
+<!-- 2 data + Grow HQ -->
 <section id="wins">
  <div class="wrap">
-  <h2>Everything you've <span class="lime">built</span> stays</h2>
-  <p class="sub">Every option below keeps all of this exactly where it is. Nothing to set up again.</p>
-  <div class="grid g3">
-   <div class="card"><h3>Your leads</h3><p>Every lead and every conversation, in your inbox.</p></div>
-   <div class="card"><h3>Your CRM and bookings</h3><p>Grow HQ and Grow Sales CRM, set up the way you run your gym.</p></div>
-   <div class="card"><h3>Your ads and results</h3><p>The ads that work, and the numbers that show it.</p></div>
+  <h2>Data that shows you <span class="lime">what's improving</span></h2>
+  <p class="sub">Clear, visible numbers, so you can see what's working and fix what isn't.</p>
+  <div class="build">
+   <div class="card hl">
+    <div class="label">For example</div>
+    <ol class="how">
+     <li><b>Your ROAS is lower this month than last month</b><span>Why? Open the dashboard and check each step.</span></li>
+     <li><b>Your show rate has dropped</b><span>Fewer booked sessions are turning up. That's the step to fix.</span></li>
+     <li><b>Not enough calls are being made</b><span>Now you know exactly what to change, and you can watch it improve.</span></li>
+    </ol>
+    <p class="foot">ROAS = return on ad spend: what you make back for every £1 on ads.</p>
+   </div>
+   <div class="card">
+    <div class="label">All in one place</div>
+    <ul class="ticks c">
+     <li><b>Ad spend, leads and cost per lead</b> for every ad</li>
+     <li><b>Bookings, show rate and close rate</b>, step by step</li>
+     <li><b>Calls and messages</b>, so you can see where leads go quiet</li>
+    </ul>
+    <p class="foot">Easy to read, so you spend minutes on it, not hours.</p>
+   </div>
   </div>
+  <div class="ghq" role="note"><div class="gi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10l9-6 9 6v10H3z"/><path d="M9 20v-6h6v6"/></svg></div><div><div class="k">Included on every option</div><div class="h"><b>Grow HQ</b>, all-in-one gym management, at no extra cost.</div><p class="d">Everything in one place: your members in Grow HQ, and your leads and sales in Grow Sales CRM.</p></div></div>
  </div>
 </section>
 
@@ -349,12 +366,13 @@ td.det{color:var(--muted)}
 <!-- 4 the software -->
 <section id="software">
  <div class="wrap">
-  <h2>The software <span class="lime">keeps it easy</span></h2>
-  <p class="sub">Everything you need to run your ads yourself, in one place.</p>
-  <div class="grid g3">
+  <h2>Spend your time on <span class="lime">the work that grows your gym</span></h2>
+  <p class="sub">No messing around in Ads Manager or uploading ads one by one. The software does that part, so you can focus on high-leverage work like calling leads and closing sales.</p>
+  <div class="grid g2x2">
    <div class="card"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>See which ads are working</h3><p>Cost per lead, leads and bookings for every ad, so you know what to keep.</p></div>
    <div class="card"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"/></svg></div><h3>Upload ads in a couple of taps</h3><p>Straight from your phone, whenever you film something new.</p></div>
    <div class="card"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div><h3>Track every lead to a sale</h3><p>From first message to booked session to monthly member.</p></div>
+   <div class="card"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></div><h3>Ask for a feature, and we build it</h3><p>Request what you need by message. We're building new features all the time.</p></div>
   </div>
  </div>
 </section>
@@ -387,7 +405,7 @@ td.det{color:var(--muted)}
 <section id="options">
  <div class="wrap">
   <h2>Your options, <span class="lime">from here</span></h2>
-  <p class="sub">Everything stays set up on all three: your leads, your CRM, your bookings and your reviews.</p>
+  <p class="sub">Everything stays set up on all three. Nothing to start again.</p>
   <div class="cmp cmpw">
    <table>
     <colgroup><col class="f"><col class="p"><col class="s"><col class="c"></colgroup>

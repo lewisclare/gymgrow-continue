@@ -207,6 +207,13 @@ td.det{color:var(--muted)}
 .opt h3{font-size:22px;margin-top:16px}
 .opt .pp{font-family:"Inter Tight",Inter,sans-serif;font-size:30px;font-weight:800;margin-top:8px}
 .opt .pp small{font-size:14px;color:var(--muted);font-weight:500;margin-left:4px}
+.newopts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:28px auto 0;max-width:760px}
+.newopts li{border:1px solid var(--border);background:var(--card);border-radius:14px;padding:14px 18px;min-width:0;flex:1 1 180px;text-align:center}
+.newopts b{display:block;color:var(--lime);font-size:17px}
+.newopts span{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.hero .later{margin-top:14px;font-size:15px}
+.hero .later a{color:var(--muted)}
+.hero .later a:hover,.hero .later a:focus-visible{color:var(--text)}
 @media (max-width:900px){.stats{grid-template-columns:1fr 1fr}}
 </style>
 </head>
@@ -214,22 +221,28 @@ td.det{color:var(--muted)}
 <header class="top"><div class="in"><img src="../logo-white.png" alt="GYMGROW" width="655" height="118"><a class="btn sm" href="#options">Your options</a></div></header>
 
 <main>
-<!-- 1 hero: her result -->
+<!-- 1 hero: what's new for her -->
 <section class="hero">
  <div class="wrap">
   <img src="../logo-white.png" alt="GYMGROW" width="655" height="118">
-  <p class="kick">MOVA Studios · since 8 September</p>
-  <h1 class="money">Ruby, you've booked <span class="lime">£8,161</span> from £1,252 of ads</h1>
-  <p class="sub">That's about <b>£6.50 back for every £1</b> you've spent. Here's what you've built, and the easiest way to keep it going.</p>
-  <a class="btn" href="#wins">See your results</a>
+  <p class="kick">New for MOVA Studios</p>
+  <h1 class="money">Ruby, you've got <span class="lime">new options</span> with GymGrow</h1>
+  <p class="sub">Three new ways to keep going, built around what you told us you want.</p>
+  <ul class="newopts">
+   <li><b>The 4 for £35</b><span>No courses to set up</span></li>
+   <li><b>GymGrow Pro</b><span>£697 every 4 weeks</span></li>
+   <li><b>Software only</b><span>For December and January</span></li>
+  </ul>
+  <a class="btn" href="#options">See your new options</a>
+  <p class="later"><a href="#wins">Or see your results first</a></p>
  </div>
 </section>
 
 <!-- 2 wins -->
 <section id="wins">
  <div class="wrap">
-  <h2>What you've <span class="lime">built</span></h2>
-  <p class="sub">In just over 6 weeks of ads.</p>
+  <h2>What you've <span class="lime">built</span> so far</h2>
+  <p class="sub">£8,161 booked from £1,252 of ads in just over 6 weeks. Every option below keeps all of this.</p>
   <div class="stats">
    <div class="card stat"><div class="n">7 of 7</div><p>intro members went on to a monthly membership</p></div>
    <div class="card stat"><div class="n">£472</div><p>a month in new memberships</p></div>

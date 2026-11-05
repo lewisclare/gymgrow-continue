@@ -209,119 +209,66 @@ td.det{color:var(--muted)}
 .cmp thead .tg.alt{background:var(--violet);color:#fff}
 .cmp td.p small,.cmp td.c small{display:block;font-size:13px;font-weight:500;color:var(--muted)}
 @media (max-width:760px){.stats{grid-template-columns:1fr;gap:14px}}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px}
+.opt .tg{display:inline-block;background:var(--lime);color:var(--ink);font-size:12px;font-weight:800;letter-spacing:.06em;padding:5px 12px;border-radius:999px}
+.opt .tg.alt{background:var(--violet);color:#fff}
+.opt h3{font-size:26px;margin-top:14px}
+.opt .big{font-size:56px;margin-top:8px}
+.opt .per{color:var(--muted);font-size:15px}
+.opt ul{margin-top:18px}
+.opt.hl{border:2px solid var(--lime)}
+.key{font-size:clamp(20px,3vw,26px);color:var(--text);max-width:720px;margin:18px auto 0}
+@media (max-width:760px){.opts{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header class="top"><div class="in"><img src="../logo-white.png" alt="GYMGROW" width="655" height="118"><a class="btn sm" href="#start">How to start</a></div></header>
 
 <main>
-<!-- 1 -->
+<!-- 1 key message + action -->
 <section class="hero">
  <div class="wrap">
   <img src="../logo-white.png" alt="GYMGROW" width="655" height="118">
-  <h1>Turn more leads into <span class="lime">members</span></h1>
-  <p class="sub">Ren, your ads are bringing The Workx Gym plenty of leads. Here’s what those leads are worth when your funnel hits our targets, and how to get there.</p>
-  <a class="btn" href="#compare">See your options</a>
+  <p class="key" style="color:var(--lime);font-weight:700;letter-spacing:.04em;font-size:15px">REN, OUR RECOMMENDATION FOR THE WORKX GYM</p>
+  <h1>Move to <span class="lime">GymGrow Pro</span></h1>
+  <p class="key"><strong>Why:</strong> your ads bring in 68 leads a month, but only 1 in 10 people who come in join. Pro’s sales coaching is built to get that to 5 in 10, which is about £1,240 of new monthly income.</p>
+  <a class="btn" href="#start">Start GymGrow Pro</a>
  </div>
 </section>
 
-<!-- 2 -->
-<section id="results">
+<!-- 2 why -->
+<section id="why">
  <div class="wrap">
-  <h2>Your ads bring in <span class="lime">68 leads a month</span></h2>
-  <p class="sub">In the last 30 days (6 October to 4 November) you had 68 new leads, up from 2 the month before. Over half of them booked a session.</p>
+  <h2>The numbers behind <span class="lime">our recommendation</span></h2>
+  <p class="sub">Your last 30 days, 6 October to 4 November.</p>
   <div class="stats">
-   <div class="card stat"><div class="label">NEW LEADS</div><div class="big lime">68</div><p>in the last 30 days, up from 2</p></div>
-   <div class="card stat"><div class="label">BOOKED A SESSION</div><div class="big lime">53%</div><p>36 of 68 leads. Our target is 30%.</p></div>
-   <div class="card stat"><div class="label">READY TO BOOK</div><div class="big">32</div><p>leads who haven’t booked yet. The ad spend on them is already paid.</p></div>
+   <div class="card stat"><div class="label">LEADS</div><div class="big lime">68</div><p>Your ads are working.</p></div>
+   <div class="card stat"><div class="label">CAME IN</div><div class="big">10</div><p>People who came to a session</p></div>
+   <div class="card stat" style="border:2px solid var(--lime)"><div class="label">JOINED</div><div class="big">1</div><p>Our target is 5 in every 10. At that rate you add about 7 members, or £1,240, every month.</p></div>
   </div>
  </div>
 </section>
 
-<!-- 3 -->
-<section id="calls">
+<!-- 3 options -->
+<section id="options">
  <div class="wrap">
-  <h2>Signing people up is the gap to <span class="lime">close first</span></h2>
-  <p class="sub">Your booking rate already beats our target. The biggest gap is what happens after someone comes in: 1 in 10 joined, against our target of 5 in 10.</p>
-  <div class="stats">
-   <div class="card stat"><div class="label">BOOKED A SESSION</div><div class="big lime">53%</div><p>Target 30%. You’re already there.</p></div>
-   <div class="card stat"><div class="label">SHOWED UP</div><div class="big">45%</div><p>Target 50%. 9 came in, 11 didn’t show.</p></div>
-   <div class="card stat" style="border:2px solid var(--lime)"><div class="label">SIGNED UP</div><div class="big">10%</div><p>Target 50%. 1 of 10 people who came in joined.</p></div>
-  </div>
-  <p class="proof">Fewer calls before and after a booking also means fewer people come in:</p>
-  <div class="stats">
-   <div class="card stat"><div class="label">REMINDER CALLS</div><div class="big">1 of 41</div><p>sessions got a call the day before</p></div>
-   <div class="card stat"><div class="label">NO-SHOW CALLS</div><div class="big">2 of 11</div><p>no-shows got a call to rebook</p></div>
-   <div class="card stat"><div class="label">FIRST CALL</div><div class="big">4 days</div><p>is the typical wait before a new lead gets a call</p></div>
+  <h2>Your <span class="lime">options</span></h2>
+  <div class="opts">
+   <div class="card opt hl"><span class="tg">RECOMMENDED</span><h3>GymGrow Pro</h3><div class="big lime">£697</div><div class="per">every 4 weeks, replaces your plan</div>
+    <ul class="ticks"><li>Tuesday sales training: how to sign people up</li><li>Live coaching calls every weekday</li><li>Grow Sales and GrowHQ, 250 credits</li><li>Your website built free</li></ul></div>
+   <div class="card opt"><span class="tg alt">ALSO A CHOICE</span><h3>Sales rep package</h3><div class="big">+£247</div><div class="per">a month, on top of your plan</div>
+    <ul class="ticks"><li>Our sales rep calls your leads for you</li><li>Reminder calls the day before</li><li>No-shows called back to rebook</li></ul></div>
   </div>
  </div>
 </section>
 
-<!-- 3b -->
-<section id="target">
- <div class="wrap">
-  <h2>At our targets, that’s <span class="lime">about £1,240 new MRR</span> a month</h2>
-  <p class="sub">Here are the same 68 leads a month, run through our targets. MRR means monthly recurring revenue: what your new members pay you every month.</p>
-  <div class="grid g4">
-   <div class="card"><div class="label">BOOKED</div><div class="big lime" style="font-size:56px">36</div><p>53% of 68 leads, as now</p></div>
-   <div class="card"><div class="label">SHOW UP</div><div class="big" style="font-size:56px">18</div><p>50% show rate</p></div>
-   <div class="card"><div class="label">START THE 28-DAY TRIAL</div><div class="big" style="font-size:56px">9</div><p>50% sign-up rate</p></div>
-   <div class="card"><div class="label">STAY AS MEMBERS</div><div class="big lime" style="font-size:56px">7</div><p>75% of trials go on to a membership</p></div>
-  </div>
-  <p class="proof">7 new members a month at £177 is about £1,240 of new MRR every month, and it stacks: after 3 months that’s about £3,700 a month coming in from these members alone.</p>
- </div>
-</section>
-
-<!-- 4 -->
-<section id="rep">
- <div class="wrap">
-  <h2>Want us to make the calls? <span class="lime">Add a sales rep</span></h2>
-  <p class="sub">Also a choice: the sales rep package puts one of our sales reps on your leads every working day, in this order:</p>
-  <div class="grid g4">
-   <div class="card"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h3>New leads</h3><p>Called the day they come in.</p></div>
-   <div class="card"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><h3>Day before</h3><p>Every booked session gets a reminder call.</p></div>
-   <div class="card"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div><h3>No-shows</h3><p>Called every day for 7 days to rebook.</p></div>
-   <div class="card"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg></div><h3>Older leads</h3><p>Your 32 leads who haven’t booked yet.</p></div>
-  </div>
-  <p class="proof">You get a report at the end of each day. At three GymGrow gyms with a sales rep, bookings more than doubled, from 67 to 143.</p>
- </div>
-</section>
-
-<!-- 5 -->
-<section id="compare">
- <div class="wrap">
-  <h2>Your options, <span class="lime">side by side</span></h2>
-  <p class="sub">We recommend GymGrow Pro. Daily coaching and Tuesday sales training work on your sign-up rate, the gap to close first. Want calls made for you as well? The sales rep package is also a choice.</p>
-  <div class="cmp">
-   <table>
-    <colgroup><col class="f"><col class="p"><col class="c"></colgroup>
-    <thead><tr><th><span class="sr">What’s included</span></th><th class="p"><span class="tg">Recommended</span>GymGrow Pro<span class="pp">£697</span><span class="per">every 4 weeks, replaces your plan</span><span class="per">or £1,895 every 12 weeks</span></th><th class="c"><span class="tg alt">Also a choice</span>Your plan + sales rep package<span class="pp">+£247</span><span class="per">per month, on top of your plan</span></th></tr></thead>
-    <tbody>
-     <tr><td class="f">Grow Sales<small>leads, sales and follow-ups</small></td><td class="p"><span class="yes" role="img" aria-label="Included"></span></td><td class="c"><span class="yes v" role="img" aria-label="Included"></span></td></tr>
-     <tr><td class="f">Ads managed for you<small>weak ads switched off automatically</small></td><td class="p"><span class="yes" role="img" aria-label="Included"></span></td><td class="c"><span class="yes v" role="img" aria-label="Included"></span></td></tr>
-     <tr><td class="f">Upload new ads in two clicks</td><td class="p"><span class="yes" role="img" aria-label="Included"></span></td><td class="c"><span class="yes v" role="img" aria-label="Included"></span></td></tr>
-     <tr><td class="f">A sales rep calls your leads</td><td class="p v">Add-on<small>from £247 / month</small></td><td class="c v">20 calls a day</td></tr>
-     <tr><td class="f">Daily end-of-day call report</td><td class="p v">With the add-on</td><td class="c"><span class="yes v" role="img" aria-label="Included"></span></td></tr>
-     <tr><td class="f">GrowHQ<small>gym management</small></td><td class="p"><span class="yes" role="img" aria-label="Included"></span></td><td class="c"><span class="no" role="img" aria-label="Not included"></span></td></tr>
-     <tr><td class="f">Coaching tutorials + training library</td><td class="p"><span class="yes" role="img" aria-label="Included"></span></td><td class="c"><span class="no" role="img" aria-label="Not included"></span></td></tr>
-     <tr><td class="f">Website build<small>then website care at £97 / month</small></td><td class="p"><span class="green">FREE</span></td><td class="c v">£995<small>one-off</small></td></tr>
-     <tr><td class="f">Message credits</td><td class="p v">250 / month</td><td class="c v">As now</td></tr>
-     <tr><td class="f">Support</td><td class="p v">Group support, live daily calls and tech support</td><td class="c v">Tech support</td></tr>
-    </tbody>
-   </table>
-  </div>
-  <p class="foot">The sales rep package is 20 calls a working day (about 440 a month). Bigger packages are £347 (30 a day) and £497 (40 a day). Ad spend is paid direct to Meta.</p>
- </div>
-</section>
-
-<!-- 6 -->
+<!-- 4 start -->
 <section id="start">
  <div class="wrap">
   <h2>How to <span class="lime">start</span></h2>
-  <p class="sub">Reply to the message this page came with, or tell your GymGrow contact which option you’d like.</p>
-  <div class="grid g3"><div class="card"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><h3>Tell us your choice</h3><p>Reply with the option you’d like.</p></div><div class="card"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg></div><h3>We get you started</h3><p>Choosing Pro? We book you onto the daily calls, starting with Tuesday sales training. Adding a sales rep? We agree your call times, then they start calling.</p></div><div class="card"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Track it against target</h3><p>Your dashboard shows your show-up and sign-up rates against our targets every week.</p></div></div>
+  <p class="sub">Reply “Pro” to the message this page came with. We’ll book you onto Tuesday’s sales training.</p>
   <div class="cta">
-   <span class="pill">Reply to start, whenever you’re ready</span>
+   <span class="pill">Reply “Pro” to start</span>
    <p>Want to talk it through first? <a class="lime" href="https://revenueos.gymgrow.ai/f/gymgrow-call?direct=1">Book a quick call</a>.</p>
   </div>
  </div>

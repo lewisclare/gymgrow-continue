@@ -1,0 +1,415 @@
+<!doctype html><html lang="en"><head>
+<meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>CrossFit Harrogate Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: a research-report column. Numbered findings, each with evidence, a numbered figure, recommendation and plan link. GymGrow dark brand, one look on purpose. */
+:root{
+  --bg:#121417; --card:#1B1D21; --line:#2E3238; --fg:#F4F5F6; --body:#B5BAC2; --muted:#8B919B;
+  --yel:#F4F262; --grn:#74ED94; --red:#F28B82;
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--body);font-family:var(--font);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:880px;margin:0 auto;padding-block:48px 80px;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{color:var(--fg);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(32px,6vw,46px);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(24px,4vw,30px);font-weight:700;letter-spacing:-.01em}
+h3{font-size:clamp(20px,3vw,24px);font-weight:700;letter-spacing:-.01em}
+p{margin:0}
+.label{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:500}
+.yel{color:var(--yel)} .grn{color:var(--grn)} .red{color:var(--red)} strong{color:var(--fg);font-weight:600}
+.mono{font-family:var(--mono)}
+section{display:flex;flex-direction:column;gap:20px}
+.lead{font-size:19px;color:var(--fg);max-width:68ch}
+header{display:flex;flex-direction:column;gap:16px;border-bottom:1px solid var(--line);padding-bottom:32px}
+.meta{display:flex;flex-wrap:wrap;gap:12px 32px;font-size:15px}
+.meta div{display:flex;flex-direction:column;gap:2px}
+.meta b{color:var(--fg);font-weight:600}
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);color:var(--muted);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.08em;background:var(--card)}
+td{color:var(--body)} td.m{color:var(--yel);font-weight:700;white-space:nowrap} td.n{color:var(--fg);font-weight:600;white-space:nowrap}
+td.id{font-family:var(--mono);color:var(--yel);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+/* findings */
+.finding{border-top:1px solid var(--line);padding-top:32px;display:flex;flex-direction:column;gap:18px}
+.fno{font-family:var(--mono);font-size:13px;color:var(--yel);letter-spacing:.06em}
+.block{display:grid;grid-template-columns:200px 1fr;gap:8px 24px}
+.block>.label{padding-top:4px}
+.block>div{min-width:0;display:flex;flex-direction:column;gap:10px}
+.block.rec>div{color:var(--fg)}
+.fit{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--yel);border-radius:6px;padding:12px 16px;color:var(--fg)}
+ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+li::marker{color:var(--muted)}
+.rec li::marker{color:var(--grn)}
+sup.fn{font-size:.62em;line-height:0;margin-left:1px;font-family:var(--mono);font-weight:600}
+sup.fn a{color:var(--muted);text-decoration:none}
+footer ol.notes{margin:8px 0 12px 18px;padding:0;display:grid;gap:6px;font-size:14px;color:var(--muted)}
+.src{font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.5}
+.cost{background:#24221A;border:1px solid #4A4724;border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;color:var(--fg);font-size:17px}
+.cost .label{color:var(--yel)}
+.phase{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:18px}
+.phead{display:flex;flex-direction:column;gap:8px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.pm{border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0;color:var(--fg);font-size:16px;background:var(--bg)}
+.pm.res{border-color:var(--grn)} .pm.res .label{color:var(--grn)}
+.phase .block{grid-template-columns:180px 1fr}
+@media (max-width:600px){ .phase{padding:16px} .phase .block{grid-template-columns:1fr} }
+.why{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);padding-top:18px}
+.why>.label{color:var(--yel)}
+.why .finding{border-top:1px dashed var(--line);padding-top:22px;margin-top:18px}
+.why .finding:first-of-type{border-top:0;margin-top:8px;padding-top:0}
+.planhd{border-top:1px solid var(--line);padding-top:18px}
+.planhd .label{color:var(--grn)}
+/* figures */
+figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+figcaption{font-size:14px;color:var(--muted);line-height:1.5}
+figcaption b{font-family:var(--mono);color:var(--fg);font-weight:500}
+.chart{overflow-x:auto}
+.chart svg{display:block;width:100%;height:auto}
+.chart.wide svg{min-width:560px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:15px}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{width:22px;height:0;border-top:4px solid var(--yel)} .sw.t{border-top:3px dashed var(--muted)}
+.callout{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.callout>div{border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:4px}
+.callout .n{font-family:var(--mono);font-size:28px;font-weight:600;color:var(--fg);line-height:1.1}
+.callout .d{font-size:14px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.opt{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.opt.rec{border-color:var(--yel)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px 28px}
+.cols>div{min-width:0;display:flex;flex-direction:column;gap:6px}
+.asks{counter-reset:a;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.asks li{counter-increment:a;display:grid;grid-template-columns:30px 1fr;gap:10px;color:var(--fg)}
+.asks li::before{content:counter(a) ".";color:var(--yel);font-weight:700;font-family:var(--mono)}
+footer{border-top:1px solid var(--line);padding-top:24px;font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:8px}
+@media (max-width:600px){ .block{grid-template-columns:1fr} body{font-size:16px} }
+
+/* v2: training-plan page. Phase 1 zoomed in; detail behind collapsibles. */
+.hero{display:flex;flex-direction:column;gap:20px;border-bottom:1px solid var(--line);padding-bottom:36px}
+.hero h1 em{font-style:normal;color:var(--yel)}
+.track{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:10px}
+.track svg{display:block;width:100%;height:auto}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.tile .big{font-family:var(--mono);font-size:26px;font-weight:600;color:var(--fg);line-height:1.15}
+.tile .big .to{color:var(--muted);font-weight:400;padding:0 4px}
+.tile .big .g{color:var(--yel)}
+.tile p{font-size:14px}
+details{border:1px solid var(--line);border-radius:12px;background:var(--card)}
+details>summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:14px;color:var(--fg);font-weight:600}
+details>summary::-webkit-details-marker{display:none}
+.chev{margin-left:auto;flex:none;width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:transform .2s}
+details[open]>summary .chev{transform:rotate(-135deg)}
+details>summary:focus-visible{outline:2px solid var(--yel);outline-offset:2px;border-radius:12px}
+.fb{padding:4px 18px 20px;display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--line);padding-top:18px}
+.fd .fno{font-family:var(--mono);color:var(--yel);font-size:14px;flex:none}
+.fd .ft{flex:1;min-width:0}
+.tag{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:3px 9px;flex:none;white-space:nowrap}
+.tag{align-self:center;line-height:1.4}
+.tag.p1{color:var(--bg);background:var(--yel);border-color:var(--yel)}
+.stack{display:flex;flex-direction:column;gap:10px}
+.fb .block{grid-template-columns:150px 1fr}
+@media (max-width:600px){.fb .block{grid-template-columns:1fr} .tag{display:none}}
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stop{border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;background:var(--card);position:relative;min-width:0}
+.stop.now{border:2px solid var(--yel);background:#1F2014}
+.stop .pn{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.stop.now .pn{color:var(--yel)}
+.stop h3{font-size:18px}
+.stop p{font-size:14px}
+.bar{height:6px;border-radius:99px;background:var(--line)}
+.stop.now .bar{background:var(--yel)}
+@media (max-width:760px){.road{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.road{grid-template-columns:1fr}}
+/* phase 1 */
+.ph1{border:2px solid var(--yel);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:22px;background:linear-gradient(180deg,#1C1D14 0,var(--bg) 320px)}
+@media (max-width:600px){.ph1{padding:16px}}
+.gauge{display:flex;flex-direction:column;gap:8px}
+.gauge svg{display:block;width:100%;height:auto}
+.weeks{display:flex;flex-direction:column;gap:10px;position:relative}
+.wk>summary{align-items:flex-start}
+.wk .wn{font-family:var(--mono);flex:none;width:58px;display:flex;flex-direction:column;line-height:1.2}
+.wk .wn b{font-size:22px;color:var(--yel);font-weight:600}
+.wk .wn span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.wk .wt{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.wk .wt small{font-weight:400;color:var(--body);font-size:15px}
+.wk .chev{margin-top:10px}
+.todo{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px}
+.todo li{display:grid;grid-template-columns:22px 1fr;gap:10px;color:var(--fg)}
+.todo li::before{content:"";width:16px;height:16px;border:2px solid var(--grn);border-radius:4px;margin-top:4px}
+.wbet{background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--yel);border-radius:8px;padding:10px 14px;font-size:15px;display:grid;gap:6px;margin-bottom:12px}
+.wbet b{color:var(--yel);font-weight:600}
+.wt small .bet{display:block;color:var(--fg)}
+.wt small .bet b{color:var(--yel);font-weight:600}
+.done{background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--grn);border-radius:8px;padding:10px 14px;font-size:15px}
+.done b{color:var(--grn);font-weight:600}
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.trio>div{border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px;background:var(--card)}
+.trio .label{color:var(--grn)}
+.trio ul{font-size:15px}
+.quote{font-size:19px;color:var(--fg);border-left:3px solid var(--yel);padding:4px 0 4px 18px;max-width:64ch}
+.later .fb p{font-size:16px}
+.kv{display:grid;grid-template-columns:140px 1fr;gap:6px 16px;font-size:15px}
+.kv dt{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding-top:3px}
+.kv dd{margin:0;color:var(--fg)}
+@media (max-width:600px){.kv{grid-template-columns:1fr}}
+/* Harrogate: always-visible "now" bar, time chips, this-week badge */
+.nowbar{position:sticky;top:0;z-index:5;margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:10px max(16px,env(safe-area-inset-left,0px));background:rgba(18,20,23,.94);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.nowbar .in{max-width:880px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-size:15px;color:var(--fg)}
+.nowbar .pill{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;background:var(--yel);color:var(--bg);border-radius:99px;padding:3px 10px;font-weight:600;white-space:nowrap}
+.nowbar a{color:var(--yel);text-decoration:none;font-size:14px;margin-left:auto;white-space:nowrap}
+.focusbox{background:#1F2014;border:2px solid var(--yel);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:12px}
+.focusbox .big{font-size:clamp(20px,3.2vw,24px);color:var(--fg);font-weight:700;line-height:1.3}
+.focusbox .row{display:grid;grid-template-columns:120px 1fr;gap:6px 16px;font-size:16px}
+.focusbox .row dt{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--yel);padding-top:3px}
+.focusbox .row dd{margin:0;color:var(--fg)}
+@media (max-width:600px){.focusbox{padding:16px}.focusbox .row{grid-template-columns:1fr}}
+.time{display:block;margin-top:4px;font-family:var(--mono);font-size:12px;color:var(--grn)}
+.wk.cur{border:2px solid var(--yel)}
+.wk .thisweek{display:none;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;background:var(--yel);color:var(--bg);border-radius:99px;padding:2px 8px;font-weight:600;align-self:flex-start;margin-top:2px}
+.wk.cur .thisweek{display:inline-block}
+tr.cur td{background:#1F2014}
+.tiles .tile .big{font-size:22px}
+.tiles .tile .big[style]{font-size:18px!important}
+tr.cur td.m::after{content:" · now";font-family:var(--mono);font-size:11px;color:var(--yel);font-weight:500}
+</style>
+</head><body>
+
+<div class="nowbar" role="status"><div class="in"><span class="pill" id="nowPill">Now · Phase 1 · Week 1</span><span id="nowText">Agree the plan, start the Monday check, and mark what happened to your enquiries</span><a href="#phase1">See this week ↓</a></div></div>
+
+<div class="wrap">
+<header class="hero">
+  <span class="label">GymGrow · Your 6-month plan · CrossFit Harrogate</span>
+  <h1>Ryan, here's your plan to <em>152 members</em> and a £1,000 a month pay rise, with the first 6 weeks in detail</h1>
+  <p class="lead">You told me you want peace of mind: to know CrossFit Harrogate can provide for your family without taking everything you've got. So this plan is built around the 3 hours a week you have. Each week has one focus, and I take on as much of the work as I can. I've set the goal with you and mapped out the first 6 weeks, and we'll review them honestly together in the week of 4 January.</p>
+  <div class="track"><svg viewBox="0 0 800 120" role="img" aria-label="Members: 137 today, 152 by 31 May, 170 is the big goal">
+<g font-family="Inter, system-ui, sans-serif">
+<rect x="20" y="52" width="760" height="14" rx="7" fill="#2E3238"/>
+<rect x="20" y="52" width="360" height="14" rx="7" fill="#F4F5F6"/>
+<rect x="380" y="52" width="210" height="14" fill="#F4F262"/>
+<line x1="380" y1="40" x2="380" y2="78" stroke="#F4F5F6" stroke-width="2"/>
+<line x1="590" y1="40" x2="590" y2="78" stroke="#F4F262" stroke-width="2"/>
+<line x1="780" y1="40" x2="780" y2="78" stroke="#8B919B" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="380" y="30" text-anchor="middle" fill="#F4F5F6" font-size="22" font-weight="800">137</text>
+<text x="590" y="30" text-anchor="middle" fill="#F4F262" font-size="22" font-weight="800">152</text>
+<text x="776" y="30" text-anchor="end" fill="#8B919B" font-size="22" font-weight="800">170</text>
+<text x="380" y="100" text-anchor="middle" fill="#B5BAC2" font-size="14">Today</text>
+<text x="590" y="100" text-anchor="middle" fill="#F4F262" font-size="14">31 May</text>
+<text x="776" y="100" text-anchor="end" fill="#8B919B" font-size="14">Your big goal</text>
+</g></svg></div>
+</header>
+
+<section>
+  <h2>Right now we're working on: every enquiry gets a call within one working day</h2>
+  <div class="focusbox">
+    <p class="big">Until 27 December, the focus is calling every new enquiry within one working day, and setting your January prices.</p>
+    <dl class="row">
+      <dt>The number</dt><dd>Enquiries who book a consultation: <strong>30% today (15 of 50 since August)<sup class="fn"><a href="#n2">2</a></sup>, 50% of enquiries by 27 December<sup class="fn"><a href="#n6">6</a></sup>.</strong> The early sign it's working: enquiries you speak to within one working day, from 4% of enquiries (2 of 50)<sup class="fn"><a href="#n2">2</a></sup> to 80% of enquiries by 27 December<sup class="fn"><a href="#n6">6</a></sup>. Grow Sales fills both in by itself.</dd>
+      <dt>Why now</dt><dd>Your members stay, so the hole is before they join: people wait days to hear from you, and 34 have never been booked in<sup class="fn"><a href="#n2">2</a></sup>. January brings the most new starters of the year.</dd>
+      <dt>Expect</dt><dd>Member numbers may barely move before mid-December. The weekly number is what we judge Phase 1 by.</dd>
+      <dt>Your time</dt><dd>15 minutes each working day, plus up to an hour or two for that week's task.</dd>
+      <dt>Not now</dt><dd>Instagram, new classes and extras wait for later phases.</dd>
+    </dl>
+  </div>
+</section>
+
+<section>
+  <h2>Where you are, and where you want to be</h2>
+  <div class="tiles">
+    <div class="tile"><span class="label">Paying members</span><span class="big">137<span class="to">→</span><span class="g">152</span></span><p>By 31 May, your own 6-month goal. 144 by 31 January. 170 members<sup class="fn"><a href="#n3">3</a></sup> is your big goal.</p></div>
+    <div class="tile"><span class="label">Enquiries who book a consultation</span><span class="big">30%<span class="to">→</span><span class="g">50%</span></span><p>The number I watch every week in Phase 1. Early sign: enquiries spoken to within a working day, 4% (2 of 50)<sup class="fn"><a href="#n2">2</a></sup> → 80% of enquiries by 27 Dec<sup class="fn"><a href="#n6">6</a></sup>.</p></div>
+    <div class="tile"><span class="label">Your pay a month</span><span class="big">£2,600<sup class="fn"><a href="#n1">1</a></sup><span class="to">→</span><span class="g">£3,600<sup class="fn"><a href="#n5">5</a></sup></span></span><p>From June, once profit covers it. Membership income goes from £13,237<sup class="fn"><a href="#n1">1</a></sup> to about £15,300<sup class="fn"><a href="#n5">5</a></sup> (estimate).</p></div>
+    <div class="tile"><span class="label">Profit a month, after your pay</span><span class="big">£700<sup class="fn"><a href="#n5">5</a></sup><span class="to">→</span><span class="g">£1,600</span></span><p>An estimate. In the week of 14 December we find the real figure. £2,200 profit a month is your big-goal number.</p></div>
+    <div class="tile"><span class="label">Members leaving a month (% of members)</span><span class="big">2.4%<sup class="fn"><a href="#n5">5</a></sup><span class="to">→</span><span class="g">under 3%</span></span><p>Already better than the 3% I call gold standard. The Monday check keeps it there.</p></div>
+    <div class="tile"><span class="label">Your time off</span><span class="big" style="font-size:20px;font-family:var(--font);font-weight:700">0 days<span class="to">→</span><span class="g">Sundays back</span></span><p>Hours stay as they are, as you asked. You hand over every other Sunday by 30 April, and book a full week away by 31 May.</p></div>
+  </div>
+  <p class="src">Source: your starting-numbers form, 16 Nov 2026 (137 members, £13,237<sup class="fn"><a href="#n1">1</a></sup> a month, about 10 leaving in 3 months: 10 ÷ 3 ÷ 137 = 2.4%<sup class="fn"><a href="#n5">5</a></sup>); GymGrow Grow Sales, 26 Aug to 18 Nov 2026 (15 of 50 enquiries booked; 2 of 50 called by a person within one working day).</p>
+</section>
+
+<section>
+  <h2>Month by month: one focus, one number</h2>
+  <p>Each month has one thing we're working on and one number I check every week, from a start to a target. CrossFit Harrogate grows every month while your members keep training.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Month</th><th>This month we're working on</th><th>Why now</th><th>The number (start → target)</th><th>Members at month end</th></tr></thead>
+    <tbody>
+      <tr data-m="2026-11"><td class="m">Nov</td><td><strong>Calling every enquiry within one working day</strong></td><td>Enquiries already wait days, and 34 were never booked in</td><td>Enquiries who book a consultation: 30% (15 of 50)<sup class="fn"><a href="#n2">2</a></sup> → 50% of enquiries by 27 Dec<sup class="fn"><a href="#n6">6</a></sup></td><td class="n">138</td></tr>
+      <tr data-m="2026-12"><td class="m">Dec</td><td><strong>Setting your January prices and knowing your profit</strong></td><td>Members need a month's notice, and your pay rise needs real numbers</td><td>Visits a week per member: about 3 (your guess)<sup class="fn"><a href="#n1">1</a></sup> → 3 or more, checked from TeamUp by 31 Dec<sup class="fn"><a href="#n6">6</a></sup></td><td class="n">140</td></tr>
+      <tr data-m="2027-01"><td class="m">Jan</td><td><strong>Filling your Monday and Wednesday Beginners Programme</strong></td><td>New Year brings the most new starters</td><td>Consultations booked a week: about 1 (15 in 12 weeks)<sup class="fn"><a href="#n2">2</a></sup> → 3 a week by 31 Jan<sup class="fn"><a href="#n6">6</a></sup></td><td class="n">144</td></tr>
+      <tr data-m="2027-02"><td class="m">Feb</td><td><strong>Making January's beginners stay</strong></td><td>New members drift most in their first weeks</td><td>Visits a week per new member in their first 28 days: not tracked yet, you enter it from TeamUp from 5 Jan → 2 or more by 28 Feb<sup class="fn"><a href="#n6">6</a></sup></td><td class="n">146</td></tr>
+      <tr data-m="2027-03"><td class="m">Mar</td><td><strong>Growing through your members</strong></td><td>Members who train 3 times a week bring friends</td><td>Friends booked by members a week: not tracked yet → 1 a week by 31 Mar<sup class="fn"><a href="#n6">6</a></sup></td><td class="n">148</td></tr>
+      <tr data-m="2027-04"><td class="m">Apr</td><td><strong>Getting your Sundays back</strong></td><td>With a written checklist, a coach can run Sundays</td><td>Sundays a coach runs without you: 0 of 4 a month<sup class="fn"><a href="#n1">1</a></sup> → 2 of 4 a month by 30 Apr<sup class="fn"><a href="#n6">6</a></sup></td><td class="n">150</td></tr>
+      <tr data-m="2027-05"><td class="m">May</td><td><strong>Locking it in, and your pay rise</strong></td><td>The end of this 6-month block</td><td>152 members; pay £3,600<sup class="fn"><a href="#n5">5</a></sup> from June</td><td class="n grn">152</td></tr>
+    </tbody>
+  </table></div>
+  <details><summary>How I worked out 152 members<span class="chev" aria-hidden="true"></span></summary><div class="fb"><figure>
+    <div class="legend"><span><i class="sw"></i><strong>The plan</strong></span><span><i class="sw t"></i>Today's trend, if nothing changes</span></div>
+    <div class="chart wide">
+    <svg viewBox="0 0 800 400" role="img" aria-label="Paying members by month: the plan rises from 137 to 152 by May; today's trend reaches about 148.">
+      <g font-family="Inter, system-ui, sans-serif" font-size="13" fill="#8B919B">
+        <g stroke="#2E3238" stroke-width="1">
+          <line x1="70" y1="40" x2="760" y2="40"/><line x1="70" y1="80" x2="760" y2="80"/><line x1="70" y1="120" x2="760" y2="120"/><line x1="70" y1="160" x2="760" y2="160"/><line x1="70" y1="200" x2="760" y2="200"/><line x1="70" y1="240" x2="760" y2="240"/>
+        </g>
+        <text x="58" y="44" text-anchor="end">160</text><text x="58" y="84" text-anchor="end">155</text><text x="58" y="124" text-anchor="end">150</text><text x="58" y="164" text-anchor="end">145</text><text x="58" y="204" text-anchor="end">140</text><text x="58" y="244" text-anchor="end">135</text>
+        <g fill="#B5BAC2" text-anchor="middle" font-size="14">
+          <text x="90" y="304">16 Nov</text><text x="184" y="304">Nov</text><text x="279" y="304">Dec</text><text x="373" y="304">Jan</text><text x="467" y="304">Feb</text><text x="561" y="304">Mar</text><text x="656" y="304">Apr</text><text x="750" y="304">May</text>
+        </g>
+        <polyline fill="none" stroke="#8B919B" stroke-width="2.5" stroke-dasharray="7 6" points="90,224 184,216 279,208 373,192 467,176 561,168 656,152 750,136"/>
+        <g fill="#8B919B"><circle cx="279" cy="208" r="4"/><circle cx="373" cy="192" r="4"/><circle cx="467" cy="176" r="4"/><circle cx="561" cy="168" r="4"/><circle cx="656" cy="152" r="4"/><circle cx="750" cy="136" r="4"/></g>
+        <polyline fill="none" stroke="#F4F262" stroke-width="4" stroke-linejoin="round" points="90,224 184,216 279,200 373,168 467,152 561,136 656,120 750,104"/>
+        <g fill="#F4F262"><circle cx="90" cy="224" r="6" fill="#F4F5F6"/><circle cx="184" cy="216" r="5"/><circle cx="279" cy="200" r="5"/><circle cx="373" cy="168" r="5"/><circle cx="467" cy="152" r="5"/><circle cx="561" cy="136" r="5"/><circle cx="656" cy="120" r="5"/><circle cx="750" cy="104" r="6"/></g>
+        <text x="90" y="250" text-anchor="middle" fill="#F4F5F6" font-weight="700" font-size="15">137</text>
+        <text x="373" y="154" text-anchor="middle" fill="#F4F262" font-weight="700" font-size="16">144</text>
+        <text x="750" y="88" text-anchor="middle" fill="#F4F262" font-weight="800" font-size="18">152</text>
+        <text x="750" y="158" text-anchor="middle" fill="#8B919B" font-weight="700" font-size="16">148</text>
+        <text x="10" y="340" fill="#B5BAC2" font-size="13">Joining</text>
+        <text x="10" y="375" fill="#B5BAC2" font-size="13">Leaving</text>
+        <g text-anchor="middle" font-size="15" fill="#F4F5F6" font-weight="600">
+          <text x="184" y="340">3</text><text x="279" y="340">5</text><text x="373" y="340">7</text><text x="467" y="340">5</text><text x="561" y="340">5</text><text x="656" y="340">5</text><text x="750" y="340">5</text>
+        </g>
+        <g text-anchor="middle" font-size="15" fill="#B5BAC2" font-weight="600">
+          <text x="184" y="375">2</text><text x="279" y="375">3</text><text x="373" y="375">3</text><text x="467" y="375">3</text><text x="561" y="375">3</text><text x="656" y="375">3</text><text x="750" y="375">3</text>
+        </g>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>Figure 1.</b> Paying members at the end of each month, with members joining and leaving underneath. The trend line keeps your last 3 months (about 15 joined and 10 left), which reaches about 148 by May. The plan reaches 152.</figcaption>
+  </figure>
+  <ul>
+    <li><strong>Members:</strong> about 3 members leave a month (your figure: roughly 10 in 3 months). So about 5 new members a month grows you by 2. Over the plan that's 35 joining and 20 leaving: 137 + 35 − 20 = 152.</li>
+    <li><strong>Your January prices:</strong> if your 74 rolling members move from £98 to £106, that's 74 × £8 = £592<sup class="fn"><a href="#n5">5</a></sup> a month more.</li>
+    <li><strong>New members:</strong> 15 more members at about £100 each (£106 rolling or £98 on 12 months) is about £1,500 a month.</li>
+    <li><strong>Together:</strong> about £2,090 a month more, taking membership income from £13,237<sup class="fn"><a href="#n1">1</a></sup> to about £15,300<sup class="fn"><a href="#n5">5</a></sup>. Your form says 22 more members would pay for your big goal. The price rise does a lot of that work for you.</li>
+  </ul>
+  <p class="src">Source: your starting-numbers form, 16 Nov 2026 (137 members, £13,237<sup class="fn"><a href="#n1">1</a></sup> a month, about 15 joined and 10 left in the last 3 months, membership list and prices); your call with me, 16 Nov 2026. Plan figures are targets, not forecasts.</p></div></details>
+</section>
+
+<section>
+  <h2>Your 6-month plan has 4 phases. We start with Phase 1</h2>
+  <p class="quote">You wouldn't add volume to an athlete who isn't sleeping. We do the few things that move the needle most, at a pace you can keep, and add more only once each block is working.</p>
+  <div class="road">
+    <div class="stop now"><div class="bar"></div><span class="pn">Phase 1 · Now</span><h3>Every enquiry called, January prices set</h3><p>16 Nov to 27 Dec</p></div>
+    <div class="stop"><div class="bar"></div><span class="pn">Phase 2</span><h3>Fill your January beginners and make them stay</h3><p>Jan to Feb</p></div>
+    <div class="stop"><div class="bar"></div><span class="pn">Phase 3</span><h3>Grow through members, and get your Sundays back</h3><p>Mar to Apr</p></div>
+    <div class="stop"><div class="bar"></div><span class="pn">Phase 4</span><h3>Lock it in, and your pay rise</h3><p>May</p></div>
+  </div>
+</section>
+
+<section class="ph1" id="phase1">
+  <div class="stack" style="gap:8px"><span class="label yel">Phase 1 · 16 November to 27 December · 6 weeks</span><h2>Every enquiry called within a working day, and January prices set</h2></div>
+  <div class="gauge"><span class="label">The number I watch every Monday · higher is better</span><svg viewBox="0 0 800 110" role="img" aria-label="Enquiries who book a consultation: 30% today, 50% target">
+<g font-family="Inter, system-ui, sans-serif">
+<rect x="20" y="44" width="760" height="18" rx="9" fill="#2E3238"/>
+<rect x="20" y="44" width="228" height="18" rx="9" fill="#F4F5F6"/>
+<line x1="400" y1="36" x2="400" y2="70" stroke="#F4F262" stroke-width="2"/>
+<text x="248" y="32" text-anchor="middle" fill="#F4F5F6" font-size="22" font-weight="800">30%</text>
+<text x="400" y="32" text-anchor="middle" fill="#F4F262" font-size="22" font-weight="800">50%</text>
+<text x="20" y="88" text-anchor="start" fill="#B5BAC2" font-size="14">Today (15 of 50)</text>
+<text x="400" y="88" text-anchor="middle" fill="#F4F262" font-size="14">Target by 27 Dec</text>
+</g></svg><p style="font-size:15px">Enquiries who book a consultation. Grow Sales fills this in by itself. You pass Phase 1 when bookings are on track to 50% of enquiries <strong>and</strong> you've made your daily calls, <strong>2 weeks in a row</strong>.</p></div>
+  <div class="trio">
+    <div><span class="label">Our bet</span><p>People who enquire are ready to talk now. If a person calls them within a working day, more of them book a consultation, and 6 of the 11<sup class="fn"><a href="#n2">2</a></sup> who came in since August started your Beginners Programme.</p></div>
+    <div><span class="label">How we test it</span><p><b>Action:</b> call every new enquiry within one working day. <b>Outcome we expect:</b> more of them book a consultation, from 30% (15 of 50) to 50% of enquiries by 27 Dec. <b>Early sign</b> (shows in days, before bookings): more of them answer and talk to you within a working day, from 4% (2 of 50)<sup class="fn"><a href="#n2">2</a></sup> to 80% of enquiries by 27 Dec<sup class="fn"><a href="#n6">6</a></sup>. The habit I check: a logged call on every working day.</p></div>
+    <div><span class="label">If it doesn't move</span><p>If you've made the calls and bookings haven't moved in 2 weeks, we read your call notes together to see why, then change how: the time of day you call, what you say, or who calls. We never drop the step.</p></div>
+  </div>
+  <div class="tiles">
+    <div class="tile"><span class="label">Members at the end</span><span class="big">137<span class="to">→</span><span class="g">140</span></span></div>
+    <div class="tile"><span class="label">January prices</span><span class="big g">Set</span><p>You tell members by 1 December. Up to £592<sup class="fn"><a href="#n5">5</a></sup> a month more from January.</p></div>
+    <div class="tile"><span class="label">Your monthly profit</span><span class="big g">Known</span><p>By 20 December you know your profit a month after every cost and your own pay.</p></div>
+    <div class="tile"><span class="label">Quiet members back in</span><span class="big g">3 in 4<sup class="fn"><a href="#n6">6</a></sup></span><p>Members on the Monday check list who come to the class we booked with them.</p></div>
+  </div>
+  <div class="stack"><span class="label">Week by week · each week has a bet and a number · tap a week to see what to do</span><div class="weeks">
+<details class="wk" data-w="1"><summary><span class="wn"><span>Week</span><b>1</b><span>16 Nov</span></span><span class="wt"><span class="thisweek">This week</span>Agree the plan, start the Monday check, and mark your enquiries<small><span class="time">About 1½ hours</span></small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="wbet"><p><b>The bet:</b> Members who haven't been in for 7 days come back if someone calls and books their next class with them, before they drift away.</p><p><b>The result we want:</b> Of the members on each Monday check list, how many come to the class we booked with them: not tracked yet, your first list on 23 Nov sets the start → 3 in 4 of them by 27 Dec<sup class="fn"><a href="#n6">6</a></sup>.</p><p><b>Early sign it's working (tracked weekly):</b> Of the members on each Monday check list, how many book a class on the call: not tracked yet, 23 Nov sets the start → 4 in 5 of them by 27 Dec<sup class="fn"><a href="#n6">6</a></sup>.</p><p><b>If it isn't:</b> If fewer than half book, we read your call notes on our next 1-1 and change who calls, when, or what you say.</p></div><ul class="todo"><li>Go through this plan with me on our 1-1 call.</li><li>Start the Monday check. Every Monday, look in TeamUp for members who haven't been in for 7 days. Call each one and book their next class with them on the call.</li><li>Decide who owns those booked visits: you, or a coach you name. They call the member the morning of the class, check they came, and message them afterwards to say well done.</li><li>After each call, write one line in Grow Sales: what the member said, and whether they booked.</li><li>In Grow Sales, mark what happened to the 15 people who booked since August: came in or not, joined or not. Start with the 6 who started your Beginners Programme.</li></ul><div class="done"><b>Done when:</b> You've done your first Monday check on 23 November, and marked an outcome for every booking since August.</div></div></details>
+<details class="wk" data-w="2"><summary><span class="wn"><span>Week</span><b>2</b><span>23 Nov</span></span><span class="wt"><span class="thisweek">This week</span>Set your January prices, and tell your members<small><span class="time">About 1 hour</span></small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="wbet"><p><b>The bet:</b> Members accept the January price with a month's notice and a personal message from you, and no more of them leave than usual.</p><p><b>The result we want:</b> Members who cancel in December, out of 137: about 3 a month today (10 in the last 3 months)<sup class="fn"><a href="#n1">1</a></sup> → 3 or fewer in December<sup class="fn"><a href="#n6">6</a></sup>.</p><p><b>Early sign it's working (tracked weekly):</b> Members who give notice in the 7 days after your price message, out of 137: about 1 a week today (10 in 13 weeks)<sup class="fn"><a href="#n1">1</a></sup> → 1 or fewer by 8 Dec<sup class="fn"><a href="#n6">6</a></sup>.</p><p><b>If it isn't:</b> If more than 3 cancel, we call each one to find out why, and agree any next step together before you offer anything.</p></div><ul class="todo"><li>Decide whether your 74 rolling members move to £106 in January, or only new joiners. I'll show you both sums on our call.</li><li>New joiners choose between £106 rolling and £98 on a 12-month commitment.</li><li>Choose what your 5 off-peak members move to, as off-peak ends. If you want anything other than your normal prices, we agree it together first.</li><li>First, I'll draft the message to members. You make it sound like you, then send it by 1 December, so everyone gets a month's notice.</li><li>Do your Monday check: look in TeamUp for members not in for 7 days, call each one, book their next class, and note each call.</li></ul><div class="done"><b>Done when:</b> You've set your January prices, and sent the message to every member they affect.</div></div></details>
+<details class="wk" data-w="3"><summary><span class="wn"><span>Week</span><b>3</b><span>30 Nov</span></span><span class="wt"><span class="thisweek">This week</span>Call every new enquiry within one working day<small><span class="time">15 minutes each working day</span></small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="wbet"><p><b>The bet:</b> People who enquire are ready to talk now. A call within one working day books more of them in than a call days later.</p><p><b>The result we want:</b> Enquiries who book a consultation: 30% today (15 of 50 since August)<sup class="fn"><a href="#n2">2</a></sup> → 50% of enquiries by 27 Dec<sup class="fn"><a href="#n6">6</a></sup>.</p><p><b>Early sign it's working (tracked weekly):</b> Enquiries you speak to within one working day: 4% today (2 of 50)<sup class="fn"><a href="#n2">2</a></sup> → 80% of enquiries by 27 Dec<sup class="fn"><a href="#n6">6</a></sup>.</p><p><b>If it isn't:</b> If you made the calls and bookings haven't moved in 2 weeks, we read your call notes together, then change the time, what you say, or who calls.</p></div><ul class="todo"><li>Pick one time each working day for your enquiry calls. Write down what you'll drop to make room.</li><li>At that time, open your calling list in Grow Sales and call everyone who enquired since the last working day. Calling from the list logs the call. If someone doesn't answer, try them 2 or 3 times.</li><li>After each call, write one line in Grow Sales: what you said, what they said, and whether they booked. If people aren't booking, we read these together and practise that part of the call.</li><li>Call or send a voice note to everyone booked in, the day before.</li><li>Do your Monday check: look in TeamUp for members not in for 7 days, call each one, and book their next class.</li><li>Tell me who calls your enquiries from January: option 1 or option 2 (further down).</li></ul><div class="done"><b>Done when:</b> Every new enquiry this week had a logged call within one working day.</div></div></details>
+<details class="wk" data-w="4"><summary><span class="wn"><span>Week</span><b>4</b><span>7 Dec</span></span><span class="wt"><span class="thisweek">This week</span>Call your 34 older enquiries<small><span class="time">About 2 hours, plus your daily calls</span></small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="wbet"><p><b>The bet:</b> Many of your 34 older enquiries still want to start. A personal invite to January's Beginners Programme books some of them in.</p><p><b>The result we want:</b> Of the 34 older enquiries, how many book a consultation: 0 of 34 today<sup class="fn"><a href="#n2">2</a></sup> → 5 of 34 by 13 Dec (an estimate)<sup class="fn"><a href="#n6">6</a></sup>.</p><p><b>Early sign it's working (tracked weekly):</b> Of the 34, how many you speak to: 0 of 34 today<sup class="fn"><a href="#n2">2</a></sup> → 20 of 34 by 13 Dec<sup class="fn"><a href="#n6">6</a></sup>.</p><p><b>If it isn't:</b> If fewer than 3 book from the first 15 calls, we read your notes together and change the script before the rest.</p></div><ul class="todo"><li>First, I'll send you a short call script. Read it once before you start.</li><li>Call the 34 people who enquired but were never booked in, newest first. Invite them to your January Beginners Programme on Mondays and Wednesdays.</li><li>Write one line on each call in Grow Sales: what you said, what they said, and whether they booked. We go through your notes on our 1-1 call that week.</li><li>Keep your daily enquiry calls going: each working day, call everyone who enquired since the last working day, from your calling list.</li></ul><div class="done"><b>Done when:</b> All 34 have had a call, and every call has a note and an outcome.</div></div></details>
+<details class="wk" data-w="5"><summary><span class="wn"><span>Week</span><b>5</b><span>14 Dec</span></span><span class="wt"><span class="thisweek">This week</span>Find out what CrossFit Harrogate really makes<small><span class="time">About 30 minutes</span></small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="wbet"><p><b>The bet:</b> About £2,800 goes out each month that we can't yet name. Once every cost is named, we can decide what to keep, cut or renegotiate, and see where your pay rise comes from.</p><p><b>The result we want:</b> Every monthly cost named and marked keep, cut or renegotiate, with any saving written down, by 20 Dec. No savings target, because we don't yet know if anything can be cut.</p><p><b>Early sign it's working (tracked weekly):</b> Of the about £2,800 a month we can't account for<sup class="fn"><a href="#n5">5</a></sup>, how much has a name: £0 of £2,800 today → all £2,800 by 20 Dec<sup class="fn"><a href="#n6">6</a></sup>.</p><p><b>If it isn't:</b> If the bank export doesn't explain it all, we go through your card payments and direct debits line by line.</p></div><ul class="todo"><li>Send me your last 3 VAT returns, or an export of your business bank account for September to November.</li><li>I'll build your profit and loss (P&amp;L) for those 3 months and show you what's left after every cost and your pay.</li><li>Pick one date each month to update your P&amp;L. Once I've set it up, updating it takes you 15 minutes.</li><li>Keep your daily enquiry calls and your Monday check going (members not in for 7 days: call, book their next class, note the call).</li></ul><div class="done"><b>Done when:</b> You know your monthly profit after your own pay, and your monthly date is set.</div></div></details>
+<details class="wk" data-w="6"><summary><span class="wn"><span>Week</span><b>6</b><span>21 Dec</span></span><span class="wt"><span class="thisweek">This week</span>Get January ready, and check Phase 1 with me<small><span class="time">About 1 hour</span></small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="wbet"><p><b>The bet:</b> With January's Beginners dates live before New Year, January enquiries book straight in instead of waiting.</p><p><b>The result we want:</b> January Beginners places booked: 0 today<sup class="fn"><a href="#n2">2</a></sup> → 6 places by 4 Jan<sup class="fn"><a href="#n6">6</a></sup> (6 of the 11 who came in since August started<sup class="fn"><a href="#n2">2</a></sup>).</p><p><b>Early sign it's working (tracked weekly):</b> January Beginners places booked by 30 Dec: 0 today<sup class="fn"><a href="#n2">2</a></sup> → 3 places by 30 Dec<sup class="fn"><a href="#n6">6</a></sup>.</p><p><b>If it isn't:</b> If fewer than 3 have booked by 30 Dec, we call January's enquiries and the older ones who said 'not now'.</p></div><ul class="todo"><li>Put your January Beginners Programme dates live (Mondays and Wednesdays), so enquiries can book straight in.</li><li>First, I'll write a short member survey. Check the questions fit, then send it to every member. It takes them 2 minutes.</li><li>Plan Christmas cover for your two routines. Daily enquiry calls: each working day, call everyone who enquired since the last working day, from your calling list. Monday check: call every member not in for 7 days and book their next class. If you're off, name who does each one.</li><li>Book your 6-week review with me for the week of 4 January.</li></ul><div class="done"><b>Done when:</b> Your January dates are live, you've sent the survey, you've named who covers Christmas, and you've booked your review.</div></div></details>
+  </div></div>
+  <div class="trio">
+    <div><span class="label">You report to me every Monday</span><ul><li>Enquiries last week, and the days you made your calls. Grow Sales shows how many you spoke to within a working day, and how many booked a consultation.</li><li>Monday check: how many members were on the list, how many you called, how many booked a class, and how many came to it.</li><li>Members who cancelled last week.</li></ul></div>
+    <div><span class="label">What I'll do</span><ul><li>A 1-1 call with you every week for these 6 weeks.</li><li>Write your price message, call script and member survey.</li><li>Build your P&amp;L from what you send me.</li><li>Check your numbers every Monday and read your call notes.</li></ul></div>
+    <div><span class="label">Our 6-week review</span><ul><li>In the week of 4 January we look honestly at whether the number moved, as we agreed on 16 November, and plan Phase 2 in detail.</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>After Phase 1</h2>
+  <p>I plan each of these in detail, with weeks and actions, once you've passed the phase before it.</p>
+  <div class="stack">
+    <details class="later"><summary><span class="fno mono yel">PHASE 2</span><span class="ft">Fill your January beginners, and make them stay · Jan to Feb</span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><dl class="kv"><dt>Focus</dt><dd>Ads back on for your Monday and Wednesday Beginners Programme, with every enquiry called within a working day. Offer membership in week 3 of the programme, not the last session. Write down a new member's first 28 days (welcome, check-ins, first result) so any coach can run them. You or a coach call any new member who misses a week, and book their next class.</dd><dt>Our bet</dt><dd>New members who train twice a week in their first 28 days stay. A written plan, with a coach checking in, gets them there even on weeks you're stretched.</dd><dt>Why</dt><dd>New Year brings the most new starters, and today the first 28 days live in your head.</dd><dt>Number I'll watch</dt><dd>Visits a week per new member in their first 28 days: not tracked yet; you enter it every Monday from TeamUp from 5 Jan; target 2 or more by 28 Feb<sup class="fn"><a href="#n6">6</a></sup>. Consultations booked a week: about 1 (15 in 12 weeks)<sup class="fn"><a href="#n2">2</a></sup> → 3 a week by 31 Jan<sup class="fn"><a href="#n6">6</a></sup>.</dd><dt>Result</dt><dd>7 new members in January. 146 members by 28 February.</dd></dl></div></details>
+    <details class="later"><summary><span class="fno mono yel">PHASE 3</span><span class="ft">Grow through your members, and get your Sundays back · Mar to Apr</span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><dl class="kv"><dt>Focus</dt><dd>Ask about 7 members a week to bring a friend, and every new member straight after they join. Share the guides you've already written, write a Sunday checklist, and hand every other Sunday to Scott or Chrissi. Plan programming 2 weeks ahead. Let visitors buy a drop-in online.</dd><dt>Our bets</dt><dd><strong>Bet 1:</strong> Members who train 3 times a week will bring friends if you ask them directly.<br><strong>Bet 2:</strong> A written checklist lets a coach run Sunday without you.</dd><dt>Why</dt><dd>You haven't had a day off in 12 months, and Sunday is the first thing you'd hand over.</dd><dt>Numbers I'll watch</dt><dd><strong>Bet 1:</strong> Friends booked by members a week: not tracked yet → 1 a week by 31 Mar<sup class="fn"><a href="#n6">6</a></sup>.<br><strong>Bet 2:</strong> Sundays a coach runs without you: 0 of 4 a month<sup class="fn"><a href="#n1">1</a></sup> → 2 of 4 a month by 30 Apr<sup class="fn"><a href="#n6">6</a></sup>.<br>You enter both every Monday.</dd><dt>Result</dt><dd>150 members by 30 April. Every other Sunday off, and a full week away booked.</dd></dl></div></details>
+    <details class="later"><summary><span class="fno mono yel">PHASE 4</span><span class="ft">Lock it in, and your pay rise · May</span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><dl class="kv"><dt>Focus</dt><dd>Fix whichever weekly number is weakest. Have your 6-month review with me. Set your pay at £3,600<sup class="fn"><a href="#n5">5</a></sup> from June if profit holds. Then your next 6-month goal on the way to 170<sup class="fn"><a href="#n3">3</a></sup>.</dd><dt>Our bet</dt><dd>The habits from November to April keep running while you step back a little.</dd><dt>Why</dt><dd>Your pay should catch up with your work.</dd><dt>Number I'll watch</dt><dd>Visits a week per member: about 3 (your guess)<sup class="fn"><a href="#n1">1</a></sup> → 3 or more on 31 May<sup class="fn"><a href="#n6">6</a></sup>. Profit a month after your pay: about £700<sup class="fn"><a href="#n5">5</a></sup> → £1,600 a month by 31 May<sup class="fn"><a href="#n6">6</a></sup>.</dd><dt>Result</dt><dd>152 members on 31 May, and your pay rise from June.</dd></dl></div></details>
+  </div>
+</section>
+
+<section>
+  <h2>Your choice: who calls your enquiries from January</h2>
+  <p>Ads only work if a person calls every enquiry within one working day. Your last ads cost £984 from July to October and brought 49 enquiries, about £20 each. Either way, ads go back on for January. I need your answer by 4 December.</p>
+  <div class="opts">
+    <div class="opt rec"><h3>Option 1: you call</h3><p>15 minutes each working day, from your calling list, as you build the habit in December. Ads go on in late December for your January Beginners Programme.</p><p><strong class="yel">No extra cost</strong></p></div>
+    <div class="opt"><h3>Option 2: our setter calls</h3><p>A GymGrow setter calls every enquiry within a day, works through your 34 older enquiries, and books consultations into your diary. You only run the consultations.</p><p><strong class="yel">£247 a month</strong></p></div>
+  </div>
+  <p>If you aren't making the daily calls by 7 December, we'll talk about option 2 before the ads go on, so January's money isn't wasted.</p>
+  <p class="src">Source: GymGrow ads data, July to October 2026 (£984 spent<sup class="fn"><a href="#n4">4</a></sup>, 49 enquiries, about £20 each); Grow Sales, 26 Aug to 18 Nov 2026; your form, Q48, 16 Nov 2026.</p>
+</section>
+
+<section>
+  <h2>What I need from you this week</h2>
+  <ol class="asks">
+    <li>How many paying members do you have today? Your form says 137 and you mentioned 131<sup class="fn"><a href="#n3">3</a></sup> on our call. I've used 137 for now.</li>
+    <li>Your links: website, Instagram and Google profile. That question was blank, and I'd like to check your reviews.</li>
+    <li>In January, do your 74 rolling members move to £106, or only new joiners?</li>
+    <li>Is the £185 couples membership for two people, so the 30 members on it are 15 couples?</li>
+    <li>For the week of 14 December: your last 3 VAT returns, or a list of everything that goes out each month besides rent and wages.</li>
+    <li>Who calls your enquiries from January: option 1 or option 2, by 4 December.</li>
+  </ol>
+</section>
+
+<footer>
+  <span class="label">Where every number comes from</span>
+  <p>A small number next to a figure points to its source below.</p>
+  <ol class="notes">
+    <li id="n1">Your starting-numbers form, completed 16 Nov 2026: 137 members, £13,237 a month in memberships, £2,600 your pay, £7,141 costs, about 15 joined and 10 left in the last 3 months.</li>
+    <li id="n2">GymGrow Grow Sales, 26 Aug to 18 Nov 2026: 50 enquiries, 15 booked a consultation (30%), 2 had a call from a person within one working day (4%), 34 never booked, 11 came in and 6 started your Beginners Programme.</li>
+    <li id="n3">Your call with me, 16 Nov 2026: 131 members, 170 as the big goal, and the 6-week review.</li>
+    <li id="n4">GymGrow ads data, July to October 2026: £984 spent on lead ads, 49 enquiries, about £20 each.</li>
+    <li id="n5">My sums from 1 and 2. Leaving a month: 10 ÷ 3 months ÷ 137 = 2.4%. Profit: £13,237 in, less £7,141 costs and £2,600 pay, leaves £3,496; you said about £700, so about £2,800 a month is unexplained. Price rise: 74 rolling members × £8 = £592 a month. Income in May: 152 members × about £100 = about £15,300 (estimate). Pay from June: £3,600 a month, a step towards the £40,000 to £50,000 a year you want.</li>
+    <li id="n6">A target I've set for this plan from your numbers, not a forecast. I'll check it with you at the 6-week review.</li>
+  </ol>
+  <p>Prepared by Lewis Clare, GymGrow, 18 November 2026.</p>
+</footer>
+</div>
+
+<script>
+(function(){
+  var start=new Date(2026,10,16), now=new Date();
+  var w=Math.floor((now-start)/(7*864e5))+1;
+  var titles={1:"Agree the plan, start the Monday check, and mark your enquiries",2:"Set your January prices, and tell your members",3:"Call every new enquiry within one working day",4:"Call your 34 older enquiries",5:"Find out what CrossFit Harrogate really makes",6:"Get January ready, and check Phase 1 with me"};
+  var pill=document.getElementById('nowPill'), txt=document.getElementById('nowText');
+  if(w<1) w=1;
+  if(w<=6){
+    pill.textContent="Now · Phase 1 · Week "+w; txt.textContent=titles[w];
+    var c=document.querySelector('.wk[data-w="'+w+'"]'); if(c){c.classList.add('cur'); c.open=true;}
+  } else {
+    var m=now.getMonth(), y=now.getFullYear();
+    if(y===2027&&m<=1){pill.textContent="Now · Phase 2";txt.textContent="Fill your January beginners, and make them stay";}
+    else if(y===2027&&m<=3){pill.textContent="Now · Phase 3";txt.textContent="Grow through your members, and get your Sundays back";}
+    else if(y===2027&&m===4){pill.textContent="Now · Phase 4";txt.textContent="Lock it in, and your pay rise";}
+    else if(y===2026){pill.textContent="Now · Phase 1 review";txt.textContent="Your 6-week review, then Phase 2";}
+    else {pill.textContent="Plan complete";txt.textContent="Time to set your next 6-month goal";}
+  }
+  var key=now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0");
+  var row=document.querySelector('tr[data-m="'+key+'"]'); if(row) row.classList.add('cur');
+})();
+</script>
+</body></html>

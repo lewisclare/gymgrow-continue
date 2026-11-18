@@ -1,0 +1,364 @@
+<!doctype html><html lang="en"><head>
+<meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Soma Club Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: a research-report column. Numbered findings, each with evidence, a numbered figure, recommendation and plan link. GymGrow dark brand, one look on purpose. */
+:root{
+  --bg:#121417; --card:#1B1D21; --line:#2E3238; --fg:#F4F5F6; --body:#B5BAC2; --muted:#8B919B;
+  --yel:#F4F262; --grn:#74ED94; --red:#F28B82;
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--body);font-family:var(--font);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:880px;margin:0 auto;padding-block:48px 80px;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{color:var(--fg);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(32px,6vw,46px);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(24px,4vw,30px);font-weight:700;letter-spacing:-.01em}
+h3{font-size:clamp(20px,3vw,24px);font-weight:700;letter-spacing:-.01em}
+p{margin:0}
+.label{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:500}
+.yel{color:var(--yel)} .grn{color:var(--grn)} .red{color:var(--red)} strong{color:var(--fg);font-weight:600}
+.mono{font-family:var(--mono)}
+section{display:flex;flex-direction:column;gap:20px}
+.lead{font-size:19px;color:var(--fg);max-width:68ch}
+header{display:flex;flex-direction:column;gap:16px;border-bottom:1px solid var(--line);padding-bottom:32px}
+.meta{display:flex;flex-wrap:wrap;gap:12px 32px;font-size:15px}
+.meta div{display:flex;flex-direction:column;gap:2px}
+.meta b{color:var(--fg);font-weight:600}
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);color:var(--muted);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.08em;background:var(--card)}
+td{color:var(--body)} td.m{color:var(--yel);font-weight:700;white-space:nowrap} td.n{color:var(--fg);font-weight:600;white-space:nowrap}
+td.id{font-family:var(--mono);color:var(--yel);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+/* findings */
+.finding{border-top:1px solid var(--line);padding-top:32px;display:flex;flex-direction:column;gap:18px}
+.fno{font-family:var(--mono);font-size:13px;color:var(--yel);letter-spacing:.06em}
+.block{display:grid;grid-template-columns:200px 1fr;gap:8px 24px}
+.block>.label{padding-top:4px}
+.block>div{min-width:0;display:flex;flex-direction:column;gap:10px}
+.block.rec>div{color:var(--fg)}
+.fit{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--yel);border-radius:6px;padding:12px 16px;color:var(--fg)}
+ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+li::marker{color:var(--muted)}
+.rec li::marker{color:var(--grn)}
+.src{font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.5}
+.cost{background:#24221A;border:1px solid #4A4724;border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;color:var(--fg);font-size:17px}
+.cost .label{color:var(--yel)}
+.phase{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:18px}
+.phead{display:flex;flex-direction:column;gap:8px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.pm{border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0;color:var(--fg);font-size:16px;background:var(--bg)}
+.pm.res{border-color:var(--grn)} .pm.res .label{color:var(--grn)}
+.phase .block{grid-template-columns:180px 1fr}
+@media (max-width:600px){ .phase{padding:16px} .phase .block{grid-template-columns:1fr} }
+.why{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);padding-top:18px}
+.why>.label{color:var(--yel)}
+.why .finding{border-top:1px dashed var(--line);padding-top:22px;margin-top:18px}
+.why .finding:first-of-type{border-top:0;margin-top:8px;padding-top:0}
+.planhd{border-top:1px solid var(--line);padding-top:18px}
+.planhd .label{color:var(--grn)}
+/* figures */
+figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+figcaption{font-size:14px;color:var(--muted);line-height:1.5}
+figcaption b{font-family:var(--mono);color:var(--fg);font-weight:500}
+.chart{overflow-x:auto}
+.chart svg{display:block;width:100%;height:auto}
+.chart.wide svg{min-width:560px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:15px}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{width:22px;height:0;border-top:4px solid var(--yel)} .sw.t{border-top:3px dashed var(--muted)}
+.callout{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.callout>div{border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:4px}
+.callout .n{font-family:var(--mono);font-size:28px;font-weight:600;color:var(--fg);line-height:1.1}
+.callout .d{font-size:14px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.opt{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.opt.rec{border-color:var(--yel)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px 28px}
+.cols>div{min-width:0;display:flex;flex-direction:column;gap:6px}
+.asks{counter-reset:a;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.asks li{counter-increment:a;display:grid;grid-template-columns:30px 1fr;gap:10px;color:var(--fg)}
+.asks li::before{content:counter(a) ".";color:var(--yel);font-weight:700;font-family:var(--mono)}
+footer{border-top:1px solid var(--line);padding-top:24px;font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:8px}
+@media (max-width:600px){ .block{grid-template-columns:1fr} body{font-size:16px} }
+
+/* v2: training-plan page. Phase 1 zoomed in; detail behind collapsibles. */
+.hero{display:flex;flex-direction:column;gap:20px;border-bottom:1px solid var(--line);padding-bottom:36px}
+.hero h1 em{font-style:normal;color:var(--yel)}
+.track{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:10px}
+.track svg{display:block;width:100%;height:auto}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.tile .big{font-family:var(--mono);font-size:26px;font-weight:600;color:var(--fg);line-height:1.15}
+.tile .big .to{color:var(--muted);font-weight:400;padding:0 4px}
+.tile .big .g{color:var(--yel)}
+.tile p{font-size:14px}
+details{border:1px solid var(--line);border-radius:12px;background:var(--card)}
+details>summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:14px;color:var(--fg);font-weight:600}
+details>summary::-webkit-details-marker{display:none}
+.chev{margin-left:auto;flex:none;width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:transform .2s}
+details[open]>summary .chev{transform:rotate(-135deg)}
+details>summary:focus-visible{outline:2px solid var(--yel);outline-offset:2px;border-radius:12px}
+.fb{padding:4px 18px 20px;display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--line);padding-top:18px}
+.fd .fno{font-family:var(--mono);color:var(--yel);font-size:14px;flex:none}
+.fd .ft{flex:1;min-width:0}
+.tag{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:3px 9px;flex:none;white-space:nowrap}
+.tag{align-self:center;line-height:1.4}
+.tag.p1{color:var(--bg);background:var(--yel);border-color:var(--yel)}
+.stack{display:flex;flex-direction:column;gap:10px}
+.fb .block{grid-template-columns:150px 1fr}
+@media (max-width:600px){.fb .block{grid-template-columns:1fr} .tag{display:none}}
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stop{border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;background:var(--card);position:relative;min-width:0}
+.stop.now{border:2px solid var(--yel);background:#1F2014}
+.stop .pn{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.stop.now .pn{color:var(--yel)}
+.stop h3{font-size:18px}
+.stop p{font-size:14px}
+.bar{height:6px;border-radius:99px;background:var(--line)}
+.stop.now .bar{background:var(--yel)}
+@media (max-width:760px){.road{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.road{grid-template-columns:1fr}}
+/* phase 1 */
+.ph1{border:2px solid var(--yel);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:22px;background:linear-gradient(180deg,#1C1D14 0,var(--bg) 320px)}
+@media (max-width:600px){.ph1{padding:16px}}
+.gauge{display:flex;flex-direction:column;gap:8px}
+.gauge svg{display:block;width:100%;height:auto}
+.weeks{display:flex;flex-direction:column;gap:10px;position:relative}
+.wk>summary{align-items:flex-start}
+.wk .wn{font-family:var(--mono);flex:none;width:58px;display:flex;flex-direction:column;line-height:1.2}
+.wk .wn b{font-size:22px;color:var(--yel);font-weight:600}
+.wk .wn span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.wk .wt{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.wk .wt small{font-weight:400;color:var(--body);font-size:15px}
+.wk .chev{margin-top:10px}
+.todo{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px}
+.todo li{display:grid;grid-template-columns:22px 1fr;gap:10px;color:var(--fg)}
+.todo li::before{content:"";width:16px;height:16px;border:2px solid var(--grn);border-radius:4px;margin-top:4px}
+.done{background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--grn);border-radius:8px;padding:10px 14px;font-size:15px}
+.bet{background:#24221A;border:1px solid #4A4724;border-left:3px solid var(--yel);border-radius:8px;padding:10px 14px;font-size:15px;color:var(--fg);display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.bet b{color:var(--yel)}
+sup.ref{font-size:.6em;line-height:0;vertical-align:super;margin-left:1px}
+sup.ref a{color:var(--yel);text-decoration:none;font-family:var(--mono)}
+.refs{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.refs li::marker{color:var(--yel);font-family:var(--mono)}
+.done b{color:var(--grn);font-weight:600}
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.trio>div{border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px;background:var(--card)}
+.trio .label{color:var(--grn)}
+.trio ul{font-size:15px}
+.quote{font-size:19px;color:var(--fg);border-left:3px solid var(--yel);padding:4px 0 4px 18px;max-width:64ch}
+.later .fb p{font-size:16px}
+.kv{display:grid;grid-template-columns:140px 1fr;gap:6px 16px;font-size:15px}
+.kv dt{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding-top:3px}
+.kv dd{margin:0;color:var(--fg)}
+@media (max-width:600px){.kv{grid-template-columns:1fr}}
+</style>
+
+</head><body>
+
+<div class="wrap">
+
+<header class="hero">
+  <span class="label">GymGrow · Your 6-month plan · Soma Club</span>
+  <h1>Ben, Mark and Felix, here's your plan to <em>558 members</em>, and the first 7 weeks in detail</h1>
+  <p class="lead">Ben, you told me this is about building something you're proud of, not just the money. Think of this like a training plan. The goal is set, and the first block is mapped out week by week. Each block after that is planned in detail once the one before it is working. The full evidence behind every step is in your <a href="report/" style="color:var(--yel)">Growth Report</a>.</p>
+  <div class="track"><svg viewBox="0 0 800 120" role="img" aria-label="Members: 429 today, 558 in 6 months, 650 is the big goal">
+<g font-family="Inter, system-ui, sans-serif">
+<rect x="20" y="52" width="760" height="14" rx="7" fill="#2E3238"/>
+<rect x="20" y="52" width="280" height="14" rx="7" fill="#F4F5F6"/>
+<rect x="300" y="52" width="280" height="14" fill="#F4F262"/>
+<line x1="300" y1="40" x2="300" y2="78" stroke="#F4F5F6" stroke-width="2"/>
+<line x1="580" y1="40" x2="580" y2="78" stroke="#F4F262" stroke-width="2"/>
+<line x1="780" y1="40" x2="780" y2="78" stroke="#8B919B" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="300" y="30" text-anchor="middle" fill="#F4F5F6" font-size="22" font-weight="800">429</text>
+<text x="580" y="30" text-anchor="middle" fill="#F4F262" font-size="22" font-weight="800">558</text>
+<text x="776" y="30" text-anchor="end" fill="#8B919B" font-size="22" font-weight="800">650</text>
+<text x="300" y="100" text-anchor="middle" fill="#B5BAC2" font-size="14">Today</text>
+<text x="580" y="100" text-anchor="middle" fill="#F4F262" font-size="14">31 May</text>
+<text x="776" y="100" text-anchor="end" fill="#8B919B" font-size="14">Your big goal</text>
+</g></svg></div>
+</header>
+
+<section>
+  <h2>Right now we're working on: stopping the leak</h2>
+  <p class="quote">Until 31 December, the one focus is keeping the members you already have. Members stop coming before they cancel, so the number we track every week is attendance: <strong>visits per member a week, from 1.5<sup class="ref"><a href="#ref2">2</a></sup> today to 1.8 by 31 December</strong>. At the same time we get the 74<sup class="ref"><a href="#ref1">1</a></sup> members who haven't been in for 30+ days down to 40, and renew your annual members before 1 January.</p>
+  <p>Members may dip slightly at first, as some quiet members decide to cancel when we call. That's expected. Attendance is the number that tells us it's working, weeks before cancellations do.</p>
+</section>
+
+<section>
+  <h2>Where you are, and where you want to be</h2>
+  <div class="tiles">
+    <div class="tile"><span class="label">Paying members</span><span class="big">429<sup class="ref"><a href="#ref1">1</a></sup><span class="to">→</span><span class="g">558</span></span><p>By 31 May. 489 by 28 Feb. 650 is the big goal.</p></div>
+    <div class="tile"><span class="label">Visits per member a week</span><span class="big">1.5<sup class="ref"><a href="#ref2">2</a></sup><span class="to">→</span><span class="g">2</span></span><p>The number we track every week. 1.8 by 31 December.</p></div>
+    <div class="tile"><span class="label">Members leaving a month</span><span class="big">5.7%<sup class="ref"><a href="#ref1">1</a></sup><span class="to">→</span><span class="g">3%</span></span><p>Step by step: 5.0% in December, 4.1% by February.</p></div>
+    <div class="tile"><span class="label">New members a month</span><span class="big">34<sup class="ref"><a href="#ref1">1</a></sup><span class="to">→</span><span class="g">42</span></span><p>Keep selling at today's pace, then more from January.</p></div>
+    <div class="tile"><span class="label">Owners' pay a month</span><span class="big" style="font-size:20px;font-family:var(--font);font-weight:700">£0<span class="to">→</span><span class="g">A set amount</span></span><p>From about £13,900<sup class="ref"><a href="#ref3">3</a></sup> a month profit, keeping 20% or more after it.</p></div>
+    <div class="tile"><span class="label">Ben's hours a week</span><span class="big">24<sup class="ref"><a href="#ref6">6</a></sup><span class="to">→</span><span class="g">16</span></span><p>By 30 April, as Felix takes on the day to day. 8 is the big goal.</p></div>
+    <div class="tile"><span class="label">Google reviews</span><span class="big">19<sup class="ref"><a href="#ref7">7</a></sup><span class="to">→</span><span class="g">100+</span></span><p>By 30 April. Reviews are what locals compare when choosing a gym.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Month by month: one focus, one number</h2>
+  <p>Members at month end and every target are GymGrow targets<sup class="ref"><a href="#ref8">8</a></sup>. Each month has one thing we're working on and one number that tells us it's working. Soma grows the whole way through, even while we fix members leaving.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Month</th><th>This month we're working on</th><th>Why now</th><th>The number</th><th>Members at month end</th></tr></thead>
+    <tbody>
+      <tr><td class="m">Nov</td><td><strong>Winning back members who've stopped coming</strong></td><td>Quiet members are the next to cancel, so winning them back now protects January</td><td>Visits per member a week 1.5 → 1.8, and members not in for 30+ days 74 → 40</td><td class="n">436</td></tr>
+      <tr><td class="m">Dec</td><td><strong>Renewing your annual members</strong></td><td>About £26k of annual memberships all renew on 1 January</td><td>85% of your about 30 annual members renewed (about 26), and visits per member a week at 1.8</td><td class="n">448</td></tr>
+      <tr><td class="m">Jan</td><td><strong>Turning New Year demand into new members</strong>, with peak classes and the new rooms</td><td>New Year goals bring people in, and the new rooms open</td><td>42 new members</td><td class="n">469</td></tr>
+      <tr><td class="m">Feb</td><td><strong>Making January's joiners stay</strong> with a first 28 days that builds a twice-a-week habit</td><td>January joiners hit their riskiest weeks in February</td><td>75% of members in their first 28 days visiting 2+ times a week</td><td class="n">489</td></tr>
+      <tr><td class="m">Mar</td><td><strong>Growing through happy members</strong>: referrals, reviews and day-pass visitors</td><td>Settled members are now happy to bring friends</td><td>10 new members from referrals</td><td class="n">511</td></tr>
+      <tr><td class="m">Apr</td><td><strong>Giving Ben time back</strong> as Felix runs the day to day</td><td>The steps built Nov to Mar can now be handed over</td><td>Ben down to 16 hours a week</td><td class="n">536</td></tr>
+      <tr><td class="m">May</td><td><strong>Locking in 3%</strong> before summer, then setting the next goal</td><td>Holidays break routines, so keeping members needs to be strongest before June</td><td>3% of paying members leaving a month</td><td class="n grn">558</td></tr>
+    </tbody>
+  </table></div>
+  <details><summary>See the members chart<span class="chev" aria-hidden="true"></span></summary><div class="fb"><figure>
+    <div class="legend"><span><i class="sw"></i><strong>The plan</strong></span><span><i class="sw t"></i>Today's trend, if nothing changes</span></div>
+    <div class="chart wide">
+    <svg viewBox="0 0 800 400" role="img" aria-label="Paying members by month: the plan rises from 429 to 558 by May; today's trend reaches 468.">
+      <g font-family="Inter, system-ui, sans-serif" font-size="13" fill="#8B919B">
+        <g stroke="#2E3238" stroke-width="1">
+          <line x1="70" y1="40" x2="760" y2="40"/><line x1="70" y1="100" x2="760" y2="100"/><line x1="70" y1="160" x2="760" y2="160"/><line x1="70" y1="220" x2="760" y2="220"/><line x1="70" y1="280" x2="760" y2="280"/>
+        </g>
+        <text x="58" y="44" text-anchor="end">600</text><text x="58" y="104" text-anchor="end">550</text><text x="58" y="164" text-anchor="end">500</text><text x="58" y="224" text-anchor="end">450</text><text x="58" y="284" text-anchor="end">400</text>
+        <g fill="#B5BAC2" text-anchor="middle" font-size="14">
+          <text x="90" y="304">12 Nov</text><text x="200" y="304">Dec</text><text x="310" y="304">Jan</text><text x="420" y="304">Feb</text><text x="530" y="304">Mar</text><text x="640" y="304">Apr</text><text x="750" y="304">May</text>
+        </g>
+        <polyline fill="none" stroke="#8B919B" stroke-width="2.5" stroke-dasharray="7 6" points="90,245.2 200,236.8 310,228.4 420,220 530,212.8 640,205.6 750,198.4"/>
+        <g fill="#8B919B"><circle cx="200" cy="236.8" r="4"/><circle cx="310" cy="228.4" r="4"/><circle cx="420" cy="220" r="4"/><circle cx="530" cy="212.8" r="4"/><circle cx="640" cy="205.6" r="4"/><circle cx="750" cy="198.4" r="4"/></g>
+        <polyline fill="none" stroke="#F4F262" stroke-width="4" stroke-linejoin="round" points="90,245.2 200,222.4 310,197.2 420,173.2 530,146.8 640,116.8 750,90.4"/>
+        <g fill="#F4F262"><circle cx="90" cy="245.2" r="6" fill="#F4F5F6"/><circle cx="200" cy="222.4" r="5"/><circle cx="310" cy="197.2" r="5"/><circle cx="420" cy="173.2" r="5"/><circle cx="530" cy="146.8" r="5"/><circle cx="640" cy="116.8" r="5"/><circle cx="750" cy="90.4" r="6"/></g>
+        <text x="90" y="268" text-anchor="middle" fill="#F4F5F6" font-weight="700" font-size="15">429</text>
+        <text x="420" y="160" text-anchor="middle" fill="#F4F262" font-weight="700" font-size="16">489</text>
+        <text x="750" y="76" text-anchor="middle" fill="#F4F262" font-weight="800" font-size="18">558</text>
+        <text x="750" y="220" text-anchor="middle" fill="#8B919B" font-weight="700" font-size="16">468</text>
+        <!-- rows -->
+        <text x="10" y="340" fill="#B5BAC2" font-size="13">Joining</text>
+        <text x="10" y="375" fill="#B5BAC2" font-size="13">Leaving</text>
+        <g text-anchor="middle" font-size="15" fill="#F4F5F6" font-weight="600">
+          <text x="90" y="340">34</text><text x="200" y="340">34</text><text x="310" y="340">42</text><text x="420" y="340">38</text><text x="530" y="340">41</text><text x="640" y="340">42</text><text x="750" y="340">43</text>
+        </g>
+        <g text-anchor="middle" font-size="15" fill="#74ED94" font-weight="600">
+          <text x="90" y="375" fill="#F4F5F6">5.7%</text><text x="200" y="375">5.0%</text><text x="310" y="375">4.6%</text><text x="420" y="375">4.1%</text><text x="530" y="375">3.7%</text><text x="640" y="375">3.3%</text><text x="750" y="375">3.0%</text>
+        </g>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>Figure 1.</b> Paying members at the end of each month, with new members and the share leaving each month underneath. The trend line keeps today's 34 new members a month and 5.4 to 5.7% leaving, which reaches about 468 by May. The plan reaches 558, mostly by keeping more of the members Soma already has.</figcaption>
+  </figure>
+  <p class="src">Source: GymFlow dashboard, 12 Nov 2026 (429 paying members, 34 sales a month, 5.7% leaving in October). Plan figures are targets, not forecasts.</p></div></details>
+</section>
+
+<section>
+  <h2>Your 6-month plan has 4 phases. We start with Phase 1</h2>
+  <p class="quote">You'd never add weight to a lift before the form is right. Growing Soma works the same way: first we stop members leaving, then we bring new ones in and keep them, then they bring their friends.</p>
+  <div class="road">
+    <div class="stop now"><div class="bar"></div><span class="pn">Phase 1 · Now</span><h3>Stop the leak</h3><p>16 Nov to 31 Dec</p></div>
+    <div class="stop"><div class="bar"></div><span class="pn">Phase 2</span><h3>Bring in New Year members and make them stay</h3><p>Jan to Feb</p></div>
+    <div class="stop"><div class="bar"></div><span class="pn">Phase 3</span><h3>Grow through members, and give Ben time back</h3><p>Mar to Apr</p></div>
+    <div class="stop"><div class="bar"></div><span class="pn">Phase 4</span><h3>Lock in 3%, then set the next goal</h3><p>May</p></div>
+  </div>
+</section>
+
+<section class="ph1">
+  <div class="stack" style="gap:8px"><span class="label yel">Phase 1 · 16 November to 31 December · 7 weeks</span><h2>Stop the leak: win back quiet members and renew your annuals</h2>
+  <p>Of the 130 leavers with a start date, 61 (47%)<sup class="ref"><a href="#ref4">4</a></sup> left in their first 3 months. Of all 185 real cancellations, 88 (48%)<sup class="ref"><a href="#ref4">4</a></sup> gave a reason we can act on: they no longer needed it, didn't use it enough, or had a failed payment. Those members stopped coming before they cancelled. So the number we track every week in Phase 1 is attendance.</p></div>
+  <div class="gauge"><span class="label">The number we track every Monday · attendance</span><svg viewBox="0 0 800 110" role="img" aria-label="Visits per member a week: 1.5 today, target 1.8 by 31 December, 2 is the standard we aim for">
+<g font-family="Inter, system-ui, sans-serif">
+<rect x="20" y="44" width="760" height="18" rx="9" fill="#2E3238"/>
+<rect x="20" y="44" width="465" height="18" rx="9" fill="#F4F5F6"/>
+<rect x="485" y="44" width="186" height="18" fill="#F4F262" opacity=".85"/>
+<line x1="780" y1="36" x2="780" y2="70" stroke="#8B919B" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="485" y="32" text-anchor="middle" fill="#F4F5F6" font-size="22" font-weight="800">1.5</text>
+<text x="671" y="32" text-anchor="middle" fill="#F4F262" font-size="22" font-weight="800">1.8</text>
+<text x="776" y="32" text-anchor="end" fill="#8B919B" font-size="22" font-weight="800">2</text>
+<text x="485" y="88" text-anchor="middle" fill="#B5BAC2" font-size="14">Today</text>
+<text x="671" y="88" text-anchor="middle" fill="#F4F262" font-size="14">31 Dec</text>
+<text x="776" y="88" text-anchor="end" fill="#8B919B" font-size="14">By May</text>
+</g></svg><p style="font-size:15px">Visits per member a week: last week's total check-ins by paying members, divided by paying members. Felix enters both every Monday from GymFlow. Phase 1 is passed when visits per member a week is 1.8 or more, and Felix has done the Monday check, <strong>2 weeks in a row</strong>.</p></div>
+  <div class="trio">
+    <div><span class="label yel">Our bet</span><p style="font-size:15px">Members stop coming before they cancel. If Felix calls every member who hasn't been in for 7 days, and books their next visit on the call, more of them come back and fewer cancel.</p></div>
+    <div><span class="label yel">How we test it</span><p style="font-size:15px">Every Monday we check two things: that Felix called every member on the Monday check list, and whether visits per member a week went up.</p></div>
+    <div><span class="label yel">If it doesn't move</span><p style="font-size:15px">If the Monday check is being done and visits haven't moved in 2 weeks, we listen to the call recordings or read your notes to see why, then change how: who calls, what they say, when, or a different reason to come back. We never just skip it.</p></div>
+  </div>
+  <div class="tiles">
+    <div class="tile"><span class="label">Paying members on 31 Dec</span><span class="big">429<span class="to">→</span><span class="g">448</span></span></div>
+    <div class="tile"><span class="label">Not in for 30+ days, by 31 Dec</span><span class="big">74<span class="to">→</span><span class="g">40</span></span></div>
+    <div class="tile"><span class="label">Monday check done</span><span class="big g" style="font-size:20px;font-family:var(--font);font-weight:700">Every week</span><p>Felix calls every member not in for 7+ days.</p></div>
+    <div class="tile"><span class="label">Annual members renewed</span><span class="big g">85%</span><p>About 26 of your about 30.</p><p>About £22k of 2027 income locked in by 1 January.</p></div>
+  </div>
+  <div class="stack"><span class="label">Week by week · targets are my estimates<sup class="ref"><a href="#ref8">8</a></sup> · tap a week to see what to do</span><div class="weeks">
+<details class="wk"><summary><span class="wn"><span>Week</span><b>1</b><span>16 Nov</span></span><span class="wt">Get set up and agree the plan<small>Everything after this builds on knowing the plan and your numbers.</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="bet"><span><b>The bet:</b> Agreeing the plan and recording your starting numbers now means we can tell within 2 weeks whether it's working.</span><span><b>The result we want:</b> A starting number for each of the 3 Monday numbers, entered by Felix by Mon 23 Nov. Today: 0 of 3.</span><span><b>Early sign it's working (tracked weekly):</b> Monday numbers entered on time: visits last week, paying members, and members not in for 30+ days. Today: 0 of 3. Target: 3 of 3 on Mon 23 Nov, then every Monday.</span><span><b>If it isn't:</b> If Felix can't find a number in GymFlow, we work it out together on the call.</span></div><ul class="todo"><li>Go through this plan together on your coaching call.</li><li>Watch the welcome lessons in the platform.</li><li>On your phone, time how long it takes to join Soma and to book a class. Note every step.</li><li>Start thinking about when ads go back on (the choice is further down). I need your answer by Mon 30 Nov.</li></ul><div class="done"><b>Done when:</b> All 3 Monday numbers are entered on Mon 23 Nov, and the plan is agreed.</div></div></details>
+<details class="wk"><summary><span class="wn"><span>Week</span><b>2</b><span>23 Nov</span></span><span class="wt">Catch members before they leave<small>74 members haven't been in for 30+ days, and they're the next to cancel.</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="bet"><span><b>The bet:</b> Calling every member who hasn't been in for 7 days, and booking their next visit on the call, brings them back before they cancel.</span><span><b>The result we want:</b> Paying members who leave in a month: 5.7% in October (about 24 of 429)<sup class="ref"><a href="#ref1">1</a></sup> → 5.0% (about 22 of 440) in December. Paying members not in for 30+ days: 74 of 429<sup class="ref"><a href="#ref1">1</a></sup> → 40 by 31 Dec.</span><span><b>Early sign it's working (tracked weekly):</b> Share of the members Felix called that week who came in within 7 days of the call. Today: not counted yet (first count Mon 30 Nov, for the w/c 23 Nov calls). Target: 50% every week from 7 Dec. Also: visits per member a week, 1.5 today (about 660 visits ÷ 429 paying members)<sup class="ref"><a href="#ref2">2</a></sup> → 1.8 by 31 Dec.</span><span><b>If it isn't:</b> If under 50% come in within 7 days for 2 weeks running, we listen to the calls or read your notes, find out why, and change the call: who makes it, what they say, when, or the reason to come back.</span></div><ul class="todo"><li>First, make your member survey from the GymGrow template (in the platform, step 11). Bring it to the group call so we can check it, then send it to every member.</li><li>Start the Monday check. Every Monday, Felix pulls from GymFlow the list of members who haven't been in for 7 days or more.</li><li>Felix calls every member on the list who hasn't been in for 7 days or more.</li><li>On every call, book their next visit there and then: a day and a time.</li><li>Name one person who owns making sure they come in (we suggest Felix). They call the morning of the visit to check they're still coming, check they came in, and follow up afterwards to congratulate them.</li><li>Felix calls all 74 members who haven't been in for 30+ days, starting with the 50 who haven't been in for 60+ days. Ask what's stopped them coming, and book their next visit, a class or the sauna, on the call.</li><li>Record the calls if you can, or write a few notes on each one: what you said, what they said, and whether they booked. If visits don't go up, this is how we work out why and change the call.</li><li>Write down how many you called, how many booked a visit, and how many came in. You report this every Monday.</li><li>Start speaking to your annual members about renewing (finish by Thu 24 Dec).</li><li>Tell me your ads choice: option 1 or option 2 (see “Your choice: when ads go back on” below).</li></ul><div class="done"><b>Done when:</b> 50% or more of the members Felix calls come in within 7 days, 2 weeks in a row.</div></div></details>
+<details class="wk"><summary><span class="wn"><span>Week</span><b>3</b><span>30 Nov</span></span><span class="wt">Know your profit, and set the owners' pay<small>Soma makes about £13,900 a month before owners' pay, and the owners take none of it.</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="bet"><span><b>The bet:</b> Once you know where every pound goes, you and Mark can take a set pay each month and still keep profit above 20%.</span><span><b>The result we want:</b> A set owners' pay every month, with profit staying at 20% or more after it.</span><span><b>Early sign it's working (tracked weekly):</b> Your biggest costs with a decision made: keep it, cut it or renegotiate it. Today: 0 decided. Target: a decision on each one by Sun 6 Dec. There's no savings target, because we don't know yet whether anything can be cut. Start with bank fees (£783 a month<sup class="ref"><a href="#ref3">3</a></sup>), equipment leases and the £2,700 of general expenses.</span><span><b>If it isn't:</b> If you can't decide on a cost, we go through your P&amp;L line by line together on the call. If nothing can be cut, that's fine: owners' pay is set from the profit you make today.</span></div><ul class="todo"><li>Agree how much you and Mark take each month, keeping profit above 20% after it.</li><li>Break down the £2,700 a month of "General expenses", and list when each equipment lease ends.</li><li>Check your bank fees: £783 a month, about 2% of turnover.</li><li>Pick a date each month to update your P&amp;L.</li><li>Claim your Google profile and fill it in. It's live with 19 reviews.</li></ul><div class="done"><b>Done when:</b> Owners' pay is agreed, and profit after it is 20% or more.</div></div></details>
+<details class="wk"><summary><span class="wn"><span>Week</span><b>4</b><span>7 Dec</span></span><span class="wt">Call your old enquiries and past members<small>114<sup class="ref"><a href="#ref5">5</a></sup> of 147 ad enquiries since 29 Sep never booked a visit, and 88 past members left for reasons you can fix.</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="bet"><span><b>The bet:</b> People who already asked about Soma, or trained here, are the quickest to win back, as long as someone calls them.</span><span><b>The result we want:</b> Share of the old enquiries and past members you speak to who join or rejoin. Today: 0 (not started). Target: 10% by 31 Dec.</span><span><b>Early sign it's working (tracked weekly):</b> Share of the old enquiries and past members you speak to who book a visit on the call. Today: 0 (first count Mon 14 Dec). Target: 25% by 21 Dec.</span><span><b>If it isn't:</b> If under 25% book after the first 30 people you speak to, we listen to the calls or read your notes, find out why, and change the call.</span></div><ul class="todo"><li>Call the 114 ad enquiries who were never booked in, newest first.</li><li>Contact past members who left because they lost the habit, didn't use it enough, or had a failed payment. Invite them back.</li><li>Record your calls, or write notes on what you said on each one. If people aren't booking in, this shows us why, and we practise the call together on the group calls.</li><li>Mark every outcome in Grow Sales, starting with the 6 who came in, so the 2 who joined count.</li><li>Add one question to your sign-up form: “How did you hear about Soma?” From now on, every new member answers it.</li></ul><div class="done"><b>Done when:</b> 25% or more of the people you speak to have booked a visit, and every outcome is marked.</div></div></details>
+<details class="wk"><summary><span class="wn"><span>Week</span><b>5</b><span>14 Dec</span></span><span class="wt">Give every member a first win, and start posting<small>Members with a goal and a result have a reason to keep coming.</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="bet"><span><b>Bet 1, new members:</b> A new member with a written goal and a first result keeps coming twice a week, so they don't become one of the members who leave in their first 3 months.</span><span><b>The result we want:</b> Share of leavers who left in their first 3 months. Today: 47% (61 of the 130 leavers with a start date)<sup class="ref"><a href="#ref4">4</a></sup>. Target: under 35% of leavers by 31 May 2027.</span><span><b>Early sign it's working (tracked weekly):</b> Share of members who joined in the last 28 days who visited 2+ times last week. Today: not counted yet (first count Mon 21 Dec). Target: 75% by 31 Dec.</span><span><b>If it isn't:</b> If under 75% visit 2+ times a week for 2 weeks running, we change their first 28 days: who checks in with them, when, and what's booked for them.</span></div><div class="bet"><span><b>Bet 2, Instagram:</b> Posts that show real training at Soma make locals curious enough to come in.</span><span><b>The result we want:</b> New members a month who say they found Soma on Instagram. Today: not known (the sign-up question starts on 7 Dec). I set the target on Mon 4 Jan, from the first 3 weeks of answers.</span><span><b>Early sign it's working (tracked weekly):</b> Share of each week's new members who say they found Soma on Instagram, from the question asked at sign-up. Today: not counted yet (first count Mon 14 Dec). I set the target on Mon 4 Jan, after 3 weekly counts.</span><span><b>If it isn't:</b> If no new member names Instagram by Mon 11 Jan, after a month of posting 3 times a week, we change what the posts show.</span></div><ul class="todo"><li>Give every new member a written goal and a first measured result in their first 28 days.</li><li>Write Soma's 3 values.</li><li>Post 3 times a week from the 90-day content plan: one post to build trust, one showing a value, one showing what training at Soma is like.</li><li>No selling in these posts. Offers and prices belong in ads.</li></ul><div class="done"><b>Done when:</b> Every new member this week has a written goal, 75% or more of members in their first 28 days visit 2+ times a week, and you've posted 3 times.</div></div></details>
+<details class="wk"><summary><span class="wn"><span>Week</span><b>6</b><span>21 Dec</span></span><span class="wt">Renew your annual members before Christmas<small>About 30<sup class="ref"><a href="#ref6">6</a></sup> annual memberships, around £26k, all renew on 1 January.</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="bet"><span><b>The bet:</b> Speaking to every annual member yourself before Christmas keeps more of them than letting the renewal happen on its own.</span><span><b>The result we want:</b> 85% of your about 30 annual members renewed on 1 January, about £22k of 2027 income.</span><span><b>Early sign it's working (tracked weekly):</b> Share of the annual members you've spoken to who said yes to renewing. Today: 0 of about 30 spoken to<sup class="ref"><a href="#ref6">6</a></sup>. Target: 75% of those spoken to by 21 Dec.</span><span><b>If it isn't:</b> If under 75% of those spoken to say yes, write down why. We agree together on the call what to do about it before Christmas.</span></div><ul class="todo"><li>Speak to every annual member before Christmas.</li><li>If someone doesn't want to renew, ask why and write it down. Don't offer anything yet: we agree any offer together on the call first.</li><li>Remind members what's included: the sauna pods and the Reset Lounge, and the new rooms opening in January.</li><li>Each week, write down how many annual members you've spoken to and how many said yes.</li></ul><div class="done"><b>Done when:</b> All of your about 30 annual members have been spoken to, and 85% (about 26) have said yes.</div></div></details>
+<details class="wk"><summary><span class="wn"><span>Week</span><b>7</b><span>28 Dec</span></span><span class="wt">Check Phase 1, and get ready for January<small>January brings the most new members of the year.</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="bet"><span><b>The bet:</b> The Phase 1 bet: members stop coming before they cancel, so calling them early keeps them.</span><span><b>The result we want:</b> Paying members who leave in a month: 5.7% in October (about 24 of 429)<sup class="ref"><a href="#ref1">1</a></sup> → 5.0% in December. Paying members: 429<sup class="ref"><a href="#ref1">1</a></sup> → 448 on 31 Dec.</span><span><b>Early sign it's working (tracked weekly):</b> Visits per member a week: 1.5 today (about 660 visits ÷ 429 paying members)<sup class="ref"><a href="#ref2">2</a></sup> → 1.8 by 31 Dec. Paying members not in for 30+ days: 74 of 429<sup class="ref"><a href="#ref1">1</a></sup> → 40 by 31 Dec.</span><span><b>If it isn't:</b> If either number is behind, we decide on the call what to change before Phase 2 starts.</span></div><ul class="todo"><li>Count members not in for 30+ days (target 40) and annual members renewed (target 85%, about 26 of 30).</li><li>Keep the Monday check running over Christmas. As a reminder: every Monday, Felix pulls from GymFlow the list of members who haven't been in for 7 days or more. He calls every member who hasn't been in for 7 days or more, books their next visit, and checks they came in.</li><li>Get ready for Phase 2: your flexible 28-day start and Strength and ROX at 5 to 6pm.</li></ul><div class="done"><b>Done when:</b> Visits per member a week is 1.8 or more, and members not in for 30+ days is 40 or fewer, 2 weeks in a row.</div></div></details>
+  </div></div>
+  <div class="trio">
+    <div><span class="label">You report to me every Monday</span><ul><li>Last week's total visits by paying members, and your number of paying members (this gives visits per member).</li><li>Members not in for 30+ days.</li><li>Monday check: how many members were on the list, how many Felix called, how many booked a visit, and how many came in within 7 days of the call.</li><li>Instagram posts published last week.</li><li>In December: annual members spoken to so far, and how many said yes.</li></ul></div>
+    <div><span class="label">What I'll do</span><ul><li>Agree the owners' pay with you, using your P&amp;L.</li><li>Every Monday, check visits per member a week against the target of 1.8 by 31 Dec. If it hasn't moved in 2 weeks, we change how the calls are made, together.</li></ul></div>
+    <div><span class="label">Checked on the group calls</span><ul><li>Bring Felix's call script for quiet members, your call recordings or notes, and your renewal message to the group calls. A GymGrow coach checks them and we practise the calls.</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>After Phase 1</h2>
+  <p>Each of these is planned in detail, with weeks and actions, once the phase before it is passed. Every phase works the same way: a bet, one number we track every week, and if it doesn't move in 2 weeks, we change how.</p>
+  <div class="stack">
+    <details class="later"><summary><span class="fno mono yel">PHASE 2</span><span class="ft">Bring in New Year members and make them stay · Jan to Feb</span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><dl class="kv"><dt>Focus</dt><dd>Launch a flexible 28-day start at times that suit each new member. Add Strength and ROX at 5 to 6pm in place of the emptiest classes. Open the new rooms to members first, as paid extras. Show every new member the sauna and lounge on day 1, give them a PT goal session in their first 2 weeks, and call at day 21 if they haven't been in. Call every enquiry within one working day.</dd><dt>Our bet</dt><dd>New members who train twice a week in their first 28 days stay. Calling every enquiry within a day books more of them in.</dd><dt>Why</dt><dd>New Year brings the most new members, and new members are most likely to leave in their first weeks. Strength (4 places) and ROX (8 places) keep selling out.</dd><dt>Number I'll watch</dt><dd>Share of new members training twice a week in their first 28 days, and share of enquiries called within one working day.</dd><dt>Result</dt><dd>42 new members in January. 489 members by 28 Feb, with 4.1% leaving.</dd></dl></div></details>
+    <details class="later"><summary><span class="fno mono yel">PHASE 3</span><span class="ft">Grow through members, and give Ben time back · Mar to Apr</span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><dl class="kv"><dt>Focus</dt><dd>A free month for members whose friend joins, and a monthly bring-a-friend Strength and ROX session. Ask members for a Google review after a good session. Invite every day-pass visitor to join after their visit. Choose one thing members can buy on top. Write up Ben's weekly jobs and hand them to Felix.</dd><dt>Our bet</dt><dd>Asking 5% of members a week, and every new member straight after they join, brings friends in. Handing Ben's jobs over one at a time cuts his hours without numbers slipping.</dd><dt>Why</dt><dd>Settled members bring friends. 125 day-pass visitors never joined. A gym that runs on written steps doesn't need its owner there.</dd><dt>Number I'll watch</dt><dd>New members from referrals, Google reviews and Ben's hours.</dd><dt>Result</dt><dd>10 referral members in March, 19 → 100+ reviews, Ben down to 16 hours. 536 members by 30 April, with 3.3% leaving.</dd></dl></div></details>
+    <details class="later"><summary><span class="fno mono yel">PHASE 4</span><span class="ft">Lock in 3%, then set the next goal · May</span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><dl class="kv"><dt>Focus</dt><dd>A Summer Ready campaign. The member survey, with changes made within 7 days. Then your 6-month review and your next goal on the way to 650.</dd><dt>Our bet</dt><dd>Keeping every Phase 1 to 3 habit running holds members leaving at 3% through summer.</dd><dt>Why</dt><dd>Holidays break routines, so keeping members needs to be strongest before summer.</dd><dt>Number I'll watch</dt><dd>Paying members leaving a month: 3%.</dd><dt>Result</dt><dd>558 members on 31 May. The same 34 sales a month now keep Soma growing towards 650.</dd></dl></div></details>
+  </div>
+</section>
+
+<section>
+  <h2>Your choice: when ads go back on</h2>
+  <p>Ads only work if someone calls every new enquiry within one working day. Last time, half of enquiries waited 47 hours or more, and 114 of 147<sup class="ref"><a href="#ref5">5</a></sup> were never booked in. I need your answer by Mon 30 Nov.</p>
+  <div class="opts">
+    <div class="opt rec"><h3>Option 1: wait until January</h3><p>November and December go on keeping members and renewing annuals. Ads go on in January, and Felix calls the enquiries.</p><p><strong class="yel">No extra cost</strong></p></div>
+    <div class="opt"><h3>Option 2: start now with a setter</h3><p>Ads restart at about £500 a month, around 2 to 3 enquiries a day. A setter calls each one within a day, works through the 114 older enquiries, and books people in with Felix. The ad steps move into Phase 1.</p><p><strong class="yel">Your own setter, or ours at £347 a month</strong></p></div>
+  </div>
+  <p class="src">Source: GymGrow ads and Grow Sales data, 29 Sep to 9 Nov 2026 (£1,291 spent, 147 enquiries, 27 booked, 6 came in); Ben, 17 Nov 2026 (2 joined, 1 still deciding).</p>
+</section>
+
+<section>
+  <h2>What I need from you this week</h2>
+  <ol class="asks">
+    <li>Your P&amp;L shows about £39k a month in turnover, while GymFlow showed about £29k of membership revenue in October. What makes up the difference: annual memberships, PT, day passes or the café?</li>
+    <li>What's inside the £2,700 a month of "General expenses", and when does each equipment lease end?</li>
+    <li>How much do you and Mark want to take from the business each month?</li>
+    <li>A GymFlow export of every member with their join date, if you can get it.</li>
+    <li>Ads: option 1 or option 2.</li>
+  </ol>
+</section>
+
+<footer>
+  <span class="label">References</span>
+  <ol class="refs">
+    <li id="ref1">Soma GymFlow dashboard, exported 12 Nov 2026: 429 paying members, 34 memberships sold a month, 5.7% left in October, 74 not in for 30+ days (50 for 60+).</li>
+    <li id="ref2">Visits per member a week, worked out from the same dashboard: 1,134 check-ins by paying members on 1 to 12 Nov ÷ 12 days × 7 = about 660 a week ÷ 429 paying members = 1.5. 12 Nov was a part-day, so it may be slightly low. Felix's first Monday entry on 23 Nov confirms the start.</li>
+    <li id="ref3">Soma Club Profit and Loss, August to October 2026, sent 17 Nov 2026: costs £75,337 (about £25,100 a month); profit £41,555 (about £13,900 a month) before owners' pay; bank fees £2,348 (about £783 a month).</li>
+    <li id="ref4">GymFlow cancelled memberships export, sent 17 Nov 2026: 185 real cancellations; of the 130 with a start date, 61 (47%) left in their first 3 months.</li>
+    <li id="ref5">GymGrow ads and Grow Sales data, 29 Sep to 9 Nov 2026: 147 enquiries, 27 booked, 6 came in, half waited 47 hours or more for a first call. Ben, 17 Nov 2026: 2 joined, 1 still deciding.</li>
+    <li id="ref6">Soma starting-numbers questionnaire, 12 Nov 2026, and call with Lewis, 11 Nov 2026: Ben's hours, about 30 annual members worth about £26k renewing on 1 January, goals.</li>
+    <li id="ref7">Soma Club Google listing, checked 14 Nov 2026: 19 reviews, 4.8 stars.</li>
+    <li id="ref8">Plan figures and weekly targets are GymGrow targets and my estimates, not forecasts. The full evidence is in your <a href="report/" style="color:var(--yel)">Growth Report</a>.</li>
+  </ol>
+  <p>Prepared by Lewis Clare, GymGrow, 18 November 2026.</p>
+</footer>
+</div>
+</body></html>

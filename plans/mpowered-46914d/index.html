@@ -1,0 +1,358 @@
+<!doctype html><html lang="en"><head>
+<meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mpowered Fitness 6-Month Plan</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: a research-report column. Numbered findings, each with evidence, a numbered figure, recommendation and plan link. GymGrow dark brand, one look on purpose. */
+:root{
+  --bg:#121417; --card:#1B1D21; --line:#2E3238; --fg:#F4F5F6; --body:#B5BAC2; --muted:#8B919B;
+  --yel:#F4F262; --grn:#74ED94; --red:#F28B82;
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--body);font-family:var(--font);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:880px;margin:0 auto;padding-block:48px 80px;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{color:var(--fg);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(32px,6vw,46px);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(24px,4vw,30px);font-weight:700;letter-spacing:-.01em}
+h3{font-size:clamp(20px,3vw,24px);font-weight:700;letter-spacing:-.01em}
+p{margin:0}
+.label{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:500}
+.yel{color:var(--yel)} .grn{color:var(--grn)} .red{color:var(--red)} strong{color:var(--fg);font-weight:600}
+.mono{font-family:var(--mono)}
+section{display:flex;flex-direction:column;gap:20px}
+.lead{font-size:19px;color:var(--fg);max-width:68ch}
+header{display:flex;flex-direction:column;gap:16px;border-bottom:1px solid var(--line);padding-bottom:32px}
+.meta{display:flex;flex-wrap:wrap;gap:12px 32px;font-size:15px}
+.meta div{display:flex;flex-direction:column;gap:2px}
+.meta b{color:var(--fg);font-weight:600}
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);color:var(--muted);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.08em;background:var(--card)}
+td{color:var(--body)} td.m{color:var(--yel);font-weight:700;white-space:nowrap} td.n{color:var(--fg);font-weight:600;white-space:nowrap}
+td.id{font-family:var(--mono);color:var(--yel);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+/* findings */
+.finding{border-top:1px solid var(--line);padding-top:32px;display:flex;flex-direction:column;gap:18px}
+.fno{font-family:var(--mono);font-size:13px;color:var(--yel);letter-spacing:.06em}
+.block{display:grid;grid-template-columns:200px 1fr;gap:8px 24px}
+.block>.label{padding-top:4px}
+.block>div{min-width:0;display:flex;flex-direction:column;gap:10px}
+.block.rec>div{color:var(--fg)}
+.fit{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--yel);border-radius:6px;padding:12px 16px;color:var(--fg)}
+ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+li::marker{color:var(--muted)}
+.rec li::marker{color:var(--grn)}
+.src{font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.5}
+.cost{background:#24221A;border:1px solid #4A4724;border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;color:var(--fg);font-size:17px}
+.cost .label{color:var(--yel)}
+.phase{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:18px}
+.phead{display:flex;flex-direction:column;gap:8px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.pm{border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0;color:var(--fg);font-size:16px;background:var(--bg)}
+.pm.res{border-color:var(--grn)} .pm.res .label{color:var(--grn)}
+.phase .block{grid-template-columns:180px 1fr}
+@media (max-width:600px){ .phase{padding:16px} .phase .block{grid-template-columns:1fr} }
+.why{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);padding-top:18px}
+.why>.label{color:var(--yel)}
+.why .finding{border-top:1px dashed var(--line);padding-top:22px;margin-top:18px}
+.why .finding:first-of-type{border-top:0;margin-top:8px;padding-top:0}
+.planhd{border-top:1px solid var(--line);padding-top:18px}
+.planhd .label{color:var(--grn)}
+/* figures */
+figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+figcaption{font-size:14px;color:var(--muted);line-height:1.5}
+figcaption b{font-family:var(--mono);color:var(--fg);font-weight:500}
+.chart{overflow-x:auto}
+.chart svg{display:block;width:100%;height:auto}
+.chart.wide svg{min-width:560px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:15px}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{width:22px;height:0;border-top:4px solid var(--yel)} .sw.t{border-top:3px dashed var(--muted)}
+.callout{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.callout>div{border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:4px}
+.callout .n{font-family:var(--mono);font-size:28px;font-weight:600;color:var(--fg);line-height:1.1}
+.callout .d{font-size:14px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.opt{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.opt.rec{border-color:var(--yel)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px 28px}
+.cols>div{min-width:0;display:flex;flex-direction:column;gap:6px}
+.asks{counter-reset:a;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.asks li{counter-increment:a;display:grid;grid-template-columns:30px 1fr;gap:10px;color:var(--fg)}
+.asks li::before{content:counter(a) ".";color:var(--yel);font-weight:700;font-family:var(--mono)}
+footer{border-top:1px solid var(--line);padding-top:24px;font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:8px}
+@media (max-width:600px){ .block{grid-template-columns:1fr} body{font-size:16px} }
+
+/* v2: training-plan page. Phase 1 zoomed in; detail behind collapsibles. */
+.hero{display:flex;flex-direction:column;gap:20px;border-bottom:1px solid var(--line);padding-bottom:36px}
+.hero h1 em{font-style:normal;color:var(--yel)}
+.track{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:10px}
+.track svg{display:block;width:100%;height:auto}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.tile .big{font-family:var(--mono);font-size:26px;font-weight:600;color:var(--fg);line-height:1.15}
+.tile .big .to{color:var(--muted);font-weight:400;padding:0 4px}
+.tile .big .g{color:var(--yel)}
+.tile p{font-size:14px}
+details{border:1px solid var(--line);border-radius:12px;background:var(--card)}
+details>summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:14px;color:var(--fg);font-weight:600}
+details>summary::-webkit-details-marker{display:none}
+.chev{margin-left:auto;flex:none;width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:transform .2s}
+details[open]>summary .chev{transform:rotate(-135deg)}
+details>summary:focus-visible{outline:2px solid var(--yel);outline-offset:2px;border-radius:12px}
+.fb{padding:4px 18px 20px;display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--line);padding-top:18px}
+.fd .fno{font-family:var(--mono);color:var(--yel);font-size:14px;flex:none}
+.fd .ft{flex:1;min-width:0}
+.tag{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:3px 9px;flex:none;white-space:nowrap}
+.tag{align-self:center;line-height:1.4}
+.tag.p1{color:var(--bg);background:var(--yel);border-color:var(--yel)}
+.stack{display:flex;flex-direction:column;gap:10px}
+.fb .block{grid-template-columns:150px 1fr}
+@media (max-width:600px){.fb .block{grid-template-columns:1fr} .tag{display:none}}
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stop{border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;background:var(--card);position:relative;min-width:0}
+.stop.now{border:2px solid var(--yel);background:#1F2014}
+.stop .pn{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.stop.now .pn{color:var(--yel)}
+.stop h3{font-size:18px}
+.stop p{font-size:14px}
+.bar{height:6px;border-radius:99px;background:var(--line)}
+.stop.now .bar{background:var(--yel)}
+@media (max-width:760px){.road{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.road{grid-template-columns:1fr}}
+/* phase 1 */
+.ph1{border:2px solid var(--yel);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:22px;background:linear-gradient(180deg,#1C1D14 0,var(--bg) 320px)}
+@media (max-width:600px){.ph1{padding:16px}}
+.gauge{display:flex;flex-direction:column;gap:8px}
+.gauge svg{display:block;width:100%;height:auto}
+.weeks{display:flex;flex-direction:column;gap:10px;position:relative}
+.wk>summary{align-items:flex-start}
+.wk .wn{font-family:var(--mono);flex:none;width:58px;display:flex;flex-direction:column;line-height:1.2}
+.wk .wn b{font-size:22px;color:var(--yel);font-weight:600}
+.wk .wn span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.wk .wt{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.wk .wt small{font-weight:400;color:var(--body);font-size:15px}
+.wk .chev{margin-top:10px}
+.todo{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px}
+.todo li{display:grid;grid-template-columns:22px 1fr;gap:10px;color:var(--fg)}
+.todo li::before{content:"";width:16px;height:16px;border:2px solid var(--grn);border-radius:4px;margin-top:4px}
+.done{background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--grn);border-radius:8px;padding:10px 14px;font-size:15px}
+.done b{color:var(--grn);font-weight:600}
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.trio>div{border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px;background:var(--card)}
+.trio .label{color:var(--grn)}
+.trio ul{font-size:15px}
+.quote{font-size:19px;color:var(--fg);border-left:3px solid var(--yel);padding:4px 0 4px 18px;max-width:64ch}
+.later .fb p{font-size:16px}
+.kv{display:grid;grid-template-columns:140px 1fr;gap:6px 16px;font-size:15px}
+.kv dt{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding-top:3px}
+.kv dd{margin:0;color:var(--fg)}
+@media (max-width:600px){.kv{grid-template-columns:1fr}}
+.wbet{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}
+.wbet>div p+p{margin-top:6px}
+.wbet>div{background:#1F2014;border:1px solid #4A4724;border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;font-size:15px;color:var(--fg)}
+.wbet .label{color:var(--yel)}
+.wk .wt .trk{font-family:var(--mono);font-size:12px;color:var(--yel);letter-spacing:.02em;font-weight:500}
+sup.fn{font-size:.6em;line-height:0;margin-left:1px;vertical-align:super;font-family:var(--mono);font-weight:500}
+sup.fn a{color:var(--muted);text-decoration:none}
+.notes{margin:0;padding-left:28px;display:flex;flex-direction:column;gap:4px}
+.notes li{font-size:13px}
+.notes li:target{color:var(--fg)}
+</style>
+
+</head><body>
+
+<div class="wrap">
+
+<header class="hero">
+  <span class="label">GymGrow · Your 6-month plan · Mpowered Fitness</span>
+  <h1>Marianna, here's your plan to <em>100 members</em>, and the first 5 steps in detail</h1>
+  <p class="lead">You told me you want to give women and new mums what they really need, without it costing you your own health, and to pay yourself more without feeling greedy. Think of this like a training plan. The goal is set, and the first block is mapped out step by step, sized to the 2 to 4 hours a week you have. Each block after that is planned in detail once the one before it is working.</p>
+  <div class="track"><svg viewBox="0 0 800 120" role="img" aria-label="Members: 79 today, 100 by 31 May, 120 is the big goal">
+<g font-family="Inter, system-ui, sans-serif">
+<rect x="20" y="52" width="760" height="14" rx="7" fill="#2E3238"/>
+<rect x="20" y="52" width="206" height="14" rx="7" fill="#F4F5F6"/>
+<rect x="226" y="52" width="228" height="14" fill="#F4F262"/>
+<line x1="226" y1="40" x2="226" y2="78" stroke="#F4F5F6" stroke-width="2"/>
+<line x1="454" y1="40" x2="454" y2="78" stroke="#F4F262" stroke-width="2"/>
+<line x1="671" y1="40" x2="671" y2="78" stroke="#8B919B" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="226" y="30" text-anchor="middle" fill="#F4F5F6" font-size="22" font-weight="800">79</text>
+<text x="454" y="30" text-anchor="middle" fill="#F4F262" font-size="22" font-weight="800">100</text>
+<text x="671" y="30" text-anchor="middle" fill="#8B919B" font-size="22" font-weight="800">120</text>
+<text x="226" y="100" text-anchor="middle" fill="#B5BAC2" font-size="14">Today</text>
+<text x="454" y="100" text-anchor="middle" fill="#F4F262" font-size="14">31 May</text>
+<text x="671" y="100" text-anchor="middle" fill="#8B919B" font-size="14">Your big goal</text>
+</g></svg></div>
+</header>
+
+<section>
+  <h2>Right now we're working on: getting Mpowered out of your head and onto GrowHQ</h2>
+  <p class="quote">Until your Christmas closure<sup class="fn"><a href="#s9">9</a></sup>, the one focus is moving the jobs you do by hand onto GrowHQ and onto Gemma, before Kenko ends on 26 December<sup class="fn"><a href="#s8">8</a></sup>. The number we track every week is <strong>your admin hours: from about 16.5<sup class="fn"><a href="#s4">4</a></sup> a week today to 11.5 by Monday 11 January</strong>. Those 5 hours go into the new site.</p>
+  <p>Your admin hours may go up for a week or two while you move everything over. That's expected. What we judge is whether they come down once members, bookings and welcome messages are running on GrowHQ.</p>
+</section>
+
+<section>
+  <h2>Where you are, and where you want to be</h2>
+  <div class="tiles">
+    <div class="tile"><span class="label">Members on a membership</span><span class="big">79<sup class="fn"><a href="#s1">1</a></sup><span class="to">→</span><span class="g">100</span></span><p>By 31 May. 86 by 28 February. 120 is the big goal.</p></div>
+    <div class="tile"><span class="label">Your admin hours a week</span><span class="big">16.5<sup class="fn"><a href="#s4">4</a></sup><span class="to">→</span><span class="g">11.5</span></span><p>The number we track every week right now. Coaching hours stay as they are.</p></div>
+    <div class="tile"><span class="label">Money in a month</span><span class="big">£7.9k<sup class="fn"><a href="#s2">2</a></sup><span class="to">→</span><span class="g">£11k<sup class="fn"><a href="#s5">5</a></sup></span></span><p>Enough for the new site's costs, its loan and your pay.</p></div>
+    <div class="tile"><span class="label">Your pay a month</span><span class="big">£1k<span class="to">→</span><span class="g">£2k</span></span><p style="font-size:13px;color:var(--muted)">Take-home a month</p><p>£1,047 today.<sup class="fn"><a href="#s5">5</a></sup> £1,000 salary plus £1,000 dividends. £4,000 a month at the big goal.</p></div>
+    <div class="tile"><span class="label">Members leaving a month</span><span class="big">3.9%<sup class="fn"><a href="#s3">3</a></sup><span class="to">→</span><span class="g">3%</span></span><p>Already under my 4% target. We keep it there as you grow.</p></div>
+    <div class="tile"><span class="label">Free small group PT places</span><span class="big">6<sup class="fn"><a href="#s6">6</a></sup><span class="to">→</span><span class="g">22<sup class="fn"><a href="#s6">6</a></sup></span></span><p>With 4 more lunchtime sessions. You can't reach 100 without them.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Roughly month by month: one focus, one number</h2>
+  <p>This is roughly when each focus falls. You move on when a phase is working, not by the calendar. Each one has one thing we're working on and one number that tells us it's working. Mpowered grows every month, even while you build the systems.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Month</th><th>This month we're working on</th><th>Why now</th><th>The number</th><th>Members at month end</th></tr></thead>
+    <tbody>
+      <tr><td class="m">Nov to Dec</td><td><strong>Moving everything onto GrowHQ and handing admin to Gemma</strong></td><td>Kenko ends on 26 December if you give notice by 26 November, and you close for Christmas</td><td>Your admin hours a week. Today: about 16.5. Target: 11.5 by 11 Jan</td><td class="n">81</td></tr>
+      <tr><td class="m">Jan</td><td><strong>Opening more places</strong>: 4 lunchtime sessions, and a new home for mum and baby courses</td><td>You have 6 free places<sup class="fn"><a href="#s6">6</a></sup>. At today's pace they're full by February</td><td>Trial months started a week. Today: 1.1 a week, 14 in 13 weeks<sup class="fn"><a href="#s7">7</a></sup>. Target: 1.5 a week by 28 Feb</td><td class="n">83</td></tr>
+      <tr><td class="m">Feb</td><td><strong>First ads live</strong>, with every enquiry called within one working day</td><td>The new lunchtime places, open from January, need filling</td><td>Enquiries who book a trial month, of all enquiries. Today: not counted<sup class="fn"><a href="#s15">15</a></sup>. Target: 3 in 10<sup class="fn"><a href="#s11">11</a></sup> by 28 Feb</td><td class="n">86</td></tr>
+      <tr><td class="m">Mar</td><td><strong>Members bringing their friends</strong>, asked every week</td><td>Your newest members are your keenest, and friends of mums are mums</td><td>Friends of members booked in a week. Today: not counted. Target: 1 a week by 31 Mar</td><td class="n">90</td></tr>
+      <tr><td class="m">Apr</td><td><strong>Keeping mums who go back to work</strong>, and offering one extra</td><td>Going back to work is your biggest reason members leave<sup class="fn"><a href="#s13">13</a></sup>, and you can see it coming</td><td>Members leaving because they went back to work, of all leavers. Today: not counted, but it's your top reason<sup class="fn"><a href="#s13">13</a></sup>. Target: 1 or fewer a month by 30 Apr</td><td class="n">96</td></tr>
+      <tr><td class="m">May</td><td><strong>100 members</strong>, then your 6-month review and next goal</td><td>Your 6-month goal</td><td>Members leaving, of all members. Today: 3.9% a month, 9 in 3 months. Target: 3% a month by 31 May</td><td class="n grn">100</td></tr>
+    </tbody>
+  </table></div>
+  <details><summary>See the members chart<span class="chev" aria-hidden="true"></span></summary><div class="fb"><figure>
+    <div class="legend"><span><i class="sw"></i><strong>The plan</strong></span><span><i class="sw t"></i>Today's trend, if nothing changes</span></div>
+    <div class="chart wide">
+    <svg viewBox="0 0 800 400" role="img" aria-label="Members by month: the plan rises from 79 to 100 by May; today's trend stops at about 85 when the free places run out.">
+      <g font-family="Inter, system-ui, sans-serif" font-size="13" fill="#8B919B">
+        <g stroke="#2E3238" stroke-width="1">
+          <line x1="70" y1="40" x2="760" y2="40"/><line x1="70" y1="100" x2="760" y2="100"/><line x1="70" y1="160" x2="760" y2="160"/><line x1="70" y1="220" x2="760" y2="220"/><line x1="70" y1="280" x2="760" y2="280"/>
+        </g>
+        <text x="58" y="44" text-anchor="end">110</text><text x="58" y="104" text-anchor="end">100</text><text x="58" y="164" text-anchor="end">90</text><text x="58" y="224" text-anchor="end">80</text><text x="58" y="284" text-anchor="end">70</text>
+        <g fill="#B5BAC2" text-anchor="middle" font-size="14">
+          <text x="90" y="304">Nov</text><text x="200" y="304">Dec</text><text x="310" y="304">Jan</text><text x="420" y="304">Feb</text><text x="530" y="304">Mar</text><text x="640" y="304">Apr</text><text x="750" y="304">May</text>
+        </g>
+        <polyline fill="none" stroke="#8B919B" stroke-width="2.5" stroke-dasharray="7 6" points="90,226 200,214 310,208 420,196 530,190 640,190 750,190"/>
+        <g fill="#8B919B"><circle cx="200" cy="214" r="4"/><circle cx="310" cy="208" r="4"/><circle cx="420" cy="196" r="4"/><circle cx="530" cy="190" r="4"/><circle cx="640" cy="190" r="4"/><circle cx="750" cy="190" r="4"/></g>
+        <polyline fill="none" stroke="#F4F262" stroke-width="4" stroke-linejoin="round" points="90,226 200,214 310,202 420,184 530,160 640,124 750,100"/>
+        <g fill="#F4F262"><circle cx="90" cy="226" r="6" fill="#F4F5F6"/><circle cx="200" cy="214" r="5"/><circle cx="310" cy="202" r="5"/><circle cx="420" cy="184" r="5"/><circle cx="530" cy="160" r="5"/><circle cx="640" cy="124" r="5"/><circle cx="750" cy="100" r="6"/></g>
+        <text x="90" y="250" text-anchor="middle" fill="#F4F5F6" font-weight="700" font-size="15">79</text>
+        <text x="420" y="170" text-anchor="middle" fill="#F4F262" font-weight="700" font-size="16">86</text>
+        <text x="750" y="86" text-anchor="middle" fill="#F4F262" font-weight="800" font-size="18">100</text>
+        <text x="750" y="212" text-anchor="middle" fill="#8B919B" font-weight="700" font-size="16">85</text>
+        <text x="10" y="340" fill="#B5BAC2" font-size="13">Joining</text>
+        <text x="10" y="375" fill="#B5BAC2" font-size="13">Leaving</text>
+        <g text-anchor="middle" font-size="15" fill="#F4F5F6" font-weight="600">
+          <text x="90" y="340">4.7</text><text x="200" y="340">5</text><text x="310" y="340">5</text><text x="420" y="340">6</text><text x="530" y="340">7</text><text x="640" y="340">9</text><text x="750" y="340">7</text>
+        </g>
+        <g text-anchor="middle" font-size="15" fill="#74ED94" font-weight="600">
+          <text x="90" y="375" fill="#F4F5F6">3.9%</text><text x="200" y="375" fill="#F4F5F6">3.9%</text><text x="310" y="375">3.6%</text><text x="420" y="375">3.4%</text><text x="530" y="375">3.2%</text><text x="640" y="375">3.0%</text><text x="750" y="375">3.0%</text>
+        </g>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>Figure 1.</b> Members on a monthly membership at the end of each month, with new members and the share leaving each month underneath. The trend line keeps today's pace (about 4.7 joining and 3 leaving a month) until your 6 free places are full, then stops at about 85. The plan reaches 100 by opening more places and filling them.</figcaption>
+  </figure>
+  <p class="src">Source: your questionnaire, 17 Nov 2026 (79 members, Q16; 14 joined and 9 left in 3 months, Q24; 2 evening and 4 daytime places free, Q58). Money in: 100 members × about £95 average fee = £9,500, plus mum and baby courses (30 places × £60 every 6 weeks, about £1,300 a month) = about £10,800. Plan figures are targets, not forecasts.</p></div></details>
+</section>
+
+<section>
+  <h2>Your 6-month plan has 4 phases. We start with Phase 1</h2>
+  <p class="quote">You wouldn't load a client up before she has her core back. Growing Mpowered works the same way: first the systems, so growth doesn't land on you, then more places and more people starting, then growth through the women you already train.</p>
+  <div class="road">
+    <div class="stop now"><div class="bar"></div><span class="pn">Phase 1 · Now</span><h3>Get it out of your head and onto GrowHQ</h3><p>Roughly months 1 to 2</p></div>
+    <div class="stop"><div class="bar"></div><span class="pn">Phase 2</span><h3>Open more places and fill them</h3><p>Roughly months 2 to 3</p></div>
+    <div class="stop"><div class="bar"></div><span class="pn">Phase 3</span><h3>Grow through your members, and keep mums going back to work</h3><p>Roughly months 4 to 5</p></div>
+    <div class="stop"><div class="bar"></div><span class="pn">Phase 4</span><h3>Hit 100, then set the next goal</h3><p>Roughly month 6</p></div>
+  </div>
+</section>
+
+<section class="ph1">
+  <div class="stack" style="gap:8px"><span class="label yel">Phase 1 · Now · Steps 1 to 5 and your Christmas break · roughly your first 2 months</span><h2>Get it out of your head and onto GrowHQ</h2>
+  <p>Today you send every welcome by hand, book every member's sessions by hand and check in on every trial month by hand. That's 15 to 18 hours a week on top of 15 hours of coaching<sup class="fn"><a href="#s4">4</a></sup>. Grow to 100 like this and you'd be busier, not freer. So the number we track every week in Phase 1 is your admin hours.</p></div>
+  <div class="gauge"><span class="label">The number we track every Monday · your admin hours</span><svg viewBox="0 0 800 110" role="img" aria-label="Your admin hours a week: about 16.5 today, target 11.5 by the week of 4 January">
+<g font-family="Inter, system-ui, sans-serif">
+<rect x="20" y="44" width="760" height="18" rx="9" fill="#2E3238"/>
+<rect x="20" y="44" width="627" height="18" rx="9" fill="#F4F5F6"/>
+<rect x="20" y="44" width="437" height="18" rx="9" fill="#F4F262"/>
+<line x1="20" y1="36" x2="20" y2="70" stroke="#8B919B" stroke-width="2"/>
+<text x="647" y="32" text-anchor="middle" fill="#F4F5F6" font-size="22" font-weight="800">16.5</text>
+<text x="457" y="32" text-anchor="middle" fill="#F4F262" font-size="22" font-weight="800">11.5</text>
+<text x="24" y="32" text-anchor="start" fill="#8B919B" font-size="22" font-weight="800">0</text>
+<text x="647" y="88" text-anchor="middle" fill="#B5BAC2" font-size="14">Today</text>
+<text x="457" y="88" text-anchor="middle" fill="#F4F262" font-size="14">Week of 4 Jan</text>
+<text x="24" y="88" text-anchor="start" fill="#8B919B" font-size="14">Hours a week</text>
+</g></svg><p style="font-size:15px">Your admin hours: every hour you worked last week that wasn't coaching (messages, bookings, social media, emails, meetings). You enter it every Monday. Today's 16.5<sup class="fn"><a href="#s4">4</a></sup> is the middle of your own guess of 15 to 18 (questionnaire, Q42), and your first Monday entry replaces it. Phase 1 is passed once your admin hours are on track to 11.5, and one job has moved off your plate that week, for <strong>2 open weeks in a row</strong>.</p></div>
+  <div class="trio">
+    <div><span class="label yel">Our bet</span><p style="font-size:15px">Your hours go on jobs a system or Gemma could do: welcomes, bookings and trial check-ins. If each one moves to GrowHQ or to Gemma, your admin hours come down, and they go into the new site instead.</p></div>
+    <div><span class="label yel">Input we track every week</span><p style="font-size:15px">Jobs on your hand-over list that have moved to Gemma or GrowHQ, out of all the jobs on the list. Today: 0. Target: every job on the list by Monday 11 January.</p></div>
+    <div><span class="label yel">Output we track every week</span><p style="font-size:15px">Your admin hours a week. Today: about 16.5<sup class="fn"><a href="#s4">4</a></sup>. Target: 11.5 by Monday 11 January.</p></div>
+  </div>
+  <p style="font-size:15px"><strong>If the output doesn't move:</strong> if jobs are moving and your hours haven't dropped in 2 weeks, we look at your time audit and your notes on the week to see where the hours went. Then we change how: a different job, a GrowHQ automation instead of a person, or Gemma's hours used differently. We never just stop handing jobs over.</p>
+  <div class="tiles">
+    <div class="tile"><span class="label">Members at the end</span><span class="big">79<span class="to">→</span><span class="g">81</span></span></div>
+    <div class="tile"><span class="label">On GrowHQ</span><span class="big g" style="font-size:20px;font-family:var(--font);font-weight:700">Every member</span><p>Before you close for Christmas. Kenko ends 26 December.</p></div>
+    <div class="tile"><span class="label">Mum and baby courses</span><span class="big g" style="font-size:20px;font-family:var(--font);font-weight:700">A new home</span><p>All 18 mums know where January's course runs by Friday 18 December.</p></div>
+    <div class="tile"><span class="label">Monday check done</span><span class="big g" style="font-size:20px;font-family:var(--font);font-weight:700">Every open week</span><p>Every member who missed her session gets a call.</p></div>
+  </div>
+  <div class="stack"><span class="label">Steps · each step has a bet, an input and an output · tap a step to see what to do</span><div class="weeks">
+<details class="wk"><summary><span class="wn"><span>Step</span><b>1</b></span><span class="wt">Agree the plan, and give Kenko notice by Thursday<small>Your Kenko notice date is Thursday 26 November<sup class="fn"><a href="#s8">8</a></sup>. Miss it and you're locked in for another year.</small><span class="trk">Input: Monday numbers entered. Output: admin hours someone else could do, over half</span></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="wbet"><div><span class="label">Step 1 · The bet</span><p><strong>The bet:</strong> most of your admin is jobs Gemma or GrowHQ could do.</p><p><strong>Input (tracked weekly):</strong> Monday numbers you enter: your hours last week split into coaching and admin, and each admin job with its hours. Today: 0 of 2. Target: 2 of 2 on Monday 30 November, then every Monday.</p><p><strong>Output (tracked weekly):</strong> admin hours someone else could do, out of all your admin hours last week. Today: not counted yet. Target: 8 or more of about 16.5<sup class="fn"><a href="#s4">4</a></sup> (over half) on Monday 30 November.</p><p><strong>If the output doesn't move:</strong> if under half of your admin hours are jobs someone else could do, your hours go on things only you can do, like sales and social media. Then we cut and drop jobs instead of handing them over.</p></div></div><ul class="todo"><li>Go through this plan with me on your coaching call, and write down any questions or doubts.</li><li>Give Kenko notice by Thursday 26 November, so it ends on 26 December. GrowHQ is included in what you pay me now, so there's nothing extra to pay.</li><li>Keep moving your members across in GrowHQ, as you've started.</li><li>On Monday 30 November, write down your hours from the week before, split into coaching and everything else. "Everything else" is your first admin hours number.</li></ul><div class="done"><b>Done when:</b> You know how many of your admin hours a week someone else could do, and your Kenko decision is made.</div></div></details>
+<details class="wk"><summary><span class="wn"><span>Step</span><b>2</b></span><span class="wt">Keep your mum and baby members, and start the Monday check<small>Your mum and baby venue closes at the end of the year, and 18 mums are booked on those courses<sup class="fn"><a href="#s14">14</a></sup>.</small><span class="trk">Input: mums told, Monday list called. Output: mums booked 0 → 18 of 18, members back within 7 days 4 in 5</span></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="wbet"><div><span class="label">Step 2 · Bet 1 · Your mum and baby members</span><p><strong>The bet:</strong> telling all 18 mums where January's course runs, and booking them in before Christmas, means none are lost when the venue closes.</p><p><strong>Input (tracked weekly):</strong> mums told where January's course runs, out of the 18 on courses now<sup class="fn"><a href="#s14">14</a></sup>. Today: 0 of 18. Target: 18 of 18 by Friday 4 December.</p><p><strong>Output (tracked weekly):</strong> mums booked onto January's course, out of 18. Today: 0 of 18. Target: 18 of 18 by Friday 18 December.</p><p><strong>If the output doesn't move:</strong> for every mum who doesn't book by Friday 4 December, Gemma calls her and writes down why. We go through the reasons with you on your next coaching call and decide together what, if anything, changes.</p></div><div><span class="label">Step 2 · Bet 2 · Members who miss a session</span><p><strong>The bet:</strong> a call from Gemma that books the next session brings a member back before she drifts away.</p><p><strong>Input (tracked weekly):</strong> members on the Monday list whom Gemma called, out of everyone on the list. Today: not counted; the first list is on Monday 30 November. Target: 100% every week.</p><p><strong>Output (tracked weekly):</strong> members on the Monday list who came in within 7 days of Gemma's call, out of everyone she called. Today: not counted; the first count is on Monday 7 December. Target: 4 in 5 (80%) every week.</p><p><strong>If the output doesn't move:</strong> if Gemma is calling everyone and fewer than 4 in 5 come back 2 weeks running, she reads back her notes or listens to the recordings, finds out why, and brings them to the group call, where we help her change the call: what she says, when she calls, or the reason to come back.</p></div></div><ul class="todo"><li>Decide where mum and baby courses run from January. Tell all 18 mums at their next class, and book them onto January's course before Christmas.</li><li>Start the Monday check on Monday 30 November. Every Monday, Gemma looks in Kenko (GrowHQ from 14 December) for members who missed their booked session the week before, or haven't been in for 14 days.</li><li>Gemma calls each of them. On the call, she books their next session there and then: a day and a time.</li><li>Gemma owns making sure they come in. She calls the morning of the session to check they're still coming, checks they came, and messages afterwards to congratulate them.</li><li>Gemma records the calls if she can, or writes a few notes on each one: what she said, what they said, and whether they booked. If someone keeps missing, Gemma's recordings and notes are how we find out why.</li><li>Ask your bookkeeper to reconcile your August to October costs in Xero. You need your real profit before you sign for the new site.</li><li><span>When November ends, add up your last 12 months of money in. If it's over £90,000<sup class="fn"><a href="#s10">10</a></sup>, book your accountant to register you for VAT (by 30 December, 30 days after the end of November).</span></li></ul><div class="done"><b>Done when:</b> All 18 mums are booked for January, at least 4 in 5 of the members Gemma called came in within 7 days, and you know whether you need to register for VAT.</div></div></details>
+<details class="wk"><summary><span class="wn"><span>Step</span><b>3</b></span><span class="wt">Find where your week goes, and hand jobs to Gemma<small>You can't free up hours until you know which jobs eat them.</small><span class="trk">Input: jobs Gemma has taken on, 0 → 3 of 3. Output: your admin hours a week</span></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="wbet"><div><span class="label">Step 3 · The bet</span><p><strong>The bet:</strong> handing bookings, welcomes and trial check-ins to Gemma takes those hours off you.</p><p><strong>Input (tracked weekly):</strong> jobs from your hand-over list that Gemma has taken on, out of the 3 (booking sessions, welcomes, trial check-ins). Today: 0 of 3. Target: 3 of 3 by Monday 14 December.</p><p><strong>Output (tracked weekly):</strong> your admin hours a week. Today: about 16.5<sup class="fn"><a href="#s4">4</a></sup>. Target: 16.5 minus the hours those 3 jobs took you, by Monday 14 December. You set the exact number from your time audit by Friday 11 December, and I check it with you.</p><p><strong>If the output doesn't move:</strong> if Gemma has all 3 jobs and your hours haven't dropped in 2 weeks, we look at your notes on the week to see what's still coming to you. Usually members are still messaging you, so you tell them to message Gemma or book in GrowHQ, or hand over a different job.</p></div></div><ul class="todo"><li>Fill in the time audit for one normal week: coaching, admin, messages, social media, meetings.</li><li>Mark each job high or low value, and write your stop, hand over and drop list.</li><li>Agree Gemma's first new jobs. Good ones to start with: booking members' sessions, welcoming new members, and the "happy to continue?" check-in in the 3rd week of each trial month.</li><li>Keep the Monday check going. As a reminder: every Monday, Gemma calls every member who missed their session or hasn't been in for 14 days, books their next session on the call, and checks they came in.</li></ul><div class="done"><b>Done when:</b> Your admin hours last week dropped by the hours of the jobs Gemma took on (you'll see it on your Monday number).</div></div></details>
+<details class="wk"><summary><span class="wn"><span>Step</span><b>4</b></span><span class="wt">Every member, booking and payment on GrowHQ<small>Every member needs to be on GrowHQ before you close on 21 December and Kenko ends on 26 December.</small><span class="trk">Input: home groups set, 0 → 79 of 79. Output: sessions booked by hand, all → 0</span></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="wbet"><div><span class="label">Step 4 · The bet</span><p><strong>The bet:</strong> with home groups set, members' weekly sessions book themselves, so booking by hand stops.</p><p><strong>Input (tracked weekly):</strong> members with a home group set in GrowHQ, out of 79<sup class="fn"><a href="#s1">1</a></sup>. Today: 0 of 79. Target: 79 of 79 by Friday 18 December. GrowHQ counts this.</p><p><strong>Output (tracked weekly):</strong> member sessions booked by hand, out of all member sessions booked last week. Today: all of them<sup class="fn"><a href="#s16">16</a></sup>. Target: 0 by Monday 21 December.</p><p><strong>If the output doesn't move:</strong> if sessions still need booking by hand, you find which members it's happening to and fix their setup before you close. Bring any you're stuck on to the group call or message my team.</p></div></div><ul class="todo"><li>Check every active member is in GrowHQ, with their payments coming through it.</li><li>Give each small group PT member a home group in GrowHQ, so her weekly session books itself. The GrowHQ guide shows you how, and my team answers questions if you get stuck.</li><li>Send every member the GrowHQ message that shows how to book and pay.</li><li><span>Check GrowHQ shows the same numbers as your form: 79 on memberships and 18 on courses<sup class="fn"><a href="#s1">1</a></sup>. From 14 December, GrowHQ fills in members, joiners and leavers automatically.</span></li></ul><div class="done"><b>Done when:</b> No session was booked by hand last week, and missed sessions are no higher than before the move.</div></div></details>
+<details class="wk"><summary><span class="wn"><span>Break</span><b>·</b></span><span class="wt">Christmas closure<small>Kenko ends on 26 December. Nothing else to do.</small><span class="trk">Input: days off messages. Output: hours worked while closed, 0</span></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="wbet"><div><span class="label">Your Christmas break · The bet</span><p><strong>The bet:</strong> GrowHQ runs bookings and payments while you're away, which is your big goal in miniature.</p><p><strong>Input (tracked weekly):</strong> days of the break you stayed off messages, out of all the days you're closed. Target: all of them.</p><p><strong>Output (tracked weekly):</strong> hours you worked while closed. Today: about 33 hours a week<sup class="fn"><a href="#s4">4</a></sup>. Target: 0 hours over the break.</p><p><strong>If the output doesn't move:</strong> if you end up working, write down what pulled you in. That job is first on the list to hand over or automate in January.</p></div></div><ul class="todo"><li>Rest. Don't answer messages: GrowHQ handles bookings and payments.</li><li>On Monday 4 January, tell me how many hours you worked while closed.</li></ul><div class="done"><b>Done when:</b> You worked 0 hours while closed, or you know exactly which job pulled you in.</div></div></details>
+<details class="wk"><summary><span class="wn"><span>Step</span><b>5</b></span><span class="wt">Welcome every new member automatically, and know your profit<small>These are the welcome, PARQ and trial check-in messages you send by hand today.</small><span class="trk">Input: message sequences live, 0 → 2 of 2. Output: new members at their 2nd session, all</span></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="wbet"><div><span class="label">Step 5 · The bet</span><p><strong>The bet:</strong> automatic welcome and trial check-in messages keep new members as well as your hand-sent ones did.</p><p><strong>Input (tracked weekly):</strong> automatic message sequences switched on and rewritten in your words, out of 2 (new member, trial month). Today: 0 of 2. Target: 2 of 2 by Monday 11 January.</p><p><strong>Output (tracked weekly):</strong> new members who came to their 2nd session within 14 days of joining, out of all new members that fortnight. Today: not counted; Gemma's first count is Monday 11 January. Target: all of them every week. And trial members who join at the end of their month stays at 100%<sup class="fn"><a href="#s7">7</a></sup>.</p><p><strong>If the output doesn't move:</strong> if one doesn't come back, Gemma calls her, asks why, and writes it down. We go through it with you on the group call and decide whether to change the messages or add a personal call in her first week.</p></div></div><ul class="todo"><li>Open the new member messages in GrowHQ (welcome, then weeks 1, 2 and 4 of membership, and the survey at 30 days) and read every one.</li><li>Change anything that doesn't sound like you, and attach the right PARQ: general, prenatal or postnatal.</li><li>Do the same for the trial month messages, so the "happy to continue?" check-in in the 3rd week of each trial month goes out by itself.</li><li>Fill in the P&amp;L template with your reconciled August to October numbers, and check your profit against 20%.</li><li>Restart the Monday check on Monday 4 January. Every Monday, Gemma calls every member who missed their session or hasn't been in for 14 days, books their next session, and checks they came in.</li></ul><div class="done"><b>Done when:</b> Every new member in January came to her 2nd session, and your admin hours have been on track to 11.5 a week for 2 open weeks in a row.</div></div></details>
+  </div></div>
+  <div class="trio">
+    <div><span class="label">You report to me every Monday</span><ul><li>Your admin hours last week (hours worked that weren't coaching).</li><li>The job that moved off your plate, and who or what took it.</li><li>The input and output for the step you're on (they're in the yellow box on each step).</li><li>Monday check: how many members missed their session, how many Gemma called, how many booked a session, and how many came in within 7 days.</li><li>New members, members who left, and why. Once you're on GrowHQ, the numbers fill in automatically and you just add the why.</li></ul></div>
+    <div><span class="label">What I'll do</span><ul><li>GrowHQ is included in what you pay me now, at no extra cost.</li><li>Give you the GrowHQ guide for moving members and setting home groups, and answer your questions on it.</li><li>Check your admin hours against the line to 11.5 every Monday, and change how we hand jobs over, with you, if your hours aren't going down.</li></ul></div>
+    <div><span class="label">Checked on the group calls</span><ul><li>Bring your hand-over list, your welcome messages and Gemma's call notes to any group coaching call. A GymGrow coach checks them, and we practise the Monday check call.</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>After Phase 1</h2>
+  <p>Each of these is planned in detail, step by step, once the phase before it is passed. Every phase works the same way: a bet, an input and an output we track every week, and if the output doesn't move in 2 weeks, we change how.</p>
+  <div class="stack">
+    <details class="later"><summary><span class="fno mono yel">PHASE 2</span><span class="ft">Open more places and fill them · roughly months 2 to 3</span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><dl class="kv"><dt>Focus</dt><dd>Add about 4 lunchtime small group PT sessions (16 more places), and fill the new mum and baby term. Call old enquiries and past members who left for reasons that have changed. Make it possible to buy a membership online. Then, from February, run your first ads for small group PT and mum and baby courses, with every enquiry called within one working day.</dd><dt>Our bet</dt><dd>Every woman who started your trial month in the last 3 months became a member<sup class="fn"><a href="#s7">7</a></sup>. So the limit isn't selling, it's places and people starting. More places plus more starts means more members.</dd><dt>Why</dt><dd>You have 6 free places<sup class="fn"><a href="#s6">6</a></sup>, and at today's pace of about 4.7<sup class="fn"><a href="#s3">3</a></sup> joining a month they're full by February. January and a new term are when women look.</dd><dt>Input</dt><dd>Enquiries called within one working day, out of all enquiries. Today: not counted<sup class="fn"><a href="#s15">15</a></sup>. Target: 100% every week. GrowHQ counts this.</dd><dt>Output</dt><dd>Trial months started a week. Today: about 1.1 a week, 14 in 13 weeks<sup class="fn"><a href="#s7">7</a></sup>. Target: 1.5 a week by 28 February. GrowHQ counts this. Once ads are on, also enquiries who book a trial month, out of all enquiries. Target: 3 in 10<sup class="fn"><a href="#s11">11</a></sup>.</dd><dt>Result</dt><dd>86 members by 28 February.</dd></dl></div></details>
+    <details class="later"><summary><span class="fno mono yel">PHASE 3</span><span class="ft">Grow through your members, and keep mums going back to work · roughly months 4 to 5</span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><dl class="kv"><dt>Focus</dt><dd>Ask 5% of members for a friend every week (about 4 women), and every new member straight after she joins. Record each member's return-to-work date, and 4 weeks before it, find her a session time that fits her new week. Choose one extra to offer, such as a 1-1 PT add-on, and offer it to 5 members. If someone still wants to leave, ask why and write it down. Anything we offer her, we'll agree with Lewis first.</dd><dt>Bet 1</dt><dd>Mums talk to mums, so asking every week brings more friends in than a £25 discount waiting to be used. Input: members asked for a friend, out of 5% of members a week (about 4). Target: 4 a week. Output: friends of members booked onto a trial month. Today: not counted. Target: 1 a week by 30 April.</dd><dt>Bet 2</dt><dd>Most members going back to work leave because their session no longer fits, not because they want to stop. Input: mums due back at work in the next 4 weeks who were offered a session time that fits, out of all of them. Target: 100%. Output: members leaving because they went back to work, out of all leavers. Today: not counted, but it's your top reason. Target: 1 or fewer a month by 30 April.</dd><dt>Why</dt><dd>Going back to work after maternity leave is your biggest reason members leave, and the date is known weeks ahead. Your £25 referral scheme gets small uptake<sup class="fn"><a href="#s13">13</a></sup>.</dd><dt>Result</dt><dd>96 members by 30 April, with 3% of members leaving a month.</dd></dl></div></details>
+    <details class="later"><summary><span class="fno mono yel">PHASE 4</span><span class="ft">Hit 100, then set the next goal · roughly month 6</span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><dl class="kv"><dt>Focus</dt><dd>Keep every habit from Phases 1 to 3 running, and lift your weakest number each week. Write down how the new site runs day to day, so anyone can follow it. Then we do your 6-month review and set the next goal, on the way to 120 members and £4,000 a month for you.</dd><dt>Our bet</dt><dd>If the Monday check, the enquiry calls and the weekly friend asks keep running, 100 holds without you doing more.</dd><dt>Why</dt><dd>This is the month the new site should cover its costs and pay you £2,000 a month.</dd><dt>Input</dt><dd>Habits run that week, out of 3: the Monday check, enquiries called within one working day, and friend asks. Target: 3 of 3 every week.</dd><dt>Output</dt><dd>Members leaving, out of all members. Today: 3.9% a month (9 in 3 months)<sup class="fn"><a href="#s3">3</a></sup>. Target: 3% a month by 31 May.</dd><dt>Result</dt><dd>100 members on 31 May.</dd></dl></div></details>
+  </div>
+</section>
+
+<section>
+  <h2>Your choice: who calls your enquiries when ads go on</h2>
+  <p>Ads only work if someone calls every new enquiry within one working day. Ads start in February, so I need your answer by the end of January.</p>
+  <div class="opts">
+    <div class="opt rec"><h3>Option 1: Gemma calls</h3><p>Gemma<sup class="fn"><a href="#s15">15</a></sup> already follows up people who create an account but don't book. She calls every new enquiry within one working day, at a set time each day, books them onto a trial month, and tries each one 2 or 3 times. You stay out of it.</p><p><strong class="yel">No extra cost, but it adds to Gemma's hours</strong></p></div>
+    <div class="opt"><h3>Option 2: a GymGrow setter calls for you</h3><p>A setter calls every enquiry within one working day and books them onto a trial month. It takes calling off both of you. About 3 extra members a month<sup class="fn"><a href="#s12">12</a></sup> cover the cost.</p><p><strong class="yel">£247 a month (up to 20 calls a day)</strong></p></div>
+  </div>
+  <p class="src">Source: your questionnaire, 17 Nov 2026 (Q48 no ads so far, Q50 Gemma follows up new accounts). 3 members × about £95<sup class="fn"><a href="#s12">12</a></sup> = £285 a month.</p>
+</section>
+
+<section>
+  <h2>What I need from you this week</h2>
+  <ol class="asks">
+    <li>Are you giving Kenko notice by Thursday 26 November?</li>
+    <li>Where will your mum and baby courses run from January?</li>
+    <li>Your exact Christmas closure dates, so I can set the weeks around them.</li>
+    <li>When do you expect the new site to open? And does your £7,500 of monthly costs include Kenko and GymGrow?</li>
+    <li><span>Your form says 79 members, and the list in question 17 adds up to 77<sup class="fn"><a href="#s1">1</a></sup>. Which is right? And is 2 sessions a week really £85, the same as once a week?</span></li>
+    <li>Your total money in for November, as soon as the month ends, so we know where you stand on VAT.</li>
+  </ol>
+</section>
+
+<footer>
+  <span class="label">Where every number comes from</span>
+  <ol class="notes"><li id="s1">Members: your questionnaire, Q16 and Q17, 17 Nov 2026. Q16 says 79 on memberships and 18 on course passes; the list in Q17 adds up to 77.</li><li id="s2">Money in: Q19. August to October 2026 averaged £7,937 a month; the 12 months to October came to £86,632.</li><li id="s3">Joining and leaving: Q24, 14 joined and 9 left in the last 3 months. 14 ÷ 3 = about 4.7 joining a month. 9 ÷ 3 months ÷ about 77 members = 3.9% leaving a month.</li><li id="s4">Your hours: Q42, 15 hours coaching and "another 15 to 18 maybe" (your guess). 16.5 is the middle of 15 to 18. Your first Monday entry replaces it.</li><li id="s5">Costs and pay: Q36 to Q39. New site about £7,500 a month plus £1,500 loan repayments = £9,000, plus your £2,047 goal pay (£1,047 salary today, Q39; goal £1,000 salary + £1,000 dividends, Q9) = £11,047 a month.</li><li id="s6">Free places: Q58, 2 evening and 4 daytime places free = 6. 4 lunchtime sessions × 4 places = 16 more (you suggested about 4 on our call, 12 Nov 2026). 6 + 16 = 22.</li><li id="s7">Trial months: Q53 and Q54, every trial starter in the last 3 months became a member. 14 joined in 13 weeks = about 1.1 starts a week.</li><li id="s8">Kenko: Q72 and Q73, about £400 a month; notice by 26 November or you're locked in for another year; ends 26 December.</li><li id="s9">Christmas closure: your message in Slack, 17 Nov 2026 ("we close for 2 weeks over Christmas"). Exact dates to confirm.</li><li id="s10">VAT: gov.uk, "Register for VAT": £90,000 over any 12 months in a row, register within 30 days of the end of that month. I'm not giving tax advice: please check with your accountant.</li><li id="s11">3 in 10: GymGrow gyms with 30+ enquiries a month booked a median 29% of enquiries, August to October 2026. That's bookings for a consultation, so for trial months it's an estimate.</li><li id="s12">Average fee: the memberships in Q17 add up to £7,315 a month across 77 members = about £95 each.</li><li id="s13">Why members leave and referrals: Q25 (going back to work after maternity leave is the biggest reason) and Q14 (£25 off for referrals, small uptake).</li><li id="s14">Mum and baby courses: Q16 and Q57, 18 on course passes across 3 classes of up to 12. The venue closes at the end of 2026 (our call, 12 Nov 2026).</li><li id="s15">Gemma and enquiries: Q50 (Gemma follows up anyone who creates an account but doesn't book) and Q48 (no ads so far).</li><li id="s16">Booking and welcomes by hand: Q29, you or Gemma book every new member's sessions and you send every welcome email and WhatsApp yourself.</li><li id="s17">Unpaid payments: Q32, none unpaid today.</li></ol>
+  <p>Plan figures are targets, not forecasts. The full evidence is in <a href="report/" style="color:var(--yel)">your Growth Report</a>.</p>
+  <p>Prepared by Lewis Clare, GymGrow, 18 November 2026.</p>
+</footer>
+</div>
+</body></html>

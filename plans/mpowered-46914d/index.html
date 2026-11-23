@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head>
 <meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Mpowered Fitness 6-Month Plan</title>
+<title>Mpowered Fitness: Your next 6 weeks</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -169,7 +169,21 @@ sup.fn a{color:var(--muted);text-decoration:none}
 .notes li:target{color:var(--fg)}
 </style>
 
+<style id="gg-tabs-style">
+.gg-tabs{display:flex;gap:8px;max-width:1100px;margin:0 auto;padding:16px 16px 0;font-family:Inter,system-ui,-apple-system,sans-serif;flex-wrap:wrap}
+.gg-tab{flex:0 1 auto;padding:12px 20px;border-radius:999px;border:1px solid #2E3238;background:#1B1D21;color:#E8E8E8;font-weight:600;font-size:16px;text-decoration:none;line-height:1.2}
+.gg-tab[aria-selected="true"]{background:#F4F262;border-color:#F4F262;color:#121417}
+.gg-tab:focus-visible{outline:2px solid #F4F262;outline-offset:2px}
+#gg-report-frame{display:block;width:100%;border:0;min-height:100vh;background:#121417}
+@media (max-width:480px){.gg-tab{flex:1 1 0;text-align:center;padding:12px 6px;font-size:14px;white-space:nowrap}}
+</style>
 </head><body>
+<nav class="gg-tabs" role="tablist" aria-label="Your plan">
+<a class="gg-tab" role="tab" data-tab="plan" href="#plan">Your next 6 weeks</a>
+<a class="gg-tab" role="tab" data-tab="report" href="#report">Your next 6 months</a>
+</nav>
+<div id="gg-plan">
+
 
 <div class="wrap">
 
@@ -386,8 +400,55 @@ sup.fn a{color:var(--muted);text-decoration:none}
 <footer>
   <span class="label">Where every number comes from</span>
   <ol class="notes"><li id="s1">Members: your questionnaire, Q16 and Q17, 17 Nov 2026. Q16 says 79 on memberships and 18 on course passes; the list in Q17 adds up to 77.</li><li id="s2">Money in: Q19. August to October 2026 averaged £7,937 a month; the 12 months to October came to £86,632.</li><li id="s3">Joining and leaving: Q24, 14 joined and 9 left in the last 3 months. 14 ÷ 3 = about 4.7 joining a month. 9 ÷ 3 months ÷ about 77 members = 3.9% leaving a month.</li><li id="s4">Your hours: Q42, 15 hours coaching and "another 15 to 18 maybe" (your guess). 16.5 is the middle of 15 to 18. Your first Monday entry replaces it.</li><li id="s5">Costs and pay: Q36 to Q39. New site about £7,500 a month plus £1,500 loan repayments = £9,000, plus your £2,047 goal pay (£1,047 salary today, Q39; goal £1,000 salary + £1,000 dividends, Q9) = £11,047 a month.</li><li id="s6">Free places: Q58, 2 evening and 4 daytime places free = 6. 4 lunchtime sessions × 4 places = 16 more (you suggested about 4 on our call, 12 Nov 2026). 6 + 16 = 22.</li><li id="s7">Trial months: Q53 and Q54, every trial starter in the last 3 months became a member. 14 joined in 13 weeks = about 1.1 starts a week.</li><li id="s8">Kenko: Q72 and Q73, about £400 a month; notice by 26 November or you're locked in for another year; ends 26 December.</li><li id="s9">Christmas closure: your message in Slack, 17 Nov 2026 ("we close for 2 weeks over Christmas"). Exact dates to confirm.</li><li id="s10">VAT: gov.uk, "Register for VAT": £90,000 over any 12 months in a row, register within 30 days of the end of that month. I'm not giving tax advice: please check with your accountant.</li><li id="s11">Benchmarks: the GymGrow dashboard benchmarks are lead to booking 30%, show rate 50%, close rate 50% and intro to recurring 75%. GymGrow gyms with 30+ enquiries a month booked a median 29% of enquiries, August to October 2026. Those are bookings for a consultation, so for trial months the 30% is an estimate. We don't plan for any rate well above its benchmark.</li><li id="s18">Your sales numbers today: Grow Sales has no Mpowered enquiries yet (checked 20 Nov 2026), so none of the four is counted there. The 100% intro to recurring is from your questionnaire, Q53 and Q54.</li><li id="s12">Average fee: the memberships in Q17 add up to £7,315 a month across 77 members = about £95 each.</li><li id="s13">Why members leave and referrals: Q25 (going back to work after maternity leave is the biggest reason) and Q14 (£25 off for referrals, small uptake).</li><li id="s14">Mum and baby courses: Q16 and Q57, 18 on course passes across 3 classes of up to 12. The venue closes at the end of 2026 (our call, 12 Nov 2026).</li><li id="s15">Gemma and enquiries: Q50 (Gemma follows up anyone who creates an account but doesn't book) and Q48 (no ads so far).</li><li id="s16">Booking and welcomes by hand: Q29, you or Gemma book every new member's sessions and you send every welcome email and WhatsApp yourself.</li><li id="s17">Unpaid payments: Q32, none unpaid today.</li></ol>
-  <p>Plan figures are targets, not forecasts. The full evidence is in <a href="report/" style="color:var(--yel)">your Growth Report</a>.</p>
+  <p>Plan figures are targets, not forecasts. The full evidence is in <a href="#report" style="color:var(--yel)">your Growth Report</a>.</p>
   <p>Prepared by Lewis Clare, GymGrow, 18 November 2026.</p>
 </footer>
 </div>
+</div>
+<div id="gg-report" style="display:none"><iframe id="gg-report-frame" title="Your next 6 months" loading="eager"></iframe></div>
+<script id="gg-tabs-script">
+(function(){
+  var SRC="/plans/mpowered-46914d/report/full.html", PLAN_PATH="/plans/mpowered-46914d/";
+  var T_PLAN="Mpowered Fitness: Your next 6 weeks", T_REP="Mpowered Fitness: Your next 6 months";
+  var plan=document.getElementById('gg-plan'), rep=document.getElementById('gg-report'), fr=document.getElementById('gg-report-frame');
+  var tabs=[].slice.call(document.querySelectorAll('.gg-tab')), ready=false, want=null;
+  function size(){ try{ var d=fr.contentDocument; if(d&&d.body) fr.style.height=Math.max(d.documentElement.scrollHeight,d.body.scrollHeight)+'px'; }catch(e){} }
+  function toAnchor(id){
+    if(!id) return;
+    try{ var el=fr.contentDocument.getElementById(id); if(!el) return;
+      for(var p=el;p;p=p.parentElement){ if(p.tagName==='DETAILS') p.open=true; }
+      size(); window.scrollTo(0, fr.getBoundingClientRect().top+window.pageYOffset+el.getBoundingClientRect().top-12);
+    }catch(e){}
+  }
+  function wire(){
+    var d=fr.contentDocument; if(!d) return;
+    [].slice.call(d.querySelectorAll('a[href]')).forEach(function(a){
+      var raw=a.getAttribute('href'), u; try{ u=new URL(raw, d.baseURI); }catch(e){ return; }
+      if(raw.charAt(0)==='#'){ a.addEventListener('click',function(e){ e.preventDefault(); location.hash='report/'+raw.slice(1); }); }
+      else if(u.origin===location.origin && (u.pathname===PLAN_PATH || u.pathname===PLAN_PATH+'index.html' || u.pathname===PLAN_PATH.slice(0,-1))){
+        a.addEventListener('click',function(e){ e.preventDefault(); location.hash=u.hash?u.hash.slice(1):'plan'; });
+      } else if(!a.target) a.target='_top';
+    });
+    if(window.ResizeObserver) new ResizeObserver(size).observe(d.body);
+    d.addEventListener('toggle',size,true);
+  }
+  fr.addEventListener('load',function(){ ready=true; wire(); size(); setTimeout(size,300); if(want!==null){ toAnchor(want); want=null; } });
+  window.addEventListener('resize',size);
+  function route(first){
+    var h=decodeURIComponent(location.hash.slice(1)), isRep=h==='report'||h.indexOf('report/')===0;
+    plan.style.display=isRep?'none':''; rep.style.display=isRep?'':'none';
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String((t.getAttribute('data-tab')==='report')===isRep)); });
+    document.title=isRep?T_REP:T_PLAN;
+    if(isRep){
+      if(!fr.getAttribute('src')) fr.setAttribute('src',SRC);
+      var id=h.indexOf('report/')===0?h.slice(7):'';
+      if(ready){ size(); if(id) toAnchor(id); else if(!first) window.scrollTo(0,0); } else { want=id||null; if(!first) window.scrollTo(0,0); }
+    } else if(h && h!=='plan'){
+      var el=document.getElementById(h); if(el) el.scrollIntoView();
+    } else if(!first) window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',function(){ route(false); });
+  route(true);
+})();
+</script>
 </body></html>

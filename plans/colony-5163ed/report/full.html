@@ -1,0 +1,338 @@
+<!doctype html><html lang="en"><head>
+<meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The Colony: Your next 6 months</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: a research-report column. Numbered findings, each with evidence, a numbered figure, recommendation and plan link. GymGrow dark brand, one look on purpose. */
+:root{
+  --bg:#121417; --card:#1B1D21; --line:#2E3238; --fg:#F4F5F6; --body:#B5BAC2; --muted:#8B919B;
+  --yel:#F4F262; --grn:#74ED94; --red:#F28B82;
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--body);font-family:var(--font);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:880px;margin:0 auto;padding-block:48px 80px;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{color:var(--fg);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(32px,6vw,46px);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(24px,4vw,30px);font-weight:700;letter-spacing:-.01em}
+h3{font-size:clamp(20px,3vw,24px);font-weight:700;letter-spacing:-.01em}
+p{margin:0}
+.label{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:500}
+.yel{color:var(--yel)} .grn{color:var(--grn)} .red{color:var(--red)} strong{color:var(--fg);font-weight:600}
+.mono{font-family:var(--mono)}
+section{display:flex;flex-direction:column;gap:20px}
+.lead{font-size:19px;color:var(--fg);max-width:68ch}
+header{display:flex;flex-direction:column;gap:16px;border-bottom:1px solid var(--line);padding-bottom:32px}
+.meta{display:flex;flex-wrap:wrap;gap:12px 32px;font-size:15px}
+.meta div{display:flex;flex-direction:column;gap:2px}
+.meta b{color:var(--fg);font-weight:600}
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);color:var(--muted);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.08em;background:var(--card)}
+td{color:var(--body)} td.m{color:var(--yel);font-weight:700;white-space:nowrap} td.n{color:var(--fg);font-weight:600;white-space:nowrap}
+td.id{font-family:var(--mono);color:var(--yel);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+/* findings */
+.finding{border-top:1px solid var(--line);padding-top:32px;display:flex;flex-direction:column;gap:18px}
+.fno{font-family:var(--mono);font-size:13px;color:var(--yel);letter-spacing:.06em}
+.block{display:grid;grid-template-columns:200px 1fr;gap:8px 24px}
+.block>.label{padding-top:4px}
+.block>div{min-width:0;display:flex;flex-direction:column;gap:10px}
+.block.rec>div{color:var(--fg)}
+.fit{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--yel);border-radius:6px;padding:12px 16px;color:var(--fg)}
+ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+li::marker{color:var(--muted)}
+.rec li::marker{color:var(--grn)}
+.src{font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.5}
+.cost{background:#24221A;border:1px solid #4A4724;border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;color:var(--fg);font-size:17px}
+.cost .label{color:var(--yel)}
+.phase{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:18px}
+.phead{display:flex;flex-direction:column;gap:8px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.pm{border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0;color:var(--fg);font-size:16px;background:var(--bg)}
+.pm.res{border-color:var(--grn)} .pm.res .label{color:var(--grn)}
+.phase .block{grid-template-columns:180px 1fr}
+@media (max-width:600px){ .phase{padding:16px} .phase .block{grid-template-columns:1fr} }
+.why{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);padding-top:18px}
+.why>.label{color:var(--yel)}
+.why .finding{border-top:1px dashed var(--line);padding-top:22px;margin-top:18px}
+.why .finding:first-of-type{border-top:0;margin-top:8px;padding-top:0}
+.planhd{border-top:1px solid var(--line);padding-top:18px}
+.planhd .label{color:var(--grn)}
+/* figures */
+figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+figcaption{font-size:14px;color:var(--muted);line-height:1.5}
+figcaption b{font-family:var(--mono);color:var(--fg);font-weight:500}
+.chart{overflow-x:auto}
+.chart svg{display:block;width:100%;height:auto}
+.chart.wide svg{min-width:560px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:15px}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{width:22px;height:0;border-top:4px solid var(--yel)} .sw.t{border-top:3px dashed var(--muted)}
+.callout{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.callout>div{border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:4px}
+.callout .n{font-family:var(--mono);font-size:28px;font-weight:600;color:var(--fg);line-height:1.1}
+.callout .d{font-size:14px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.opt{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.opt.rec{border-color:var(--yel)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px 28px}
+.cols>div{min-width:0;display:flex;flex-direction:column;gap:6px}
+.asks{counter-reset:a;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.asks li{counter-increment:a;display:grid;grid-template-columns:30px 1fr;gap:10px;color:var(--fg)}
+.asks li::before{content:counter(a) ".";color:var(--yel);font-weight:700;font-family:var(--mono)}
+footer{border-top:1px solid var(--line);padding-top:24px;font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:8px}
+@media (max-width:600px){ .block{grid-template-columns:1fr} body{font-size:16px} }
+
+/* v2: training-plan page. Phase 1 zoomed in; detail behind collapsibles. */
+.hero{display:flex;flex-direction:column;gap:20px;border-bottom:1px solid var(--line);padding-bottom:36px}
+.hero h1 em{font-style:normal;color:var(--yel)}
+.track{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:10px}
+.track svg{display:block;width:100%;height:auto}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.tile .big{font-family:var(--mono);font-size:26px;font-weight:600;color:var(--fg);line-height:1.15}
+.tile .big .to{color:var(--muted);font-weight:400;padding:0 4px}
+.tile .big .g{color:var(--yel)}
+.tile p{font-size:14px}
+details{border:1px solid var(--line);border-radius:12px;background:var(--card)}
+details>summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:14px;color:var(--fg);font-weight:600}
+details>summary::-webkit-details-marker{display:none}
+.chev{margin-left:auto;flex:none;width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:transform .2s}
+details[open]>summary .chev{transform:rotate(-135deg)}
+details>summary:focus-visible{outline:2px solid var(--yel);outline-offset:2px;border-radius:12px}
+.fb{padding:4px 18px 20px;display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--line);padding-top:18px}
+.fd .fno{font-family:var(--mono);color:var(--yel);font-size:14px;flex:none}
+.fd .ft{flex:1;min-width:0}
+.tag{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:3px 9px;flex:none;white-space:nowrap}
+.tag{align-self:center;line-height:1.4}
+.tag.p1{color:var(--bg);background:var(--yel);border-color:var(--yel)}
+.stack{display:flex;flex-direction:column;gap:10px}
+.fb .block{grid-template-columns:150px 1fr}
+@media (max-width:600px){.fb .block{grid-template-columns:1fr} .tag{display:none}}
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stop{border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;background:var(--card);position:relative;min-width:0}
+.stop.now{border:2px solid var(--yel);background:#1F2014}
+.stop .pn{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.stop.now .pn{color:var(--yel)}
+.stop h3{font-size:18px}
+.stop p{font-size:14px}
+.bar{height:6px;border-radius:99px;background:var(--line)}
+.stop.now .bar{background:var(--yel)}
+@media (max-width:760px){.road{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.road{grid-template-columns:1fr}}
+/* phase 1 */
+.ph1{border:2px solid var(--yel);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:22px;background:linear-gradient(180deg,#1C1D14 0,var(--bg) 320px)}
+@media (max-width:600px){.ph1{padding:16px}}
+.gauge{display:flex;flex-direction:column;gap:8px}
+.gauge svg{display:block;width:100%;height:auto}
+.weeks{display:flex;flex-direction:column;gap:10px;position:relative}
+.wk>summary{align-items:flex-start}
+.wk .wn{font-family:var(--mono);flex:none;width:58px;display:flex;flex-direction:column;line-height:1.2}
+.wk .wn b{font-size:22px;color:var(--yel);font-weight:600}
+.wk .wn span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.wk .wt{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.wk .wt small{font-weight:400;color:var(--body);font-size:15px}
+.wk .chev{margin-top:10px}
+.todo{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px}
+.todo li{display:grid;grid-template-columns:22px 1fr;gap:10px;color:var(--fg)}
+.todo li::before{content:"";width:16px;height:16px;border:2px solid var(--grn);border-radius:4px;margin-top:4px}
+.done{background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--grn);border-radius:8px;padding:10px 14px;font-size:15px}
+.bet{background:#24221A;border:1px solid #4A4724;border-left:3px solid var(--yel);border-radius:8px;padding:10px 14px;font-size:15px;color:var(--fg);display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.bet b{color:var(--yel)}
+sup.ref{font-size:.6em;line-height:0;vertical-align:super;margin-left:1px}
+sup.ref a{color:var(--yel);text-decoration:none;font-family:var(--mono)}
+.refs{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.refs li::marker{color:var(--yel);font-family:var(--mono)}
+.done b{color:var(--grn);font-weight:600}
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.trio>div{border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px;background:var(--card)}
+.trio .label{color:var(--grn)}
+.trio ul{font-size:15px}
+.quote{font-size:19px;color:var(--fg);border-left:3px solid var(--yel);padding:4px 0 4px 18px;max-width:64ch}
+.later .fb p{font-size:16px}
+.kv{display:grid;grid-template-columns:140px 1fr;gap:6px 16px;font-size:15px}
+.kv dt{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding-top:3px}
+.kv dd{margin:0;color:var(--fg)}
+@media (max-width:600px){.kv{grid-template-columns:1fr}}
+.wt .trk{font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:2px}.wt .trk b{color:var(--yel);font-weight:600}.wt small b.yel{font-weight:600}.betbox{background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--yel);border-radius:8px;padding:12px 14px;margin-bottom:14px;display:flex;flex-direction:column;gap:8px}.betbox p{margin:0;font-size:15px}.betbox .why{color:var(--muted)}.betbox .src{font-size:13px;color:var(--muted)}.trow{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:6px;font-size:15px}sup.fn{font-size:.55em;color:var(--muted);font-weight:500;margin-left:1px;vertical-align:super;line-height:0}.big sup.fn{font-size:.4em}.fnl{margin:6px 0 10px;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--muted)}.betcard{background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--yel);border-radius:10px;padding:14px 16px;margin:0 0 12px;display:flex;flex-direction:column;gap:10px}.betcard .bn{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--yel)}.betcard .bs{margin:0;font-size:17px;font-weight:600;color:var(--fg);line-height:1.4}.bl{border-top:1px solid var(--line);padding-top:8px}.bl .bk{display:block;font-size:13px;color:var(--muted);margin-bottom:2px}.bl p{margin:0;font-size:16px;color:var(--fg);line-height:1.45}.bl p b{color:var(--yel);font-weight:600}.fb>.why{margin:0 0 12px;color:var(--muted);font-size:15px}.fb>.src{font-size:13px;color:var(--muted);margin:0 0 14px}.trow em.kind{display:block;font-style:normal;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}.trow b{color:var(--yel);font-weight:600;text-align:right;flex:none;max-width:45%}</style>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="label">GymGrow · Your Growth Report · The Colony Health &amp; Fitness</span>
+  <h1>Luke, Jake and Conor, here's what's holding The Colony back, and how we get to <em>125 members in Bolton</em></h1>
+  <p class="lead">I studied your starting numbers from 12 November, and your enquiries, bookings and ads in GymGrow from 19 October to 18 November. This page is the evidence. <a href="../" style="color:var(--yel)">Your plan</a> is the step-by-step version: what you do first, and the numbers we track every week.</p>
+  <div class="track"><svg viewBox="0 0 800 120" role="img" aria-label="Bolton members: 96 today, 125 in 6 months, 133 in 12 months">
+<g font-family="Inter, system-ui, sans-serif">
+<rect x="20" y="52" width="760" height="14" rx="7" fill="#2E3238"/>
+<rect x="20" y="52" width="342" height="14" rx="7" fill="#F4F5F6"/>
+<rect x="362" y="52" width="275" height="14" fill="#F4F262"/>
+<line x1="362" y1="40" x2="362" y2="78" stroke="#F4F5F6" stroke-width="2"/>
+<line x1="637" y1="40" x2="637" y2="78" stroke="#F4F262" stroke-width="2"/>
+<line x1="713" y1="40" x2="713" y2="78" stroke="#8B919B" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="362" y="30" text-anchor="middle" fill="#F4F5F6" font-size="22" font-weight="800">96</text>
+<text x="637" y="30" text-anchor="middle" fill="#F4F262" font-size="22" font-weight="800">125</text>
+<text x="713" y="30" text-anchor="start" fill="#8B919B" font-size="22" font-weight="800" dx="8">133</text>
+<text x="362" y="100" text-anchor="middle" fill="#B5BAC2" font-size="14">Today</text>
+<text x="637" y="100" text-anchor="middle" fill="#F4F262" font-size="14">31 May</text>
+<text x="713" y="100" text-anchor="start" fill="#8B919B" font-size="14" dx="8">12 months</text>
+</g></svg></div>
+</header>
+
+<section>
+  <h2>Where you are, and where you want to be</h2>
+  <div class="tiles">
+    <div class="tile"><span class="label">Bolton members, recurring</span><span class="big">96<sup class="fn"><a href="#r3">3</a></sup><span class="to">→</span><span class="g">125</span></span><p>By 31 May. 109 by 28 February covers Holly's wage. 133 in 12 months.</p></div>
+    <div class="tile"><span class="label">Consultations attended a week</span><span class="big">3<sup class="fn"><a href="#r4">4</a></sup><span class="to">→</span><span class="g">6</span></span><p>Both sites, by 31 January. The first number we track every week.</p></div>
+    <div class="tile"><span class="label">Bolton members leaving a month</span><span class="big">2.1%<sup class="fn"><a href="#r4">4</a></sup><span class="to">→</span><span class="g">under 3%</span></span><p>5% or more is a problem. 3% is excellent. You're already there.</p></div>
+    <div class="tile"><span class="label">MRR (monthly recurring revenue)</span><span class="big">£22.5k<sup class="fn"><a href="#r3">3</a></sup><span class="to">→</span><span class="g">£45k</span></span><p>Both sites today. £45k is your big goal: £30k Bolton, £15k Warrington.</p></div>
+    <div class="tile"><span class="label">Profit after the directors' pay</span><span class="big">≈£0<sup class="fn"><a href="#r4">4</a></sup><span class="to">→</span><span class="g">20%</span></span><p>My estimate from your form. Your P&amp;L replaces it. 20% of money in is my target for every facility.</p></div>
+    <div class="tile"><span class="label">Directors' hours on sales a week</span><span class="big">12–15<sup class="fn"><a href="#r3">3</a></sup><span class="to">→</span><span class="g">5</span></span><p>By 31 May, once Holly or a setter takes the enquiry calls.</p></div>
+  </div>
+  <div class="tbl"><table><thead><tr><th>Your sales numbers</th><th>Today</th><th>Benchmark</th></tr></thead><tbody><tr><td><strong>Lead to booking</strong>: of new enquiries, the share who book a consultation</td><td class="n">37% (53 of 143)</td><td class="n">30% ✓</td></tr><tr><td><strong>Show rate</strong>: of booked consultations, the share who turn up</td><td class="n">45% (14 of 31)</td><td class="n">50%</td></tr><tr><td><strong>Close rate</strong>: of people who came, the share who sign up</td><td class="n">21% (3 of 14)</td><td class="n">50%</td></tr><tr><td><strong>Intro to recurring</strong>: of intake starters who finish, the share who join</td><td class="n">65–70% (your estimate)</td><td class="n">75%</td></tr></tbody></table></div>
+  <p class="src">Same names as your GymGrow dashboard. Grow Sales, 19 Oct to 18 Nov 2026, both sites; questionnaire, Q54. Where you're at or above a benchmark, the plan holds it there.</p>
+  <details><summary>How I worked out 125 members<span class="chev" aria-hidden="true"></span></summary><div class="fb">
+  <p>In the last 3 months, 21 people joined in Bolton and 6 left or paused<sup class="fn"><a href="#r3">3</a></sup>: about 7 joining and 2 leaving a month. The plan keeps that pace through winter, when facilities usually slow down, and on less of your time. That's 41 joining and 12 leaving over 6 months: 96 + 41 − 12 = 125. The way to hold the pace is getting more of the enquiries you already pay for into a consultation.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Month</th><th>The result to work towards</th><th>Joining</th><th>Leaving</th><th>Bolton members at month end</th></tr></thead>
+    <tbody>
+      <tr><td class="m">Dec</td><td><strong>Every enquiry called within a working day</strong>, and the Monday check started (Findings 01 to 03, 06)</td><td class="n">5</td><td class="n">2</td><td class="n">99</td></tr>
+      <tr><td class="m">Jan</td><td><strong>6 consultations attended a week</strong>, and a Close rate of 50%, the January intake filled from old enquiries (Findings 01, 04)</td><td class="n">7</td><td class="n">2</td><td class="n">104</td></tr>
+      <tr><td class="m">Feb</td><td><strong>3 in 4 intake starters carry on</strong>, Holly's first weeks (Findings 07, 08)</td><td class="n">7</td><td class="n">2</td><td class="n">109</td></tr>
+      <tr><td class="m">Mar</td><td><strong>Organic content that builds trust</strong>, with no sales posts (Finding 09)</td><td class="n">7</td><td class="n">2</td><td class="n">114</td></tr>
+      <tr><td class="m">Apr</td><td><strong>Members bring friends every week</strong>, and your first local partnership (Finding 09)</td><td class="n">7</td><td class="n">2</td><td class="n">119</td></tr>
+      <tr><td class="m">May</td><td><strong>Your team runs sales from written steps</strong>, then your 6-month review (Finding 08)</td><td class="n">8</td><td class="n">2</td><td class="n grn">125</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">Warrington gets its own line once you send me its member count. Plan figures are targets, not forecasts.</p>
+  </div></details>
+</section>
+
+<section>
+  <h2>What's working, and the 10 things holding The Colony back</h2>
+  <p>A lot already works. Members train 2 to 3 times a week, which is what I look for. Only about 2 in every 100 Bolton members leave a month, so you're already under your 5% goal. 65 to 70% of intake starters become members. Your 6:30 and 7:30 morning classes are close to full, every session is planned in writing, every client has had a measured result in the last 3 months, and you ran 4 member events in 3 months. Your ads bring in about 4 to 5 enquiries a day at about £17 each. The problems sit between the enquiry and the consultation, and in how much of the selling sits with the three of you. Tap any finding to see the evidence.</p>
+  <div class="stack">
+
+<details class="fd"><summary><span class="fno">01</span><span class="ft">Most enquiries never reach a consultation</span><span class="tag p1">Phase 1</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+  <div class="cost"><span class="label">What this costs your goal</span><p>143 enquiries became 14 consultations in 31 days. Today about 3 people a month sign up from a consultation (14 came, Close rate 21%). With 6 consultations a week and Close rate at the 50% benchmark, that's about 13 a month. That's my estimate, not a forecast.</p></div>
+  <div class="block"><span class="label">Evidence</span><div><figure><div class="chart"><svg viewBox="0 0 800 260" role="img" aria-label="Enquiries 143, booked 53, came 14, signed up 6">
+<g font-family="Inter, system-ui, sans-serif" font-size="15">
+<rect x="160" y="20" width="600" height="40" rx="4" fill="#2E3238"/><rect x="160" y="20" width="600" height="40" rx="4" fill="#F4F5F6"/><text x="150" y="46" text-anchor="end" fill="#B5BAC2">Enquiries</text><text x="740" y="46" text-anchor="end" fill="#121417" font-weight="700">143</text>
+<rect x="160" y="80" width="222" height="40" rx="4" fill="#F4F262"/><text x="150" y="106" text-anchor="end" fill="#B5BAC2">Booked</text><text x="392" y="106" fill="#F4F5F6" font-weight="700">53 (37%)</text>
+<rect x="160" y="140" width="59" height="40" rx="4" fill="#F4F262"/><text x="150" y="166" text-anchor="end" fill="#B5BAC2">Came</text><text x="229" y="166" fill="#F4F5F6" font-weight="700">14 (10%)</text>
+<rect x="160" y="200" width="25" height="40" rx="4" fill="#74ED94"/><text x="150" y="226" text-anchor="end" fill="#B5BAC2">Signed up</text><text x="195" y="226" fill="#F4F5F6" font-weight="700">6</text>
+</g></svg></div><figcaption><b>Figure 2.</b> Enquiries to sign-ups, both sites, 19 October to 18 November 2026.</figcaption></figure><ul><li>143 people enquired, 129 of them from your ads. 53 booked a consultation: a Lead to booking of 37% (the share of new enquiries who book), above the 30% benchmark and 14 came (10% of all enquiries).</li><li>You spent about £2,165 on ads in that time, about £155 for each person who came to a consultation.</li><li>127 enquiries are on your board today with no booking.</li></ul></div></div>
+  <p class="src">Source: GymGrow Grow Sales and Meta ads (lead campaigns only), 19 Oct to 18 Nov 2026. £2,165 ÷ 14 = about £155.</p>
+</div></details>
+
+<details class="fd"><summary><span class="fno">02</span><span class="ft">Enquiries wait about a day for a person to call</span><span class="tag p1">Phase 1</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+  <div class="cost"><span class="label">What this costs your goal</span><p>People who wait a day have often booked somewhere else or gone cold. Every enquiry that never gets a call is ad money spent for nothing.</p></div>
+  <div class="block"><span class="label">Evidence</span><div><ul><li>53 of 143 enquiries (37%) spoke to a person within 24 hours. My rule is a call within one working day for every enquiry.</li><li>Of the 99 enquiries a person reached, half waited 20 hours or more for that first call.</li><li>44 of the 143 haven't been reached by a person at all. The automatic message goes out within about a minute, but it doesn't replace a call.</li><li>Your form says enquiries hear from a person within 4 to 5 hours (Q51). GymGrow shows longer. You told me time is the problem, because you're coaching sessions (Q51).</li></ul></div></div>
+  <p class="src">Source: GymGrow Grow Sales, enquiries created 19 Oct to 18 Nov 2026, first call or message from a team member; questionnaire, Q51, 12 Nov 2026.</p>
+</div></details>
+
+<details class="fd"><summary><span class="fno">03</span><span class="ft">Fewer than half of booked people turn up, and a third of outcomes aren't marked</span><span class="tag p1">Phase 1</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+  <div class="cost"><span class="label">What this costs your goal</span><p>17 people booked and didn't come in 31 days. Show rate is 45%, just under the 50% benchmark. The bigger cost is the 13 consultations with no outcome marked: until they are, nobody can see your real Show rate or which ads bring members.</p></div>
+  <div class="block"><span class="label">Evidence</span><div><ul><li>44 consultations were due. 14 people came, 17 didn't, and 13 have no outcome marked. Of the 31 with an outcome, 45% came. That's your Show rate (of booked consultations, the share who turn up).</li><li>11 of the 44 (25%) got a call before their consultation.</li><li>10 of the 17 who didn't come got a call afterwards.</li><li>With 13 outcomes not marked, GymGrow can't show you your real show rate or which ads bring members. Marking every outcome fixes that.</li></ul></div></div>
+  <p class="src">Source: GymGrow Grow Sales, consultations due 19 Oct to 18 Nov 2026, both sites. Show rate = 14 came ÷ 31 with an outcome = 45%. Benchmark 50%.</p>
+</div></details>
+
+<details class="fd"><summary><span class="fno">04</span><span class="ft">Warrington books far fewer enquiries than Bolton</span><span class="tag p1">Phase 1</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+  <div class="cost"><span class="label">What this costs your goal</span><p>Your big goal needs £15k MRR from Warrington. Right now its enquiries turn into very few consultations, and I don't yet know how many members it has.</p></div>
+  <div class="block"><span class="label">Evidence</span><div><div class="tbl"><table><thead><tr><th>19 Oct to 18 Nov</th><th>Bolton</th><th>Warrington</th></tr></thead><tbody><tr><td>Enquiries</td><td class="n">88</td><td class="n">55</td></tr><tr><td>Booked a consultation</td><td class="n">38 (43%)</td><td class="n">15 (27%)</td></tr><tr><td>Came to a consultation</td><td class="n">12</td><td class="n">2</td></tr></tbody></table></div><ul><li>Ad spend was close to even between the sites: Bolton £386 and Warrington £389 on the two campaigns live since 11 November.</li><li>Your form gives members for Bolton only (96). Warrington's count is missing.</li></ul></div></div>
+  <p class="src">Source: GymGrow Grow Sales by location, and Meta ads, 19 Oct to 18 Nov 2026. Warrington = both sites minus Bolton.</p>
+</div></details>
+
+<details class="fd"><summary><span class="fno">05</span><span class="ft">Once the four directors are paid, money in and out are about level</span><span class="tag p1">Phase 1</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+  <div class="cost"><span class="label">What this costs your goal</span><p>Your goal is to feel you're getting something back after 4 years, and £4,000 take-home each. My target is 20% profit after all costs, including your pay. On your form's numbers, you're at about 0%.</p></div>
+  <div class="block"><span class="label">Evidence</span><div><ul><li>Costs: £15,000 a month in Bolton and £5,800 in Warrington, before your pay (Q38).</li><li>Directors' pay: 3 × £3,200 in Bolton and 1 × £3,100 in Warrington = £12,700 a month (Q39).</li><li>Total about £33,500 a month, against about £32,300 coming in (£388,000 from October 2025 to October 2026, Q19).</li><li>Rent is £5,104 in Bolton and £1,704 in Warrington (Q36). You said your monthly outgoings are too high (Q13).</li><li>I don't know yet whether £388,000 includes VAT. If it does, the gap is bigger.</li></ul></div></div>
+  <p class="src">Source: questionnaire, Q19 and Q36 to Q39, 12 Nov 2026. This is my estimate. A P&amp;L from your finance sheet replaces it.</p>
+</div></details>
+
+<details class="fd"><summary><span class="fno">06</span><span class="ft">You can't see which members are drifting off</span><span class="tag p1">Phase 1</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+  <div class="cost"><span class="label">What this costs your goal</span><p>Leaving is low today, but you're about to add 29 members in Bolton. Members stop coming before they cancel, and without a list of who's stopped, you find out when they ask to leave.</p></div>
+  <div class="block"><span class="label">Evidence</span><div><ul><li>You can't count members not in for 14 days, because some members forget to scan in (Q31).</li><li>Goals aren't tracked in one place: each coach has their own clients (Q34).</li><li>Money is the most common reason members give when they leave (Q25).</li><li>You guess members stay 6 to 12 months (Q28). At 2.1% leaving a month, the average would be closer to 4 years. Class bookings in Glofox will show which is right.</li></ul></div></div>
+  <p class="src">Source: questionnaire, Q24, Q25, Q28, Q31, Q34, 12 Nov 2026. 6 left ÷ 3 months ÷ 96 = 2.1% a month; 1 ÷ 2.1% = about 48 months.</p>
+</div></details>
+
+<details class="fd"><summary><span class="fno">07</span><span class="ft">You said sign-ups after the intake dropped</span><span class="tag">Phase 2</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+  <div class="cost"><span class="label">What this costs your goal</span><p>Each 6-week intake is the cheapest place to win a member: you've already paid to get them in. Intro to recurring (of intake starters who finish, the share who go onto a membership) is 65–70% by your estimate. Getting to the 75% benchmark is about 1 more member from every 10 starters.</p></div>
+  <div class="block"><span class="label">Evidence</span><div><ul><li>You said the sign-up rate after trials dropped quickly (Q14), and that 65 to 70% of intake starters have become members in the last few months (Q54).</li><li>You only sell 2 membership options today, all monthly rolling: £127, £197 and £257 (Q17). You plan to add contracts in the New Year.</li><li>Your intake already has week 3 and week 6 coaching calls (Q29), which is the right place for the conversation about carrying on.</li></ul></div></div>
+  <p class="src">Source: questionnaire, Q14, Q17, Q29, Q53, Q54, 12 Nov 2026.</p>
+</div></details>
+
+<details class="fd"><summary><span class="fno">08</span><span class="ft">The selling sits with the three of you</span><span class="tag">Phase 2 and 4</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+  <div class="cost"><span class="label">What this costs your goal</span><p>12 to 15 hours a week of your time goes on sales. Those hours can't go into growing Warrington or fixing costs, and if you're away, sales stop.</p></div>
+  <div class="block"><span class="label">Evidence</span><div><ul><li>You spend 12 to 15 hours a week setting and running sales appointments (Q43), on top of about 39 hours in the business (Q42).</li><li>Sales and coaching calls are the first jobs you'd hand over (Q45). If you were away for two weeks, there would be no sales (Q46).</li><li>None of your main tasks, such as the consultation, are written down step by step (Q61).</li><li>Holly starts at the end of January (Q11).</li></ul></div></div>
+  <p class="src">Source: questionnaire, Q11, Q42 to Q46, Q61, 12 Nov 2026.</p>
+</div></details>
+
+<details class="fd"><summary><span class="fno">09</span><span class="ft">Almost every enquiry comes from ads</span><span class="tag">Phase 3</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+  <div class="cost"><span class="label">What this costs your goal</span><p>129 of your 143 enquiries came from ads. Every member costs ad money, and if the ads stop, enquiries stop.</p></div>
+  <div class="block"><span class="label">Evidence</span><div><ul><li>14 enquiries in 31 days came from somewhere other than ads. 7 came from your website last month (Q65).</li><li>You have 0 local partnerships (Q71).</li><li>Your weekly posts include a sales post (Q70). Organic content works best when it builds trust, shows what you stand for and shows what training with you is like. The ads do the selling.</li><li>You post about 20 times a month, mostly coaches and clients (Q67, Q68). That's a strong base.</li></ul></div></div>
+  <p class="src">Source: GymGrow Grow Sales, 19 Oct to 18 Nov 2026; questionnaire, Q65 to Q71, 12 Nov 2026.</p>
+</div></details>
+
+<details class="fd"><summary><span class="fno">10</span><span class="ft">Close rate is 21%, well below the 50% benchmark</span><span class="tag p1">Phase 1</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+  <div class="cost"><span class="label">What this costs your goal</span><p>Close rate is the share of people who came to a consultation and signed up. At 21%, about 3 people a month sign up from 14 consultations. At the 50% benchmark, the same 14 would be 7.</p></div>
+  <div class="block"><span class="label">Evidence</span><div><ul><li>3 of the 14 people who came to a consultation signed up in Grow Sales.</li><li>You use a 7-point sales roadmap (Q55), but it isn't written into a consultation script yet (Q61).</li><li>Some people sign up on the phone before they come in (Q52). If those sign-ups aren't logged in Grow Sales, Close rate looks lower than it is, so logging every sign-up comes first.</li></ul></div></div>
+  <p class="src">Source: GymGrow Grow Sales, 19 Oct to 18 Nov 2026, both sites; questionnaire, Q52, Q55, Q61, 12 Nov 2026. 14 × 50% = 7.</p>
+</div></details>
+
+  </div>
+</section>
+
+<section>
+  <h2>Your roadmap</h2>
+  <p class="quote">You wouldn't put a new client under a heavy bar before they can brace. First we get the people who already enquire through the door and keep the members you have. Then we turn more intake starters into members, build trust beyond the ads, and hand the selling to your team.</p>
+  <div class="road">
+    <div class="stop now"><div class="bar"></div><span class="pn">Phase 1 · Now</span><h3>Enquiries called, booked in and turning up</h3><p>Findings 01 to 06 and 10</p></div>
+    <div class="stop"><div class="bar"></div><span class="pn">Phase 2</span><h3>A 6-week intake that turns starters into members</h3><p>Findings 07 and 08</p></div>
+    <div class="stop"><div class="bar"></div><span class="pn">Phase 3</span><h3>Content that builds trust, and members bringing friends</h3><p>Finding 09</p></div>
+    <div class="stop"><div class="bar"></div><span class="pn">Phase 4</span><h3>Your team runs sales, and you set the next goal</h3><p>Finding 08</p></div>
+  </div>
+  <p>Every step, with what you do and the numbers we track each week, is in <a href="../" style="color:var(--yel)">your plan</a>.</p>
+  <p class="src" style="margin-top:12px"><b>What keeps running:</b> each step in your plan leaves a routine behind (who does it, how often, and the number it keeps up). Once a step is passed, the routine carries on every week. The full list is in <a href="../#keeps" style="color:var(--yel)">your plan</a>.</p>
+  <!-- PLATFORM LINE: switch on (remove "hidden") once Routines is live for clients in GymGrow -->
+  <p class="src" hidden>Each routine is also added to your Routines in GymGrow, so your team can see what's due every week.</p>
+</section>
+
+<section>
+  <h2>What I need from you this week</h2>
+  <ol class="asks">
+    <li>Go through your plan with me, and tell me who calls your enquiries: your team or a GymGrow setter.</li>
+    <li>How many recurring members do you have in Warrington today, and what is each site's MRR?</li>
+    <li>Does your £388,000 for the year include VAT?</li>
+    <li>What will Holly do when she starts, and at which site?</li>
+    <li>Mark the outcome of every consultation in Grow Sales from now on: came, didn't come, joined.</li>
+  </ol>
+  <details><summary>What I'll measure next, once I have your data<span class="chev" aria-hidden="true"></span></summary><div class="fb"><ul>
+    <li>Members with no class booked or attended in 7 days, from Glofox bookings, at each site.</li>
+    <li>Your real profit each month, from your P&amp;L.</li>
+    <li>Which ads bring members, not just enquiries, once every outcome is marked.</li>
+    <li>Your Google reviews, and how long it takes to buy a membership online.</li>
+  </ul></div></details>
+</section>
+
+<footer>
+  <span class="label">Where every number comes from</span>
+  <ol class="notes">
+    <li id="r1">GymGrow Grow Sales, 19 Oct to 18 Nov 2026: 143 enquiries (Bolton 88, Warrington 55; 129 from ads), 53 booked, 14 came, 17 didn't, 13 not marked, 6 sign-ups; 53 reached by a person within 24 hours; 127 with no booking (19 Nov).</li>
+    <li id="r2">Meta ads, lead campaigns only, 19 Oct to 18 Nov 2026: £2,165, 129 leads, about £16.79 each.</li>
+    <li id="r3">Your starting-numbers questionnaire, 12 Nov 2026 (question numbers shown as Q).</li>
+    <li id="r4">My calculations: 14 consultations in 31 days × 7 = about 3 a week. 6 left ÷ 3 months ÷ 96 = 2.1% a month. Profit: £32,300 in − £33,500 out = about −£1,200 a month, about 0%.</li>
+  </ol>
+  <p>Plan figures are targets, not forecasts.</p>
+  <p>Prepared by Lewis Clare, GymGrow, 20 November 2026.</p>
+</footer>
+</div>
+</body></html>

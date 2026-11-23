@@ -1,0 +1,314 @@
+<!doctype html><html lang="en"><head><meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Keep Fit Studios: Your next 6 months</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: a research-report column. Numbered findings, each with evidence, a numbered figure, recommendation and plan link. GymGrow dark brand, one look on purpose. */
+:root{
+  --bg:#121417; --card:#1B1D21; --line:#2E3238; --fg:#F4F5F6; --body:#B5BAC2; --muted:#8B919B;
+  --yel:#F4F262; --grn:#74ED94; --red:#F28B82;
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--body);font-family:var(--font);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:880px;margin:0 auto;padding-block:48px 80px;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{color:var(--fg);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(32px,6vw,46px);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(24px,4vw,30px);font-weight:700;letter-spacing:-.01em}
+h3{font-size:clamp(20px,3vw,24px);font-weight:700;letter-spacing:-.01em}
+p{margin:0}
+.label{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:500}
+.yel{color:var(--yel)} .grn{color:var(--grn)} .red{color:var(--red)} strong{color:var(--fg);font-weight:600}
+.mono{font-family:var(--mono)}
+section{display:flex;flex-direction:column;gap:20px}
+.lead{font-size:19px;color:var(--fg);max-width:68ch}
+header{display:flex;flex-direction:column;gap:16px;border-bottom:1px solid var(--line);padding-bottom:32px}
+.meta{display:flex;flex-wrap:wrap;gap:12px 32px;font-size:15px}
+.meta div{display:flex;flex-direction:column;gap:2px}
+.meta b{color:var(--fg);font-weight:600}
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);color:var(--muted);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.08em;background:var(--card)}
+td{color:var(--body)} td.m{color:var(--yel);font-weight:700;white-space:nowrap} td.n{color:var(--fg);font-weight:600;white-space:nowrap}
+td.id{font-family:var(--mono);color:var(--yel);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+/* findings */
+.finding{border-top:1px solid var(--line);padding-top:32px;display:flex;flex-direction:column;gap:18px}
+.fno{font-family:var(--mono);font-size:13px;color:var(--yel);letter-spacing:.06em}
+.block{display:grid;grid-template-columns:200px 1fr;gap:8px 24px}
+.block>.label{padding-top:4px}
+.block>div{min-width:0;display:flex;flex-direction:column;gap:10px}
+.block.rec>div{color:var(--fg)}
+.fit{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--yel);border-radius:6px;padding:12px 16px;color:var(--fg)}
+ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+li::marker{color:var(--muted)}
+.rec li::marker{color:var(--grn)}
+.src{font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.5}
+.cost{background:#24221A;border:1px solid #4A4724;border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;color:var(--fg);font-size:17px}
+.cost .label{color:var(--yel)}
+.phase{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:18px}
+.phead{display:flex;flex-direction:column;gap:8px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.pm{border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0;color:var(--fg);font-size:16px;background:var(--bg)}
+.pm.res{border-color:var(--grn)} .pm.res .label{color:var(--grn)}
+.phase .block{grid-template-columns:180px 1fr}
+@media (max-width:600px){ .phase{padding:16px} .phase .block{grid-template-columns:1fr} }
+.why{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);padding-top:18px}
+.why>.label{color:var(--yel)}
+.why .finding{border-top:1px dashed var(--line);padding-top:22px;margin-top:18px}
+.why .finding:first-of-type{border-top:0;margin-top:8px;padding-top:0}
+.planhd{border-top:1px solid var(--line);padding-top:18px}
+.planhd .label{color:var(--grn)}
+/* figures */
+figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+figcaption{font-size:14px;color:var(--muted);line-height:1.5}
+figcaption b{font-family:var(--mono);color:var(--fg);font-weight:500}
+.chart{overflow-x:auto}
+.chart svg{display:block;width:100%;height:auto}
+.chart.wide svg{min-width:560px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:15px}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{width:22px;height:0;border-top:4px solid var(--yel)} .sw.t{border-top:3px dashed var(--muted)}
+.callout{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.callout>div{border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:4px}
+.callout .n{font-family:var(--mono);font-size:28px;font-weight:600;color:var(--fg);line-height:1.1}
+.callout .d{font-size:14px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.opt{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.opt.rec{border-color:var(--yel)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px 28px}
+.cols>div{min-width:0;display:flex;flex-direction:column;gap:6px}
+.asks{counter-reset:a;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.asks li{counter-increment:a;display:grid;grid-template-columns:30px 1fr;gap:10px;color:var(--fg)}
+.asks li::before{content:counter(a) ".";color:var(--yel);font-weight:700;font-family:var(--mono)}
+footer{border-top:1px solid var(--line);padding-top:24px;font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:8px}
+@media (max-width:600px){ .block{grid-template-columns:1fr} body{font-size:16px} }
+
+/* v2: training-plan page. Phase 1 zoomed in; detail behind collapsibles. */
+.hero{display:flex;flex-direction:column;gap:20px;border-bottom:1px solid var(--line);padding-bottom:36px}
+.hero h1 em{font-style:normal;color:var(--yel)}
+.track{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:10px}
+.track svg{display:block;width:100%;height:auto}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.tile .big{font-family:var(--mono);font-size:26px;font-weight:600;color:var(--fg);line-height:1.15}
+.tile .big .to{color:var(--muted);font-weight:400;padding:0 4px}
+.tile .big .g{color:var(--yel)}
+.tile p{font-size:14px}
+details{border:1px solid var(--line);border-radius:12px;background:var(--card)}
+details>summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:14px;color:var(--fg);font-weight:600}
+details>summary::-webkit-details-marker{display:none}
+.chev{margin-left:auto;flex:none;width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:transform .2s}
+details[open]>summary .chev{transform:rotate(-135deg)}
+details>summary:focus-visible{outline:2px solid var(--yel);outline-offset:2px;border-radius:12px}
+.fb{padding:4px 18px 20px;display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--line);padding-top:18px}
+.fd .fno{font-family:var(--mono);color:var(--yel);font-size:14px;flex:none}
+.fd .ft{flex:1;min-width:0}
+.tag{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:3px 9px;flex:none;white-space:nowrap}
+.tag{align-self:center;line-height:1.4}
+.tag.p1{color:var(--bg);background:var(--yel);border-color:var(--yel)}
+.stack{display:flex;flex-direction:column;gap:10px}
+.fb .block{grid-template-columns:150px 1fr}
+@media (max-width:600px){.fb .block{grid-template-columns:1fr} .tag{display:none}}
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stop{border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;background:var(--card);position:relative;min-width:0}
+.stop.now{border:2px solid var(--yel);background:#1F2014}
+.stop .pn{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.stop.now .pn{color:var(--yel)}
+.stop h3{font-size:18px}
+.stop p{font-size:14px}
+.bar{height:6px;border-radius:99px;background:var(--line)}
+.stop.now .bar{background:var(--yel)}
+@media (max-width:760px){.road{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.road{grid-template-columns:1fr}}
+/* phase 1 */
+.ph1{border:2px solid var(--yel);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:22px;background:linear-gradient(180deg,#1C1D14 0,var(--bg) 320px)}
+@media (max-width:600px){.ph1{padding:16px}}
+.gauge{display:flex;flex-direction:column;gap:8px}
+.gauge svg{display:block;width:100%;height:auto}
+.weeks{display:flex;flex-direction:column;gap:10px;position:relative}
+.wk>summary{align-items:flex-start}
+.wk .wn{font-family:var(--mono);flex:none;width:58px;display:flex;flex-direction:column;line-height:1.2}
+.wk .wn b{font-size:22px;color:var(--yel);font-weight:600}
+.wk .wn span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.wk .wt{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.wk .wt small{font-weight:400;color:var(--body);font-size:15px}
+.wk .chev{margin-top:10px}
+.todo{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px}
+.todo li{display:grid;grid-template-columns:22px 1fr;gap:10px;color:var(--fg)}
+.todo li::before{content:"";width:16px;height:16px;border:2px solid var(--grn);border-radius:4px;margin-top:4px}
+.done{background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--grn);border-radius:8px;padding:10px 14px;font-size:15px}
+.bet{background:#24221A;border:1px solid #4A4724;border-left:3px solid var(--yel);border-radius:8px;padding:10px 14px;font-size:15px;color:var(--fg);display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.bet b{color:var(--yel)}
+sup.ref{font-size:.6em;line-height:0;vertical-align:super;margin-left:1px}
+sup.ref a{color:var(--yel);text-decoration:none;font-family:var(--mono)}
+.refs{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.refs li::marker{color:var(--yel);font-family:var(--mono)}
+.done b{color:var(--grn);font-weight:600}
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.trio>div{border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px;background:var(--card)}
+.trio .label{color:var(--grn)}
+.trio ul{font-size:15px}
+.quote{font-size:19px;color:var(--fg);border-left:3px solid var(--yel);padding:4px 0 4px 18px;max-width:64ch}
+.later .fb p{font-size:16px}
+.kv{display:grid;grid-template-columns:140px 1fr;gap:6px 16px;font-size:15px}
+.kv dt{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding-top:3px}
+.kv dd{margin:0;color:var(--fg)}
+@media (max-width:600px){.kv{grid-template-columns:1fr}}
+</style>
+
+</head><body>
+
+<div class="wrap">
+
+<header class="hero">
+  <span class="label">GymGrow · Your next 6 months · Keep Fit Studios, Glasgow</span>
+  <h1>Kayleigh, here are the <em>7 things</em> standing between Keep Fit Studios and 64 members</h1>
+  <p class="lead">I went through your starting-numbers questionnaire, your Grow Sales and ads numbers from 1 September to 22 November, your Instagram, your website and your Google listing. This report is the evidence behind <a href="../" style="color:var(--yel)">Your next 6 weeks</a>: what's working, what's holding Keep Fit back, and which phase of the plan fixes each one.</p>
+  <div class="track"><svg viewBox="0 0 800 120" role="img" aria-label="Paying members: 31 today, 64 in 6 months, 90 is the 12-month goal">
+<g font-family="Inter, system-ui, sans-serif">
+<rect x="20" y="52" width="760" height="14" rx="7" fill="#2E3238"/>
+<rect x="20" y="52" width="262" height="14" rx="7" fill="#F4F5F6"/>
+<rect x="282" y="52" width="278" height="14" fill="#F4F262"/>
+<line x1="282" y1="40" x2="282" y2="78" stroke="#F4F5F6" stroke-width="2"/>
+<line x1="560" y1="40" x2="560" y2="78" stroke="#F4F262" stroke-width="2"/>
+<line x1="780" y1="40" x2="780" y2="78" stroke="#8B919B" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="282" y="30" text-anchor="middle" fill="#F4F5F6" font-size="22" font-weight="800">31</text>
+<text x="560" y="30" text-anchor="middle" fill="#F4F262" font-size="22" font-weight="800">64</text>
+<text x="776" y="30" text-anchor="end" fill="#8B919B" font-size="22" font-weight="800">90</text>
+<text x="282" y="100" text-anchor="middle" fill="#B5BAC2" font-size="14">Today</text>
+<text x="560" y="100" text-anchor="middle" fill="#F4F262" font-size="14">31 May</text>
+<text x="776" y="100" text-anchor="end" fill="#8B919B" font-size="14">Your 12-month goal</text>
+</g></svg></div>
+</header>
+
+<section>
+  <h2>Where you are, and where you want to be</h2>
+  <div class="tiles">
+    <div class="tile"><span class="label">Paying members</span><span class="big">31<span class="to">→</span><span class="g">64</span></span><p>Your own 6-month goal, by 31 May. 48 by 28 Feb. 90 is your 12-month goal and 160 your big goal.</p></div>
+    <div class="tile"><span class="label">MRR (monthly recurring revenue)</span><span class="big" style="font-size:18px">£3,578<span class="to">→</span><span class="g">about £6,700</span></span><p>By 31 May: +£3,135 MRR from 33 more members × £95, the price members join on after their 28 days. Your revenue goal is £6,000.</p></div>
+    <div class="tile"><span class="label">Lead to booking</span><span class="big">21%<span class="to">→</span><span class="g">30%</span></span><p>Lead to booking: the share of new leads who book a consultation. 30% is our benchmark. Every week by 31 Jan.</p></div>
+    <div class="tile"><span class="label">Show rate</span><span class="big">46%<span class="to">→</span><span class="g">50%</span></span><p>Show rate: of the consultations with an outcome marked, the share where the person turned up. 50% is our benchmark. Every week by 31 Jan.</p></div>
+    <div class="tile"><span class="label">Close rate</span><span class="big" style="font-size:18px">34% or 74%<span class="to">→</span><span class="g">To check</span></span><p>Close rate: of the women who came to a consultation, the share who signed up. Grow Sales says 34%, your own count says 74%, because not every outcome is marked yet. I'll set the target once 4 weeks of outcomes are marked, by 4 January.</p></div>
+    <div class="tile"><span class="label">Intro to recurring</span><span class="big">92%<span class="to">→</span><span class="g">Hold</span></span><p>Intro to recurring: of the beginners whose 28 days ended, the share who went onto a membership. Well above our 75% benchmark, so we keep it there.</p></div>
+    <div class="tile"><span class="label">Members leaving a month</span><span class="big">About 2<span class="to">→</span><span class="g">2 or fewer</span></span><p>About 6% of 31 members today. Held at 2 or fewer while you grow, that's about 3% at 64 members. 5% or more is a problem, 3% is excellent.</p></div>
+    <div class="tile"><span class="label">First call from a real person</span><span class="big" style="font-size:20px">About 5 days<span class="to">→</span><span class="g">1 working day</span></span><p>How long the middle new lead waits for a call or message from you or your team.</p></div>
+    <div class="tile"><span class="label">Your take-home pay a month</span><span class="big" style="font-size:20px">£750–£1,000<span class="to">→</span><span class="g">£2,000</span></span><p>Your 6-month goal, with £3,000 profit. I'll check both against your P&amp;L once it's in. You've said 35 to 40 hours a week is fine for now.</p></div>
+  </div>
+  <details><summary>How I worked out 64 members<span class="chev" aria-hidden="true"></span></summary><div class="fb"><figure>
+    <div class="legend"><span><i class="sw"></i><strong>The plan</strong></span><span><i class="sw t"></i>If nothing changes</span></div>
+    <div class="chart wide">
+    <svg viewBox="0 0 800 320" role="img" aria-label="Paying members by month: the plan rises from 31 to 64 by May; if nothing changes it reaches about 49.">
+      <g font-family="Inter, system-ui, sans-serif" font-size="13" fill="#8B919B">
+        <g stroke="#2E3238" stroke-width="1">
+          <line x1="70" y1="40" x2="760" y2="40"/><line x1="70" y1="100" x2="760" y2="100"/><line x1="70" y1="160" x2="760" y2="160"/><line x1="70" y1="220" x2="760" y2="220"/><line x1="70" y1="280" x2="760" y2="280"/>
+        </g>
+        <text x="58" y="44" text-anchor="end">70</text><text x="58" y="104" text-anchor="end">60</text><text x="58" y="164" text-anchor="end">50</text><text x="58" y="224" text-anchor="end">40</text><text x="58" y="284" text-anchor="end">30</text>
+        <g fill="#B5BAC2" text-anchor="middle" font-size="14">
+          <text x="90" y="304">Today</text><text x="200" y="304">Dec</text><text x="310" y="304">Jan</text><text x="420" y="304">Feb</text><text x="530" y="304">Mar</text><text x="640" y="304">Apr</text><text x="750" y="304">May</text>
+        </g>
+        <polyline fill="none" stroke="#8B919B" stroke-width="3" stroke-dasharray="7 6" stroke-linejoin="round" points="90,274 200,256 310,238 420,220 530,202 640,184 750,166"/>
+        <text x="750" y="190" text-anchor="middle" fill="#8B919B" font-weight="700" font-size="14">49</text>
+        <polyline fill="none" stroke="#F4F262" stroke-width="4" stroke-linejoin="round" points="90,274 200,244 310,208 420,172 530,136 640,100 750,76"/>
+        <g fill="#F4F262"><circle cx="90" cy="274" r="6" fill="#F4F5F6"/><circle cx="200" cy="244" r="5"/><circle cx="310" cy="208" r="5"/><circle cx="420" cy="172" r="5"/><circle cx="530" cy="136" r="5"/><circle cx="640" cy="100" r="5"/><circle cx="750" cy="76" r="6"/></g>
+        <text x="90" y="262" text-anchor="middle" fill="#F4F5F6" font-weight="700" font-size="15">31</text>
+        <text x="200" y="232" text-anchor="middle" fill="#F4F262" font-weight="700" font-size="14">36</text>
+        <text x="310" y="196" text-anchor="middle" fill="#F4F262" font-weight="700" font-size="14">42</text>
+        <text x="420" y="160" text-anchor="middle" fill="#F4F262" font-weight="700" font-size="16">48</text>
+        <text x="530" y="124" text-anchor="middle" fill="#F4F262" font-weight="700" font-size="14">54</text>
+        <text x="640" y="88" text-anchor="middle" fill="#F4F262" font-weight="700" font-size="14">60</text>
+        <text x="750" y="62" text-anchor="middle" fill="#F4F262" font-weight="800" font-size="18">64</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>Figure 1.</b> Paying members at the end of each month. 64 is your own 6-month goal. About 2 members leave a month, so the plan needs 7 to 8 new members a month. Today you're adding about 5.</figcaption>
+  </figure>
+  <p class="src">Today: 29 adults on a recurring membership + 2 who paid upfront = 31 (questionnaire, question 16). Joining: you counted 15 new members in September to November, about 5 a month (question 24). Leaving: 21 members left from January to November, about 2 a month, or about 6% of 31 (question 24). If nothing changes: +5 joining − 2 leaving = about +3 a month, 31 + 18 = 49 by May.</p>
+  <p class="src">The plan: Dec +7 −2 = 36. Jan +8 −2 = 42. Feb +8 −2 = 48. Mar +8 −2 = 54. Apr +8 −2 = 60. May +6 −2 = 64. That's 45 joining and 12 leaving. December is already well under way: 13 women are in their 28 days right now, and at your 92% rate about 12 of them will join.</p>
+  <p class="src">What Phase 1 could add: about 190 new leads a month. At 21% booking that's about 40 consultations; at 30% it's about 57. At 46% turning up that's about 18 women in front of you; at 50% of 57 it's about 28. With 34% signing up (the Grow Sales figure, the lower of your two) and 92% of beginners joining, 10 more women a month in the room is about 3 more members a month: from about 5 to about 8.</p>
+  <p class="src">MRR: 33 more members × £95 = £3,135. £3,578 + £3,135 = about £6,700 (questions 17 and 18).</p>
+  <div class="tbl"><table>
+    <thead><tr><th>When, roughly</th><th>What we're working on</th><th>The numbers that tell us it's working</th><th>Paying members</th></tr></thead>
+    <tbody>
+      <tr><td class="m">First 3 months<br>(about Dec to Feb)</td><td><strong>Phase 1:</strong> getting your numbers right, then speaking to every new lead within one working day, calling every booked woman the day before, and getting your Instagram posting again.</td><td>Lead to booking: 21% → 30% a week. Show rate: 46% → 50% a week. Intro to recurring: 92%, held.</td><td class="n">31 → 48 by 28 Feb</td></tr>
+      <tr><td class="m">Months 4 to 6<br>(about Mar to May)</td><td><strong>Phase 2:</strong> keeping every member through the summer.<br><strong>Phase 3:</strong> deciding what to do with older prices.<br><strong>Phase 4:</strong> writing your jobs down so Keep Fit runs without you, and setting your next goal.</td><td>Members leaving: about 2 a month → 2 or fewer. Average monthly price per member: about £115, held or up. Your hours: 30–35 a week, with sales and admin handed over one at a time.</td><td class="n grn">64 by 31 May</td></tr>
+    </tbody>
+  </table></div></div></details>
+</section>
+
+<section>
+  <h2>What's working, and the 7 things holding Keep Fit back</h2>
+  <p>A lot already works. Women who start your 28 days stay: 23 of the 25 beginners in the last 3 months became members, and Grow Sales agrees at 92%, far above our 75% benchmark. 13 women are in their 28 days right now. Your ads bring in about 190 leads a month at about £4.90 each, and 449 of 486 new leads got your automatic reply within 5 minutes. Members train 3 to 4 times a week. Every package includes weekly check-ins and nutrition, 25 members have a written goal you track, and you run a member event every quarter. Nobody owes you money and nobody has gone quiet for 14 days. September and October were your two best months of the year. Your website says clearly that you're female-only and child friendly, and you have 5.0 stars from 13 Google reviews. The problems sit in three places: most new leads never hear from a person, the numbers in Grow Sales don't match yours yet, and everything runs through you. Tap any finding to see the evidence.</p>
+  <div class="stack">
+<details class="fd"><summary><span class="fno">01</span><span class="ft">2 in 3 new leads never hear from a real person, and the rest wait about 5 days</span><span class="tag p1">Phase 1</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+    <div class="cost"><span class="label">What this costs your goal</span><p>Lead to booking has fallen to 21%, against our 30% benchmark. Getting it back to 30% is about 17 more consultations a month. If more of those women also turn up (the next point below), that's about 3 more members a month, or about £285 more MRR added every month.</p></div>
+    <div class="block"><span class="label">Evidence</span><div><ul><li>516 new leads came in from 1 September to 22 November. 175 of them (34%) got a call or message from you or your team. The other 341 only got the automatic reply.</li><li>Of the 175, 148 waited more than 24 hours. The middle lead waited about 5 days.</li><li>In the last 7 days, 61 new leads came in and 3 heard from a person.</li><li>446 leads are sitting in Grow Sales with no booking.</li><li>Lead to booking was 39% from June to August, when about 70 leads a month came in. Since September about 190 a month come in, and it's 21% (110 of 516). The ads are working; there are more leads than one person can call.</li><li>You told me leads hear from you within a day, you spend about 10 hours a week on sales, and the only follow-up is a call to anyone who misses their consultation. My rule is a call from a real person within one working day.</li></ul></div></div>
+    <p class="src">Source: Grow Sales, Keep Fit Studios, 1 Sep to 22 Nov 2026 and 10 Jun to 31 Aug 2026; ads, 1 Sep to 22 Nov 2026; questionnaire, questions 43, 47 to 51 and 56. Grow Sales only sees calls and messages sent from the platform. Value: 190 leads × 9% = about 17 more bookings; see "How I worked out 64 members". 3 members × £95 = £285 MRR.</p>
+  </div></details>
+<details class="fd"><summary><span class="fno">02</span><span class="ft">Half of the women who book don't turn up, and almost none get a call first</span><span class="tag p1">Phase 1</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+    <div class="cost"><span class="label">What this costs your goal</span><p>About 20 women a month book a consultation and then don't come in. If half of everyone who books turned up, instead of 46%, that's about 2 more women a month sitting down with you. The more of your leads you book, the bigger that number gets.</p></div>
+    <div class="block"><span class="label">Evidence</span><div><ul><li>Since 1 September, 115 consultations had an outcome marked and 53 women turned up, a show rate of 46% against our 50% benchmark.</li><li>3 of the 125 consultations held got a call the day before (2%). 8 got any call before the consultation (6%).</li><li>2 of the 62 women who missed their consultation got a call afterwards in Grow Sales. You told me you call them at the time of the meeting, so some of these calls may be from your phone, where the platform can't see them.</li><li>Once women are in the room and start the 28 days, they stay: 92% join. The leak is before they arrive.</li></ul></div></div>
+    <p class="src">Source: Grow Sales, Keep Fit Studios, 1 Sep to 22 Nov 2026; questionnaire, question 56. Value: about 42 consultations a month × 4% = about 2 women.</p>
+  </div></details>
+<details class="fd"><summary><span class="fno">03</span><span class="ft">Your numbers and Grow Sales don't agree yet</span><span class="tag p1">Phase 1</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+    <div class="cost"><span class="label">What this costs your goal</span><p>If the starting numbers are wrong, we can't tell whether a step is working, and you can't tell whether the gym pays you. Getting them right is the first step of your plan.</p></div>
+    <div class="block"><span class="label">Evidence</span><div><ul><li>Close rate: you counted 23 women at consultations last month and 17 who joined (74%). Grow Sales shows 41 who came in during October and 5 who signed up (13%). From September to November it shows 21 of 61 (34%). Most of the gap is outcomes that haven't been marked yet.</li><li>New members: 27 women were moved to Member in Grow Sales since 1 September, but only 14 have a membership sale logged. The other 13 have no monthly price, so Grow Sales shows £2,852 of MRR under contract. You gave me £3,578.</li><li>Members: you wrote 29 on a recurring membership. The memberships you listed add up to 32 on a monthly price, plus 2 on a session pack.</li><li>Profit: you told me revenue was about £4,540 a month from August to October and costs are £4,000 to £4,500 without your pay. That leaves £40 to £540, but you pay yourself £750 to £1,000. Your P&amp;L mixes the gym with your teaching and online coaching, so we can't yet see what the gym makes on its own.</li><li>My target for every facility is 20% profit after all costs, including your pay.</li></ul></div></div>
+    <p class="src">Source: Grow Sales, Keep Fit Studios, October 2026 and 1 Sep to 22 Nov 2026, contracted MRR on 23 Nov 2026; questionnaire, questions 16 to 19, 36 to 40 and 49. Revenue: (£4,279 + £4,821 + £4,521) ÷ 3 = about £4,540. £4,540 − £4,500 = £40; £4,540 − £4,000 = £540.</p>
+  </div></details>
+<details class="fd"><summary><span class="fno">04</span><span class="ft">Your Instagram has gone quiet, and recent posts ask people to buy</span><span class="tag p1">Phase 1</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+    <div class="cost"><span class="label">What this costs your goal</span><p>Many of the 190 women a month who see your ad look at your page before they book or turn up. A page that hasn't posted for a month gives them less reason to trust a studio they've never been to. I can't put a number on this one, so I'll measure it through show rate.</p></div>
+    <div class="block"><span class="label">Evidence</span><div><ul><li>I checked @keepfitstudios_glasgow on 23 November: 1,009 followers and 228 posts. The last post on your own page was on 20 October. Since then there's one reel shared with your coach Sophie, on 10 November.</li><li>Two of your last three posts end with a sales ask: "Dm us today" for the 28 days, and "click the link in our bio or send us a message". Your bio ends with "Join us today!". Instagram is for showing women who don't know you yet what Keep Fit stands for and what training there feels like. Your ads do the selling.</li><li>Some posts are notices for members, like "KFS UPDATE!!" and "Save the date: our next event", and one of your highlights is your timetable. Those belong in your members' group chat and the app. A woman who has never been in can't use them.</li><li>Your bio says "Helping people improve strength, fitness and lifestyle". It doesn't say you're female-only, the thing that makes Keep Fit different, even though your website, your ads and your highlights all do.</li><li>The good posts are already there: real members on the pads and lifting, a member's message about her shoulder feeling better, Kaiynat's results, and your women's event photo. Your highlights for female-only training, reviews and events are a strong start.</li><li>You rated your confidence that Instagram brings strangers in as 1 out of 5, and you told me you fell off your content calendar. Social media is one of the first jobs you'd hand over.</li></ul></div></div>
+    <p class="src">Source: Instagram, @keepfitstudios_glasgow, checked 23 Nov 2026 (posts of 13, 17 and 20 Oct and 10 Nov); questionnaire, questions 45 and 66 to 70; ads, 1 Sep to 22 Nov 2026.</p>
+  </div></details>
+<details class="fd"><summary><span class="fno">05</span><span class="ft">This year, as many members left as joined, and 13 left over the summer</span><span class="tag">Phase 2</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+    <div class="cost"><span class="label">What this costs your goal</span><p>Your plan ends in May, right where last year's leaving started. A summer like 2026 would take back about 13 members, two months of growth. Each member kept is worth about £1,000 to you.</p></div>
+    <div class="block"><span class="label">Evidence</span><div><ul><li>From January to November, 21 members joined and 21 left, so the gym stayed the same size.</li><li>13 of the 21 left in May, June and July, while 2 joined. Since September only 2 have left.</li><li>The reasons members gave: moving back to their home town, and in the summer, no time, and then they stopped replying.</li><li>Members cancel by text or email with 14 days' notice. Nobody has a conversation with them first, so there's no chance to fix the real reason.</li><li>You usually notice a member who's gone quiet after about 3 weeks, and send a text. Right now nobody has been away for 14 days.</li><li>The basics that keep members are already in place: weekly check-ins, nutrition, written goals, measured results and a quarterly event.</li></ul></div></div>
+    <p class="src">Source: questionnaire, questions 24 to 35. Value: members stay 8 to 10 months (your guess) × about £115 average = about £1,000. Average: £3,578 MRR ÷ 31 members = about £115.</p>
+  </div></details>
+<details class="fd"><summary><span class="fno">06</span><span class="ft">8 personal training clients are on older prices, £512 a month below today's</span><span class="tag">Phase 3</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+    <div class="cost"><span class="label">What this costs your goal</span><p>£512 a month is about as much MRR as 5 new group members, without any more coaching hours from you.</p></div>
+    <div class="block"><span class="label">Evidence</span><div><ul><li>1-1 PT, 4 sessions a month: today's price is £199. 4 clients pay £140 and 2 pay £160. That's 4 × £59 + 2 × £39 = £314 a month.</li><li>1-1 PT, 2 sessions a week: today's price is £398. 2 clients pay £299. That's 2 × £99 = £198 a month.</li><li>These 9 personal training clients bring in about £1,738 of your £3,578 MRR, and 10 of your hours a week go on 1-1 PT.</li><li>4 members are still on your original £89 monthly membership, and 2 have a discount on the Classic package.</li><li>Personal training is offered only when a member asks.</li></ul></div></div>
+    <p class="src">Source: questionnaire, questions 17, 22 and 60. PT clients' MRR: 4 × £140 + 2 × £160 + 2 × £299 + 1 × £260 = £1,738. The outcome is your decision for each older price (keep it, or move it to today's price at the client's next renewal), not a set rise.</p>
+  </div></details>
+<details class="fd"><summary><span class="fno">07</span><span class="ft">Everything runs through you, and none of it is written down</span><span class="tag">Phase 1 and 4</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+    <div class="cost"><span class="label">What this costs your goal</span><p>Calling 190 leads a month, check-ins, admin, cleaning and 1-1 PT can't all fit in one person's week. Your 12-month goal needs someone helping with admin and sales, and they can only take over what's written down.</p></div>
+    <div class="block"><span class="label">Evidence</span><div><ul><li>Your week: 30 to 35 hours. 15 coaching (10 of them 1-1 PT), 7 to 10 on admin and 10 on sales.</li><li>5 days fully off in the last 12 months.</li><li>You wrote that if you were away for two weeks, members wouldn't get their check-ins: "I'm the go to person for everything."</li><li>None of your main jobs is written down as a step-by-step guide.</li><li>You'd hand over cleaning and social media first. You told me that when things get overwhelming you put them off, and you want a system that helps you face problems head on.</li><li>You have 3 to 4 hours a day for the plan on top of running the gym, so the time is there. The plan gives it an order.</li></ul></div></div>
+    <p class="src">Source: questionnaire, questions 8, 11, 13, 15 and 42 to 46, 60 and 61.</p>
+  </div></details>
+  </div>
+</section>
+
+<section>
+  <h2>Your roadmap</h2>
+  <p class="quote">You'd never put a new member on a heavy bar in her first session. You'd make sure she turns up, then build from there. First we make sure every woman who asks hears from you and comes in. Then we keep members through the summer, sort out older prices, and write your jobs down so Keep Fit runs without you.</p>
+  <div class="road">
+    <div class="stop now"><div class="bar"></div><span class="pn">Phase 1 · Now</span><h3>Turn leads into members</h3><p>Fixes: leads who never hear from you, no-shows, your numbers, your Instagram</p></div>
+    <div class="stop"><div class="bar"></div><span class="pn">Phase 2</span><h3>Keep every member through the summer</h3><p>Fixes: 13 members leaving over the summer</p></div>
+    <div class="stop"><div class="bar"></div><span class="pn">Phase 3</span><h3>Prices that pay for your goal</h3><p>Fixes: PT clients on older prices</p></div>
+    <div class="stop"><div class="bar"></div><span class="pn">Phase 4</span><h3>Make it run without you</h3><p>Fixes: everything running through you</p></div>
+  </div>
+  <p>Every step, with what to do, the number we track each week and what happens if it doesn't move, is in <a href="../" style="color:var(--yel)">Your next 6 weeks</a>.</p>
+  <p>Each step also leaves a routine behind, such as calling every new lead within one working day, the day-before call and the Monday check on quiet members. From now on, these are how Keep Fit runs, so the numbers hold after the plan ends. The full list is under "What keeps running" in your plan.</p>
+  <!-- PLATFORM ROUTINES LINE: remove the hidden attribute once Routines is live for clients -->
+  <p class="src" hidden>Every routine is added to your Routines in the platform, so it's tracked for you each week.</p>
+</section>
+
+<section>
+  <h2>How we work together</h2>
+  <p>You told me you're happy to learn it and do it yourself, so that's how this plan works. Each step in the platform tells you what to do and gives you the template. You build it, and bring it to a group call, where a GymGrow coach checks it with you and we practise the calls. Every Monday I check your numbers, and if one hasn't moved in 2 weeks, I tell you so we can change how you're doing it.</p>
+</section>
+
+<footer>
+  <span class="label">Where every number comes from</span>
+  <p>Keep Fit Studios starting-numbers questionnaire, filled in 17 Nov 2026. Grow Sales and ads, Keep Fit Studios, 1 Sep to 22 Nov 2026, with 10 Jun to 31 Aug 2026 for comparison. I checked your Instagram, website and Google listing on 23 November. Plan figures are targets, not forecasts.</p>
+  <p>Prepared by Lewis Clare, GymGrow, 23 November 2026.</p>
+</footer>
+</div>
+</body></html>

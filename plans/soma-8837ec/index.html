@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head>
 <meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Soma Club Plan</title>
+<title>Soma Club: Your next 6 weeks</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -165,14 +165,28 @@ sup.ref a{color:var(--yel);text-decoration:none;font-family:var(--mono)}
 @media (max-width:600px){.kv{grid-template-columns:1fr}}
 </style>
 
+<style id="gg-tabs-style">
+.gg-tabs{display:flex;gap:8px;max-width:1100px;margin:0 auto;padding:16px 16px 0;font-family:Inter,system-ui,-apple-system,sans-serif;flex-wrap:wrap}
+.gg-tab{flex:0 1 auto;padding:12px 20px;border-radius:999px;border:1px solid #2E3238;background:#1B1D21;color:#E8E8E8;font-weight:600;font-size:16px;text-decoration:none;line-height:1.2}
+.gg-tab[aria-selected="true"]{background:#F4F262;border-color:#F4F262;color:#121417}
+.gg-tab:focus-visible{outline:2px solid #F4F262;outline-offset:2px}
+#gg-report-frame{display:block;width:100%;border:0;min-height:100vh;background:#121417}
+@media (max-width:480px){.gg-tab{flex:1 1 0;text-align:center;padding:12px 6px;font-size:14px;white-space:nowrap}}
+</style>
 </head><body>
+<nav class="gg-tabs" role="tablist" aria-label="Your plan">
+<a class="gg-tab" role="tab" data-tab="plan" href="#plan">Your next 6 weeks</a>
+<a class="gg-tab" role="tab" data-tab="report" href="#report">Your next 6 months</a>
+</nav>
+<div id="gg-plan">
+
 
 <div class="wrap">
 
 <header class="hero">
   <span class="label">GymGrow · Your 6-month plan · Soma Club</span>
   <h1>Ben, Mark and Felix, here's your plan to <em>558 members</em>, step by step</h1>
-  <p class="lead">Ben, you told me this is about building something you're proud of, not just the money. Think of this like a training plan. The goal is set, and the plan is broken into steps. The steps have no dates: you start the next one when the one before is running, so you can't fall behind. Roughly, phases 1 to 3 take the first 3 months, and phase 4 takes months 4 to 6. The full evidence behind every step is in your <a href="report/" style="color:var(--yel)">Growth Report</a>.</p>
+  <p class="lead">Ben, you told me this is about building something you're proud of, not just the money. Think of this like a training plan. The goal is set, and the plan is broken into steps. The steps have no dates: you start the next one when the one before is running, so you can't fall behind. Roughly, phases 1 to 3 take the first 3 months, and phase 4 takes months 4 to 6. The full evidence behind every step is in your <a href="#report" style="color:var(--yel)">Growth Report</a>.</p>
   <div class="track"><svg viewBox="0 0 800 120" role="img" aria-label="Members: 429 today, 558 in 6 months, 650 is the big goal">
 <g font-family="Inter, system-ui, sans-serif">
 <rect x="20" y="52" width="760" height="14" rx="7" fill="#2E3238"/>
@@ -391,11 +405,58 @@ sup.ref a{color:var(--yel);text-decoration:none;font-family:var(--mono)}
     <li id="ref5">GymGrow ads and Grow Sales data, 29 Sep to 9 Nov 2026: 147 enquiries, 27 booked, 6 came in, half waited 47 hours or more for a first call. Ben, 17 Nov 2026: 2 joined, 1 still deciding.</li>
     <li id="ref6">Soma starting-numbers questionnaire, 12 Nov 2026, and call with Lewis, 11 Nov 2026: Ben's hours, about 30 annual members worth about £26k renewing on 1 January, goals.</li>
     <li id="ref7">Soma Club Google listing, checked 14 Nov 2026: 19 reviews, 4.8 stars.</li>
-    <li id="ref8">Plan figures and weekly targets are GymGrow targets and my estimates, not forecasts. The full evidence is in your <a href="report/" style="color:var(--yel)">Growth Report</a>.</li>
+    <li id="ref8">Plan figures and weekly targets are GymGrow targets and my estimates, not forecasts. The full evidence is in your <a href="#report" style="color:var(--yel)">Growth Report</a>.</li>
     <li id="ref9">Calls with Ben: Lewis, 11 Nov 2026 (when ads ran, about 15 came through the door and 3 started the 28-day intro; the fixed intro times put people off), and Tara, November 2026 (the intro programme didn't fit the members coming in).</li>
     <li id="ref10">Soma Grow Sales dashboard, 21 Sep to 19 Nov 2026: lead to booking 18% (27 of 150), show rate 86% (6 of 7), close rate 0 of 6 marked (Ben, 17 Nov 2026: 2 joined, 1 still deciding). Benchmarks are GymGrow's: lead to booking 30%, show rate 50%, close rate 50%, intro to recurring 75%.</li>
   </ol>
   <p>Prepared by Lewis Clare, GymGrow, 18 November 2026.</p>
 </footer>
 </div>
+</div>
+<div id="gg-report" style="display:none"><iframe id="gg-report-frame" title="Your next 6 months" loading="eager"></iframe></div>
+<script id="gg-tabs-script">
+(function(){
+  var SRC="/plans/soma-8837ec/report/full.html", PLAN_PATH="/plans/soma-8837ec/";
+  var T_PLAN="Soma Club: Your next 6 weeks", T_REP="Soma Club: Your next 6 months";
+  var plan=document.getElementById('gg-plan'), rep=document.getElementById('gg-report'), fr=document.getElementById('gg-report-frame');
+  var tabs=[].slice.call(document.querySelectorAll('.gg-tab')), ready=false, want=null;
+  function size(){ try{ var d=fr.contentDocument; if(d&&d.body) fr.style.height=Math.max(d.documentElement.scrollHeight,d.body.scrollHeight)+'px'; }catch(e){} }
+  function toAnchor(id){
+    if(!id) return;
+    try{ var el=fr.contentDocument.getElementById(id); if(!el) return;
+      for(var p=el;p;p=p.parentElement){ if(p.tagName==='DETAILS') p.open=true; }
+      size(); window.scrollTo(0, fr.getBoundingClientRect().top+window.pageYOffset+el.getBoundingClientRect().top-12);
+    }catch(e){}
+  }
+  function wire(){
+    var d=fr.contentDocument; if(!d) return;
+    [].slice.call(d.querySelectorAll('a[href]')).forEach(function(a){
+      var raw=a.getAttribute('href'), u; try{ u=new URL(raw, d.baseURI); }catch(e){ return; }
+      if(raw.charAt(0)==='#'){ a.addEventListener('click',function(e){ e.preventDefault(); location.hash='report/'+raw.slice(1); }); }
+      else if(u.origin===location.origin && (u.pathname===PLAN_PATH || u.pathname===PLAN_PATH+'index.html' || u.pathname===PLAN_PATH.slice(0,-1))){
+        a.addEventListener('click',function(e){ e.preventDefault(); location.hash=u.hash?u.hash.slice(1):'plan'; });
+      } else if(!a.target) a.target='_top';
+    });
+    if(window.ResizeObserver) new ResizeObserver(size).observe(d.body);
+    d.addEventListener('toggle',size,true);
+  }
+  fr.addEventListener('load',function(){ ready=true; wire(); size(); setTimeout(size,300); if(want!==null){ toAnchor(want); want=null; } });
+  window.addEventListener('resize',size);
+  function route(first){
+    var h=decodeURIComponent(location.hash.slice(1)), isRep=h==='report'||h.indexOf('report/')===0;
+    plan.style.display=isRep?'none':''; rep.style.display=isRep?'':'none';
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String((t.getAttribute('data-tab')==='report')===isRep)); });
+    document.title=isRep?T_REP:T_PLAN;
+    if(isRep){
+      if(!fr.getAttribute('src')) fr.setAttribute('src',SRC);
+      var id=h.indexOf('report/')===0?h.slice(7):'';
+      if(ready){ size(); if(id) toAnchor(id); else if(!first) window.scrollTo(0,0); } else { want=id||null; if(!first) window.scrollTo(0,0); }
+    } else if(h && h!=='plan'){
+      var el=document.getElementById(h); if(el) el.scrollIntoView();
+    } else if(!first) window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',function(){ route(false); });
+  route(true);
+})();
+</script>
 </body></html>

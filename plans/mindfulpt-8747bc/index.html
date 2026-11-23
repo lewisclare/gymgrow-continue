@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head>
 <meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Mindful PT Plan</title>
+<title>Mindful PT: Your next 6 weeks</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
@@ -164,7 +164,21 @@ details>summary:focus-visible{outline:2px solid var(--yel);outline-offset:2px;bo
 .wbet b{color:var(--yel);font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;display:block;margin-bottom:2px}
 </style>
 
+<style id="gg-tabs-style">
+.gg-tabs{display:flex;gap:8px;max-width:1100px;margin:0 auto;padding:16px 16px 0;font-family:Inter,system-ui,-apple-system,sans-serif;flex-wrap:wrap}
+.gg-tab{flex:0 1 auto;padding:12px 20px;border-radius:999px;border:1px solid #2E3238;background:#1B1D21;color:#E8E8E8;font-weight:600;font-size:16px;text-decoration:none;line-height:1.2}
+.gg-tab[aria-selected="true"]{background:#F4F262;border-color:#F4F262;color:#121417}
+.gg-tab:focus-visible{outline:2px solid #F4F262;outline-offset:2px}
+#gg-report-frame{display:block;width:100%;border:0;min-height:100vh;background:#121417}
+@media (max-width:480px){.gg-tab{flex:1 1 0;text-align:center;padding:12px 6px;font-size:14px;white-space:nowrap}}
+</style>
 </head><body>
+<nav class="gg-tabs" role="tablist" aria-label="Your plan">
+<a class="gg-tab" role="tab" data-tab="plan" href="#plan">Your next 6 weeks</a>
+<a class="gg-tab" role="tab" data-tab="report" href="#report">Your next 6 months</a>
+</nav>
+<div id="gg-plan">
+
 
 <div class="wrap">
 
@@ -360,8 +374,55 @@ details>summary:focus-visible{outline:2px solid var(--yel);outline-offset:2px;bo
     <li id="fn7">GymGrow Grow Sales dashboard, 21 Sep to 19 Nov 2026, checked 20 Nov: 87 enquiries, 35 booked (lead to booking 40%), 15 of 24 settled consultations attended (show rate 63%), 4 of 16 consultations ended in a sign-up (close rate 25%), 4 intro starts, no intro decisions yet.</li>
     <li id="fn6">My estimate: about 1 extra member a month if nothing changes.</li>
   </ol>
-  <p>The evidence behind each step is in your <a href="/plans/mindfulpt-8747bc/report/" style="color:var(--yel)">Growth Report</a>. Plan figures are targets, not forecasts.</p>
+  <p>The evidence behind each step is in your <a href="#report" style="color:var(--yel)">Growth Report</a>. Plan figures are targets, not forecasts.</p>
   <p>Prepared by Lewis Clare, GymGrow, 18 November 2026.</p>
 </footer>
 </div>
+</div>
+<div id="gg-report" style="display:none"><iframe id="gg-report-frame" title="Your next 6 months" loading="eager"></iframe></div>
+<script id="gg-tabs-script">
+(function(){
+  var SRC="/plans/mindfulpt-8747bc/report/full.html", PLAN_PATH="/plans/mindfulpt-8747bc/";
+  var T_PLAN="Mindful PT: Your next 6 weeks", T_REP="Mindful PT: Your next 6 months";
+  var plan=document.getElementById('gg-plan'), rep=document.getElementById('gg-report'), fr=document.getElementById('gg-report-frame');
+  var tabs=[].slice.call(document.querySelectorAll('.gg-tab')), ready=false, want=null;
+  function size(){ try{ var d=fr.contentDocument; if(d&&d.body) fr.style.height=Math.max(d.documentElement.scrollHeight,d.body.scrollHeight)+'px'; }catch(e){} }
+  function toAnchor(id){
+    if(!id) return;
+    try{ var el=fr.contentDocument.getElementById(id); if(!el) return;
+      for(var p=el;p;p=p.parentElement){ if(p.tagName==='DETAILS') p.open=true; }
+      size(); window.scrollTo(0, fr.getBoundingClientRect().top+window.pageYOffset+el.getBoundingClientRect().top-12);
+    }catch(e){}
+  }
+  function wire(){
+    var d=fr.contentDocument; if(!d) return;
+    [].slice.call(d.querySelectorAll('a[href]')).forEach(function(a){
+      var raw=a.getAttribute('href'), u; try{ u=new URL(raw, d.baseURI); }catch(e){ return; }
+      if(raw.charAt(0)==='#'){ a.addEventListener('click',function(e){ e.preventDefault(); location.hash='report/'+raw.slice(1); }); }
+      else if(u.origin===location.origin && (u.pathname===PLAN_PATH || u.pathname===PLAN_PATH+'index.html' || u.pathname===PLAN_PATH.slice(0,-1))){
+        a.addEventListener('click',function(e){ e.preventDefault(); location.hash=u.hash?u.hash.slice(1):'plan'; });
+      } else if(!a.target) a.target='_top';
+    });
+    if(window.ResizeObserver) new ResizeObserver(size).observe(d.body);
+    d.addEventListener('toggle',size,true);
+  }
+  fr.addEventListener('load',function(){ ready=true; wire(); size(); setTimeout(size,300); if(want!==null){ toAnchor(want); want=null; } });
+  window.addEventListener('resize',size);
+  function route(first){
+    var h=decodeURIComponent(location.hash.slice(1)), isRep=h==='report'||h.indexOf('report/')===0;
+    plan.style.display=isRep?'none':''; rep.style.display=isRep?'':'none';
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String((t.getAttribute('data-tab')==='report')===isRep)); });
+    document.title=isRep?T_REP:T_PLAN;
+    if(isRep){
+      if(!fr.getAttribute('src')) fr.setAttribute('src',SRC);
+      var id=h.indexOf('report/')===0?h.slice(7):'';
+      if(ready){ size(); if(id) toAnchor(id); else if(!first) window.scrollTo(0,0); } else { want=id||null; if(!first) window.scrollTo(0,0); }
+    } else if(h && h!=='plan'){
+      var el=document.getElementById(h); if(el) el.scrollIntoView();
+    } else if(!first) window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',function(){ route(false); });
+  route(true);
+})();
+</script>
 </body></html>

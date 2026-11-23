@@ -163,7 +163,7 @@ sup.ref a{color:var(--yel);text-decoration:none;font-family:var(--mono)}
 .kv dt{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding-top:3px}
 .kv dd{margin:0;color:var(--fg)}
 @media (max-width:600px){.kv{grid-template-columns:1fr}}
-</style>
+sup.fn a::before,sup.ref a::before{content:"["}sup.fn a::after,sup.ref a::after{content:"]"}sup.fn,sup.ref{margin-left:2px}</style>
 
 
 
@@ -195,29 +195,25 @@ sup.ref a{color:var(--yel);text-decoration:none;font-family:var(--mono)}
 <section>
   <h2>Where you are, and where you want to be</h2>
   <div class="tiles">
-    <div class="tile"><span class="label">Paying members</span><span class="big">250<sup class="ref"><a href="#ref1">1</a></sup><span class="to">→</span><span class="g">270</span></span><p>By 31 May. 300 is your 12-month goal.</p></div>
-    <div class="tile"><span class="label">MRR (monthly recurring revenue)</span><span class="big" style="font-size:18px">£18,655<sup class="ref"><a href="#ref1">1</a></sup><span class="to">→</span><span class="g">£20,250</span></span><p>+£1,600 MRR: 20 more members × about £75<sup class="ref"><a href="#ref2">2</a></sup>.</p></div>
-    <div class="tile"><span class="label">Show rate</span><span class="big">45%<sup class="ref"><a href="#ref4">4</a></sup><span class="to">→</span><span class="g">50%</span></span><p>Of booked people whose meeting has an outcome, the share who turned up. Target every week by 31 Jan. 50% is our benchmark. Since 1 Oct it's 30%<sup class="ref"><a href="#ref3">3</a></sup>.</p></div>
-    <div class="tile"><span class="label">Lead to booking</span><span class="big">36%<sup class="ref"><a href="#ref4">4</a></sup><span class="to">→</span><span class="g">Hold</span></span><p>Of new leads, the share who book a meeting. Already above our 30% benchmark, so we keep it at 30% or more.</p></div>
-    <div class="tile"><span class="label">Close rate</span><span class="big">55%<sup class="ref"><a href="#ref3">3</a></sup><span class="to">→</span><span class="g">Hold</span></span><p>Of people who came to a meeting, the share who signed up: 11 of 20 since 1 Oct. Our benchmark is 50%, so we keep it there.</p></div>
-    <div class="tile"><span class="label">Intro to recurring</span><span class="big">5 of 5<sup class="ref"><a href="#ref3">3</a></sup><span class="to">→</span><span class="g">Hold</span></span><p>Of people who finished their intro, the share who went onto a recurring membership. Our benchmark is 75%, so we keep it there.</p></div>
-    <div class="tile"><span class="label">Members leaving a month</span><span class="big">Not yet<span class="to">→</span><span class="g">3%</span></span><p>Not counted yet. Emma counts it from TeamUp by Mon 30 Nov.</p></div>
-    <div class="tile"><span class="label">Your hours a week</span><span class="big">25–30<sup class="ref"><a href="#ref1">1</a></sup><span class="to">→</span><span class="g">20</span></span><p>By 31 May. 10 to 20 is your 12-month goal.</p></div>
-    <div class="tile"><span class="label">Your pay a month</span><span class="big">£2,100<sup class="ref"><a href="#ref1">1</a></sup><span class="to">→</span><span class="g">Hold</span></span><p>For 6 months, as you asked. £5,000 is your 12-month goal.</p></div>
+    <div class="tile"><span class="label">Paying members</span><span class="big">250<span class="to">→</span><span class="g">270</span></span><p>By 31 May. 259 by 28 Feb. 300 is your 12-month goal.</p></div>
+    <div class="tile"><span class="label">MRR (monthly recurring revenue)</span><span class="big" style="font-size:18px">£18,655<span class="to">→</span><span class="g">£20,250</span></span><p>By 31 May: +£1,600 MRR from 20 more members × about £75.</p></div>
+    <div class="tile"><span class="label">Show rate</span><span class="big">45%<span class="to">→</span><span class="g">50%</span></span><p>Of booked people whose meeting has an outcome, the share who turned up. Target every week by 31 Jan. 50% is our benchmark.</p></div>
+    <div class="tile"><span class="label">Lead to booking</span><span class="big">36%<span class="to">→</span><span class="g">Hold</span></span><p>Of new leads, the share who book a meeting. Already above our 30% benchmark, so we keep it at 30% or more.</p></div>
+    <div class="tile"><span class="label">Close rate</span><span class="big">55%<span class="to">→</span><span class="g">Hold</span></span><p>Of people who came to a meeting, the share who signed up: 11 of 20 since 1 Oct. Our benchmark is 50%, so we keep it there.</p></div>
+    <div class="tile"><span class="label">Intro to recurring</span><span class="big">5 of 5<span class="to">→</span><span class="g">Hold</span></span><p>Of people who finished their intro, the share who went onto a recurring membership. Our benchmark is 75%, so we keep it there.</p></div>
+    <div class="tile"><span class="label">Members leaving a month</span><span class="big">Not yet<span class="to">→</span><span class="g">3%</span></span><p>Of paying members, or fewer. Not counted yet: Emma's first count from TeamUp is Mon 30 Nov.</p></div>
+    <div class="tile"><span class="label">Your hours a week</span><span class="big">25–30<span class="to">→</span><span class="g">20</span></span><p>By 31 May. 10 to 20 is your 12-month goal.</p></div>
+    <div class="tile"><span class="label">Your pay a month</span><span class="big">£2,100<span class="to">→</span><span class="g">Hold</span></span><p>You said it can stay the same for 6 months. £5,000 is your 12-month goal.</p></div>
   </div>
   <details><summary>How I worked out 270 members<span class="chev" aria-hidden="true"></span></summary><div class="fb">
     <p>270 is your own 6-month goal, and it's realistic. It's 20 more members in 6 months, about 3 or 4 a month on top of replacing the members who leave. Since 1 October your ads alone have put 5 people onto a membership and 11 into an intro<sup class="ref"><a href="#ref3">3</a></sup>. I can't show a "joining and leaving" trend yet, because the form doesn't have last 3 months' joiners and leavers. Once Emma's TeamUp count is in on Mon 30 Nov, I'll add it.</p>
     <div class="tbl"><table>
-      <thead><tr><th>Month</th><th>The result to work towards</th><th>Why this month</th><th>Members at month end</th></tr></thead>
-      <tbody>
-        <tr><td class="m">Dec</td><td><strong>Every booking gets a call the day before</strong>, and every new lead hears from Emma within one working day (Findings 01, 02)</td><td>Get the people your ads already bring through the door</td><td class="n">252</td></tr>
-        <tr><td class="m">Jan</td><td><strong>50% of booked people turn up</strong> (Finding 01)</td><td>January is when the most people start training</td><td class="n">255</td></tr>
-        <tr><td class="m">Feb</td><td><strong>The Monday check and a first 30 days</strong> for every new member (Finding 03)</td><td>Keep January's new members</td><td class="n">259</td></tr>
-        <tr><td class="m">Mar</td><td><strong>Members asked for a friend every week</strong> (Finding 05)</td><td>Friends of members are your cheapest new members</td><td class="n">262</td></tr>
-        <tr><td class="m">Apr</td><td><strong>A monthly P&amp;L, and your first jobs handed over</strong> (Finding 04)</td><td>So the growth doesn't all land on you</td><td class="n">266</td></tr>
-        <tr><td class="m">May</td><td><strong>270 members</strong>, and you at 20 hours a week (Finding 04)</td><td>Your 6-month goal, ready to set the next one towards 300</td><td class="n grn">270</td></tr>
-      </tbody>
-    </table></div>
+    <thead><tr><th>When, roughly</th><th>What we're working on</th><th>The numbers that tell us it's working</th><th>Paying members</th></tr></thead>
+    <tbody>
+      <tr><td class="m">First 3 months<br>(about Nov to Feb)</td><td><strong>Phase 1:</strong> getting booked people through the door, and speaking to every new lead within one working day.<br><strong>Phase 2:</strong> keeping every member you've got, and giving every new member a goal and a first 30 days.</td><td>Show rate: 45% → 50% a week. Lead to booking: hold at 30% or more (36% today). Paying members not in during the last 7 days: down by a third by 28 Feb. Members in their first 30 days visiting 2+ times a week: 75%.</td><td class="n">250 → 259 by 28 Feb</td></tr>
+      <tr><td class="m">Months 4 to 6<br>(about Mar to May)</td><td><strong>Phase 3:</strong> growing through your members: friends, local partners and Gold upgrades.<br><strong>Phase 4:</strong> handing your non-coaching jobs to the team, a monthly P&amp;L, and setting your next goal.</td><td>New members from referrals: 5 a month by 30 Apr. Your hours: 25–30 → 20 a week. Profit 20% or more after all costs, including your pay.</td><td class="n grn">270 by 31 May</td></tr>
+    </tbody>
+  </table></div>
     <p class="src">Plan figures are targets, not forecasts. Average MRR per member: £18,655 ÷ 250 = about £75.</p>
   </div></details>
 </section>

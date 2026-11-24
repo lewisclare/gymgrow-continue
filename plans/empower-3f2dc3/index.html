@@ -1,0 +1,315 @@
+<!doctype html><html lang="en"><head>
+<meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Empower: Your next 6 weeks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>:root{
+  --bg:#121417; --card:#1B1D21; --card2:#22252A; --line:#2E3238; --fg:#F4F5F6; --body:#C3C8CF; --muted:#8B919B;
+  --yel:#F4F262; --grn:#74ED94;
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--body);font-family:var(--font);font-size:18px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:680px;margin:0 auto;padding:56px 0 96px;display:flex;flex-direction:column;gap:88px}
+h1,h2,h3,h4{color:var(--fg);margin:0;line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(34px,7vw,52px);font-weight:800;letter-spacing:-.025em}
+h1 em{font-style:normal;color:var(--yel)}
+h2{font-size:clamp(26px,5vw,34px);font-weight:800;letter-spacing:-.02em}
+h4{font-size:16px;font-weight:700;margin-top:8px}
+p{margin:0}
+strong,b{color:var(--fg);font-weight:600}
+a{color:var(--yel)}
+section{display:flex;flex-direction:column;gap:20px}
+.sub{font-size:20px;color:var(--body);max-width:56ch}
+
+/* hero */
+.hero{display:flex;flex-direction:column;gap:24px}
+.progress{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.bar{height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--yel);border-radius:99px;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.progress p{font-size:15px;color:var(--muted)}
+.progress p b{color:var(--fg)}
+
+/* choice */
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.opt{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.opt h3{font-size:20px;font-weight:700}
+.opt p{font-size:16px}
+.opt .cost{color:var(--yel);font-weight:600;margin-top:auto}
+@media (max-width:620px){.choice{grid-template-columns:1fr}}
+
+/* steps */
+.steps{display:flex;flex-direction:column;gap:10px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;transition:border-color .2s}
+.step>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:18px 20px}
+.step>summary::-webkit-details-marker{display:none}
+.num{flex:none;width:40px;height:40px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;color:var(--fg);font-weight:700;font-size:17px}
+.num i{font-style:normal}
+.st{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.tt{color:var(--fg);font-weight:600;font-size:18px;line-height:1.3}
+.wk{font-size:14px;color:var(--muted)}
+.now-tag{display:none;font-size:14px;font-weight:700;color:var(--yel)}
+.chev{flex:none;width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);margin:0 4px 4px 0;transition:transform .2s}
+.step[open]>summary .chev{transform:rotate(-135deg);margin:4px 4px 0 0}
+.step.now{border-color:var(--yel)}
+.step.now .now-tag{display:block}
+.step.now .num{border-color:var(--yel);color:var(--yel)}
+.step.done .num{background:var(--grn);border-color:var(--grn);color:var(--bg)}
+.step.done .num i{display:none}
+.step.done .num::after{content:"";width:12px;height:7px;border-left:3px solid var(--bg);border-bottom:3px solid var(--bg);transform:rotate(-45deg) translate(1px,-1px)}
+.step.done .tt{color:var(--body)}
+.body{padding:0 20px 22px 76px;display:flex;flex-direction:column;gap:18px}
+@media (max-width:520px){.body{padding:0 18px 20px}}
+.why{color:var(--body)}
+.todo{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.todo label{display:flex;gap:14px;align-items:flex-start;padding:10px 0;cursor:pointer;color:var(--fg)}
+.todo input{appearance:none;-webkit-appearance:none;flex:none;width:24px;height:24px;margin:1px 0 0;border:2px solid var(--muted);border-radius:7px;display:grid;place-items:center;cursor:pointer;transition:background .15s,border-color .15s}
+.todo input::after{content:"";width:10px;height:5px;border-left:2.5px solid var(--bg);border-bottom:2.5px solid var(--bg);transform:rotate(-45deg) translate(1px,-1px);opacity:0}
+.todo input:checked{background:var(--yel);border-color:var(--yel)}
+.todo input:checked::after{opacity:1}
+.todo input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+.todo input:focus-visible,.mark:focus-visible,summary:focus-visible{outline:2px solid var(--yel);outline-offset:3px}
+.done{background:var(--card2);border-radius:12px;padding:14px 16px;font-size:16px}
+.done b{display:block;color:var(--yel);margin-bottom:2px}
+.mark{align-self:flex-start;font:inherit;font-weight:700;font-size:16px;background:var(--yel);color:var(--bg);border:0;border-radius:14px;padding:13px 20px;cursor:pointer}
+.step.done .mark{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.how{border-top:1px solid var(--line);padding-top:14px}
+.how>summary{cursor:pointer;color:var(--muted);font-size:16px;font-weight:600}
+.how dl{margin:12px 0 0;display:flex;flex-direction:column;gap:12px;font-size:16px}
+.how dt{color:var(--fg);font-weight:600}
+.how dd{margin:2px 0 0}
+
+/* monday number */
+.big{display:flex;align-items:baseline;gap:16px;color:var(--fg);font-weight:800;font-size:clamp(56px,14vw,88px);letter-spacing:-.04em;line-height:1}
+.big span{color:var(--muted);font-size:.5em;font-weight:600}
+.big em{font-style:normal;color:var(--yel)}
+.ends{display:flex;justify-content:space-between;font-size:15px;color:var(--muted);margin-top:-8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.card h3{font-size:18px;font-weight:700}
+.card ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* road */
+.road{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.road::before{content:"";position:absolute;left:12.5%;right:12.5%;top:13px;height:2px;background:var(--line)}
+.road li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;position:relative}
+.road li::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--muted);margin:6px 0}
+.road li.on::before{background:var(--yel);border-color:var(--yel)}
+.road b{font-size:clamp(26px,6vw,34px);font-weight:800;color:var(--fg);line-height:1}
+.road li.on b{color:var(--yel)}
+.road li.first::before{border-color:var(--yel)}
+.road{margin:8px 0}
+.road span{font-size:14px;color:var(--muted);line-height:1.3;max-width:13ch}
+
+/* folds */
+.fold>summary{cursor:pointer;color:var(--fg);font-weight:600}
+.fold ol,.fold ul{margin:12px 0 0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:15px;color:var(--muted)}
+.foot{font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--line);padding-top:28px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.stage{font-size:15px;font-weight:700;color:var(--muted);margin:18px 0 2px 4px;letter-spacing:.01em}
+.steps>.stage:first-child{margin-top:0}
+.pause{background:transparent;border:1px dashed var(--line);border-radius:18px;padding:16px 20px;display:flex;flex-direction:column;gap:6px;font-size:16px}
+.pause b{color:var(--fg)} .pause span{color:var(--muted);font-size:14px} .pause ul{margin:4px 0 0;padding-left:20px}
+.howin{margin-top:12px;display:flex;flex-direction:column;gap:12px;font-size:16px}
+.howin *{font-size:inherit!important}
+.howin div,.howin p,.howin span{display:block;margin:0}
+.howin .bn,.howin .bk,.howin b,.howin strong,.howin .label{color:var(--fg);font-weight:600;font-family:var(--font);text-transform:none;letter-spacing:0}
+.howin .betcard,.howin .wbet,.howin .bet{display:flex;flex-direction:column;gap:10px}
+.howin details summary{color:var(--muted);cursor:pointer}
+.why b{color:var(--fg)}
+.card ul,.card ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.card p{margin:0}
+.fold li span{color:var(--muted)}
+
+.big.long{font-size:clamp(40px,10vw,60px);flex-wrap:wrap;gap:4px 14px}
+.big.long span{font-size:.55em}
+</style>
+<style id="gg-tabs-style">
+.gg-tabs{display:flex;gap:8px;max-width:1100px;margin:0 auto;padding:16px 16px 0;font-family:Inter,system-ui,-apple-system,sans-serif;flex-wrap:wrap}
+.gg-tab{flex:0 1 auto;padding:12px 20px;border-radius:999px;border:1px solid #2E3238;background:#1B1D21;color:#E8E8E8;font-weight:600;font-size:16px;text-decoration:none;line-height:1.2}
+.gg-tab[aria-selected="true"]{background:#F4F262;border-color:#F4F262;color:#121417}
+.gg-tab:focus-visible{outline:2px solid #F4F262;outline-offset:2px}
+#gg-report-frame{display:block;width:100%;border:0;min-height:100vh;background:#121417}
+@media (max-width:480px){.gg-tab{flex:1 1 0;text-align:center;padding:12px 6px;font-size:14px;white-space:nowrap}}
+</style>
+</head><body>
+<nav class="gg-tabs" role="tablist" aria-label="Your plan">
+<a class="gg-tab" role="tab" data-tab="plan" href="#plan">Your next 6 weeks</a>
+<a class="gg-tab" role="tab" data-tab="report" href="#report">Your next 6 months</a>
+</nav>
+<div id="gg-plan">
+<main class="wrap">
+<header class="hero">
+  <h1>Tashan, your plan to <em>80 members</em> by 31 May</h1>
+  <p class="sub">You told me you want to break the cycle of struggle for your kids, and have the freedom to choose what you do each day.</p>
+  <ol class="road"><li class=""><b>48</b><span>paying members today</span></li><li class="first"><b>64</b><span>by 28 Feb</span></li><li class="on"><b>80</b><span>by 31 May, your 6-month goal</span></li><li class=""><b>120</b><span>in 12 months</span></li></ol>
+  <p>Your first steps turn more of your beginners into members. 21 people started your 28 days since 1 September, and 4 of the 9 who finished joined. That's the number with the most room to grow, and January is when most people start. Do one step at a time, roughly one a week, and tick things off as you go.</p>
+  <div class="progress" aria-live="polite"><div class="bar"><i id="pbar"></i></div><p><b id="pcount">0 of 6</b> steps done</p></div>
+</header>
+<section id="steps">
+  <h2>Your 6 steps</h2>
+  <p>Tap a step to see what to do. When you've done it, tap "I've done this step" and the next one opens.</p>
+  <div class="steps">
+<details class="step" id="step-1" data-n="1" open>
+<summary><span class="num" aria-hidden="true"><i>1</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Agree the plan and get your starting numbers right</span><span class="wk">Step 1 · week of Monday 23 Nov</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">Grow Sales says 4 of 5 beginners joined. Your own count is 4 of 9. Every number in this plan needs to start from the real one.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s1t0"><span>Go through this plan together on your plan call.</span></label></li><li><label><input type="checkbox" data-k="s1t1"><span>Go through the welcome steps in the platform.</span></label></li><li><label><input type="checkbox" data-k="s1t2"><span>In Grow Sales, mark an outcome (joined or not) for every beginner whose 28 days have ended. 4 of them have no outcome yet.</span></label></li><li><label><input type="checkbox" data-k="s1t3"><span>Tell me what "2 this month 2 last month" means in your questionnaire: members who left, members who joined, or both.</span></label></li><li><label><input type="checkbox" data-k="s1t4"><span>Tell me whether your goal of 80 members counts adults and youth together, like the 48 today.</span></label></li><li><label><input type="checkbox" data-k="s1t5"><span>Tell me your new single price and contract lengths, and how many of your 36 adults are on it already.</span></label></li><li><label><input type="checkbox" data-k="s1t6"><span>Tell me whether your £3,060 monthly costs include your ad spend, and send me your Google Business link.</span></label></li></ul>
+<p class="done"><b>Done when</b> Every beginner whose 28 days ended has an outcome in Grow Sales, and I have your 5 answers. <b style="color:var(--yel)">From now on, every Monday:</b> mark the outcome of every beginner who finished their 28 days last week.</p>
+<button type="button" class="mark" data-step="1">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>If every beginner's outcome is marked, intro to recurring in Grow Sales shows the real number, and we can tell within 2 weeks whether step 3 is working.</div><div><b>What you count each week:</b>Beginners whose 28 days have ended who have an outcome marked in Grow Sales. Today: 5 of 9. Target: all of them, every Monday.</div><div><b>What it should change:</b><strong>Intro to recurring</strong> in Grow Sales matches your own count. Today: Grow Sales shows 80% (4 of 5), your count is 44% (4 of 9). Target: the same number on Mon 30 Nov.</div><div><b>If it hasn't changed in 2 weeks:</b>If the numbers still don't match on Mon 30 Nov, bring your list of beginners to the Wednesday 1pm Q&amp;A group call and we go through it with you.</div></div></div></details>
+</div></details>
+<details class="step" id="step-2" data-n="2">
+<summary><span class="num" aria-hidden="true"><i>2</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Take the price and dates out of your ads</span><span class="wk">Step 2 · week of Monday 30 Nov</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">3 of your 5 live ads say applications close on dates that have passed: 12 October and 16 November.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s2t0"><span>Switch off the 3 live ads with old dates: "Men · Trainer talking to camera", "Women · Trainer in gym" and "Stop bailing on yourself".</span></label></li><li><label><input type="checkbox" data-k="s2t1"><span>Rewrite them with no price and no dates, using the ad step and template in the platform. Your two newest ads, "Busy people" and "Women's 28 day kickstart", already do this, so use them as the model.</span></label></li><li><label><input type="checkbox" data-k="s2t2"><span>Keep one person and one feeling per ad. Your best ads are mums who put themselves last (70 leads at about £8.50 each) and women who already train and want a new challenge (40 leads at about £8.40).</span></label></li><li><label><input type="checkbox" data-k="s2t3"><span>Bring your new scripts to the Monday 2pm or Friday 2pm ads group call before they go live.</span></label></li><li><label><input type="checkbox" data-k="s2t4"><span>Upload the new ads and put them live.</span></label></li></ul>
+<p class="done"><b>Done when</b> None of your live ads shows a price or a date.</p>
+<button type="button" class="mark" data-step="2">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>People who see no price and no closing date decide after they've spoken to you, not before, so your lead to booking holds as the old ads come off.</div><div><b>What you count each week:</b>Live ads that show a price or a date. Today: 3 of 5 (23 Nov). Target: 0 by Mon 7 Dec.</div><div><b>What it should change:</b><strong>Lead to booking</strong> (the share of new leads who book a consultation). Today: 30% (62 of 206, 1 Sep to 23 Nov), at the 30% we aim for. Target: hold at 30% or more every week. Grow Sales fills this in for you.</div><div><b>If it hasn't changed in 2 weeks:</b>If lead to booking falls under 30% for 2 weeks, bring your ads to the ads group call and we look at which one to change first.</div></div></div></details>
+</div></details>
+<details class="step" id="step-3" data-n="3">
+<summary><span class="num" aria-hidden="true"><i>3</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Show every beginner a measured result at week 3</span><span class="wk">Step 3 · week of Monday 7 Dec</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">Of the 9 beginners who finished their 28 days, 4 joined. Your week-3 review is where they decide, and right now they walk into it without proof it's working.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s3t0"><span>First, pick 2 or 3 simple tests from the first-28-days step and template in the platform, for example a pull-up or push-up progression, a hold and a measurement. Bring them to a group call.</span></label></li><li><label><input type="checkbox" data-k="s3t1"><span>Every beginner does the tests at their 1:1 assessment. Write the scores and the goal they gave you where you keep their plan.</span></label></li><li><label><input type="checkbox" data-k="s3t2"><span>At the week-3 review, retest them and open the review with their result against day 1. Then bring it back to why they started, and talk about joining.</span></label></li><li><label><input type="checkbox" data-k="s3t3"><span>If a beginner misses a session, message or call them the same day and book their next one there and then.</span></label></li><li><label><input type="checkbox" data-k="s3t4"><span>When their 28 days end, mark the outcome in Grow Sales the same week: joined or not.</span></label></li><li><label><input type="checkbox" data-k="s3t5"><span>Call any beginner who doesn't join, and write down why. Any different option you'd offer, agree it with Lewis first.</span></label></li></ul>
+<p class="done"><b>Done when</b> Every week-3 review that week opens with the beginner's retest result. <b style="color:var(--yel)">From now on, this is a routine for every beginner:</b> test at the assessment, retest at week 3.</p>
+<button type="button" class="mark" data-step="3">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>Beginners who see a measured result at their week-3 review, against a test from their assessment, say yes to a membership more often.</div><div><b>What you count each week:</b>Share of the week's week-3 reviews where the beginner was retested and shown their result against day 1. Today: not counted yet, first count the Monday after this step starts. Target: 100% every week.</div><div><b>What it should change:</b><strong>Intro to recurring</strong> (the share of beginners whose 28 days ended who went onto a membership). Today: 44% (4 of 9, your count). Target: 75% by 31 Jan, what we aim for.</div><div><b>If it hasn't changed in 2 weeks:</b>If every review has a retest and intro to recurring hasn't gone up in 2 weeks, read your notes from the beginners who said no, and bring them to the Tuesday 1pm sales group call to rework the review.</div></div></div></details>
+</div></details>
+<details class="step" id="step-4" data-n="4">
+<summary><span class="num" aria-hidden="true"><i>4</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Speak to every new lead within one working day</span><span class="wk">Step 4 · week of Monday 14 Dec</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">Since 1 September, 87 of 184 leads waited more than a day to hear from you. In the last 7 days it was 1 of 12, so keep doing what you changed.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s4t0"><span>Pick two set times every working day to open your calling list in Grow Sales, for example before your first session and after lunch.</span></label></li><li><label><input type="checkbox" data-k="s4t1"><span>Call every new lead within one working day. If they don't answer, send a message and call again the next day.</span></label></li><li><label><input type="checkbox" data-k="s4t2"><span>Book the consultation on the call, within 3 days.</span></label></li><li><label><input type="checkbox" data-k="s4t3"><span>Work through the 113 leads in Grow Sales with no booking yet: one call and one message each, newest first.</span></label></li><li><label><input type="checkbox" data-k="s4t4"><span>Record your calls, or write a note on each one: what was said and whether they booked.</span></label></li></ul>
+<p class="done"><b>Done when</b> Every new lead hears from you within one working day, 2 weeks in a row. <b style="color:var(--yel)">From now on, this is a daily routine:</b> your two calling times, every working day.</p>
+<button type="button" class="mark" data-step="4">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>Leads who hear from a real person within one working day book a consultation more often, so your lead to booking holds at 30% while the ads keep running.</div><div><b>What you count each week:</b>Share of the week's new leads who heard from you by call or message within 24 hours. Today: 53% since 1 September (97 of 184), 92% in the last 7 days (11 of 12). Target: 100% every week.</div><div><b>What it should change:</b><strong>Lead to booking</strong>. Today: 30% (62 of 206). Target: hold at 30% or more every week.</div><div><b>If it hasn't changed in 2 weeks:</b>If you're calling on time and bookings drop in 2 weeks, listen back to your calls or read your notes, and bring them to the Tuesday 1pm sales group call.</div></div></div></details>
+</div></details>
+<details class="step" id="step-5" data-n="5">
+<summary><span class="num" aria-hidden="true"><i>5</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Plan how you'll move every member onto one price</span><span class="wk">Step 5 · week of Monday 4 Jan</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">Members pay well under your list prices today, and affordability is the main reason members leave. You wrote that past price changes caused confusion.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s5t0"><span>Write down every member, what they pay now, and which option of your new price they move to. Start with adults.</span></label></li><li><label><input type="checkbox" data-k="s5t1"><span>From the prices step and template in the platform, write what you'll say to each member: what changes, when, and why.</span></label></li><li><label><input type="checkbox" data-k="s5t2"><span>Bring the list and what you'll say to the Wednesday 1pm Q&amp;A group call, and agree with Lewis anything you'd offer a member who can't afford it.</span></label></li><li><label><input type="checkbox" data-k="s5t3"><span>Pick the date the new price starts for current members, giving them the notice in their membership terms.</span></label></li></ul>
+<p class="done"><b>Done when</b> Every member is on your list with their new option, and what you'll say is checked on a group call.</p>
+<button type="button" class="mark" data-step="5">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>If every member hears about the change from you, face to face or on a call, before it happens, they stay through it.</div><div><b>What you count each week:</b>Members on your list with their new option and a date to talk. Today: 0 of 48. Target: all 48 by Mon 11 Jan.</div><div><b>What it should change:</b>Members who gave notice last week. Today: about 2 a month (your questionnaire, to confirm in step 1). Target: 2 a month or fewer while prices change.</div><div><b>If it hasn't changed in 2 weeks:</b>If the list isn't done in 2 weeks, bring what you have to the Q&amp;A group call and we finish it with you.</div></div></div></details>
+</div></details>
+<details class="step" id="step-6" data-n="6">
+<summary><span class="num" aria-hidden="true"><i>6</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Talk to every member before their price changes</span><span class="wk">Step 6 · week of Monday 11 Jan</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">80 members at today's £77 average is about £6,190 MRR. Your 6-month goal is £10,320 revenue, so what each member pays has to rise.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s6t0"><span>Talk to every member on your list, in person after a session or on a call, before their new price starts. Start with members who've been with you longest.</span></label></li><li><label><input type="checkbox" data-k="s6t1"><span>Ask each one what they're working towards, and what would keep them training with you. Write it down.</span></label></li><li><label><input type="checkbox" data-k="s6t2"><span>If a member says they can't afford it, write down why and bring it to a group call before you offer anything different.</span></label></li><li><label><input type="checkbox" data-k="s6t3"><span>Move each member onto the new price in TeamUp and GoCardless on the date you agreed.</span></label></li><li><label><input type="checkbox" data-k="s6t4"><span>Every Monday, count members moved and members who gave notice.</span></label></li></ul>
+<p class="done"><b>Done when</b> Every member is on your one price, and no more than 2 gave notice that month.</p>
+<button type="button" class="mark" data-step="6">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>Talking to each member first, and asking what they're working towards, keeps them through the change while your average fee rises.</div><div><b>What you count each week:</b>Share of members you've talked to before their price changes. Today: 0 of 48. Target: all of them by 28 Feb.</div><div><b>What it should change:</b>Average monthly fee per adult member. Today: about £95 (£3,408 ÷ 36). Target: your new single price, which you tell me in step 1.</div><div><b>If it hasn't changed in 2 weeks:</b>If more than 2 members give notice in a month, read your notes from those conversations and bring them to the Q&amp;A group call before you talk to anyone else.</div></div></div></details>
+</div></details>
+  </div>
+</section>
+<section id="number">
+  <h2>The one number we check every Monday</h2>
+  <p><strong>Of the beginners whose 28 days ended, how many became members.</strong> Grow Sales counts this for you, as long as you mark every outcome.</p>
+  <div class="big">75% <span>by 31 January</span></div>
+  <div class="bar"><i style="width:59%"></i></div>
+  <div class="ends"><span>Today: 44% (4 of 9)</span><span>Aim: 3 in 4</span></div>
+  <p>If every week-3 review has a retest and this number hasn't gone up in 2 weeks, bring your notes from the beginners who said no to a group call. We'll work out together what to change.</p>
+</section>
+<section id="monday">
+  <h2>Every Monday</h2>
+  <div class="card"><h3>You report to me every Monday</h3><ul><li>Grow Sales fills these in by itself: new leads, lead to booking, show rate, close rate, intro to recurring, and how fast each lead heard from a real person.</li><li>Your part is calling through Grow Sales and marking every outcome: every consultation, and every beginner whose 28 days ended.</li><li>You enter: your number of paying members, and week-3 reviews last week with how many had a retest.</li><li>From step 5: members moved onto your one price, and members who gave notice last week.</li></ul></div><div class="card"><h3>What I&#x27;ll do</h3><ul><li>Every Monday, check your Monday numbers. If a number hasn't moved in 2 weeks, I tell you, and you bring your notes to the next group call.</li></ul></div><div class="card"><h3>Checked on the group calls</h3><ul><li>Bring your new ad scripts, your beginner tests, your call notes, your member list and what you'll say about your new price to the group calls. A GymGrow coach checks them with you.</li></ul></div>
+  <details class="fold"><summary>Habits that keep going after each step</summary><ul><li>Mark the outcome of every beginner who finished their 28 days. <span>You, in Grow Sales, every Monday.</span></li><li>Ads with no price and no dates, one person and one feeling each. <span>You, every new ad.</span></li><li>Test every beginner at their assessment, retest at their week-3 review. <span>You or your coaches, every beginner.</span></li><li>Call every new lead within one working day, at your two set times. <span>You, in Grow Sales, every working day.</span></li><li>Talk to a member before anything about their membership changes. <span>You, every time.</span></li><li>Monday numbers. <span>You, every Monday.</span></li></ul></details>
+</section>
+<section id="next">
+  <h2>After these 6 steps</h2>
+  <p>Next we cut your timetable to the classes members come to, so they're fuller and you coach fewer hours. Your Instagram starts showing your members training and what a first session is like, and you hand your sales calls over. Last, you start a monthly P&amp;L and pay yourself from the gym. That takes you to 80 members by 31 May. I plan each of those in detail once the one before it is working.</p>
+  <p><a href="#report">See your full 6 months, and why each step is in your plan</a></p>
+</section>
+<footer class="foot">
+  <details class="fold"><summary>Where these numbers come from</summary><ol><li>Your starting-numbers questionnaire, filled in 19 Nov 2026: 48 paying members (36 adults, 12 youth), MRR £3,713.71 last month, membership averages (question 17), total costs £3,060 a month, rent £1,600, coaches £500, your pay £3,500 from your youth work, hours (question 42), 35 classes with 2.4 people on average, 19 beginners in the last 3 months with 4 joined and 10 still active, members leaving (question 24), reasons for leaving, goals.</li><li>Grow Sales, 1 Sep to 23 Nov 2026: 206 new leads, 62 booked (30%); 37 of 60 consultations attended (62%); close rate 53% (21 of 40); 21 beginners started; 5 beginner outcomes marked, 4 joined; 97 of 184 contacted leads heard from a real person within 24 hours, 87 waited longer; 11 of 12 within 24 hours from 17 to 23 Nov; 113 leads with no booking.</li><li>Meta ads in Grow Sales, 28 Sep to 23 Nov 2026: £1,911 spent, 192 leads, about £10 each. Live ads and their text checked 23 Nov 2026.</li><li>GymGrow targets: lead to booking 30%, show rate 50%, close rate 50%, intro to recurring 75%.</li><li>My calculation: £3,714 ÷ 48 = about £77 a member. (£3,714 − 12 youth × £25.44) ÷ 36 adults = about £95. 80 × £77 = about £6,190. 4 of 9 = 44%.</li></ol></details>
+  <p>Plan figures are targets, not forecasts. The full evidence is in <a href="#report">Your next 6 months</a>. Prepared by Lewis Clare, GymGrow. Updated 24 November 2026.</p>
+</footer>
+</main>
+<script>
+(function(){
+  var KEY='gg-plan-empower-3f2dc3', st={};
+  try{ st=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ st={}; }
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(st)); }catch(e){} }
+  var steps=[].slice.call(document.querySelectorAll('.step'));
+  [].slice.call(document.querySelectorAll('.todo input')).forEach(function(cb){
+    cb.checked=!!st[cb.dataset.k];
+    cb.addEventListener('change',function(){ st[cb.dataset.k]=cb.checked; save(); });
+  });
+  function render(openNow){
+    var done=0, now=null;
+    steps.forEach(function(s){
+      var d=!!st['done'+s.dataset.n]; s.classList.toggle('done',d); s.classList.remove('now');
+      s.querySelector('.mark').textContent=d?'Mark as not done':"I've done this step";
+      if(d) done++; else if(!now) now=s;
+    });
+    if(now){ now.classList.add('now'); if(openNow) now.open=true; }
+    document.getElementById('pcount').textContent=done+' of '+steps.length;
+    document.getElementById('pbar').style.width=(done/steps.length*100)+'%';
+    return now;
+  }
+  steps.forEach(function(s){
+    s.querySelector('.mark').addEventListener('click',function(){
+      var k='done'+s.dataset.n; st[k]=!st[k]; save();
+      if(st[k]){ s.open=false; var n=render(true); if(n) setTimeout(function(){ n.scrollIntoView({behavior:'smooth',block:'start'}); },60); }
+      else render(false);
+    });
+  });
+  var first=render(false);
+  if(first && first.dataset.n!=='1'){ steps[0].open=false; first.open=true; }
+})();
+</script>
+</div>
+<div id="gg-report" style="display:none"><iframe id="gg-report-frame" title="Your next 6 months" loading="eager"></iframe></div>
+<script id="gg-tabs-script">
+(function(){
+  var SRC="/plans/empower-3f2dc3/report/full.html", PLAN_PATH="/plans/empower-3f2dc3/";
+  var T_PLAN="Empower: Your next 6 weeks", T_REP="Empower: Your next 6 months";
+  var plan=document.getElementById('gg-plan'), rep=document.getElementById('gg-report'), fr=document.getElementById('gg-report-frame');
+  var tabs=[].slice.call(document.querySelectorAll('.gg-tab')), ready=false, want=null;
+  function size(){ try{ var d=fr.contentDocument; if(d&&d.body) fr.style.height=Math.max(d.documentElement.scrollHeight,d.body.scrollHeight)+'px'; }catch(e){} }
+  function toAnchor(id){
+    if(!id) return;
+    try{ var el=fr.contentDocument.getElementById(id); if(!el) return;
+      for(var p=el;p;p=p.parentElement){ if(p.tagName==='DETAILS') p.open=true; }
+      size(); window.scrollTo(0, fr.getBoundingClientRect().top+window.pageYOffset+el.getBoundingClientRect().top-12);
+    }catch(e){}
+  }
+  function wire(){
+    var d=fr.contentDocument; if(!d) return;
+    [].slice.call(d.querySelectorAll('a[href]')).forEach(function(a){
+      var raw=a.getAttribute('href'), u; try{ u=new URL(raw, d.baseURI); }catch(e){ return; }
+      if(raw.charAt(0)==='#'){ a.addEventListener('click',function(e){ e.preventDefault(); location.hash='report/'+raw.slice(1); }); }
+      else if(u.origin===location.origin && (u.pathname===PLAN_PATH || u.pathname===PLAN_PATH+'index.html' || u.pathname===PLAN_PATH.slice(0,-1))){
+        a.addEventListener('click',function(e){ e.preventDefault(); location.hash=u.hash?u.hash.slice(1):'plan'; });
+      } else if(!a.target) a.target='_top';
+    });
+    if(window.ResizeObserver) new ResizeObserver(size).observe(d.body);
+    d.addEventListener('toggle',size,true);
+  }
+  fr.addEventListener('load',function(){ ready=true; wire(); size(); setTimeout(size,300); if(want!==null){ toAnchor(want); want=null; } });
+  window.addEventListener('resize',size);
+  function route(first){
+    var h=decodeURIComponent(location.hash.slice(1)), isRep=h==='report'||h.indexOf('report/')===0;
+    plan.style.display=isRep?'none':''; rep.style.display=isRep?'':'none';
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String((t.getAttribute('data-tab')==='report')===isRep)); });
+    document.title=isRep?T_REP:T_PLAN;
+    if(isRep){
+      if(!fr.getAttribute('src')) fr.setAttribute('src',SRC);
+      var id=h.indexOf('report/')===0?h.slice(7):'';
+      if(ready){ size(); if(id) toAnchor(id); else if(!first) window.scrollTo(0,0); } else { want=id||null; if(!first) window.scrollTo(0,0); }
+    } else if(h && h!=='plan'){
+      var el=document.getElementById(h); if(el) el.scrollIntoView();
+    } else if(!first) window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',function(){ route(false); });
+  route(true);
+})();
+</script>
+</body></html>

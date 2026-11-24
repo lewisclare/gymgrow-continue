@@ -99,6 +99,8 @@ section{display:flex;flex-direction:column;gap:20px}
 .road li.on::before{background:var(--yel);border-color:var(--yel)}
 .road b{font-size:clamp(26px,6vw,34px);font-weight:800;color:var(--fg);line-height:1}
 .road li.on b{color:var(--yel)}
+.road li.first::before{border-color:var(--yel)}
+.road{margin:8px 0}
 .road span{font-size:14px;color:var(--muted);line-height:1.3;max-width:13ch}
 
 /* folds */
@@ -124,8 +126,15 @@ section{display:flex;flex-direction:column;gap:20px}
 <main class="wrap">
 
 <header class="hero">
-  <h1>Helen, 8 steps to take Mindful PT from 7 to <em>11 members</em></h1>
-  <p class="sub">You told me this is about supporting your family, taking the pressure off your husband, and proving you can do this. Do one step at a time, roughly one a week, and tick things off as you go.</p>
+  <h1>Helen, your plan to <em>24 members</em> by 31 May</h1>
+  <p class="sub">You told me this is about supporting your family, taking the pressure off your husband, and proving you can do this.</p>
+  <ol class="road">
+    <li><b>7</b><span>members today</span></li>
+    <li class="first"><b>11</b><span>by 31 Dec, after your first 8 steps</span></li>
+    <li class="on"><b>24</b><span>by 31 May, your 6-month goal</span></li>
+    <li><b>85</b><span>your big goal</span></li>
+  </ol>
+  <p>Your first 8 steps get the women who already enquire signing up. Your intro lasts 28 days, so the women who start it now become members in December, and the biggest jump comes in January. Do one step at a time, roughly one a week, and tick things off as you go.</p>
   <div class="progress" aria-live="polite">
     <div class="bar"><i id="pbar"></i></div>
     <p><b id="pcount">0 of 8</b> steps done</p>
@@ -270,14 +279,8 @@ section{display:flex;flex-direction:column;gap:20px}
 </section>
 
 <section id="next">
-  <h2>Where this leads</h2>
-  <ol class="road">
-    <li><b>7</b><span>members today</span></li>
-    <li class="on"><b>11</b><span>after these 8 steps</span></li>
-    <li><b>24</b><span>by 31 May</span></li>
-    <li><b>85</b><span>your big goal</span></li>
-  </ol>
-  <p>After these 8 steps, we help new members stay, add room to grow, and get members bringing friends. I plan each of those in detail once the one before it is working.</p>
+  <h2>After these 8 steps</h2>
+  <p>We help new members stay, add room to grow, and get members bringing friends. That takes you from 11 to 24 by 31 May. I plan each of those in detail once the one before it is working.</p>
   <p><a href="#report">See your full 6 months, and why each step is in your plan</a></p>
 </section>
 

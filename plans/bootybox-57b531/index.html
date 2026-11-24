@@ -1,170 +1,132 @@
 <!doctype html><html lang="en"><head>
 <meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>BootyBox: Your next 6 weeks</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
-<style>
-/* Layout: a research-report column. Numbered findings, each with evidence, a numbered figure, recommendation and plan link. GymGrow dark brand, one look on purpose. */
-:root{
-  --bg:#121417; --card:#1B1D21; --line:#2E3238; --fg:#F4F5F6; --body:#B5BAC2; --muted:#8B919B;
-  --yel:#F4F262; --grn:#74ED94; --red:#F28B82;
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>:root{
+  --bg:#121417; --card:#1B1D21; --card2:#22252A; --line:#2E3238; --fg:#F4F5F6; --body:#C3C8CF; --muted:#8B919B;
+  --yel:#F4F262; --grn:#74ED94;
   --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--body);font-family:var(--font);font-size:17px;line-height:1.6;
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--body);font-family:var(--font);font-size:18px;line-height:1.55;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.wrap{max-width:880px;margin:0 auto;padding-block:48px 80px;display:flex;flex-direction:column;gap:56px}
-h1,h2,h3{color:var(--fg);text-wrap:balance;margin:0;line-height:1.2}
-h1{font-size:clamp(32px,6vw,46px);font-weight:800;letter-spacing:-.02em}
-h2{font-size:clamp(24px,4vw,30px);font-weight:700;letter-spacing:-.01em}
-h3{font-size:clamp(20px,3vw,24px);font-weight:700;letter-spacing:-.01em}
+.wrap{max-width:680px;margin:0 auto;padding:56px 0 96px;display:flex;flex-direction:column;gap:88px}
+h1,h2,h3,h4{color:var(--fg);margin:0;line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(34px,7vw,52px);font-weight:800;letter-spacing:-.025em}
+h1 em{font-style:normal;color:var(--yel)}
+h2{font-size:clamp(26px,5vw,34px);font-weight:800;letter-spacing:-.02em}
+h4{font-size:16px;font-weight:700;margin-top:8px}
 p{margin:0}
-.label{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:500}
-.yel{color:var(--yel)} .grn{color:var(--grn)} .red{color:var(--red)} strong{color:var(--fg);font-weight:600}
-.mono{font-family:var(--mono)}
+strong,b{color:var(--fg);font-weight:600}
+a{color:var(--yel)}
 section{display:flex;flex-direction:column;gap:20px}
-.lead{font-size:19px;color:var(--fg);max-width:68ch}
-header{display:flex;flex-direction:column;gap:16px;border-bottom:1px solid var(--line);padding-bottom:32px}
-.meta{display:flex;flex-wrap:wrap;gap:12px 32px;font-size:15px}
-.meta div{display:flex;flex-direction:column;gap:2px}
-.meta b{color:var(--fg);font-weight:600}
-/* tables */
-.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
-table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
-th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-family:var(--mono);color:var(--muted);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.08em;background:var(--card)}
-td{color:var(--body)} td.m{color:var(--yel);font-weight:700;white-space:nowrap} td.n{color:var(--fg);font-weight:600;white-space:nowrap}
-td.id{font-family:var(--mono);color:var(--yel);white-space:nowrap}
-tr:last-child td{border-bottom:0}
-/* findings */
-.finding{border-top:1px solid var(--line);padding-top:32px;display:flex;flex-direction:column;gap:18px}
-.fno{font-family:var(--mono);font-size:13px;color:var(--yel);letter-spacing:.06em}
-.block{display:grid;grid-template-columns:200px 1fr;gap:8px 24px}
-.block>.label{padding-top:4px}
-.block>div{min-width:0;display:flex;flex-direction:column;gap:10px}
-.block.rec>div{color:var(--fg)}
-.fit{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--yel);border-radius:6px;padding:12px 16px;color:var(--fg)}
-ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
-li::marker{color:var(--muted)}
-.rec li::marker{color:var(--grn)}
-.src{font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.5}
-.cost{background:#24221A;border:1px solid #4A4724;border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;color:var(--fg);font-size:17px}
-.cost .label{color:var(--yel)}
-.phase{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:18px}
-.phead{display:flex;flex-direction:column;gap:8px}
-.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.pm{border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0;color:var(--fg);font-size:16px;background:var(--bg)}
-.pm.res{border-color:var(--grn)} .pm.res .label{color:var(--grn)}
-.phase .block{grid-template-columns:180px 1fr}
-@media (max-width:600px){ .phase{padding:16px} .phase .block{grid-template-columns:1fr} }
-.why{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);padding-top:18px}
-.why>.label{color:var(--yel)}
-.why .finding{border-top:1px dashed var(--line);padding-top:22px;margin-top:18px}
-.why .finding:first-of-type{border-top:0;margin-top:8px;padding-top:0}
-.planhd{border-top:1px solid var(--line);padding-top:18px}
-.planhd .label{color:var(--grn)}
-/* figures */
-figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:12px}
-figcaption{font-size:14px;color:var(--muted);line-height:1.5}
-figcaption b{font-family:var(--mono);color:var(--fg);font-weight:500}
-.chart{overflow-x:auto}
-.chart svg{display:block;width:100%;height:auto}
-.chart.wide svg{min-width:560px}
-.legend{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:15px}
-.legend span{display:inline-flex;align-items:center;gap:8px}
-.sw{width:22px;height:0;border-top:4px solid var(--yel)} .sw.t{border-top:3px dashed var(--muted)}
-.callout{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
-.callout>div{border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:4px}
-.callout .n{font-family:var(--mono);font-size:28px;font-weight:600;color:var(--fg);line-height:1.1}
-.callout .d{font-size:14px}
-.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
-.opt{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:8px}
-.opt.rec{border-color:var(--yel)}
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px 28px}
-.cols>div{min-width:0;display:flex;flex-direction:column;gap:6px}
-.asks{counter-reset:a;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
-.asks li{counter-increment:a;display:grid;grid-template-columns:30px 1fr;gap:10px;color:var(--fg)}
-.asks li::before{content:counter(a) ".";color:var(--yel);font-weight:700;font-family:var(--mono)}
-footer{border-top:1px solid var(--line);padding-top:24px;font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:8px}
-@media (max-width:600px){ .block{grid-template-columns:1fr} body{font-size:16px} }
+.sub{font-size:20px;color:var(--body);max-width:56ch}
 
-/* v2: training-plan page. Phase 1 zoomed in; detail behind collapsibles. */
-.hero{display:flex;flex-direction:column;gap:20px;border-bottom:1px solid var(--line);padding-bottom:36px}
-.hero h1 em{font-style:normal;color:var(--yel)}
-.track{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:10px}
-.track svg{display:block;width:100%;height:auto}
-.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
-.tile{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
-.tile .big{font-family:var(--mono);font-size:26px;font-weight:600;color:var(--fg);line-height:1.15}
-.tile .big .to{color:var(--muted);font-weight:400;padding:0 4px}
-.tile .big .g{color:var(--yel)}
-.tile p{font-size:14px}
-details{border:1px solid var(--line);border-radius:12px;background:var(--card)}
-details>summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:14px;color:var(--fg);font-weight:600}
-details>summary::-webkit-details-marker{display:none}
-.chev{margin-left:auto;flex:none;width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:transform .2s}
-details[open]>summary .chev{transform:rotate(-135deg)}
-details>summary:focus-visible{outline:2px solid var(--yel);outline-offset:2px;border-radius:12px}
-.fb{padding:4px 18px 20px;display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--line);padding-top:18px}
-.fd .fno{font-family:var(--mono);color:var(--yel);font-size:14px;flex:none}
-.fd .ft{flex:1;min-width:0}
-.tag{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:3px 9px;flex:none;white-space:nowrap}
-.tag{align-self:center;line-height:1.4}
-.tag.p1{color:var(--bg);background:var(--yel);border-color:var(--yel)}
-.stack{display:flex;flex-direction:column;gap:10px}
-.fb .block{grid-template-columns:150px 1fr}
-@media (max-width:600px){.fb .block{grid-template-columns:1fr} .tag{display:none}}
-/* roadmap */
-.road{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.stop{border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;background:var(--card);position:relative;min-width:0}
-.stop.now{border:2px solid var(--yel);background:#1F2014}
-.stop .pn{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.stop.now .pn{color:var(--yel)}
-.stop h3{font-size:18px}
-.stop p{font-size:14px}
-.bar{height:6px;border-radius:99px;background:var(--line)}
-.stop.now .bar{background:var(--yel)}
-@media (max-width:760px){.road{grid-template-columns:1fr 1fr}}
-@media (max-width:440px){.road{grid-template-columns:1fr}}
-/* phase 1 */
-.ph1{border:2px solid var(--yel);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:22px;background:linear-gradient(180deg,#1C1D14 0,var(--bg) 320px)}
-@media (max-width:600px){.ph1{padding:16px}}
-.gauge{display:flex;flex-direction:column;gap:8px}
-.gauge svg{display:block;width:100%;height:auto}
-.weeks{display:flex;flex-direction:column;gap:10px;position:relative}
-.wk>summary{align-items:flex-start}
-.wk .wn{font-family:var(--mono);flex:none;width:58px;display:flex;flex-direction:column;line-height:1.2}
-.wk .wn b{font-size:22px;color:var(--yel);font-weight:600}
-.wk .wn span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-.wk .wt{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
-.wk .wt small{font-weight:400;color:var(--body);font-size:15px}
-.wk .chev{margin-top:10px}
-.todo{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px}
-.todo li{display:grid;grid-template-columns:22px 1fr;gap:10px;color:var(--fg)}
-.todo li::before{content:"";width:16px;height:16px;border:2px solid var(--grn);border-radius:4px;margin-top:4px}
-.done{background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--grn);border-radius:8px;padding:10px 14px;font-size:15px}
-.bet{background:#24221A;border:1px solid #4A4724;border-left:3px solid var(--yel);border-radius:8px;padding:10px 14px;font-size:15px;color:var(--fg);display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
-.bet b{color:var(--yel)}
-sup.ref{font-size:.6em;line-height:0;vertical-align:super;margin-left:1px}
-sup.ref a{color:var(--yel);text-decoration:none;font-family:var(--mono)}
-.refs{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:13px}
-.refs li::marker{color:var(--yel);font-family:var(--mono)}
-.done b{color:var(--grn);font-weight:600}
-.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.trio>div{border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px;background:var(--card)}
-.trio .label{color:var(--grn)}
-.trio ul{font-size:15px}
-.quote{font-size:19px;color:var(--fg);border-left:3px solid var(--yel);padding:4px 0 4px 18px;max-width:64ch}
-.later .fb p{font-size:16px}
-.kv{display:grid;grid-template-columns:140px 1fr;gap:6px 16px;font-size:15px}
-.kv dt{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding-top:3px}
-.kv dd{margin:0;color:var(--fg)}
-@media (max-width:600px){.kv{grid-template-columns:1fr}}
-.wt .trk{font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:2px}.wt .trk b{color:var(--yel);font-weight:600}.wt small b.yel{font-weight:600}.betbox{background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--yel);border-radius:8px;padding:12px 14px;margin-bottom:14px;display:flex;flex-direction:column;gap:8px}.betbox p{margin:0;font-size:15px}.betbox .why{color:var(--muted)}.betbox .src{font-size:13px;color:var(--muted)}.trow{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:6px;font-size:15px}sup.fn{font-size:.55em;color:var(--muted);font-weight:500;margin-left:1px;vertical-align:super;line-height:0}.big sup.fn{font-size:.4em}.fnl{margin:6px 0 10px;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--muted)}.betcard{background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--yel);border-radius:10px;padding:14px 16px;margin:0 0 12px;display:flex;flex-direction:column;gap:10px}.betcard .bn{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--yel)}.betcard .bs{margin:0;font-size:17px;font-weight:600;color:var(--fg);line-height:1.4}.bl{border-top:1px solid var(--line);padding-top:8px}.bl .bk{display:block;font-size:13px;color:var(--muted);margin-bottom:2px}.bl p{margin:0;font-size:16px;color:var(--fg);line-height:1.45}.bl p b{color:var(--yel);font-weight:600}.fb>.why{margin:0 0 12px;color:var(--muted);font-size:15px}.fb>.src{font-size:13px;color:var(--muted);margin:0 0 14px}.trow em.kind{display:block;font-style:normal;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}.trow b{color:var(--yel);font-weight:600;text-align:right;flex:none;max-width:45%}.stepno{font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:500}sup.fn a::before,sup.ref a::before{content:"["}sup.fn a::after,sup.ref a::after{content:"]"}sup.fn,sup.ref{margin-left:2px}</style>
+/* hero */
+.hero{display:flex;flex-direction:column;gap:24px}
+.progress{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.bar{height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--yel);border-radius:99px;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.progress p{font-size:15px;color:var(--muted)}
+.progress p b{color:var(--fg)}
 
+/* choice */
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.opt{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.opt h3{font-size:20px;font-weight:700}
+.opt p{font-size:16px}
+.opt .cost{color:var(--yel);font-weight:600;margin-top:auto}
+@media (max-width:620px){.choice{grid-template-columns:1fr}}
+
+/* steps */
+.steps{display:flex;flex-direction:column;gap:10px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;transition:border-color .2s}
+.step>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:18px 20px}
+.step>summary::-webkit-details-marker{display:none}
+.num{flex:none;width:40px;height:40px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;color:var(--fg);font-weight:700;font-size:17px}
+.num i{font-style:normal}
+.st{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.tt{color:var(--fg);font-weight:600;font-size:18px;line-height:1.3}
+.wk{font-size:14px;color:var(--muted)}
+.now-tag{display:none;font-size:14px;font-weight:700;color:var(--yel)}
+.chev{flex:none;width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);margin:0 4px 4px 0;transition:transform .2s}
+.step[open]>summary .chev{transform:rotate(-135deg);margin:4px 4px 0 0}
+.step.now{border-color:var(--yel)}
+.step.now .now-tag{display:block}
+.step.now .num{border-color:var(--yel);color:var(--yel)}
+.step.done .num{background:var(--grn);border-color:var(--grn);color:var(--bg)}
+.step.done .num i{display:none}
+.step.done .num::after{content:"";width:12px;height:7px;border-left:3px solid var(--bg);border-bottom:3px solid var(--bg);transform:rotate(-45deg) translate(1px,-1px)}
+.step.done .tt{color:var(--body)}
+.body{padding:0 20px 22px 76px;display:flex;flex-direction:column;gap:18px}
+@media (max-width:520px){.body{padding:0 18px 20px}}
+.why{color:var(--body)}
+.todo{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.todo label{display:flex;gap:14px;align-items:flex-start;padding:10px 0;cursor:pointer;color:var(--fg)}
+.todo input{appearance:none;-webkit-appearance:none;flex:none;width:24px;height:24px;margin:1px 0 0;border:2px solid var(--muted);border-radius:7px;display:grid;place-items:center;cursor:pointer;transition:background .15s,border-color .15s}
+.todo input::after{content:"";width:10px;height:5px;border-left:2.5px solid var(--bg);border-bottom:2.5px solid var(--bg);transform:rotate(-45deg) translate(1px,-1px);opacity:0}
+.todo input:checked{background:var(--yel);border-color:var(--yel)}
+.todo input:checked::after{opacity:1}
+.todo input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+.todo input:focus-visible,.mark:focus-visible,summary:focus-visible{outline:2px solid var(--yel);outline-offset:3px}
+.done{background:var(--card2);border-radius:12px;padding:14px 16px;font-size:16px}
+.done b{display:block;color:var(--yel);margin-bottom:2px}
+.mark{align-self:flex-start;font:inherit;font-weight:700;font-size:16px;background:var(--yel);color:var(--bg);border:0;border-radius:14px;padding:13px 20px;cursor:pointer}
+.step.done .mark{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.how{border-top:1px solid var(--line);padding-top:14px}
+.how>summary{cursor:pointer;color:var(--muted);font-size:16px;font-weight:600}
+.how dl{margin:12px 0 0;display:flex;flex-direction:column;gap:12px;font-size:16px}
+.how dt{color:var(--fg);font-weight:600}
+.how dd{margin:2px 0 0}
+
+/* monday number */
+.big{display:flex;align-items:baseline;gap:16px;color:var(--fg);font-weight:800;font-size:clamp(56px,14vw,88px);letter-spacing:-.04em;line-height:1}
+.big span{color:var(--muted);font-size:.5em;font-weight:600}
+.big em{font-style:normal;color:var(--yel)}
+.ends{display:flex;justify-content:space-between;font-size:15px;color:var(--muted);margin-top:-8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.card h3{font-size:18px;font-weight:700}
+.card ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* road */
+.road{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.road::before{content:"";position:absolute;left:12.5%;right:12.5%;top:13px;height:2px;background:var(--line)}
+.road li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;position:relative}
+.road li::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--muted);margin:6px 0}
+.road li.on::before{background:var(--yel);border-color:var(--yel)}
+.road b{font-size:clamp(26px,6vw,34px);font-weight:800;color:var(--fg);line-height:1}
+.road li.on b{color:var(--yel)}
+.road li.first::before{border-color:var(--yel)}
+.road{margin:8px 0}
+.road span{font-size:14px;color:var(--muted);line-height:1.3;max-width:13ch}
+
+/* folds */
+.fold>summary{cursor:pointer;color:var(--fg);font-weight:600}
+.fold ol,.fold ul{margin:12px 0 0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:15px;color:var(--muted)}
+.foot{font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--line);padding-top:28px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.stage{font-size:15px;font-weight:700;color:var(--muted);margin:18px 0 2px 4px;letter-spacing:.01em}
+.steps>.stage:first-child{margin-top:0}
+.pause{background:transparent;border:1px dashed var(--line);border-radius:18px;padding:16px 20px;display:flex;flex-direction:column;gap:6px;font-size:16px}
+.pause b{color:var(--fg)} .pause span{color:var(--muted);font-size:14px} .pause ul{margin:4px 0 0;padding-left:20px}
+.howin{margin-top:12px;display:flex;flex-direction:column;gap:12px;font-size:16px}
+.howin *{font-size:inherit!important}
+.howin div,.howin p,.howin span{display:block;margin:0}
+.howin .bn,.howin .bk,.howin b,.howin strong,.howin .label{color:var(--fg);font-weight:600;font-family:var(--font);text-transform:none;letter-spacing:0}
+.howin .betcard,.howin .wbet,.howin .bet{display:flex;flex-direction:column;gap:10px}
+.howin details summary{color:var(--muted);cursor:pointer}
+.why b{color:var(--fg)}
+.card ul,.card ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.card p{margin:0}
+.fold li span{color:var(--muted)}
+
+.big.long{font-size:clamp(40px,10vw,60px);flex-wrap:wrap;gap:4px 14px}
+.big.long span{font-size:.55em}
+</style>
 <style id="gg-tabs-style">
 .gg-tabs{display:flex;gap:8px;max-width:1100px;margin:0 auto;padding:16px 16px 0;font-family:Inter,system-ui,-apple-system,sans-serif;flex-wrap:wrap}
 .gg-tab{flex:0 1 auto;padding:12px 20px;border-radius:999px;border:1px solid #2E3238;background:#1B1D21;color:#E8E8E8;font-weight:600;font-size:16px;text-decoration:none;line-height:1.2}
@@ -179,193 +141,131 @@ sup.ref a{color:var(--yel);text-decoration:none;font-family:var(--mono)}
 <a class="gg-tab" role="tab" data-tab="report" href="#report">Your next 6 months</a>
 </nav>
 <div id="gg-plan">
-
-<div class="wrap">
-
+<main class="wrap">
 <header class="hero">
-  <span class="label">GymGrow · Your next 6 weeks · BootyBox</span>
-  <h1>Chris, here's your plan to <em>100 members</em>, week by week</h1>
-  <p class="lead">Chris, you told me the hours you're doing now aren't sustainable, and you want a business that doesn't rely on you 100% of the time. Think of this like a training plan. Your goal is set: 100 members by 31 May, and the plan is broken into steps. The first 6 weeks are mapped out week by week, each starting on the Monday shown. Later weeks are rough: if a week's step needs longer, you keep going with it and we move the dates together on our call, so you can't fall behind. Roughly, phases 1 and 2 take the first 3 months, and phases 3 and 4 take months 4 to 6. The full evidence behind every step is in <a href="#report" style="color:var(--yel)">Your next 6 months</a>.</p>
-  <div class="track"><svg viewBox="0 0 800 120" role="img" aria-label="Members: 81 today, 100 in 6 months, 140 is the big goal">
-<g font-family="Inter, system-ui, sans-serif">
-<rect x="20" y="52" width="760" height="14" rx="7" fill="#2E3238"/>
-<rect x="20" y="52" width="440" height="14" rx="7" fill="#F4F5F6"/>
-<rect x="460" y="52" width="103" height="14" fill="#F4F262"/>
-<line x1="460" y1="40" x2="460" y2="78" stroke="#F4F5F6" stroke-width="2"/>
-<line x1="563" y1="40" x2="563" y2="78" stroke="#F4F262" stroke-width="2"/>
-<line x1="780" y1="40" x2="780" y2="78" stroke="#8B919B" stroke-width="2" stroke-dasharray="4 3"/>
-<text x="460" y="30" text-anchor="middle" fill="#F4F5F6" font-size="22" font-weight="800">81</text>
-<text x="563" y="30" text-anchor="middle" fill="#F4F262" font-size="22" font-weight="800">100</text>
-<text x="776" y="30" text-anchor="end" fill="#8B919B" font-size="22" font-weight="800">140</text>
-<text x="460" y="100" text-anchor="middle" fill="#B5BAC2" font-size="14">Today</text>
-<text x="563" y="100" text-anchor="middle" fill="#F4F262" font-size="14">In 6 months</text>
-<text x="776" y="100" text-anchor="end" fill="#8B919B" font-size="14">Your big goal</text>
-</g></svg></div>
+  <h1>Chris, your plan to <em>100 members</em> by 31 May</h1>
+  <p class="sub">You told me the hours you're doing now aren't sustainable, and you want a business that doesn't rely on you 100% of the time.</p>
+  <ol class="road"><li class=""><b>81</b><span>members today</span></li><li class="first"><b>92</b><span>by 28 Feb</span></li><li class="on"><b>100</b><span>by 31 May, your 6-month goal</span></li><li class=""><b>140</b><span>your big goal</span></li></ol>
+  <p>Your first steps get more of the women who already enquire booked in for a consultation, and get every member who misses a week a call. 3 in 4 women who come in for a consultation join, so more bookings means more members. Do one step at a time, roughly one a week, and tick things off as you go.</p>
+  <div class="progress" aria-live="polite"><div class="bar"><i id="pbar"></i></div><p><b id="pcount">0 of 6</b> steps done</p></div>
 </header>
-
-<section>
-  <h2>Right now we're working on: getting enquiries booked in</h2>
-  <p class="quote">Phase 1 is about getting the women who already enquire to come in for a consultation. 3 in 4 women who come in for a consultation join, but most women who enquire never book one. So each week we look at two things.<br><br><strong>What you do:</strong> speak to every new enquiry within 1 working day. Today that happens for 20 of 74 (27%). Aim: 95% every week.<br><strong>What it should change:</strong> how many new enquiries book a consultation. Today it's 13 of 74 (18%). Aim: 30% by 31 December.</p>
-  <p>Members leaving is the number that matters most over 6 months, but it moves slowly and nobody has left so far in November<sup class="fn">2</sup>. Lead to booking shows within 2 weeks whether the enquiry calls are working. From step 1, every member who misses a week also gets a call that books her next session.</p>
-</section>
-
-<section>
-  <h2>Where you are, and where you want to be</h2>
-  <div class="tiles">
-    <div class="tile"><span class="label">Members</span><span class="big">81<sup class="fn">2</sup><span class="to">→</span><span class="g">100<sup class="fn">5</sup></span></span><p>By 31 May. 92 by 28 Feb. 140 is the big goal. 81 includes 5 on the 28-day intro.</p></div>
-    <div class="tile"><span class="label">Lead to booking</span><span class="big">18%<sup class="fn">1</sup><span class="to">→</span><span class="g">30%<sup class="fn">5</sup></span></span><p>Of all new enquiries, the share who book a consultation. Below the 30% GymGrow benchmark, so Phase 1 works on it. Target: 30% by 31 December.</p></div>
-    <div class="tile"><span class="label">Show rate</span><span class="big">50%<sup class="fn">1</sup><span class="to">→</span><span class="g">hold 50%+</span></span><p>Of the women booked for a consultation, the share who turn up. At or above the 50% benchmark: step 2 keeps it there.</p></div>
-    <div class="tile"><span class="label">Close rate</span><span class="big">86%<sup class="fn">1</sup><span class="to">→</span><span class="g">hold 50%+</span></span><p>Of the women who come in for a consultation, the share who buy. Well above the 50% benchmark: hold it.</p></div>
-    <div class="tile"><span class="label">Intro to recurring</span><span class="big">1 of 1<sup class="fn">1</sup><span class="to">→</span><span class="g">hold 75%+</span></span><p>Of the women who finish the 28-day intro, the share who go onto a monthly membership. Above the 75% benchmark: hold it.</p></div>
-    <div class="tile"><span class="label">Members leaving a month</span><span class="big">7.3%<sup class="fn">4</sup><span class="to">→</span><span class="g">4%<sup class="fn">5</sup></span></span><p>Of all members, the share who leave each month: 6.5% in December, 5.5% by February, 4% by May.</p></div>
-    <div class="tile"><span class="label">Your hours a week</span><span class="big">45–50<sup class="fn">3</sup><span class="to">→</span><span class="g">30</span></span><p>By 30 April, once your full-time coach runs the daily sessions and admin.</p></div>
-    <div class="tile"><span class="label">Your pay a month</span><span class="big">£2k<sup class="fn">3</sup><span class="to">→</span><span class="g">£3k</span></span><p>£3k a month from June. £4k a month when you reach 140 members.</p></div>
-    <div class="tile"><span class="label">Full-time coach</span><span class="big">0<span class="to">→</span><span class="g">1</span></span><p>Started by 28 February, before your baby arrives.</p></div>
+<section id="choice"><h2>First, choose who calls your enquiries</h2><p>Your ads bring in 2 to 3 enquiries a day. The ads only bring in members if someone calls every new enquiry within one working day. The ads keep running either way. The choice is who makes those calls. I need your answer by Friday 27 November.</p><div class="choice"><div class="opt"><h3>Your coaches call</h3><p>Your coaches call every enquiry within one working day at 6:15pm, every booking the day before, and the 82 who never booked. You or one named coach is responsible for these calls every day.</p><p class="cost">No extra cost, but it adds hours to your team&#x27;s week</p></div><div class="opt"><h3>A GymGrow setter calls for you</h3><p>A setter calls every enquiry within a day, works through the 82 older ones, and books women in with your team. It takes calling off your plate, the first job you said you'd hand over. 2 extra members a month (£232 a month) cover almost all of the £247 a month cost.</p><p class="cost">£247 a month (up to 20 calls a day)</p></div></div></section>
+<section id="steps">
+  <h2>Your 6 steps</h2>
+  <p>Tap a step to see what to do. When you've done it, tap "I've done this step" and the next one opens.</p>
+  <div class="steps">
+<details class="step" id="step-1" data-n="1" open>
+<summary><span class="num" aria-hidden="true"><i>1</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Agree the plan, call every enquiry within a working day, and start the Monday check</span><span class="wk">Step 1 · week of Monday 23 Nov</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why"><b class="yel">Part 1:</b> women who get a call within one working day book a consultation more often than women who wait days.</p><p class="why"><b class="yel">Part 2:</b> a member who misses a week, gets a call and has her next session booked during that call, trains again and stays a member.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s1t0"><span>Go through this plan together on your coaching call, and decide who calls your enquiries (the choice is further down).</span></label></li><li><label><input type="checkbox" data-k="s1t1"><span>Call every new enquiry within one working day, at a set time each day. Your coaches already call at 6:15pm, when women have finished work. Try each one at least 2 or 3 times. An automatic text doesn't count.</span></label></li><li><label><input type="checkbox" data-k="s1t2"><span>Start the Monday check: every Monday, list every member who missed a week of small groups (your coaches already tell you who missed). Call each one and book her next session there and then: a day and a time.</span></label></li><li><label><input type="checkbox" data-k="s1t3"><span>Name one person who makes sure each member on the Monday list comes to her booked session. They call or voice note her the morning of the session, check she came, and message her afterwards to say well done.</span></label></li><li><label><input type="checkbox" data-k="s1t4"><span>Record every enquiry call if you can, or write a few notes on each one straight after: what she was looking for, what you said, whether she booked, and if not, why not. Do the same for the Monday check calls.</span></label></li><li><label><input type="checkbox" data-k="s1t5"><span>Bring the recordings or notes to the group call every week. If the share who book doesn't go up, this is how we find out what's happening on the calls, and we practise them together.</span></label></li></ul>
+<p class="done"><b>Done when</b> Every enquiry has had a call within one working day for a full week, and the first Monday check is done.</p>
+<button type="button" class="mark" data-step="1">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="betcard"><span class="bn">Part 1, enquiries</span><p class="bs">Women who get a call within one working day book a consultation more often than women who wait days.</p><div class="bl"><span class="bk">What you count each week</span><p>Of all new enquiries that week, the share a person speaks to within 1 working day. Today: <b>27% (20 of 74)</b>. Target: <b>95% every week</b>.</p></div><div class="bl"><span class="bk">What it should change</span><p>Lead to booking: of all new enquiries that week, the share who book a consultation. Today: <b>18% (13 of 74)</b>. Target: <b>30% by 31 December</b>.</p></div><div class="bl"><span class="bk">Also tracked</span><p>Of the women a person reaches on the phone, the share who book a consultation during that same call: not counted yet (first count the Monday after you start), 1 in 3 by 31 December.</p></div><div class="bl"><span class="bk">If it hasn't changed in 2 weeks</span><p>If 95% of enquiries are being called and the share who book hasn't gone up in 2 weeks, you listen to the recordings or read the notes, bring them to the group call, and with a GymGrow coach decide what to change: who calls, what they say, the time of day, or how the consultation is offered.</p></div></div><div class="betcard"><span class="bn">Part 2, the Monday check</span><p class="bs">A member who misses a week, gets a call and has her next session booked during that call, trains again and stays a member.</p><div class="bl"><span class="bk">What you count each week</span><p>Of the members on the Monday list (members who missed a week of small groups), the share who got a call that week. Today: <b>0 (the Monday check hasn't started)</b>. Target: <b>100% every week</b>.</p></div><div class="bl"><span class="bk">What it should change</span><p>Of the members called after missing a week, the share who train again within 7 days of the call. Today: <b>not counted yet (first count Mon 23 Nov)</b>. Target: <b>on Mon 7 Dec you set one from your first 2 weeks and bring it to the group call to be checked</b>.</p></div><div class="bl"><span class="bk">If it hasn't changed in 2 weeks</span><p>If every member on the list is called and the share who train again hasn't gone up in 2 weeks, you read the notes, bring them to the group call, and with a GymGrow coach decide what to change: what's said on the call, who calls, or how soon.</p></div></div></div></details>
+</div></details>
+<details class="step" id="step-2" data-n="2">
+<summary><span class="num" aria-hidden="true"><i>2</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Make sure booked women turn up</span><span class="wk">Step 2 · week of Monday 30 Nov</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why"><b class="yel">Why this works:</b> a call the day before, and a same-day call to anyone who misses, means more booked women turn up.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s2t0"><span>Call or send a voice note to every booked consultation the day before. If she can't make it, rebook her on the call.</span></label></li><li><label><input type="checkbox" data-k="s2t1"><span>Call anyone who doesn't turn up the same day, and rebook her. Record these calls or take notes too: why she didn't come, and whether she rebooked.</span></label></li><li><label><input type="checkbox" data-k="s2t2"><span>Mark the outcome of every consultation in Grow Sales within one working day: came, didn't come, joined.</span></label></li><li><label><input type="checkbox" data-k="s2t3"><span>Add women who enquire through your form or Instagram to Grow Sales, so every enquiry and every sale is counted.</span></label></li><li><label><input type="checkbox" data-k="s2t4"><span>Keep running the Monday check: every Monday, list every member who missed a week of small groups (your coaches already tell you who missed). Call each one and book her next session there and then.</span></label></li></ul>
+<p class="done"><b>Done when</b> Every booking got a call the day before, and every outcome is marked, for 2 weeks running.</p>
+<button type="button" class="mark" data-step="2">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="betcard"><span class="bn">Why this works:</span><p class="bs">A call the day before, and a same-day call to anyone who misses, means more booked women turn up.</p><div class="bl"><span class="bk">What you count each week</span><p>Of all booked consultations that week, the share who get a call or voice note the day before. Today: <b>0% (0 of 11)</b>. Target: <b>100% every week</b>.</p></div><div class="bl"><span class="bk">What it should change</span><p>Show rate: of the women booked for a consultation that week, the share who turn up. Today: <b>50% (4 of 8)</b>. Target: <b>at least 50% every week</b>.</p></div><div class="bl"><span class="bk">Also tracked</span><p>Of the women who miss their consultation, the share who rebook and then come in: not counted yet (first count the Monday after you start this step); after 2 weeks of counts, you set a target and bring it to the group call, where a GymGrow coach checks it.</p></div><div class="bl"><span class="bk">If it hasn't changed in 2 weeks</span><p>If every booking gets a call and the show rate drops below 50% for 2 weeks, you check the notes for why women miss, bring them to the group call, and change how: book her sooner (within 3 days), add a morning-of voice note, or tell her exactly what happens at the consultation.</p></div></div></div></details>
+</div></details>
+<details class="step" id="step-3" data-n="3">
+<summary><span class="num" aria-hidden="true"><i>3</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Save members who ask to cancel, and send the member survey</span><span class="wk">Step 3 · week of Monday 7 Dec</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why"><b class="yel">Part 1:</b> a short call that finds the real reason, and fixes it, keeps more members than a reply on WhatsApp.</p><p class="why"><b class="yel">Part 2:</b> asking every member what would make her leave shows us what to fix before more members go.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s3t0"><span>When a member asks to cancel, book a short call instead of replying on WhatsApp. Find the real reason and offer a fix for it: more accountability, workouts adapted to her, or an easier time to come in.</span></label></li><li><label><input type="checkbox" data-k="s3t1"><span>Before you offer anything with a price (a pause, a cheaper option), agree it with Lewis.</span></label></li><li><label><input type="checkbox" data-k="s3t2"><span>Write down every reason she gives, and what you offered.</span></label></li><li><label><input type="checkbox" data-k="s3t3"><span>First, make your member survey from the GymGrow template (in the platform). Bring it to the group call so a GymGrow coach can check it, then send it to every member.</span></label></li></ul>
+<p class="done"><b>Done when</b> Every cancellation request gets a call, and your survey has gone to every member.</p>
+<button type="button" class="mark" data-step="3">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="betcard"><span class="bn">Part 1, members who ask to cancel</span><p class="bs">A short call that finds the real reason, and fixes it, keeps more members than a reply on WhatsApp.</p><div class="bl"><span class="bk">What you count each week</span><p>Of all cancellation requests that week, the share who get a call. Today: <b>0% (cancellations come in on WhatsApp with no call)</b>. Target: <b>100% every week</b>.</p></div><div class="bl"><span class="bk">What it should change</span><p>Of the members who ask to cancel and get a call, the share who decide to stay. Today: <b>not counted yet (first count the Monday after you start this step)</b>. Target: <b>after 2 weeks of counts, you set a target and bring it to the group call, where a GymGrow coach checks it</b>.</p></div><div class="bl"><span class="bk">Also tracked</span><p>Of the members who decided to stay, the share still members 30 days later. First answer 30 days after the first calls.</p></div><div class="bl"><span class="bk">If it hasn't changed in 2 weeks</span><p>If every request gets a call and the share who stay hasn't gone up in 2 weeks, you read the reasons you wrote down, bring them to the group call, and change the fix you offer, or catch her earlier through the Monday check. Before you offer anything with a price, you agree it with Lewis.</p></div></div><div class="betcard"><span class="bn">Part 2, the member survey</span><p class="bs">Asking every member what would make her leave shows us what to fix before more members go.</p><div class="bl"><span class="bk">What you count each week</span><p>Of all members, the share who have been sent the survey. Today: <b>0 of 81</b>. Target: <b>81 of 81, within a week of a GymGrow coach checking it</b>.</p></div><div class="bl"><span class="bk">What it should change</span><p>Of all members, the share who answer the survey. Today: <b>0</b>. Target: <b>at least half (about 40 of 81) within 2 weeks of sending it</b>.</p></div><div class="bl"><span class="bk">Also tracked</span><p>The 3 most common reasons members give for leaving, from the survey and the cancellation calls, written down.</p></div><div class="bl"><span class="bk">If it hasn't changed in 2 weeks</span><p>If fewer than half answer after 2 weeks, or the answers don't show clear reasons, you change the survey questions (a GymGrow coach checks them on the group call), or ask on the Monday check calls instead.</p></div></div></div></details>
+</div></details>
+<details class="step" id="step-4" data-n="4">
+<summary><span class="num" aria-hidden="true"><i>4</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Move fully onto GrowHQ, and call the members who left in September and October</span><span class="wk">Step 4 · week of Monday 14 Dec</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why"><b class="yel">Part 1:</b> when attendance is marked in GrowHQ, members who stop coming are spotted in days, not weeks, so fewer slip away.</p><p class="why"><b class="yel">Part 2:</b> calling past members tells us why women leave, and some of them come back.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s4t0"><span>Move BootyBox fully onto GrowHQ: connect Stripe, add every membership and price, import every member and set up every small group, move every member's payments off GoCardless, and send members the message on how to book.</span></label></li><li><label><input type="checkbox" data-k="s4t1"><span>Ask every coach to mark attendance at every session. Turn on the at-risk alert, so the Monday check list comes from GrowHQ.</span></label></li><li><label><input type="checkbox" data-k="s4t2"><span>Turn on failed payment reminders, and name who chases each one within 48 hours.</span></label></li><li><label><input type="checkbox" data-k="s4t3"><span>Call the 17 members who left in September and October. Ask "What could we have done better?" and write down every answer. Record the calls or take notes.</span></label></li></ul>
+<p class="done"><b>Done when</b> Every member, small group and payment is in GrowHQ, coaches mark attendance at every session, and every past member from September and October has had a call.</p>
+<button type="button" class="mark" data-step="4">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="betcard"><span class="bn">Part 1, attendance in GrowHQ</span><p class="bs">When attendance is marked in GrowHQ, members who stop coming are spotted in days, not weeks, so fewer slip away.</p><div class="bl"><span class="bk">What you count each week</span><p>Of all small group sessions that week, the share with attendance marked in GrowHQ. Today: <b>0% (small groups aren't in GrowHQ yet)</b>. Target: <b>100% every week</b>.</p></div><div class="bl"><span class="bk">What it should change</span><p>Members who haven't trained in 7 days or more, counted from GrowHQ. Today: <b>not counted yet (first count the first Monday every session is marked)</b>. Target: <b>lower every week after that first count</b>.</p></div><div class="bl"><span class="bk">If it hasn't changed in 2 weeks</span><p>If attendance is marked every session and the list of members not in for 7+ days doesn't get shorter in 2 weeks, you look at who is on it and why, bring it to the group call, and change who calls, how soon, or what she's offered to come back to.</p></div></div><div class="betcard"><span class="bn">Part 2, past members</span><p class="bs">Calling past members tells us why women leave, and some of them come back.</p><div class="bl"><span class="bk">What you count each week</span><p>Of the 17 members who left in September and October, the share you've called. Today: <b>0 of 17</b>. Target: <b>17 of 17 within 2 weeks of starting this step</b>.</p></div><div class="bl"><span class="bk">What it should change</span><p>Of the 17, how many rejoin. Today: <b>0</b>. Target: <b>no target: nobody can know this yet, so you count every one who rejoins</b>.</p></div><div class="bl"><span class="bk">Also tracked</span><p>Of the 17, how many tell you why they left: all 17 reasons written down.</p></div><div class="bl"><span class="bk">If it hasn't changed in 2 weeks</span><p>If no past members return, you use their answers to fix what made them leave, and bring those fixes to the group call.</p></div></div></div></details>
+</div></details>
+<details class="step" id="step-5" data-n="5">
+<summary><span class="num" aria-hidden="true"><i>5</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Make the offer match everywhere, and call your old enquiries</span><span class="wk">Step 5 · week of Monday 21 Dec</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why"><b class="yel">Part 1:</b> women who enquired before already know BootyBox, and a call offering a January start books some of them.</p><p class="why"><b class="yel">Part 2:</b> a sign-up that takes under 2 minutes on a phone means more women who start it finish it.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s5t0"><span>Change the website's "Book a free trial" button so it books a consultation for the same 28-day intro your ads offer.</span></label></li><li><label><input type="checkbox" data-k="s5t1"><span>Time a sign-up on your phone, and cut steps until it takes under 2 minutes.</span></label></li><li><label><input type="checkbox" data-k="s5t2"><span>Call the 82 enquiries who never booked, newest first, and offer each one a January start. Record the calls or take notes, and mark every outcome in Grow Sales.</span></label></li><li><label><input type="checkbox" data-k="s5t3"><span>Write down how pauses work today (who, why, how long), ready to agree a pause rule with Lewis. 4 members pause in December.</span></label></li></ul>
+<p class="done"><b>Done when</b> The offer is the same on your website, ads and form, and every old enquiry has had at least 2 calls.</p>
+<button type="button" class="mark" data-step="5">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="betcard"><span class="bn">Part 1, old enquiries</span><p class="bs">Women who enquired before already know BootyBox, and a call offering a January start books some of them.</p><div class="bl"><span class="bk">What you count each week</span><p>Of the 82 old enquiries with no booking, the share called at least twice. Today: <b>0 of 82</b>. Target: <b>82 of 82 within 2 weeks of starting this step</b>.</p></div><div class="bl"><span class="bk">What it should change</span><p>Of the 82, how many book a consultation for a January start. Today: <b>0</b>. Target: <b>no target: nobody can know this yet, so you count every booking and bring the count to the group call</b>.</p></div><div class="bl"><span class="bk">If it hasn't changed in 2 weeks</span><p>If, 2 weeks after the calls start, almost none of the old enquiries book, you listen to the calls, bring them to the group call, and change the offer wording, the time you call, or try a voice note first.</p></div></div><div class="betcard"><span class="bn">Part 2, sign-up</span><p class="bs">A sign-up that takes under 2 minutes on a phone means more women who start it finish it.</p><div class="bl"><span class="bk">What you count each week</span><p>Time it takes to sign up on a phone, from start to paid, timed once a week. Today: <b>not timed yet</b>. Target: <b>under 2 minutes</b>.</p></div><div class="bl"><span class="bk">What it should change</span><p>Of the women who start a sign-up online that week, the share who finish it. Today: <b>not counted yet (first count the Monday after sign-up takes under 2 minutes)</b>. Target: <b>after 2 weeks of counts, you set a target and bring it to the group call, where a GymGrow coach checks it</b>.</p></div><div class="bl"><span class="bk">If it hasn't changed in 2 weeks</span><p>If women still drop out of sign-up, you time it again on a phone and cut more steps.</p></div></div></div></details>
+</div></details>
+<details class="step" id="step-6" data-n="6">
+<summary><span class="num" aria-hidden="true"><i>6</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Keep calling over Christmas, fill January, and check how it went</span><span class="wk">Step 6 · week of Monday 28 Dec</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why"><b class="yel">Why this works:</b> keeping every call going over Christmas fills January, when the most women want to start.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s6t0"><span>Keep calling every enquiry within one working day, and every booking the day before.</span></label></li><li><label><input type="checkbox" data-k="s6t1"><span>Keep running the Monday check: every Monday, list every member who missed a week of small groups (your coaches already tell you who missed). Call each one and book her next session there and then. Name one person who makes sure each member on the Monday list comes to her booked session. They call or voice note her the morning of the session, check she came, and message her afterwards to say well done.</span></label></li><li><label><input type="checkbox" data-k="s6t2"><span>Book as many January starts as you can before the New Year.</span></label></li><li><label><input type="checkbox" data-k="s6t3"><span>Check your lead to booking against the 30% we aim for.</span></label></li></ul>
+<p class="done"><b>Done when</b> For 2 weeks in a row, at least 30% of new enquiries booked a consultation and 95% got a call within one working day. Then the next stage opens.</p>
+<button type="button" class="mark" data-step="6">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="betcard"><span class="bn">Why this works:</span><p class="bs">Keeping every call going over Christmas fills January, when the most women want to start.</p><div class="bl"><span class="bk">What you count each week</span><p>Of the working days over Christmas, the share where every enquiry call, day-before call and Monday check call was made. Today: <b>not counted yet</b>. Target: <b>100%, no break</b>.</p></div><div class="bl"><span class="bk">What it should change</span><p>Consultations booked that week for a January start. Today: <b>0</b>. Target: <b>at least 3 a week</b>.</p></div><div class="bl"><span class="bk">Also tracked</span><p>New members who start in January: 0 today, 11 by 31 January.</p></div><div class="bl"><span class="bk">If it hasn't changed in 2 weeks</span><p>If you're behind on January bookings by 28 December, you call the old enquiries and past members a second time, and check the recordings for why women aren't booking.</p></div></div></div></details>
+</div></details>
   </div>
 </section>
-
-<section>
-  <h2>Roughly what happens when</h2>
-  <p>These are rough timings, not deadlines. Every target is a GymGrow target<sup class="fn">5</sup>. BootyBox grows the whole way through, even while we fix members leaving.</p>
-  <div class="tbl"><table>
-    <thead><tr><th>When, roughly</th><th>What we're working on</th><th>The numbers that tell us it's working</th><th>Members<sup class="fn">5</sup></th></tr></thead>
-    <tbody>
-      <tr><td class="m">First 3 months<br>(about Nov to Feb)</td><td><strong>Phase 1:</strong> getting enquiries booked in, calling every member who misses a week, and booking January's starts.<br><strong>Phase 2:</strong> making new members stay, and starting your full-time coach before your baby arrives.</td><td>Lead to booking: 18% → 30% by 31 Dec. Show rate: at least 50%. Members leaving: 6.5% a month in December, 5.5% by February. New members in January: 11. Every new member at 2+ small groups a week in her first 28 days.</td><td class="n">81 → 92 by 28 Feb</td></tr>
-      <tr><td class="m">Months 4 to 6<br>(about Mar to May)</td><td><strong>Phase 3:</strong> your team runs the daily sessions while you're with your baby, and every new membership sells at the full £155 a month.<br><strong>Phase 4:</strong> keeping members leaving at 4% a month, with members bringing friends.</td><td>Your hours: 45–50 → 30 a week by 30 April. Average price of memberships sold: £155 a month. Members leaving: 4% a month.</td><td class="n grn">100 by 31 May</td></tr>
-    </tbody>
-  </table></div>
-  <details><summary>See the members chart<span class="chev" aria-hidden="true"></span></summary><div class="fb"><figure>
-    <div class="legend"><span><i class="sw"></i><strong>The plan</strong></span><span><i class="sw t"></i>Today's trend, if nothing changes</span></div>
-    <div class="chart wide">
-    <svg viewBox="0 0 800 400" role="img" aria-label="Members by month: the plan rises from 81 to 100 by May; today's trend reaches 82.">
-      <g font-family="Inter, system-ui, sans-serif" font-size="13" fill="#8B919B">
-        <g stroke="#2E3238" stroke-width="1">
-          <line x1="70" y1="40" x2="760" y2="40"/><line x1="70" y1="100" x2="760" y2="100"/><line x1="70" y1="160" x2="760" y2="160"/><line x1="70" y1="220" x2="760" y2="220"/><line x1="70" y1="280" x2="760" y2="280"/>
-        </g>
-        <text x="58" y="44" text-anchor="end">110</text><text x="58" y="104" text-anchor="end">100</text><text x="58" y="164" text-anchor="end">90</text><text x="58" y="224" text-anchor="end">80</text><text x="58" y="284" text-anchor="end">70</text>
-        <g fill="#B5BAC2" text-anchor="middle" font-size="14">
-          <text x="90" y="304">18 Nov</text><text x="200" y="304">Dec</text><text x="310" y="304">Jan</text><text x="420" y="304">Feb</text><text x="530" y="304">Mar</text><text x="640" y="304">Apr</text><text x="750" y="304">May</text>
-        </g>
-        <polyline fill="none" stroke="#8B919B" stroke-width="2.5" stroke-dasharray="7 6" points="90,214 200,213.4 310,212.2 420,211 530,210.4 640,209.8 750,209.2"/>
-        <g fill="#8B919B"><circle cx="200" cy="213.4" r="4"/><circle cx="310" cy="212.2" r="4"/><circle cx="420" cy="211" r="4"/><circle cx="530" cy="210.4" r="4"/><circle cx="640" cy="209.8" r="4"/><circle cx="750" cy="209.2" r="4"/></g>
-        <polyline fill="none" stroke="#F4F262" stroke-width="4" stroke-linejoin="round" points="90,214 200,202 310,166 420,148 530,136 640,118 750,100"/>
-        <g fill="#F4F262"><circle cx="90" cy="214" r="6" fill="#F4F5F6"/><circle cx="200" cy="202" r="5"/><circle cx="310" cy="166" r="5"/><circle cx="420" cy="148" r="5"/><circle cx="530" cy="136" r="5"/><circle cx="640" cy="118" r="5"/><circle cx="750" cy="100" r="6"/></g>
-        <text x="90" y="240" text-anchor="middle" fill="#F4F5F6" font-weight="700" font-size="15">81</text>
-        <text x="420" y="134" text-anchor="middle" fill="#F4F262" font-weight="700" font-size="16">92</text>
-        <text x="750" y="86" text-anchor="middle" fill="#F4F262" font-weight="800" font-size="18">100</text>
-        <text x="750" y="234" text-anchor="middle" fill="#8B919B" font-weight="700" font-size="16">82</text>
-        <text x="10" y="340" fill="#B5BAC2" font-size="13">Joining</text>
-        <text x="10" y="375" fill="#B5BAC2" font-size="13">Leaving</text>
-        <g text-anchor="middle" font-size="15" fill="#F4F5F6" font-weight="600">
-          <text x="90" y="340">6</text><text x="200" y="340">7</text><text x="310" y="340">11</text><text x="420" y="340">8</text><text x="530" y="340">7</text><text x="640" y="340">7</text><text x="750" y="340">7</text>
-        </g>
-        <g text-anchor="middle" font-size="15" fill="#74ED94" font-weight="600">
-          <text x="90" y="375" fill="#F4F5F6">7.3%</text><text x="200" y="375">6.5%</text><text x="310" y="375">6.0%</text><text x="420" y="375">5.5%</text><text x="530" y="375">5.0%</text><text x="640" y="375">4.5%</text><text x="750" y="375">4.0%</text>
-        </g>
-      </g>
-    </svg>
-    </div>
-    <figcaption><b>Figure 1.</b> Members at the end of each month, with new members and the share leaving each month underneath. 18 Nov is today: 81, including 5 women on the 28-day intro. The trend line keeps today's 6 new members a month and 7.3% leaving, which reaches about 82 by May. The plan reaches 100 by booking in more of the women who already enquire and keeping more members.</figcaption>
-  </figure>
-  <p class="src">Source: questionnaire, 12 Nov 2026 (19 joined and 17 left in the last 3 months); your answers, 18 Nov 2026 (81 members). Plan figures are targets, not forecasts.</p></div></details>
+<section id="number">
+  <h2>The one number we check every Monday</h2>
+  <p><strong>How many new enquiries book a consultation.</strong> Grow Sales fills this in for you.</p>
+  <div class="big">30% <span>by 31 December</span></div>
+  <div class="bar"><i style="width:60%"></i></div>
+  <div class="ends"><span>Today: 18% (13 of 74)</span><span>Aim: 30%</span></div>
+  <p>If 95 in every 100 enquiries get a call within one working day and this hasn't gone up in 2 weeks, bring your call recordings or notes to a group call. We'll work out together what to change.</p>
 </section>
-
-<section>
-  <h2>Your plan has 4 phases. We start with Phase 1</h2>
-  <p class="quote">You wouldn't load the bar before your client can brace. Growing BootyBox works the same way: first we get the women who already enquire through the door, then we make sure new members stay, then the team runs it without you there every hour.</p>
-  <div class="road">
-    <div class="stop now"><div class="bar"></div><span class="pn">Phase 1 · Now</span><h3>Get enquiries booked in</h3><p>Steps 1 to 6</p></div>
-    <div class="stop"><div class="bar"></div><span class="pn">Phase 2</span><h3>New members who stay, and your full-time coach</h3><p>First 3 months, roughly</p></div>
-    <div class="stop"><div class="bar"></div><span class="pn">Phase 3</span><h3>Your team runs the daily sessions, and new memberships sell at £155 a month</h3><p>Months 4 to 6, roughly</p></div>
-    <div class="stop"><div class="bar"></div><span class="pn">Phase 4</span><h3>Keep members leaving at 4% a month, and reach 100 members</h3><p>Months 4 to 6, roughly</p></div>
-  </div>
-  <p style="font-size:15px">Each step has an <strong>input</strong> (what you do, counted every week) and an <strong>output</strong> (the result it should move, counted every week). If you're doing it and that number hasn't moved in 2 weeks, you change how you're doing it, with a GymGrow coach on the group call. We never just skip it.</p>
+<section id="monday">
+  <h2>Every Monday</h2>
+  <div class="card"><h3>You report to me every Monday</h3><ul><li>Enquiries, bookings, calls within a working day and day-before calls: Grow Sales fills these in for you, as long as every call and outcome is logged.</li><li>Monday check: how many members were on the list, how many were called, how many booked a session, and how many came in.</li><li>Your call recordings or notes from last week's enquiry calls.</li><li>Members who asked to cancel, the reason, and whether they stayed.</li></ul></div><div class="card"><h3>What I&#x27;ll do</h3><ul><li>Keep your ads running with my team.</li><li>Give you the steps in the platform, templates and group calls for every step of this plan. A GymGrow coach checks the work you bring to the group calls. You do the work in each step yourself.</li></ul></div><div class="card"><h3>Checked on the group calls</h3><ul><li>Bring your enquiry call recordings or notes, your member survey and your notes from cancellation calls to the group calls. A GymGrow coach checks them, and we practise the calls together.</li></ul></div>
+  <details class="fold"><summary>Habits that keep going after each step</summary><ul><li>Call every new enquiry within one working day, trying each one 2 or 3 times. <span>Your team, or the GymGrow setter if you choose option 2, every working day.</span></li><li>The Monday check: list every member who missed a week of small groups, call each one and book her next session during the call. <span>You or one named coach, every Monday.</span></li><li>Call or voice note each member booked on the Monday check the morning of her session, check she came, and message her afterwards. <span>The named person from step 1, every booked session.</span></li><li>Bring your call recordings or notes to the group call. <span>You, every week.</span></li><li>Call or voice note every booked consultation the day before, and call anyone who misses on the same day to rebook her. <span>Your team, every working day.</span></li><li>Mark the outcome of every consultation in Grow Sales: came, didn't come, joined. <span>Your team, within one working day of each consultation.</span></li><li>Book a short call with every member who asks to cancel, and write down her reason and what you offered. <span>You, every cancellation request.</span></li><li>Mark attendance at every small group in GrowHQ. <span>Every coach, every session.</span></li><li>Chase every failed payment. <span>The person you name in step 4, within 48 hours of each failed payment.</span></li></ul></details>
 </section>
-
-<section class="ph1">
-  <div class="stack" style="gap:8px"><span class="label yel">Phase 1 · Now · Steps 1 to 6</span><h2>Get enquiries booked in, and call every member who misses a week</h2>
-  <p>Between 16 October and 15 November, 74 women enquired and only 13 booked a consultation<sup class="fn">1</sup>. Of the 59 enquiries a person reached, half waited 3.7 days or more for their first call<sup class="fn">1</sup>. Once women come in, 3 in 4 join<sup class="fn">3</sup>. So the number we track every week in Phase 1 is lead to booking: the share of new enquiries who book a consultation.</p></div>
-  <div class="gauge"><span class="label">The number we track every Monday · lead to booking</span><svg viewBox="0 0 800 110" role="img" aria-label="Lead to booking: 18% today, 30% by 31 December">
-<g font-family="Inter, system-ui, sans-serif">
-<rect x="20" y="44" width="760" height="18" rx="9" fill="#2E3238"/>
-<rect x="20" y="44" width="342" height="18" rx="9" fill="#F4F5F6"/>
-<rect x="362" y="44" width="228" height="18" fill="#F4F262" opacity=".85"/>
-<text x="362" y="32" text-anchor="middle" fill="#F4F5F6" font-size="22" font-weight="800">18%</text>
-<text x="590" y="32" text-anchor="middle" fill="#F4F262" font-size="22" font-weight="800">30%</text>
-<text x="362" y="88" text-anchor="middle" fill="#B5BAC2" font-size="14">Today: 13 of 74</text>
-<text x="590" y="88" text-anchor="middle" fill="#F4F262" font-size="14">31 Dec, and every month after</text>
-</g></svg><p style="font-size:15px">Enquiries who book a consultation, out of all new enquiries that week. Grow Sales fills this in for you. Phase 1 is passed when, for <strong>2 weeks in a row</strong>, at least 30% of that week's new enquiries book a consultation and 95% get a call within one working day.</p></div>
-  <div class="trio">
-    <div><span class="label yel">Our bet</span><p style="font-size:15px">Women who enquire want to start now. If someone calls each one within one working day, and calls every booking the day before, more of them book and turn up.</p></div>
-    <div><span class="label yel">What you do each week</span><p style="font-size:15px">Of all new enquiries that week, the share a person speaks to within 1 working day. Today: 27% (20 of 74)<sup class="fn">1</sup>. Target: 95% every week.</p></div>
-    <div><span class="label yel">What it should change each week</span><p style="font-size:15px">Lead to booking: of all new enquiries that week, the share who book a consultation. Today: 18% (13 of 74)<sup class="fn">1</sup>. Target: 30%<sup class="fn">5</sup> by 31 December, the GymGrow benchmark.</p></div>
-  </div>
-  <p style="font-size:15px"><strong>If that number doesn't move:</strong> if 95% of enquiries are being called and the share who book hasn't gone up in 2 weeks, you listen to the call recordings or read your notes to see why, bring them to the group call, and with a GymGrow coach decide what to change: who calls, what they say, when, or how the consultation is offered. We never stop the calls.</p>
-  <div class="tiles">
-    <div class="tile"><span class="label">Members on 3 Jan</span><span class="big">81<sup class="fn">2</sup><span class="to">→</span><span class="g">83<sup class="fn">5</sup></span></span></div>
-    <div class="tile"><span class="label">Called within a working day</span><span class="big">27%<span class="to">→</span><span class="g">95%</span></span><p>20 of 74 enquiries today<sup class="fn">1</sup>.</p></div>
-    <div class="tile"><span class="label">Bookings called the day before</span><span class="big">0%<span class="to">→</span><span class="g">100%</span></span><p>0 of 11 bookings today<sup class="fn">1</sup>.</p></div>
-    <div class="tile"><span class="label">Monday check done</span><span class="big g" style="font-size:20px;font-family:var(--font);font-weight:700">Every week</span><p>Every member who missed a week gets a call.</p></div>
-  </div>
-  <div class="stack"><span class="label">Week by week · each week starts on the Monday shown · tap a week to see what to do</span><div class="weeks">
-<details class="wk"><summary><span class="wn"><span>Week</span><b>1</b><span>23 Nov</span></span><span class="wt"><span class="stepno">Step 1</span>Agree the plan, call every enquiry within a working day, and start the Monday check<small><b class="yel">Bet 1:</b> women who get a call within one working day book a consultation more often than women who wait days.</small><small><b class="yel">Bet 2:</b> a member who misses a week, gets a call and has her next session booked during that call, trains again and stays a member.</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="betcard"><span class="bn">Bet 1, enquiries</span><p class="bs">Women who get a call within one working day book a consultation more often than women who wait days.</p><div class="bl"><span class="bk">What you do each week</span><p>Of all new enquiries that week, the share a person speaks to within 1 working day. Today: <b>27% (20 of 74)<sup class=fn>*</sup></b>. Target: <b>95% every week</b>.</p></div><div class="bl"><span class="bk">What it should change each week</span><p>Lead to booking: of all new enquiries that week, the share who book a consultation. Today: <b>18% (13 of 74)<sup class=fn>*</sup></b>. Target: <b>30% by 31 December, the GymGrow benchmark</b>.</p></div><div class="bl"><span class="bk">Also tracked</span><p>Of the women a person reaches on the phone, the share who book a consultation during that same call: not counted yet (first count the Monday after you start), 1 in 3 by 31 December.</p></div><div class="bl"><span class="bk">If that number doesn't move</span><p>If 95% of enquiries are being called and the share who book hasn't gone up in 2 weeks, you listen to the recordings or read the notes, bring them to the group call, and with a GymGrow coach decide what to change: who calls, what they say, the time of day, or how the consultation is offered.</p></div></div><div class="betcard"><span class="bn">Bet 2, the Monday check</span><p class="bs">A member who misses a week, gets a call and has her next session booked during that call, trains again and stays a member.</p><div class="bl"><span class="bk">What you do each week</span><p>Of the members on the Monday list (members who missed a week of small groups), the share who got a call that week. Today: <b>0 (the Monday check hasn't started)</b>. Target: <b>100% every week</b>.</p></div><div class="bl"><span class="bk">What it should change each week</span><p>Of the members called after missing a week, the share who train again within 7 days of the call. Today: <b>not counted yet (first count Mon 23 Nov)</b>. Target: <b>on Mon 7 Dec you set one from your first 2 weeks and bring it to the group call to be checked</b>.</p></div><div class="bl"><span class="bk">If that number doesn't move</span><p>If every member on the list is called and the share who train again hasn't gone up in 2 weeks, you read the notes, bring them to the group call, and with a GymGrow coach decide what to change: what's said on the call, who calls, or how soon.</p></div></div><p class="src"><sup class=fn>*</sup> GymGrow Grow Sales dashboard, 16 Oct to 15 Nov 2026, the same dates as Your next 6 months: 20 of 74 enquiries reached by a person within 24 hours, 13 of 74 booked. 1 in 3 is the rate needed for 30% of all enquiries to book once 95% are reached (30% ÷ 95% ≈ 32%).</p><ul class="todo"><li>Go through this plan together on your coaching call, and decide who calls your enquiries (the choice is further down).</li><li>Call every new enquiry within one working day, at a set time each day. Your coaches already call at 6:15pm, when women have finished work. Try each one at least 2 or 3 times. An automatic text doesn't count.</li><li>Start the Monday check: every Monday, list every member who missed a week of small groups (your coaches already tell you who missed). Call each one and book her next session there and then: a day and a time.</li><li>Name one person who makes sure each member on the Monday list comes to her booked session. They call or voice note her the morning of the session, check she came, and message her afterwards to say well done.</li><li>Record every enquiry call if you can, or write a few notes on each one straight after: what she was looking for, what you said, whether she booked, and if not, why not. Do the same for the Monday check calls.</li><li>Bring the recordings or notes to the group call every week. If the share who book doesn't go up, this is how we find out what's happening on the calls, and we practise them together.</li></ul><div class="done"><b>Done when:</b> Every enquiry has had a call within one working day for a full week, and the first Monday check is done.</div></div></details>
-<details class="wk"><summary><span class="wn"><span>Week</span><b>2</b><span>30 Nov</span></span><span class="wt"><span class="stepno">Step 2</span>Make sure booked women turn up<small><b class="yel">Bet:</b> a call the day before, and a same-day call to anyone who misses, means more booked women turn up.</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="betcard"><span class="bn">The bet</span><p class="bs">A call the day before, and a same-day call to anyone who misses, means more booked women turn up.</p><div class="bl"><span class="bk">What you do each week</span><p>Of all booked consultations that week, the share who get a call or voice note the day before. Today: <b>0% (0 of 11)<sup class=fn>*</sup></b>. Target: <b>100% every week</b>.</p></div><div class="bl"><span class="bk">What it should change each week</span><p>Show rate: of the women booked for a consultation that week, the share who turn up. Today: <b>50% (4 of 8)<sup class=fn>*</sup></b>. Target: <b>at least 50% every week, the GymGrow benchmark</b>.</p></div><div class="bl"><span class="bk">Also tracked</span><p>Of the women who miss their consultation, the share who rebook and then come in: not counted yet (first count the Monday after you start this step); after 2 weeks of counts, you set a target and bring it to the group call, where a GymGrow coach checks it.</p></div><div class="bl"><span class="bk">If that number doesn't move</span><p>If every booking gets a call and the show rate drops below 50% for 2 weeks, you check the notes for why women miss, bring them to the group call, and change how: book her sooner (within 3 days), add a morning-of voice note, or tell her exactly what happens at the consultation.</p></div></div><p class="src"><sup class=fn>*</sup> GymGrow Grow Sales dashboard, 16 Oct to 15 Nov 2026: 4 of 8 consultations came, 0 of 11 bookings called the day before. Your show rate is at the 50% benchmark, so the aim is to keep it there as more women book, not to push it much higher.</p><ul class="todo"><li>Call or send a voice note to every booked consultation the day before. If she can't make it, rebook her on the call.</li><li>Call anyone who doesn't turn up the same day, and rebook her. Record these calls or take notes too: why she didn't come, and whether she rebooked.</li><li>Mark the outcome of every consultation in Grow Sales within one working day: came, didn't come, joined.</li><li>Add women who enquire through your form or Instagram to Grow Sales, so every enquiry and every sale is counted.</li><li>Keep running the Monday check: every Monday, list every member who missed a week of small groups (your coaches already tell you who missed). Call each one and book her next session there and then.</li></ul><div class="done"><b>Done when:</b> Every booking got a call the day before, and every outcome is marked, for 2 weeks running.</div></div></details>
-<details class="wk"><summary><span class="wn"><span>Week</span><b>3</b><span>7 Dec</span></span><span class="wt"><span class="stepno">Step 3</span>Save members who ask to cancel, and send the member survey<small><b class="yel">Bet 1:</b> a short call that finds the real reason, and fixes it, keeps more members than a reply on WhatsApp.</small><small><b class="yel">Bet 2:</b> asking every member what would make her leave shows us what to fix before more members go.</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="betcard"><span class="bn">Bet 1, members who ask to cancel</span><p class="bs">A short call that finds the real reason, and fixes it, keeps more members than a reply on WhatsApp.</p><div class="bl"><span class="bk">What you do each week</span><p>Of all cancellation requests that week, the share who get a call. Today: <b>0% (cancellations come in on WhatsApp with no call)<sup class=fn>*</sup></b>. Target: <b>100% every week</b>.</p></div><div class="bl"><span class="bk">What it should change each week</span><p>Of the members who ask to cancel and get a call, the share who decide to stay. Today: <b>not counted yet (first count the Monday after you start this step)</b>. Target: <b>after 2 weeks of counts, you set a target and bring it to the group call, where a GymGrow coach checks it</b>.</p></div><div class="bl"><span class="bk">Also tracked</span><p>Of the members who decided to stay, the share still members 30 days later. First answer 30 days after the first calls.</p></div><div class="bl"><span class="bk">If that number doesn't move</span><p>If every request gets a call and the share who stay hasn't gone up in 2 weeks, you read the reasons you wrote down, bring them to the group call, and change the fix you offer, or catch her earlier through the Monday check. Before you offer anything with a price, you agree it with Lewis.</p></div></div><div class="betcard"><span class="bn">Bet 2, the member survey</span><p class="bs">Asking every member what would make her leave shows us what to fix before more members go.</p><div class="bl"><span class="bk">What you do each week</span><p>Of all members, the share who have been sent the survey. Today: <b>0 of 81<sup class=fn>*</sup></b>. Target: <b>81 of 81, within a week of a GymGrow coach checking it</b>.</p></div><div class="bl"><span class="bk">What it should change each week</span><p>Of all members, the share who answer the survey. Today: <b>0</b>. Target: <b>at least half (about 40 of 81) within 2 weeks of sending it</b>.</p></div><div class="bl"><span class="bk">Also tracked</span><p>The 3 most common reasons members give for leaving, from the survey and the cancellation calls, written down.</p></div><div class="bl"><span class="bk">If that number doesn't move</span><p>If fewer than half answer after 2 weeks, or the answers don't show clear reasons, you change the survey questions (a GymGrow coach checks them on the group call), or ask on the Monday check calls instead.</p></div></div><p class="src"><sup class=fn>*</sup> Your Slack answers, 18 Nov 2026: 81 members; cancellations come in on WhatsApp with no call. Nobody has counted saves before, so the first count is the Monday after you start.</p><ul class="todo"><li>When a member asks to cancel, book a short call instead of replying on WhatsApp. Find the real reason and offer a fix for it: more accountability, workouts adapted to her, or an easier time to come in.</li><li>Before you offer anything with a price (a pause, a cheaper option), agree it with Lewis.</li><li>Write down every reason she gives, and what you offered.</li><li>First, make your member survey from the GymGrow template (in the platform). Bring it to the group call so a GymGrow coach can check it, then send it to every member.</li></ul><div class="done"><b>Done when:</b> Every cancellation request gets a call, and your survey has gone to every member.</div></div></details>
-<details class="wk"><summary><span class="wn"><span>Week</span><b>4</b><span>14 Dec</span></span><span class="wt"><span class="stepno">Step 4</span>Move fully onto GrowHQ, and call the members who left in September and October<small><b class="yel">Bet 1:</b> when attendance is marked in GrowHQ, members who stop coming are spotted in days, not weeks, so fewer slip away.</small><small><b class="yel">Bet 2:</b> calling past members tells us why women leave, and some of them come back.</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="betcard"><span class="bn">Bet 1, attendance in GrowHQ</span><p class="bs">When attendance is marked in GrowHQ, members who stop coming are spotted in days, not weeks, so fewer slip away.</p><div class="bl"><span class="bk">What you do each week</span><p>Of all small group sessions that week, the share with attendance marked in GrowHQ. Today: <b>0% (small groups aren't in GrowHQ yet)<sup class=fn>*</sup></b>. Target: <b>100% every week</b>.</p></div><div class="bl"><span class="bk">What it should change each week</span><p>Members who haven't trained in 7 days or more, counted from GrowHQ. Today: <b>not counted yet (first count the first Monday every session is marked)</b>. Target: <b>lower every week after that first count</b>.</p></div><div class="bl"><span class="bk">If that number doesn't move</span><p>If attendance is marked every session and the list of members not in for 7+ days doesn't get shorter in 2 weeks, you look at who is on it and why, bring it to the group call, and change who calls, how soon, or what she's offered to come back to.</p></div></div><div class="betcard"><span class="bn">Bet 2, past members</span><p class="bs">Calling past members tells us why women leave, and some of them come back.</p><div class="bl"><span class="bk">What you do each week</span><p>Of the 17 members who left in September and October, the share you've called. Today: <b>0 of 17<sup class=fn>*</sup></b>. Target: <b>17 of 17 within 2 weeks of starting this step</b>.</p></div><div class="bl"><span class="bk">What it should change each week</span><p>Of the 17, how many rejoin. Today: <b>0</b>. Target: <b>no target: nobody can know this yet, so you count every one who rejoins</b>.</p></div><div class="bl"><span class="bk">Also tracked</span><p>Of the 17, how many tell you why they left: all 17 reasons written down.</p></div><div class="bl"><span class="bk">If that number doesn't move</span><p>If no past members return, you use their answers to fix what made them leave, and bring those fixes to the group call.</p></div></div><p class="src"><sup class=fn>*</sup> Your Slack answers, 18 Nov 2026: 17 members left in September and October. Small groups and their attendance aren't in GrowHQ yet.</p><ul class="todo"><li>Move BootyBox fully onto GrowHQ: connect Stripe, add every membership and price, import every member and set up every small group, move every member's payments off GoCardless, and send members the message on how to book.</li><li>Ask every coach to mark attendance at every session. Turn on the at-risk alert, so the Monday check list comes from GrowHQ.</li><li>Turn on failed payment reminders, and name who chases each one within 48 hours.</li><li>Call the 17 members who left in September and October. Ask "What could we have done better?" and write down every answer. Record the calls or take notes.</li></ul><div class="done"><b>Done when:</b> Every member, small group and payment is in GrowHQ, coaches mark attendance at every session, and every past member from September and October has had a call.</div></div></details>
-<details class="wk"><summary><span class="wn"><span>Week</span><b>5</b><span>21 Dec</span></span><span class="wt"><span class="stepno">Step 5</span>Make the offer match everywhere, and call your old enquiries<small><b class="yel">Bet 1:</b> women who enquired before already know BootyBox, and a call offering a January start books some of them.</small><small><b class="yel">Bet 2:</b> a sign-up that takes under 2 minutes on a phone means more women who start it finish it.</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="betcard"><span class="bn">Bet 1, old enquiries</span><p class="bs">Women who enquired before already know BootyBox, and a call offering a January start books some of them.</p><div class="bl"><span class="bk">What you do each week</span><p>Of the 82 old enquiries with no booking, the share called at least twice. Today: <b>0 of 82<sup class=fn>*</sup></b>. Target: <b>82 of 82 within 2 weeks of starting this step</b>.</p></div><div class="bl"><span class="bk">What it should change each week</span><p>Of the 82, how many book a consultation for a January start. Today: <b>0</b>. Target: <b>no target: nobody can know this yet, so you count every booking and bring the count to the group call</b>.</p></div><div class="bl"><span class="bk">If that number doesn't move</span><p>If, 2 weeks after the calls start, almost none of the old enquiries book, you listen to the calls, bring them to the group call, and change the offer wording, the time you call, or try a voice note first.</p></div></div><div class="betcard"><span class="bn">Bet 2, sign-up</span><p class="bs">A sign-up that takes under 2 minutes on a phone means more women who start it finish it.</p><div class="bl"><span class="bk">What you do each week</span><p>Time it takes to sign up on a phone, from start to paid, timed once a week. Today: <b>not timed yet</b>. Target: <b>under 2 minutes</b>.</p></div><div class="bl"><span class="bk">What it should change each week</span><p>Of the women who start a sign-up online that week, the share who finish it. Today: <b>not counted yet (first count the Monday after sign-up takes under 2 minutes)</b>. Target: <b>after 2 weeks of counts, you set a target and bring it to the group call, where a GymGrow coach checks it</b>.</p></div><div class="bl"><span class="bk">If that number doesn't move</span><p>If women still drop out of sign-up, you time it again on a phone and cut more steps.</p></div></div><p class="src"><sup class=fn>*</sup> GymGrow Grow Sales dashboard, 20 Nov 2026: 82 enquiries on the board with no booking. Nobody can know yet how many will book, so you count it rather than guess.</p><ul class="todo"><li>Change the website's "Book a free trial" button so it books a consultation for the same 28-day intro your ads offer.</li><li>Time a sign-up on your phone, and cut steps until it takes under 2 minutes.</li><li>Call the 82 enquiries who never booked, newest first, and offer each one a January start. Record the calls or take notes, and mark every outcome in Grow Sales.</li><li>Write down how pauses work today (who, why, how long), ready to agree a pause rule with Lewis. 4 members pause in December.</li></ul><div class="done"><b>Done when:</b> The offer is the same on your website, ads and form, and every old enquiry has had at least 2 calls.</div></div></details>
-<details class="wk"><summary><span class="wn"><span>Week</span><b>6</b><span>28 Dec</span></span><span class="wt"><span class="stepno">Step 6</span>Keep calling over Christmas, fill January, and check Phase 1<small><b class="yel">Bet:</b> keeping every call going over Christmas fills January, when the most women want to start.</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><div class="betcard"><span class="bn">The bet</span><p class="bs">Keeping every call going over Christmas fills January, when the most women want to start.</p><div class="bl"><span class="bk">What you do each week</span><p>Of the working days over Christmas, the share where every enquiry call, day-before call and Monday check call was made. Today: <b>not counted yet</b>. Target: <b>100%, no break</b>.</p></div><div class="bl"><span class="bk">What it should change each week</span><p>Consultations booked that week for a January start. Today: <b>0</b>. Target: <b>at least 3 a week</b>.</p></div><div class="bl"><span class="bk">Also tracked</span><p>New members who start in January: 0 today, 11 by 31 January<sup class=fn>*</sup>.</p></div><div class="bl"><span class="bk">If that number doesn't move</span><p>If you're behind on January bookings by 28 December, you call the old enquiries and past members a second time, and check the recordings for why women aren't booking.</p></div></div><p class="src"><sup class=fn>*</sup> 11 new members in January is the target in "Roughly what happens when" above.</p><ul class="todo"><li>Keep calling every enquiry within one working day, and every booking the day before.</li><li>Keep running the Monday check: every Monday, list every member who missed a week of small groups (your coaches already tell you who missed). Call each one and book her next session there and then. Name one person who makes sure each member on the Monday list comes to her booked session. They call or voice note her the morning of the session, check she came, and message her afterwards to say well done.</li><li>Book as many January starts as you can before the New Year.</li><li>Check your lead to booking against the 30% benchmark.</li></ul><div class="done"><b>Done when:</b> For 2 weeks in a row, at least 30% of new enquiries booked a consultation and 95% got a call within one working day. Then Phase 2 opens.</div></div></details>
-  </div></div>
-  <div class="trio">
-    <div><span class="label">You report to me every Monday</span><ul><li>Enquiries, bookings, calls within a working day and day-before calls: Grow Sales fills these in for you, as long as every call and outcome is logged.</li><li>Monday check: how many members were on the list, how many were called, how many booked a session, and how many came in.</li><li>Your call recordings or notes from last week's enquiry calls.</li><li>Members who asked to cancel, the reason, and whether they stayed.</li></ul></div>
-    <div><span class="label">What I'll do</span><ul><li>Keep your ads running with my team.</li><li>Give you the steps in the platform, templates and group calls for every step of this plan. A GymGrow coach checks the work you bring to the group calls. You do the work in each step yourself.</li></ul></div>
-    <div><span class="label">Checked on the group calls</span><ul><li>Bring your enquiry call recordings or notes, your member survey and your notes from cancellation calls to the group calls. A GymGrow coach checks them, and we practise the calls together.</li></ul></div>
-  </div>
-  <div class="stack" id="routines"><h3 style="margin:0">What keeps running after each step</h3>
-  <p style="font-size:15px">Each step leaves a routine behind. Once a step is running, that routine doesn't stop: from now on, it's part of how BootyBox runs every day or week. This is how what you learn in each step keeps working after you move on to the next one.</p>
-  <div class="rts"><div class="betcard"><span class="bn">From step 1</span><p class="bs">Call every new enquiry within one working day, trying each one 2 or 3 times</p><div class="bl"><span class="bk">Who does it</span><p>Your team, or the GymGrow setter if you choose option 2</p></div><div class="bl"><span class="bk">How often</span><p>From now on, every working day</p></div><div class="bl"><span class="bk">The number it moves</span><p>Lead to booking</p></div></div><div class="betcard"><span class="bn">From step 1</span><p class="bs">The Monday check: list every member who missed a week of small groups, call each one and book her next session during the call</p><div class="bl"><span class="bk">Who does it</span><p>You or one named coach</p></div><div class="bl"><span class="bk">How often</span><p>From now on, every Monday</p></div><div class="bl"><span class="bk">The number it moves</span><p>Of the members called, the share who train again within 7 days, and members leaving a month</p></div></div><div class="betcard"><span class="bn">From step 1</span><p class="bs">Call or voice note each member booked on the Monday check the morning of her session, check she came, and message her afterwards</p><div class="bl"><span class="bk">Who does it</span><p>The named person from step 1</p></div><div class="bl"><span class="bk">How often</span><p>From now on, every booked session</p></div><div class="bl"><span class="bk">The number it moves</span><p>Of the members called, the share who train again within 7 days</p></div></div><div class="betcard"><span class="bn">From step 1</span><p class="bs">Bring your call recordings or notes to the group call</p><div class="bl"><span class="bk">Who does it</span><p>You</p></div><div class="bl"><span class="bk">How often</span><p>From now on, every week</p></div><div class="bl"><span class="bk">The number it moves</span><p>Lead to booking</p></div></div><div class="betcard"><span class="bn">From step 2</span><p class="bs">Call or voice note every booked consultation the day before, and call anyone who misses on the same day to rebook her</p><div class="bl"><span class="bk">Who does it</span><p>Your team</p></div><div class="bl"><span class="bk">How often</span><p>From now on, every working day</p></div><div class="bl"><span class="bk">The number it moves</span><p>Show rate</p></div></div><div class="betcard"><span class="bn">From step 2</span><p class="bs">Mark the outcome of every consultation in Grow Sales: came, didn't come, joined</p><div class="bl"><span class="bk">Who does it</span><p>Your team</p></div><div class="bl"><span class="bk">How often</span><p>From now on, within one working day of each consultation</p></div><div class="bl"><span class="bk">The number it moves</span><p>Keeps all four rates on your dashboard correct</p></div></div><div class="betcard"><span class="bn">From step 3</span><p class="bs">Book a short call with every member who asks to cancel, and write down her reason and what you offered</p><div class="bl"><span class="bk">Who does it</span><p>You</p></div><div class="bl"><span class="bk">How often</span><p>From now on, every cancellation request</p></div><div class="bl"><span class="bk">The number it moves</span><p>Of the members who ask to cancel, the share who stay, and members leaving a month</p></div></div><div class="betcard"><span class="bn">From step 4</span><p class="bs">Mark attendance at every small group in GrowHQ</p><div class="bl"><span class="bk">Who does it</span><p>Every coach</p></div><div class="bl"><span class="bk">How often</span><p>From now on, every session</p></div><div class="bl"><span class="bk">The number it moves</span><p>Members who haven't trained in 7 days or more</p></div></div><div class="betcard"><span class="bn">From step 4</span><p class="bs">Chase every failed payment</p><div class="bl"><span class="bk">Who does it</span><p>The person you name in step 4</p></div><div class="bl"><span class="bk">How often</span><p>From now on, within 48 hours of each failed payment</p></div><div class="bl"><span class="bk">The number it moves</span><p>Members leaving a month</p></div></div></div>
-  <!-- PLATFORM LINE: switch on (remove hidden) once Routines is live for clients -->
-  <p class="platform-line" hidden style="font-size:15px">Each routine shows in your platform with its day, and you enter its number there every week.</p>
-  </div>
+<section id="next">
+  <h2>After these 6 steps</h2>
+  <p>We make sure new members stay, your full-time coach starts before your baby arrives, and your team runs the daily sessions. That takes you to 100 by 31 May. I plan each of those in detail once the one before it is working.</p>
+  <p><a href="#report">See your full 6 months, and why each step is in your plan</a></p>
 </section>
-
-<section>
-  <h2>After Phase 1</h2>
-  <p>Each of these is broken into steps once the phase before it is passed. Every phase works the same way: a bet, plus what you do and the number it should change, both counted every week. If that number doesn't move in 2 weeks, you change how, with a GymGrow coach on the group call.</p>
-  <div class="stack">
-    <details class="later"><summary><span class="fno mono yel">PHASE 2</span><span class="ft">New members who stay, and your full-time coach · first 3 months, roughly</span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><dl class="kv"><dt>Focus</dt><dd>A first 28 days that builds a habit of at least 2 small groups a week for every new member: a WhatsApp group for each intro group, a message after every session, a same-day call for any missed session, and a week 3 check-in. Set every new member one goal she can reach in her first 28 days. Work out your monthly profit with the GymGrow profit template, with your ad spend included. Write down the jobs you'd hand to your full-time coach, and hire your full-time coach, started by 28 February.</dd><dt>Our bet</dt><dd>New members who train at least twice a week in their first 28 days stay. A coach hired before the baby arrives keeps everything running.</dd><dt>Why</dt><dd>January brings the most new women, and new members are most likely to leave in their first weeks. The hire has to be done before March.</dd><dt>What you do each week</dt><dd>Of the small groups new members in their first 28 days miss, the share that get a same-day call. Target: 100% every week.</dd><dt>What it should change each week</dt><dd>Of new members in their first 28 days, the share at 2 or more small groups a week, from GrowHQ attendance. Target: all of them. Also: your full-time coach started by 28 February.</dd><dt>Result</dt><dd>11 new members in January. 92 members by 28 Feb, with 5.5% leaving. Coach started.</dd></dl></div></details>
-
-    <details class="later"><summary><span class="fno mono yel">PHASE 3</span><span class="ft">Your team runs the daily sessions, and new memberships sell at £155 a month · months 4 to 6, roughly</span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><dl class="kv"><dt>Focus</dt><dd>A weekly team meeting led by your full-time coach, one named person responsible for each number, and one job a week handed over using written steps. Every new membership sold at the full £155 a month, and one paid extra members can add on top of their membership. A pause rule, written by you and agreed with Lewis.</dd><dt>Our bet</dt><dd>Written steps and a weekly meeting let the team run the day to day while you're with your baby, without the numbers slipping.</dd><dt>Why</dt><dd>A facility that runs on written steps doesn't need its owner there every hour. Members on the £155-a-month membership pay about £122 a month on average today.</dd><dt>What you do each week</dt><dd>Jobs handed to your team using written steps. Target: 1 a week.</dd><dt>What it should change each week</dt><dd>Your hours a week, which you enter every Monday: 45–50 today, 30 by 30 April. Also: the average price of memberships sold that week, from GrowHQ: £155 a month.</dd><dt>Result</dt><dd>Your hours down to 30 by 30 April. 97 members, with 4.5% leaving.</dd></dl></div></details>
-
-    <details class="later"><summary><span class="fno mono yel">PHASE 4</span><span class="ft">Keep members leaving at 4% a month, and reach 100 members · months 4 to 6, roughly</span><span class="chev" aria-hidden="true"></span></summary><div class="fb"><dl class="kv"><dt>Focus</dt><dd>Ask at least 4 or 5 members a week to bring a friend, starting with your 50 to 60 longest-standing members, and every new member straight after she joins. Call every friend the same day and book her a consultation. Then you do your 6-month review with the GymGrow template, bring it to the group call, and set your next goal towards 140 members.</dd><dt>Our bet</dt><dd>Keeping every habit from Phases 1 to 3 running holds members leaving at 4% through summer, and members bring the next ones in.</dd><dt>Why</dt><dd>Holidays break routines, so keeping members needs to be strongest before June.</dd><dt>What you do each week</dt><dd>Members asked to bring a friend. Target: at least 4 or 5 a week.</dd><dt>What it should change each week</dt><dd>Friends of members who book a consultation each week. No target: nobody can know this yet, so you count every one. Also: members leaving, 4% a month.</dd><dt>Result</dt><dd>100 members on 31 May, and £3,000 a month for you from June.</dd></dl></div></details>
-
-  </div>
-</section>
-
-<section>
-  <h2>Your choice: who calls your enquiries</h2>
-  <p>Your ads bring in 2 to 3 enquiries a day<sup class="fn">1</sup>. The ads only bring in members if someone calls every new enquiry within one working day. The ads keep running either way. The choice is who makes those calls. I need your answer by Mon 23 Nov.</p>
-  <div class="opts">
-    <div class="opt"><h3>Option 1: your coaches call</h3><p>Your coaches call every enquiry within one working day at 6:15pm, every booking the day before, and the 82 who never booked. You or one named coach is responsible for these calls every day.</p><p><strong class="yel">No extra cost, but it adds hours to your team's week</strong></p></div>
-    <div class="opt rec"><h3>Option 2: a GymGrow setter calls for you</h3><p>A setter calls every enquiry within a day, works through the 82 older ones, and books women in with your team. It takes calling off your plate, the first job you said you'd hand over. 2 extra members a month (£232 a month) cover almost all of the £247 a month cost<sup class="fn">4</sup>.</p><p><strong class="yel">£247 a month (up to 20 calls a day)</strong></p></div>
-  </div>
-  <p class="src">Source: GymGrow Grow Sales dashboard, 16 Oct to 15 Nov 2026 (74 enquiries, 13 booked), and 82 on the board with no booking on 20 Nov; questionnaire, question 48 (£450 a month on ads). 2 members × £116 = £232 a month.</p>
-</section>
-
-
-
-<footer>
-  <span class="label">Where every number comes from</span>
-  <ol class="fnl">
-    <li>GymGrow Grow Sales dashboard, 16 Oct to 15 Nov 2026, the same dates as Your next 6 months: 74 enquiries; lead to booking 18% (13 of 74); 20 reached by a person within 24 hours (27%); of the 59 a person reached, half waited 3.7 days or more; show rate 50% (4 of 8 consultations came); close rate 86% (6 of 7 who came in bought); intro to recurring 100% (1 of 1 who finished the 28-day intro went onto a monthly membership); 0 of 11 bookings called the day before. On 20 Nov, 82 enquiries were on the board with no booking.</li>
-    <li>Your answers on Slack, 18 Nov 2026: 81 members including 5 on the 28-day intro, leavers 10 in September, 7 in October, 0 so far in November, 4 pauses in December, full-time coach cost.</li>
-    <li>Your starting-numbers questionnaire, 12 Nov 2026, and our call that day: 3 in 4 women who come in join, 45 to 50 hours a week, £2,000 a month pay, about £450 a month on ads, 19 joined and 17 left in the last 3 months.</li>
-    <li>My calculations from 1 to 3: members leaving a month = 17 left in 3 months ÷ 3 ÷ 78 average members = 7.3%. Average fee about £116 across the 73 members on a monthly membership (questionnaire, questions 24 to 28). 2 members × £116 = £232 a month, against the £247 a month setter.</li>
-    <li>Targets I've set with you, using GymGrow's benchmarks: lead to booking 30%, show rate 50%, close rate 50%, intro to recurring 75%. Where you're already at or above a benchmark, the target is to hold it. Plan figures are targets, not forecasts.</li>
-  </ol>
-  <p>Numbers in the step cards marked * have their source in the note at the bottom of that card. The full evidence is in Your next 6 months.</p>
-  <p>Prepared by Lewis Clare, GymGrow, 18 November 2026.</p>
+<footer class="foot">
+  <details class="fold"><summary>Where these numbers come from</summary><ol><li>GymGrow Grow Sales dashboard, 16 Oct to 15 Nov 2026, the same dates as Your next 6 months: 74 enquiries; lead to booking 18% (13 of 74); 20 reached by a person within 24 hours (27%); of the 59 a person reached, half waited 3.7 days or more; show rate 50% (4 of 8 consultations came); close rate 86% (6 of 7 who came in bought); intro to recurring 100% (1 of 1 who finished the 28-day intro went onto a monthly membership); 0 of 11 bookings called the day before. On 20 Nov, 82 enquiries were on the board with no booking.</li><li>Your answers on Slack, 18 Nov 2026: 81 members including 5 on the 28-day intro, leavers 10 in September, 7 in October, 0 so far in November, 4 pauses in December, full-time coach cost.</li><li>Your starting-numbers questionnaire, 12 Nov 2026, and our call that day: 3 in 4 women who come in join, 45 to 50 hours a week, £2,000 a month pay, about £450 a month on ads, 19 joined and 17 left in the last 3 months.</li><li>My calculations from 1 to 3: members leaving a month = 17 left in 3 months ÷ 3 ÷ 78 average members = 7.3%. Average fee about £116 across the 73 members on a monthly membership (questionnaire, questions 24 to 28). 2 members × £116 = £232 a month, against the £247 a month setter.</li><li>Targets I've set with you, using GymGrow's targets: lead to booking 30%, show rate 50%, close rate 50%, intro to recurring 75%. Where you're already at or above a target, the target is to hold it. Plan figures are targets, not forecasts.</li></ol></details>
+  <p>Plan figures are targets, not forecasts. Prepared by Lewis Clare, GymGrow. Updated 24 November 2026.</p>
 </footer>
-</div>
+</main>
+<script>
+(function(){
+  var KEY='gg-plan-bootybox-57b531', st={};
+  try{ st=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ st={}; }
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(st)); }catch(e){} }
+  var steps=[].slice.call(document.querySelectorAll('.step'));
+  [].slice.call(document.querySelectorAll('.todo input')).forEach(function(cb){
+    cb.checked=!!st[cb.dataset.k];
+    cb.addEventListener('change',function(){ st[cb.dataset.k]=cb.checked; save(); });
+  });
+  function render(openNow){
+    var done=0, now=null;
+    steps.forEach(function(s){
+      var d=!!st['done'+s.dataset.n]; s.classList.toggle('done',d); s.classList.remove('now');
+      s.querySelector('.mark').textContent=d?'Mark as not done':"I've done this step";
+      if(d) done++; else if(!now) now=s;
+    });
+    if(now){ now.classList.add('now'); if(openNow) now.open=true; }
+    document.getElementById('pcount').textContent=done+' of '+steps.length;
+    document.getElementById('pbar').style.width=(done/steps.length*100)+'%';
+    return now;
+  }
+  steps.forEach(function(s){
+    s.querySelector('.mark').addEventListener('click',function(){
+      var k='done'+s.dataset.n; st[k]=!st[k]; save();
+      if(st[k]){ s.open=false; var n=render(true); if(n) setTimeout(function(){ n.scrollIntoView({behavior:'smooth',block:'start'}); },60); }
+      else render(false);
+    });
+  });
+  var first=render(false);
+  if(first && first.dataset.n!=='1'){ steps[0].open=false; first.open=true; }
+})();
+</script>
 </div>
 <div id="gg-report" style="display:none"><iframe id="gg-report-frame" title="Your next 6 months" loading="eager"></iframe></div>
 <script id="gg-tabs-script">

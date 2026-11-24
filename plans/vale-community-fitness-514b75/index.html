@@ -1,0 +1,351 @@
+<!doctype html><html lang="en"><head>
+<meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Vale Community Fitness: Your next 6 weeks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>:root{
+  --bg:#121417; --card:#1B1D21; --card2:#22252A; --line:#2E3238; --fg:#F4F5F6; --body:#C3C8CF; --muted:#8B919B;
+  --yel:#F4F262; --grn:#74ED94;
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--body);font-family:var(--font);font-size:18px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:680px;margin:0 auto;padding:56px 0 96px;display:flex;flex-direction:column;gap:88px}
+h1,h2,h3,h4{color:var(--fg);margin:0;line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(34px,7vw,52px);font-weight:800;letter-spacing:-.025em}
+h1 em{font-style:normal;color:var(--yel)}
+h2{font-size:clamp(26px,5vw,34px);font-weight:800;letter-spacing:-.02em}
+h4{font-size:16px;font-weight:700;margin-top:8px}
+p{margin:0}
+strong,b{color:var(--fg);font-weight:600}
+a{color:var(--yel)}
+section{display:flex;flex-direction:column;gap:20px}
+.sub{font-size:20px;color:var(--body);max-width:56ch}
+
+/* hero */
+.hero{display:flex;flex-direction:column;gap:24px}
+.progress{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.bar{height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--yel);border-radius:99px;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.progress p{font-size:15px;color:var(--muted)}
+.progress p b{color:var(--fg)}
+
+/* choice */
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.opt{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.opt h3{font-size:20px;font-weight:700}
+.opt p{font-size:16px}
+.opt .cost{color:var(--yel);font-weight:600;margin-top:auto}
+@media (max-width:620px){.choice{grid-template-columns:1fr}}
+
+/* steps */
+.steps{display:flex;flex-direction:column;gap:10px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;transition:border-color .2s}
+.step>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:18px 20px}
+.step>summary::-webkit-details-marker{display:none}
+.num{flex:none;width:40px;height:40px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;color:var(--fg);font-weight:700;font-size:17px}
+.num i{font-style:normal}
+.st{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.tt{color:var(--fg);font-weight:600;font-size:18px;line-height:1.3}
+.wk{font-size:14px;color:var(--muted)}
+.now-tag{display:none;font-size:14px;font-weight:700;color:var(--yel)}
+.chev{flex:none;width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);margin:0 4px 4px 0;transition:transform .2s}
+.step[open]>summary .chev{transform:rotate(-135deg);margin:4px 4px 0 0}
+.step.now{border-color:var(--yel)}
+.step.now .now-tag{display:block}
+.step.now .num{border-color:var(--yel);color:var(--yel)}
+.step.done .num{background:var(--grn);border-color:var(--grn);color:var(--bg)}
+.step.done .num i{display:none}
+.step.done .num::after{content:"";width:12px;height:7px;border-left:3px solid var(--bg);border-bottom:3px solid var(--bg);transform:rotate(-45deg) translate(1px,-1px)}
+.step.done .tt{color:var(--body)}
+.body{padding:0 20px 22px 76px;display:flex;flex-direction:column;gap:18px}
+@media (max-width:520px){.body{padding:0 18px 20px}}
+.why{color:var(--body)}
+.todo{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.todo label{display:flex;gap:14px;align-items:flex-start;padding:10px 0;cursor:pointer;color:var(--fg)}
+.todo input{appearance:none;-webkit-appearance:none;flex:none;width:24px;height:24px;margin:1px 0 0;border:2px solid var(--muted);border-radius:7px;display:grid;place-items:center;cursor:pointer;transition:background .15s,border-color .15s}
+.todo input::after{content:"";width:10px;height:5px;border-left:2.5px solid var(--bg);border-bottom:2.5px solid var(--bg);transform:rotate(-45deg) translate(1px,-1px);opacity:0}
+.todo input:checked{background:var(--yel);border-color:var(--yel)}
+.todo input:checked::after{opacity:1}
+.todo input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+.todo input:focus-visible,.mark:focus-visible,summary:focus-visible{outline:2px solid var(--yel);outline-offset:3px}
+.done{background:var(--card2);border-radius:12px;padding:14px 16px;font-size:16px}
+.done b{display:block;color:var(--yel);margin-bottom:2px}
+.mark{align-self:flex-start;font:inherit;font-weight:700;font-size:16px;background:var(--yel);color:var(--bg);border:0;border-radius:14px;padding:13px 20px;cursor:pointer}
+.step.done .mark{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.how{border-top:1px solid var(--line);padding-top:14px}
+.how>summary{cursor:pointer;color:var(--muted);font-size:16px;font-weight:600}
+.how dl{margin:12px 0 0;display:flex;flex-direction:column;gap:12px;font-size:16px}
+.how dt{color:var(--fg);font-weight:600}
+.how dd{margin:2px 0 0}
+
+/* monday number */
+.big{display:flex;align-items:baseline;gap:16px;color:var(--fg);font-weight:800;font-size:clamp(56px,14vw,88px);letter-spacing:-.04em;line-height:1}
+.big span{color:var(--muted);font-size:.5em;font-weight:600}
+.big em{font-style:normal;color:var(--yel)}
+.ends{display:flex;justify-content:space-between;font-size:15px;color:var(--muted);margin-top:-8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.card h3{font-size:18px;font-weight:700}
+.card ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* road */
+.road{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.road::before{content:"";position:absolute;left:12.5%;right:12.5%;top:13px;height:2px;background:var(--line)}
+.road li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;position:relative}
+.road li::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--muted);margin:6px 0}
+.road li.on::before{background:var(--yel);border-color:var(--yel)}
+.road b{font-size:clamp(26px,6vw,34px);font-weight:800;color:var(--fg);line-height:1}
+.road li.on b{color:var(--yel)}
+.road li.first::before{border-color:var(--yel)}
+.road{margin:8px 0}
+.road span{font-size:14px;color:var(--muted);line-height:1.3;max-width:13ch}
+
+/* folds */
+.fold>summary{cursor:pointer;color:var(--fg);font-weight:600}
+.fold ol,.fold ul{margin:12px 0 0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:15px;color:var(--muted)}
+.foot{font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--line);padding-top:28px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.stage{font-size:15px;font-weight:700;color:var(--muted);margin:18px 0 2px 4px;letter-spacing:.01em}
+.steps>.stage:first-child{margin-top:0}
+.pause{background:transparent;border:1px dashed var(--line);border-radius:18px;padding:16px 20px;display:flex;flex-direction:column;gap:6px;font-size:16px}
+.pause b{color:var(--fg)} .pause span{color:var(--muted);font-size:14px} .pause ul{margin:4px 0 0;padding-left:20px}
+.howin{margin-top:12px;display:flex;flex-direction:column;gap:12px;font-size:16px}
+.howin *{font-size:inherit!important}
+.howin div,.howin p,.howin span{display:block;margin:0}
+.howin .bn,.howin .bk,.howin b,.howin strong,.howin .label{color:var(--fg);font-weight:600;font-family:var(--font);text-transform:none;letter-spacing:0}
+.howin .betcard,.howin .wbet,.howin .bet{display:flex;flex-direction:column;gap:10px}
+.howin details summary{color:var(--muted);cursor:pointer}
+.why b{color:var(--fg)}
+.card ul,.card ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.card p{margin:0}
+.fold li span{color:var(--muted)}
+
+.big.long{font-size:clamp(40px,10vw,60px);flex-wrap:wrap;gap:4px 14px}
+.big.long span{font-size:.55em}
+</style>
+<style id="gg-tabs-style">
+.gg-tabs{display:flex;gap:8px;max-width:1100px;margin:0 auto;padding:16px 16px 0;font-family:Inter,system-ui,-apple-system,sans-serif;flex-wrap:wrap}
+.gg-tab{flex:0 1 auto;padding:12px 20px;border-radius:999px;border:1px solid #2E3238;background:#1B1D21;color:#E8E8E8;font-weight:600;font-size:16px;text-decoration:none;line-height:1.2}
+.gg-tab[aria-selected="true"]{background:#F4F262;border-color:#F4F262;color:#121417}
+.gg-tab:focus-visible{outline:2px solid #F4F262;outline-offset:2px}
+#gg-report-frame{display:block;width:100%;border:0;min-height:100vh;background:#121417}
+@media (max-width:480px){.gg-tab{flex:1 1 0;text-align:center;padding:12px 6px;font-size:14px;white-space:nowrap}}
+</style>
+</head><body>
+<nav class="gg-tabs" role="tablist" aria-label="Your plan">
+<a class="gg-tab" role="tab" data-tab="plan" href="#plan">Your next 6 weeks</a>
+<a class="gg-tab" role="tab" data-tab="report" href="#report">Your next 6 months</a>
+</nav>
+<div id="gg-plan">
+<main class="wrap">
+<header class="hero">
+  <h1>Mark, your plan to <em>about £4,800 MRR</em> by 31 May</h1>
+  <p class="sub">You told me you want to grow Vale's MRR (monthly recurring revenue) to at least £3,500, with £5,000 the goal, so you can move to the bigger unit. Your big goal is £20,000 a month and a team.</p>
+  <ol class="road"><li class=""><b>£2.9k</b><span>MRR today</span></li><li class="first"><b>£4.1k</b><span>by 28 Feb</span></li><li class="on"><b>£4.8k</b><span>by 31 May, your 6-month goal</span></li><li class=""><b>£20k</b><span>your big goal</span></li></ol>
+  <p>Your ads work: 16 of your last 26 new leads booked a consultation. The leak is what happens next. Of the 9 booked people whose consultation has passed, 1 turned up. So your first steps get the people who book speaking to a person and through your door, in time for your January intakes. Your unit holds about 70 members, so from March MRR grows from keeping members and from price. Do one step at a time, roughly one a week, and tick things off as you go.</p>
+  <div class="progress" aria-live="polite"><div class="bar"><i id="pbar"></i></div><p><b id="pcount">0 of 9</b> steps done</p></div>
+</header>
+<section id="steps">
+  <h2>Your 9 steps</h2>
+  <p>Tap a step to see what to do. When you've done it, tap "I've done this step" and the next one opens.</p>
+  <div class="steps">
+<h3 class="stage">Get the people who book through your door</h3>
+<details class="step" id="step-1" data-n="1" open>
+<summary><span class="num" aria-hidden="true"><i>1</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Agree the plan and get your numbers right</span><span class="wk">Step 1 · week of Monday 30 Nov</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">You counted 11 sign-ups from October's ads. Grow Sales shows 8 intro payments and no memberships, and your members are in Octave, where GymGrow can't see them.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s1t0"><span>Read this plan, and post any questions in your Slack channel.</span></label></li><li><label><input type="checkbox" data-k="s1t1"><span>Share your starting-numbers questionnaire with lewis@gymgrow.ai, so the numbers marked "to check" can be confirmed.</span></label></li><li><label><input type="checkbox" data-k="s1t2"><span>In Grow Sales, mark the outcome of every past consultation: came or missed, and signed up or not.</span></label></li><li><label><input type="checkbox" data-k="s1t3"><span>For each of October's 11 sign-ups, log the intro sale if it's missing, then mark whether they went onto a membership after their 28 days, with its monthly price.</span></label></li><li><label><input type="checkbox" data-k="s1t4"><span>Move your members from Octave into GrowHQ, using the migration steps I sent you on 20 November. Then you can see who comes in, who goes quiet and who leaves, and you save Octave's monthly fee.</span></label></li><li><label><input type="checkbox" data-k="s1t5"><span>In your P&amp;L, write the month at the top of each column and add your GymGrow membership as a cost.</span></label></li></ul>
+<p class="done"><b>Done when</b> October's group all have an outcome in Grow Sales, your members are in GrowHQ, and your P&amp;L has every cost in it.</p>
+<button type="button" class="mark" data-step="1">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>If Grow Sales holds every consultation, every sign-up and every member, every Monday number in this plan fills in by itself, and we can tell within 2 weeks whether a step is working.</div><div><b>What you count each week:</b>Consultations and sign-ups from last week with their outcome marked in Grow Sales. Today: 9 of 10 consultations since 24 September have an outcome, and none of October's group has a membership logged. Target: all of them, every week.</div><div><b>What it should change:</b><strong>Intro to recurring</strong> (of the people whose 28 days ended, the share who went onto a membership) shows in Grow Sales. Today: not counted. Target: a real number on Mon 7 Dec.</div><div><b>If it hasn't changed in 2 weeks:</b>If it still shows nothing on Mon 7 Dec, post a screenshot of your pipeline in your Slack channel and we go through it with you.</div></div></div></details>
+</div></details>
+<details class="step" id="step-2" data-n="2">
+<summary><span class="num" aria-hidden="true"><i>2</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Speak to every new lead within one working day</span><span class="wk">Step 2 · week of Monday 7 Dec</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">20 of your 26 new leads since 24 September only got the automatic reply and never heard from a person. The other 6 waited about 16 hours.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s2t0"><span>First, write your new-lead call from the speed-to-lead step and template in the platform. You, your coaches and the two members who take consultations all use the same one.</span></label></li><li><label><input type="checkbox" data-k="s2t1"><span>Pick who calls new leads on each day of the week, between you, Danielle, Gemma and your two members, so a lead never waits for you to finish coaching.</span></label></li><li><label><input type="checkbox" data-k="s2t2"><span>Call each new lead the same working day where you can, and the next working day at the latest. If they don't answer, send a message and call again the next day. Make every call and message from Grow Sales, so it's counted.</span></label></li><li><label><input type="checkbox" data-k="s2t3"><span>Keep the automatic reply. It reaches every lead within about a minute. Your call comes after it, not instead of it.</span></label></li><li><label><input type="checkbox" data-k="s2t4"><span>Work back through the 10 leads with no booking, newest first.</span></label></li><li><label><input type="checkbox" data-k="s2t5"><span>Write a note on each call: what was said, and whether they're coming.</span></label></li></ul>
+<p class="done"><b>Done when</b> Every new lead hears from a person within one working day, 2 weeks in a row.</p>
+<button type="button" class="mark" data-step="2">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>Someone who has spoken to a real person before their consultation knows who they're meeting and why, so they're far more likely to turn up.</div><div><b>What you count each week:</b>Share of the week's new leads who got a call or message from you or your team within one working day, sent from Grow Sales. Today: 6 of 26 heard from a person at all. Target: all of them, every week.</div><div><b>What it should change:</b><strong>Show rate</strong> (of the consultations with an outcome marked, the share where the person turned up). Today: 11% (1 of 9). Target: 50% every week by 31 Jan, the rate we aim for. Lead to booking stays at 30% or more (today 62%).</div><div><b>If it hasn't changed in 2 weeks:</b>If every new lead hears from a person within a day and show rate hasn't risen in 2 weeks, bring your call notes to the sales group call or post them in your Slack channel.</div></div></div></details>
+</div></details>
+<details class="step" id="step-3" data-n="3">
+<summary><span class="num" aria-hidden="true"><i>3</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Call everyone booked the day before</span><span class="wk">Step 3 · week of Monday 14 Dec</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">8 of the 9 booked people with an outcome since 24 September didn't turn up. None of the 10 got a call the day before, and none of the 8 got a call after.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s3t0"><span>First, write your day-before call from the show-rate step and template in the platform.</span></label></li><li><label><input type="checkbox" data-k="s3t1"><span>Every day, whoever is calling leads calls everyone booked for tomorrow first.</span></label></li><li><label><input type="checkbox" data-k="s3t2"><span>Anyone who says they can't make it gets rebooked on the call.</span></label></li><li><label><input type="checkbox" data-k="s3t3"><span>Anyone who misses gets a call the same day to rebook, from Grow Sales so it's counted. Start with the 8 who missed since 24 September.</span></label></li><li><label><input type="checkbox" data-k="s3t4"><span>Read the automatic messages people get before a consultation. You told me they feel relentless. Change them in Message sequences so they sound like you.</span></label></li></ul>
+<p class="done"><b>Done when</b> Show rate of 50% or more, 2 weeks in a row.</p>
+<button type="button" class="mark" data-step="3">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>A call the day before gets more booked people through the door. On a call you hear straight away whether they're still coming, and you can rebook them there and then.</div><div><b>What you count each week:</b>Share of the week's consultations where the person got a call the day before, made from Grow Sales. Today: 0 of 10. Target: all of them, every week.</div><div><b>What it should change:</b><strong>Show rate.</strong> Today: 11% (1 of 9). Target: 50% every week by 31 Jan.</div><div><b>If it hasn't changed in 2 weeks:</b>If everyone booked gets a call and show rate hasn't risen in 2 weeks, read your call notes, write down why people didn't come, and bring it to the sales group call or post it in your Slack channel.</div></div></div></details>
+</div></details>
+<details class="step" id="step-4" data-n="4">
+<summary><span class="num" aria-hidden="true"><i>4</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Plan January's intakes around the space you have</span><span class="wk">Step 4 · week of Monday 21 Dec</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">You have about 57 members, and your unit holds about 70. A target of 20 sign-ups in January would take you to about 77.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s4t0"><span>From GrowHQ, list how many people book into each class on an average week, against your cap of 8 to 10.</span></label></li><li><label><input type="checkbox" data-k="s4t1"><span>Work out how many new people your classes can take in January, without any class going over its cap.</span></label></li><li><label><input type="checkbox" data-k="s4t2"><span>Split that number between your two January intakes. When an intake is full, book people into the next one.</span></label></li><li><label><input type="checkbox" data-k="s4t3"><span>Tell everyone who takes consultations how many places each intake has.</span></label></li></ul>
+<p class="done"><b>Done when</b> Both January intakes have a set number of places, matched to classes with room.</p>
+<button type="button" class="mark" data-step="4">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>If every new starter gets a class with room in it, they have a good first month and stay, and your current members keep their spot.</div><div><b>What you count each week:</b>Intro places set for January, class by class, against the spaces each class has free. Today: not set. Target: every place matched to a class with room.</div><div><b>What it should change:</b><strong>Intro to recurring</strong> for your January groups. Today: not counted. Target: 75%, the rate we aim for.</div><div><b>If it hasn't changed in 2 weeks:</b>If fewer than 3 in 4 of your first January group go onto a membership, ask each one who doesn't why, write it down, and bring it to the Q&amp;A group call or your Slack channel before the second group finishes.</div></div></div></details>
+</div></details>
+<details class="step" id="step-5" data-n="5">
+<summary><span class="num" aria-hidden="true"><i>5</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Show people what training at Vale is like, on Instagram and Google</span><span class="wk">Step 5 · week of Monday 4 Jan</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">Your last new Instagram post was on 1 September, and you have 12 Google reviews. People from your ads look you up before they come in.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s5t0"><span>First, write down 3 values Vale stands for, from the content step and template in the platform. "Community led, community driven" is already one. Each post shows one of them.</span></label></li><li><label><input type="checkbox" data-k="s5t1"><span>Ask members if you and your coaches can take photos and short clips of them training. Get 3 clips in your classes this week.</span></label></li><li><label><input type="checkbox" data-k="s5t2"><span>Post 3 times a week: members training, your values, and members saying why they come. Posts like "More than just a gym", "Things to know when joining VCF" and your high fives are the kind that work.</span></label></li><li><label><input type="checkbox" data-k="s5t3"><span>Take offers and "DM us" out of your bio and posts. Your ads do the selling. Keep your timetable in the members' app, not on your grid.</span></label></li><li><label><input type="checkbox" data-k="s5t4"><span>Ask 3 members a week for a Google review, in person after class, with the link ready to send.</span></label></li></ul>
+<p class="done"><b>Done when</b> You've posted 3 times a week for 3 weeks in a row, and you have 30 Google reviews.</p>
+<button type="button" class="mark" data-step="5">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>People who see your ad look you up before they turn up. If they see people like them training at Vale, and read what members say, more of the people who book come in.</div><div><b>What you count each week:</b>Posts that show members training at Vale, your values, or a member in their own words. Today: 0 since 1 September (checked 23 November). Target: 3 a week. And members asked for a Google review. Target: 3 a week.</div><div><b>What it should change:</b>Google reviews. Today: 12. Target: 30 by 31 March, the number we aim for.</div><div><b>If it hasn't changed in 2 weeks:</b>If you're posting and asking and reviews haven't grown in 2 weeks, ask members in person straight after class with the link on your phone, and bring what you've tried to the Q&amp;A group call or your Slack channel.</div></div></div></details>
+</div></details>
+<h3 class="stage">Keep the members you have</h3>
+<details class="step" id="step-6" data-n="6">
+<summary><span class="num" aria-hidden="true"><i>6</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Count who leaves, and call members before they drift off</span><span class="wk">Step 6 · week of Monday 1 Feb</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">Members left in October and November, and nobody counted who or why. Your membership income only grew £207 in 3 months, even with your best month of sign-ups.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s6t0"><span>From GrowHQ, list everyone who left since 1 September, with the month and the reason if you know it. This is your starting number.</span></label></li><li><label><input type="checkbox" data-k="s6t1"><span>Write the call from the member check-in step and template in the platform.</span></label></li><li><label><input type="checkbox" data-k="s6t2"><span>Every Monday, pull every paying member not in for 7 days or more from GrowHQ and call each one. A call, not a text. Danielle or Gemma can share the list.</span></label></li><li><label><input type="checkbox" data-k="s6t3"><span>Book their next class on the call, and tell them it was good to see them when they come in.</span></label></li><li><label><input type="checkbox" data-k="s6t4"><span>Write a note on each call: what was said, and whether they booked.</span></label></li></ul>
+<p class="done"><b>Done when</b> At least half of the members you called come in within 7 days, 2 weeks in a row.</p>
+<button type="button" class="mark" data-step="6">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>Members stop coming before they cancel. Calling every member who hasn't been in for 7 days, and booking their next class on the call, brings them back before they decide to leave.</div><div><b>What you count each week:</b>Share of paying members not in for 7 days or more who got a call that week. The first list is made on Mon 1 Feb. Aim: all of them, every week.</div><div><b>What it should change:</b>Members who gave notice, added up each month. Today: not counted. Target: count it for 4 weeks, then 2 or fewer a month.</div><div><b>If it hasn't changed in 2 weeks:</b>If everyone on the list gets a call and fewer than half come in within 7 days for 2 weeks, read your notes, write down why, and bring it to the sales group call or your Slack channel.</div></div></div></details>
+</div></details>
+<details class="step" id="step-7" data-n="7">
+<summary><span class="num" aria-hidden="true"><i>7</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Talk to every member before they leave, and ask everyone what keeps them</span><span class="wk">Step 7 · week of Monday 22 Feb</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">Nobody knows why members left in October and November, so there was no chance to fix the reason first.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s7t0"><span>First, send your member survey from the template in the platform, and read every answer.</span></label></li><li><label><input type="checkbox" data-k="s7t1"><span>Change how members cancel: they still give notice, and you book a short call with each one first. Add it to your terms and your welcome message, so new members know.</span></label></li><li><label><input type="checkbox" data-k="s7t2"><span>On the call, find the real reason and offer a fix for it first: a class time that fits, adapted sessions, or more check-ins. Write the reason down in GrowHQ.</span></label></li></ul>
+<p class="done"><b>Done when</b> 2 or fewer members give notice in a month, 2 months in a row.</p>
+<button type="button" class="mark" data-step="7">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>When a member who asks to cancel gets a conversation first, and you fix the real reason, some of them stay. The reasons also tell you what to change.</div><div><b>What you count each week:</b>Share of members who asked to cancel that week who had a call with you first, with the reason written down. Today: not counted. Target: all of them.</div><div><b>What it should change:</b>Members who gave notice, added up each month. Target: 2 or fewer every month.</div><div><b>If it hasn't changed in 2 weeks:</b>If every member who asks to cancel gets a call and more than 2 still leave in a month, bring their reasons and your survey answers to a group call or your Slack channel.</div></div></div></details>
+</div></details>
+<h3 class="stage">Prices that pay for the move</h3>
+<details class="step" id="step-8" data-n="8">
+<summary><span class="num" aria-hidden="true"><i>8</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Decide what to do with your old price</span><span class="wk">Step 8 · week of Monday 8 Mar</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">£2,903 of memberships from about 57 members is about £51 each. You charged £50 before October, and new members pay nearly double. By March your unit is full, so MRR grows from price, not more people.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s8t0"><span>First, list every member on your old price, from the prices step and template in the platform, with what they pay and when they joined.</span></label></li><li><label><input type="checkbox" data-k="s8t1"><span>Decide: keep the old price, or move members to today's price over time. Work out what each choice does to your MRR, and bring your list to the Q&amp;A group call or your Slack channel.</span></label></li><li><label><input type="checkbox" data-k="s8t2"><span>Tell each member whose price is moving, in person, at least a month before it changes.</span></label></li><li><label><input type="checkbox" data-k="s8t3"><span>Sell every new membership at today's price.</span></label></li></ul>
+<p class="done"><b>Done when</b> Your decision is written down, and every member it affects has been told.</p>
+<button type="button" class="mark" data-step="8">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>A clear decision, told to each member in person, lifts MRR without losing the members who love Vale.</div><div><b>What you count each week:</b>Members on your old price who've been told your decision. Today: 0. Target: all of them, at least a month before any change.</div><div><b>What it should change:</b>MRR. Plan: about £4,600 when this step starts. Target: £5,000 or more, your goal.</div><div><b>If it hasn't changed in 2 weeks:</b>If members you've told would rather leave than pay the new price, call them first, find out what matters to them, and bring it to the Q&amp;A group call or your Slack channel before you decide.</div></div></div></details>
+</div></details>
+<h3 class="stage">Pay yourself, and get ready to move</h3>
+<details class="step" id="step-9" data-n="9">
+<summary><span class="num" aria-hidden="true"><i>9</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Check your profit every month, pay yourself, and set your next goal</span><span class="wk">Step 9 · week of Monday 3 May</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">Your P&amp;L pays you £0. With your GymGrow membership in it, the gym makes about £585 a month, 19%. The new unit will cost £2,500 to £2,800 a month, against about £2,060 today.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s9t0"><span>Fill in your P&amp;L by the 10th of every month, with your GymGrow membership and your own wage in it, and check it against 20% profit.</span></label></li><li><label><input type="checkbox" data-k="s9t1"><span>Choose a set wage for yourself that keeps the gym at 20% profit, and pay it every month.</span></label></li><li><label><input type="checkbox" data-k="s9t2"><span>Work out the MRR the new unit needs: its monthly costs, plus your wage, plus 20% profit. Write down how many members at today's price that is.</span></label></li><li><label><input type="checkbox" data-k="s9t3"><span>Go through your 6-month review in the platform, and set your goal for the next 6 months, on the way to £20,000 a month.</span></label></li></ul>
+<p class="done"><b>Done when</b> 3 months of P&amp;L are in, you pay yourself a set wage, the move has a number, and your next 6-month goal is set.</p>
+<button type="button" class="mark" data-step="9">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>When you see the gym's real profit every month, you can pay yourself a set wage, and know what MRR the new unit needs before you sign for it.</div><div><b>What you count each week:</b>Months with your P&amp;L filled in by the 10th of the next month. Today: 0. Target: every month.</div><div><b>What it should change:</b>Your pay a month. Today: £0. Target: a set wage you choose, with the gym still at 20% profit after it.</div><div><b>If it hasn't changed in 2 weeks:</b>If profit is under 20% for 2 months, bring your P&amp;L to the Q&amp;A group call or your Slack channel and look at your biggest costs.</div></div></div></details>
+</div></details>
+  </div>
+</section>
+<section id="number">
+  <h2>The one number we check every Monday</h2>
+  <p><strong>How many of the people booked in turn up.</strong> Grow Sales fills this in by itself, as long as every consultation is marked came or missed.</p>
+  <div class="big">50% <span>every week by 31 January</span></div>
+  <div class="bar"><i style="width:22%"></i></div>
+  <div class="ends"><span>Today: 11% (1 of 9)</span><span>Aim: 50%</span></div>
+  <p>If everyone booked is getting a call the day before and this hasn't gone up in 2 weeks, post your call notes in your Slack channel or bring them to a group call, and we'll change how.</p>
+</section>
+<section id="monday">
+  <h2>Every Monday</h2>
+  <div class="card"><h3>You report every Monday</h3><ul><li>Grow Sales fills these in by itself: new leads, lead to booking, show rate, close rate, intro to recurring, calls the day before, and how fast each lead heard from a person.</li><li>Your part is making every call and message from Grow Sales, and marking every consultation came or missed, and every sign-up.</li><li>From step 5: your posts and review asks last week.</li><li>From step 6: the Monday list (how many were on it, how many you called, and how many came in), and members who gave notice last week, with their reasons.</li></ul></div>
+  <div class="card"><h3>What I'll do</h3><ul><li>Check your Monday numbers every week. If one hasn't moved in 2 weeks, you'll hear about it in your Slack channel, so we can change how you're doing it.</li><li>On 4 January, once your outcomes are marked, set your close rate target. If it's under 50%, I'll add the sales consultation step then.</li></ul></div>
+  <div class="card"><h3>Group calls and Slack</h3><ul><li>Bring your new-lead call, your day-before call, your intake places, your posts, your Monday check call, your price decision and your P&amp;L to a group call. You're coaching during most of them, so the recordings are shared, and you can post any of these in your Slack channel instead.</li></ul></div>
+  <details class="fold"><summary>Habits that keep going after each step</summary><ul><li>Monday numbers: every consultation from last week has an outcome, and every new member has a sale logged. <span>You, every Monday.</span></li><li>Every new lead hears from a person within one working day, from Grow Sales. <span>You and your team, on a rota, every day.</span></li><li>The day-before call to everyone booked, and a same-day call to rebook anyone who misses. <span>You and your team, on a rota, every day.</span></li><li>The number of places in each intake, set from the space your classes have free. <span>You, before every intake.</span></li><li>3 posts a week showing training at Vale, and 3 members asked for a Google review. <span>You or a coach, every week.</span></li><li>A call to every paying member not in for 7 days or more. <span>You, Danielle or Gemma, every Monday.</span></li><li>A call with every member who asks to cancel, and the reason written down. <span>You, every time.</span></li><li>Every new membership sold at today's price. <span>Whoever takes consultations, checked every Monday.</span></li><li>Your P&amp;L, with your wage in it. <span>You, by the 10th of every month.</span></li></ul></details>
+  <!-- PLATFORM ROUTINES LINE: remove the hidden attribute once Routines is live for clients -->
+  <p class="src" hidden>Every habit above is added to your Routines in the platform, so it's tracked for you each week.</p>
+</section>
+<section id="next">
+  <h2>After these 9 steps</h2>
+  <p>You know the MRR the bigger unit needs, and you set your next goal, on the way to £20,000 a month.</p>
+  <p><a href="#report">See your full 6 months, and why each step is in your plan</a></p>
+</section>
+<footer class="foot">
+  <details class="fold"><summary>Where these numbers come from</summary><ol><li>Your P&amp;L, 3 months, shared 23 Nov 2026 (the third month matches October's ads and intro income): memberships £2,696, £2,835 and £2,903; regular costs about £2,061 a month, with rent £1,200; your wage £0; profit about £1,082 a month. Your GymGrow membership isn't in it, so the gym makes about £585 a month, 19% of about £3,144 coming in. About £51 a member: £2,903 ÷ about 57.</li><li>Our call, 19 Nov 2026: about 56 to 58 members; your 1,400 sq ft unit holds 60 to 70; the new 3,600 sq ft unit costs £2,500 to £2,800 a month; revenue goal at least £3,500, with £5,000 the goal; 11 sign-ups from under 2 weeks of ads in October; £50 a month before October, and new members pay nearly double; people left in October and November; 20 sign-ups across two January intakes; £20,000 a month and a team as the big goal. Our call, 24 Sep 2026: classes capped at 8 to 10.</li><li>Grow Sales, 24 Sep to 24 Nov 2026: 26 new leads, 16 booked (62%); every lead got the automatic reply within about a minute; 6 heard from a person, the middle one after about 16 hours; 10 with no booking; 10 consultations held, 9 with an outcome, 1 turned up (11%); none got a call the day before, and none of the 8 who missed got a call after. Cash log: 8 intro payments from 5 to 12 October and 1 on 22 November, no membership sales.</li><li>Instagram @valecommunityfitness, checked 23 Nov 2026: 2,949 followers, 358 posts, last new post 1 September. Google listing, 23 Nov 2026: 5.0 stars from 12 reviews.</li><li>MRR, worked out: new members at about £100, people leaving at about £50 (the old price most members pay). About 2 leaving a month is my estimate until step 6 counts them. 25 joining and 12 leaving from December to May: 57 + 25 − 12 = 70 members. £2,903 + (25 × £100) − (12 × £50) = £4,803. By 28 Feb: 66 members, £4,103.</li><li>Your starting-numbers questionnaire isn't shared with me yet. Numbers marked "to check" will be confirmed from it.</li></ol></details>
+  <p>Plan figures are targets, not forecasts. Prepared by Lewis Clare, GymGrow. Updated 24 November 2026.</p>
+</footer>
+
+</main>
+<script>
+(function(){
+  var KEY='gg-plan-vale-community-fitness-514b75', st={};
+  try{ st=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ st={}; }
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(st)); }catch(e){} }
+  var steps=[].slice.call(document.querySelectorAll('.step'));
+  [].slice.call(document.querySelectorAll('.todo input')).forEach(function(cb){
+    cb.checked=!!st[cb.dataset.k];
+    cb.addEventListener('change',function(){ st[cb.dataset.k]=cb.checked; save(); });
+  });
+  function render(openNow){
+    var done=0, now=null;
+    steps.forEach(function(s){
+      var d=!!st['done'+s.dataset.n]; s.classList.toggle('done',d); s.classList.remove('now');
+      s.querySelector('.mark').textContent=d?'Mark as not done':"I've done this step";
+      if(d) done++; else if(!now) now=s;
+    });
+    if(now){ now.classList.add('now'); if(openNow) now.open=true; }
+    document.getElementById('pcount').textContent=done+' of '+steps.length;
+    document.getElementById('pbar').style.width=(done/steps.length*100)+'%';
+    return now;
+  }
+  steps.forEach(function(s){
+    s.querySelector('.mark').addEventListener('click',function(){
+      var k='done'+s.dataset.n; st[k]=!st[k]; save();
+      if(st[k]){ s.open=false; var n=render(true); if(n) setTimeout(function(){ n.scrollIntoView({behavior:'smooth',block:'start'}); },60); }
+      else render(false);
+    });
+  });
+  var first=render(false);
+  if(first && first.dataset.n!=='1'){ steps[0].open=false; first.open=true; }
+})();
+</script>
+</div>
+<div id="gg-report" style="display:none"><iframe id="gg-report-frame" title="Your next 6 months" loading="eager"></iframe></div>
+<script id="gg-tabs-script">
+(function(){
+  var SRC="/plans/vale-community-fitness-514b75/report/full.html", PLAN_PATH="/plans/vale-community-fitness-514b75/";
+  var T_PLAN="Vale Community Fitness: Your next 6 weeks", T_REP="Vale Community Fitness: Your next 6 months";
+  var plan=document.getElementById('gg-plan'), rep=document.getElementById('gg-report'), fr=document.getElementById('gg-report-frame');
+  var tabs=[].slice.call(document.querySelectorAll('.gg-tab')), ready=false, want=null;
+  function size(){ try{ var d=fr.contentDocument; if(d&&d.body) fr.style.height=Math.max(d.documentElement.scrollHeight,d.body.scrollHeight)+'px'; }catch(e){} }
+  function toAnchor(id){
+    if(!id) return;
+    try{ var el=fr.contentDocument.getElementById(id); if(!el) return;
+      for(var p=el;p;p=p.parentElement){ if(p.tagName==='DETAILS') p.open=true; }
+      size(); window.scrollTo(0, fr.getBoundingClientRect().top+window.pageYOffset+el.getBoundingClientRect().top-12);
+    }catch(e){}
+  }
+  function wire(){
+    var d=fr.contentDocument; if(!d) return;
+    [].slice.call(d.querySelectorAll('a[href]')).forEach(function(a){
+      var raw=a.getAttribute('href'), u; try{ u=new URL(raw, d.baseURI); }catch(e){ return; }
+      if(raw.charAt(0)==='#'){ a.addEventListener('click',function(e){ e.preventDefault(); location.hash='report/'+raw.slice(1); }); }
+      else if(u.origin===location.origin && (u.pathname===PLAN_PATH || u.pathname===PLAN_PATH+'index.html' || u.pathname===PLAN_PATH.slice(0,-1))){
+        a.addEventListener('click',function(e){ e.preventDefault(); location.hash=u.hash?u.hash.slice(1):'plan'; });
+      } else if(!a.target) a.target='_top';
+    });
+    if(window.ResizeObserver) new ResizeObserver(size).observe(d.body);
+    d.addEventListener('toggle',size,true);
+  }
+  fr.addEventListener('load',function(){ ready=true; wire(); size(); setTimeout(size,300); if(want!==null){ toAnchor(want); want=null; } });
+  window.addEventListener('resize',size);
+  function route(first){
+    var h=decodeURIComponent(location.hash.slice(1)), isRep=h==='report'||h.indexOf('report/')===0;
+    plan.style.display=isRep?'none':''; rep.style.display=isRep?'':'none';
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String((t.getAttribute('data-tab')==='report')===isRep)); });
+    document.title=isRep?T_REP:T_PLAN;
+    if(isRep){
+      if(!fr.getAttribute('src')) fr.setAttribute('src',SRC);
+      var id=h.indexOf('report/')===0?h.slice(7):'';
+      if(ready){ size(); if(id) toAnchor(id); else if(!first) window.scrollTo(0,0); } else { want=id||null; if(!first) window.scrollTo(0,0); }
+    } else if(h && h!=='plan'){
+      var el=document.getElementById(h); if(el) el.scrollIntoView();
+    } else if(!first) window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',function(){ route(false); });
+  route(true);
+})();
+</script>
+</body></html>

@@ -1,0 +1,331 @@
+<!doctype html><html lang="en"><head><meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Summit and KONCPT: Your next 6 months</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: a research-report column. Numbered findings, each with evidence, a numbered figure, recommendation and plan link. GymGrow dark brand, one look on purpose. */
+:root{
+  --bg:#121417; --card:#1B1D21; --line:#2E3238; --fg:#F4F5F6; --body:#B5BAC2; --muted:#8B919B;
+  --yel:#F4F262; --grn:#74ED94; --red:#F28B82;
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--body);font-family:var(--font);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:880px;margin:0 auto;padding-block:48px 80px;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{color:var(--fg);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(32px,6vw,46px);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(24px,4vw,30px);font-weight:700;letter-spacing:-.01em}
+h3{font-size:clamp(20px,3vw,24px);font-weight:700;letter-spacing:-.01em}
+p{margin:0}
+.label{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:500}
+.yel{color:var(--yel)} .grn{color:var(--grn)} .red{color:var(--red)} strong{color:var(--fg);font-weight:600}
+.mono{font-family:var(--mono)}
+section{display:flex;flex-direction:column;gap:20px}
+.lead{font-size:19px;color:var(--fg);max-width:68ch}
+header{display:flex;flex-direction:column;gap:16px;border-bottom:1px solid var(--line);padding-bottom:32px}
+.meta{display:flex;flex-wrap:wrap;gap:12px 32px;font-size:15px}
+.meta div{display:flex;flex-direction:column;gap:2px}
+.meta b{color:var(--fg);font-weight:600}
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);color:var(--muted);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.08em;background:var(--card)}
+td{color:var(--body)} td.m{color:var(--yel);font-weight:700;white-space:nowrap} td.n{color:var(--fg);font-weight:600;white-space:nowrap}
+td.id{font-family:var(--mono);color:var(--yel);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+/* findings */
+.finding{border-top:1px solid var(--line);padding-top:32px;display:flex;flex-direction:column;gap:18px}
+.fno{font-family:var(--mono);font-size:13px;color:var(--yel);letter-spacing:.06em}
+.block{display:grid;grid-template-columns:200px 1fr;gap:8px 24px}
+.block>.label{padding-top:4px}
+.block>div{min-width:0;display:flex;flex-direction:column;gap:10px}
+.block.rec>div{color:var(--fg)}
+.fit{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--yel);border-radius:6px;padding:12px 16px;color:var(--fg)}
+ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+li::marker{color:var(--muted)}
+.rec li::marker{color:var(--grn)}
+.src{font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.5}
+.cost{background:#24221A;border:1px solid #4A4724;border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;color:var(--fg);font-size:17px}
+.cost .label{color:var(--yel)}
+.phase{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:18px}
+.phead{display:flex;flex-direction:column;gap:8px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.pm{border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0;color:var(--fg);font-size:16px;background:var(--bg)}
+.pm.res{border-color:var(--grn)} .pm.res .label{color:var(--grn)}
+.phase .block{grid-template-columns:180px 1fr}
+@media (max-width:600px){ .phase{padding:16px} .phase .block{grid-template-columns:1fr} }
+.why{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);padding-top:18px}
+.why>.label{color:var(--yel)}
+.why .finding{border-top:1px dashed var(--line);padding-top:22px;margin-top:18px}
+.why .finding:first-of-type{border-top:0;margin-top:8px;padding-top:0}
+.planhd{border-top:1px solid var(--line);padding-top:18px}
+.planhd .label{color:var(--grn)}
+/* figures */
+figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+figcaption{font-size:14px;color:var(--muted);line-height:1.5}
+figcaption b{font-family:var(--mono);color:var(--fg);font-weight:500}
+.chart{overflow-x:auto}
+.chart svg{display:block;width:100%;height:auto}
+.chart.wide svg{min-width:560px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:15px}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{width:22px;height:0;border-top:4px solid var(--yel)} .sw.t{border-top:3px dashed var(--muted)}
+.callout{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.callout>div{border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:4px}
+.callout .n{font-family:var(--mono);font-size:28px;font-weight:600;color:var(--fg);line-height:1.1}
+.callout .d{font-size:14px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.opt{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.opt.rec{border-color:var(--yel)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px 28px}
+.cols>div{min-width:0;display:flex;flex-direction:column;gap:6px}
+.asks{counter-reset:a;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.asks li{counter-increment:a;display:grid;grid-template-columns:30px 1fr;gap:10px;color:var(--fg)}
+.asks li::before{content:counter(a) ".";color:var(--yel);font-weight:700;font-family:var(--mono)}
+footer{border-top:1px solid var(--line);padding-top:24px;font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:8px}
+@media (max-width:600px){ .block{grid-template-columns:1fr} body{font-size:16px} }
+
+/* v2: training-plan page. Phase 1 zoomed in; detail behind collapsibles. */
+.hero{display:flex;flex-direction:column;gap:20px;border-bottom:1px solid var(--line);padding-bottom:36px}
+.hero h1 em{font-style:normal;color:var(--yel)}
+.track{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:10px}
+.track svg{display:block;width:100%;height:auto}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.tile .big{font-family:var(--mono);font-size:26px;font-weight:600;color:var(--fg);line-height:1.15}
+.tile .big .to{color:var(--muted);font-weight:400;padding:0 4px}
+.tile .big .g{color:var(--yel)}
+.tile p{font-size:14px}
+details{border:1px solid var(--line);border-radius:12px;background:var(--card)}
+details>summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:14px;color:var(--fg);font-weight:600}
+details>summary::-webkit-details-marker{display:none}
+.chev{margin-left:auto;flex:none;width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:transform .2s}
+details[open]>summary .chev{transform:rotate(-135deg)}
+details>summary:focus-visible{outline:2px solid var(--yel);outline-offset:2px;border-radius:12px}
+.fb{padding:4px 18px 20px;display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--line);padding-top:18px}
+.fd .fno{font-family:var(--mono);color:var(--yel);font-size:14px;flex:none}
+.fd .ft{flex:1;min-width:0}
+.tag{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:3px 9px;flex:none;white-space:nowrap}
+.tag{align-self:center;line-height:1.4}
+.tag.p1{color:var(--bg);background:var(--yel);border-color:var(--yel)}
+.stack{display:flex;flex-direction:column;gap:10px}
+.fb .block{grid-template-columns:150px 1fr}
+@media (max-width:600px){.fb .block{grid-template-columns:1fr} .tag{display:none}}
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stop{border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;background:var(--card);position:relative;min-width:0}
+.stop.now{border:2px solid var(--yel);background:#1F2014}
+.stop .pn{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.stop.now .pn{color:var(--yel)}
+.stop h3{font-size:18px}
+.stop p{font-size:14px}
+.bar{height:6px;border-radius:99px;background:var(--line)}
+.stop.now .bar{background:var(--yel)}
+@media (max-width:760px){.road{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.road{grid-template-columns:1fr}}
+/* phase 1 */
+.ph1{border:2px solid var(--yel);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:22px;background:linear-gradient(180deg,#1C1D14 0,var(--bg) 320px)}
+@media (max-width:600px){.ph1{padding:16px}}
+.gauge{display:flex;flex-direction:column;gap:8px}
+.gauge svg{display:block;width:100%;height:auto}
+.weeks{display:flex;flex-direction:column;gap:10px;position:relative}
+.wk>summary{align-items:flex-start}
+.wk .wn{font-family:var(--mono);flex:none;width:58px;display:flex;flex-direction:column;line-height:1.2}
+.wk .wn b{font-size:22px;color:var(--yel);font-weight:600}
+.wk .wn span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.wk .wt{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.wk .wt small{font-weight:400;color:var(--body);font-size:15px}
+.wk .chev{margin-top:10px}
+.todo{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px}
+.todo li{display:grid;grid-template-columns:22px 1fr;gap:10px;color:var(--fg)}
+.todo li::before{content:"";width:16px;height:16px;border:2px solid var(--grn);border-radius:4px;margin-top:4px}
+.done{background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--grn);border-radius:8px;padding:10px 14px;font-size:15px}
+.bet{background:#24221A;border:1px solid #4A4724;border-left:3px solid var(--yel);border-radius:8px;padding:10px 14px;font-size:15px;color:var(--fg);display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.bet b{color:var(--yel)}
+sup.ref{font-size:.6em;line-height:0;vertical-align:super;margin-left:1px}
+sup.ref a{color:var(--yel);text-decoration:none;font-family:var(--mono)}
+.refs{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.refs li::marker{color:var(--yel);font-family:var(--mono)}
+.done b{color:var(--grn);font-weight:600}
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.trio>div{border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px;background:var(--card)}
+.trio .label{color:var(--grn)}
+.trio ul{font-size:15px}
+.quote{font-size:19px;color:var(--fg);border-left:3px solid var(--yel);padding:4px 0 4px 18px;max-width:64ch}
+.later .fb p{font-size:16px}
+.kv{display:grid;grid-template-columns:140px 1fr;gap:6px 16px;font-size:15px}
+.kv dt{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding-top:3px}
+.kv dd{margin:0;color:var(--fg)}
+@media (max-width:600px){.kv{grid-template-columns:1fr}}
+</style>
+
+</head><body>
+
+<div class="wrap">
+
+<header class="hero">
+  <span class="label">GymGrow · Your next 6 months · Summit Training and KONCPT, Ulverston</span>
+  <h1>Hannah, here are the <em>7 things</em> standing between you and £25,000 a month across Summit and KONCPT</h1>
+  <p class="lead">I went through your starting-numbers questionnaire, our call on 11 November, your Grow Sales and ads numbers from 24 August to 23 November, and your Instagram. Your questionnaire covers KONCPT, so most of Summit's numbers come from our call. This report is the evidence behind Your next 6 weeks: what's working, what's holding both businesses back, and which phase of the plan fixes each one.</p>
+  <div class="track"><svg viewBox="0 0 800 120" role="img" aria-label="Monthly revenue across both businesses: about £10,500 today, about £25,000 in 6 months, £40,000 is your big goal">
+<g font-family="Inter, system-ui, sans-serif">
+<rect x="20" y="52" width="760" height="14" rx="7" fill="#2E3238"/>
+<rect x="20" y="52" width="200" height="14" rx="7" fill="#F4F5F6"/>
+<rect x="220" y="52" width="275" height="14" fill="#F4F262"/>
+<line x1="220" y1="40" x2="220" y2="78" stroke="#F4F5F6" stroke-width="2"/>
+<line x1="495" y1="40" x2="495" y2="78" stroke="#F4F262" stroke-width="2"/>
+<line x1="780" y1="40" x2="780" y2="78" stroke="#8B919B" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="220" y="30" text-anchor="middle" fill="#F4F5F6" font-size="22" font-weight="800">£10.5K</text>
+<text x="495" y="30" text-anchor="middle" fill="#F4F262" font-size="22" font-weight="800">£25K</text>
+<text x="776" y="30" text-anchor="end" fill="#8B919B" font-size="22" font-weight="800">£40K</text>
+<text x="220" y="100" text-anchor="middle" fill="#B5BAC2" font-size="14">Today</text>
+<text x="495" y="100" text-anchor="middle" fill="#F4F262" font-size="14">31 May</text>
+<text x="776" y="100" text-anchor="end" fill="#8B919B" font-size="14">Your big goal</text>
+</g></svg></div>
+</header>
+
+<section>
+  <h2>Where you are, and where you want to be</h2>
+  <div class="tiles">
+    <div class="tile"><span class="label">Revenue a month, both businesses</span><span class="big" style="font-size:20px">About £10,500<span class="to">→</span><span class="g">About £25,000</span></span><p>Your 6-month goal: £15,000 or more at Summit and £10,000 or more at KONCPT, by 31 May. Today it's all Summit. £40,000 is your big goal.</p></div>
+    <div class="tile"><span class="label">KONCPT members</span><span class="big">0<span class="to">→</span><span class="g">About 85</span></span><p>An estimate: £10,000 at an average of about £118 a member. Your prices decide the real number, and you set them in step 2.</p></div>
+    <div class="tile"><span class="label">Summit paying members</span><span class="big">148<span class="to">→</span><span class="g">About 187</span></span><p>From three more beginners intakes and members bringing friends in the months between, at £98 for each new member.</p></div>
+    <div class="tile"><span class="label">Intro to recurring, Summit</span><span class="big" style="font-size:20px">Not marked yet<span class="to">→</span><span class="g">75%</span></span><p>Intro to recurring: of the beginners whose 28 days ended, the share who went onto a membership. 75% is our benchmark. 23 women finish by 7 December.</p></div>
+    <div class="tile"><span class="label">Lead to booking, Summit</span><span class="big">27%<span class="to">→</span><span class="g">30%</span></span><p>Lead to booking: the share of new leads who book a consultation. 30% is our benchmark.</p></div>
+    <div class="tile"><span class="label">Show rate and close rate, Summit</span><span class="big" style="font-size:20px">100% and 68%<span class="to">→</span><span class="g">Hold</span></span><p>Show rate: of the consultations with an outcome marked, the share where the woman turned up. Close rate: the share of those who signed up. Both are well above our 50% benchmarks, so we keep them there.</p></div>
+    <div class="tile"><span class="label">First call from a real person</span><span class="big" style="font-size:20px">10 of 142 leads<span class="to">→</span><span class="g">Every lead, in 1 working day</span></span><p>The 10 who heard from you waited about 24 hours in the middle.</p></div>
+    <div class="tile"><span class="label">Pay for you and Joe a month</span><span class="big" style="font-size:20px">About £200<span class="to">→</span><span class="g">£3,000 to £4,000</span></span><p>Your 6-month goal, shared between you, so Joe can look at leaving his corporate job.</p></div>
+  </div>
+  <details><summary>How I worked out £25,000<span class="chev" aria-hidden="true"></span></summary><div class="fb"><figure>
+    <div class="legend"><span><i class="sw"></i><strong>KONCPT members, the plan</strong></span></div>
+    <div class="chart wide">
+    <svg viewBox="0 0 800 320" role="img" aria-label="KONCPT members by month: the plan rises from 0 today to about 85 by May.">
+      <g font-family="Inter, system-ui, sans-serif" font-size="13" fill="#8B919B">
+        <g stroke="#2E3238" stroke-width="1">
+          <line x1="70" y1="40" x2="760" y2="40"/><line x1="70" y1="100" x2="760" y2="100"/><line x1="70" y1="160" x2="760" y2="160"/><line x1="70" y1="220" x2="760" y2="220"/><line x1="70" y1="280" x2="760" y2="280"/>
+        </g>
+        <text x="58" y="44" text-anchor="end">100</text><text x="58" y="104" text-anchor="end">75</text><text x="58" y="164" text-anchor="end">50</text><text x="58" y="224" text-anchor="end">25</text><text x="58" y="284" text-anchor="end">0</text>
+        <g fill="#B5BAC2" text-anchor="middle" font-size="14">
+          <text x="90" y="304">Today</text><text x="200" y="304">Dec</text><text x="310" y="304">Jan</text><text x="420" y="304">Feb</text><text x="530" y="304">Mar</text><text x="640" y="304">Apr</text><text x="750" y="304">May</text>
+        </g>
+        <polyline fill="none" stroke="#F4F262" stroke-width="4" stroke-linejoin="round" points="90,280 200,242 310,198 420,162 530,134 640,105 750,76"/>
+        <g fill="#F4F262"><circle cx="90" cy="280" r="6" fill="#F4F5F6"/><circle cx="200" cy="242" r="5"/><circle cx="310" cy="198" r="5"/><circle cx="420" cy="162" r="5"/><circle cx="530" cy="134" r="5"/><circle cx="640" cy="105" r="5"/><circle cx="750" cy="76" r="6"/></g>
+        <text x="90" y="268" text-anchor="middle" fill="#F4F5F6" font-weight="700" font-size="15">0</text>
+        <text x="200" y="230" text-anchor="middle" fill="#F4F262" font-weight="700" font-size="14">16</text>
+        <text x="310" y="186" text-anchor="middle" fill="#F4F262" font-weight="700" font-size="14">34</text>
+        <text x="420" y="150" text-anchor="middle" fill="#F4F262" font-weight="700" font-size="14">49</text>
+        <text x="530" y="122" text-anchor="middle" fill="#F4F262" font-weight="700" font-size="14">61</text>
+        <text x="640" y="93" text-anchor="middle" fill="#F4F262" font-weight="700" font-size="14">73</text>
+        <text x="750" y="62" text-anchor="middle" fill="#F4F262" font-weight="800" font-size="18">85</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>Figure 1.</b> KONCPT members at the end of each month. About 4 new members a week to the end of May. There's no "if nothing changes" line, because today nobody can join yet.</figcaption>
+  </figure>
+  <p class="src">KONCPT, the plan: Dec +16 = 16. Jan +18 = 34. Feb +16 − 1 = 49. Mar +14 − 2 = 61. Apr +14 − 2 = 73. May +14 − 2 = 85. That's 92 joining and 7 leaving (an estimate of 3% a month from February, until we have real numbers). 85 members × about £118 = about £10,000 a month. Why 85: you'll run 34 classes a week with about 5 in each, which is 170 places. With members coming about twice a week, that's about 85 members (questionnaire, question 57). The average of £118 is an estimate until your prices are set.</p>
+  <p class="src">Summit, the plan: 148 members today (our call, 11 Nov). Dec +17 − 4 = 161 (75% of the 23 beginners finishing by 7 Dec). Jan +6 − 5 = 162 (friends brought in by members). Feb +17 − 5 = 174 (January intake). Mar +6 − 5 = 175. Apr +17 − 5 = 187 (March intake). May +6 − 6 = 187. Leaving is an estimate of 3% a month, because I don't have Summit's numbers yet (it's my first ask).</p>
+  <p class="src">Summit revenue: about £10,500 a month today (you said £10,000 to £11,000), about £71 a member. 39 more members × £98 = about £3,800, which takes Summit to about £14,300. Your January price rise, the first in 3 years, covers the rest: 5% more from today's 148 members is about £530. Together that's about £15,000. Both businesses: about £15,000 + about £10,000 = about £25,000. All of these are estimates until Summit's member list and your KONCPT prices are in.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>When, roughly</th><th>What we're working on</th><th>The numbers that tell us it's working</th><th>Members at the end</th></tr></thead>
+    <tbody>
+      <tr><td class="m">First 2 to 3 months<br>(about Dec to Feb)</td><td><strong>Phase 1:</strong> opening KONCPT with members in it, turning Summit's beginners into members, calling every enquiry, Instagram that shows what a class feels like, and Summit's January prices.</td><td>New KONCPT members: 0 → about 4 a week. Summit intro to recurring: 75%. Lead to booking: 27% → 30%.</td><td class="n">KONCPT 49, Summit 174 by 28 Feb</td></tr>
+      <tr><td class="m">Months 4 to 6<br>(about Mar to May)</td><td><strong>Phase 2:</strong> growing Summit through its members, with set dates for beginners intakes.<br><strong>Phase 3:</strong> writing your jobs down and handing them over, so both run without you.<br><strong>Phase 4:</strong> locking it in and setting your next goal.</td><td>Friends booked in from referrals a week. Your hours a week, going down with each job handed over.</td><td class="n grn">KONCPT about 85, Summit about 187 by 31 May</td></tr>
+    </tbody>
+  </table></div></div></details>
+</section>
+
+<section>
+  <h2>What's working, and the 7 things holding you back</h2>
+  <p>A lot already works. Summit's beginners programme is your best engine: you told me the first ones added about £38,000 a year. This autumn's ads spent £258 and brought in 136 leads at about £1.89 each, so many that you added Sunday and Wednesday sessions. 124 of 142 new leads got your automatic reply within 5 minutes. Every consultation with an outcome marked was attended, and 68% of those women signed up, against our 50% benchmark. You told me Summit has always kept its members, your Legends class is so busy you've opened Mamas and Babas, and every session is planned in writing. KONCPT is built, with reformers in, 3 instructors and 148 Summit members on your doorstep. The problems sit in three places: KONCPT has no way for anyone to join yet, Summit's numbers aren't all in Grow Sales, and everything runs through you and Joe. Tap any point to see the evidence.</p>
+  <div class="stack">
+<details class="fd"><summary><span class="ft">KONCPT opens this week, and nobody has signed up or can sign up yet</span><span class="tag p1">Phase 1</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+    <div class="cost"><span class="label">What this costs your goal</span><p>Every month without members, KONCPT costs you about £2,700 in rent and wages with nothing coming in. £10,000 a month by May needs about 16 members in December, and each month the start slips takes about 15 members off May.</p></div>
+    <div class="block"><span class="label">Evidence</span><div><ul><li>On 11 November you told me you had no sign-ups, no "register your interest" list, and hadn't set prices, memberships or how new clients start. Your questionnaire on 23 November shows 0 members and £0 revenue.</li><li>The test week with Summit members starts on 23 November, and you want to be open to the public at the end of November.</li><li>Nobody can book on a website yet. You've chosen Arketa, and clients will be able to buy online.</li><li>You'll run 34 classes a week, with 6 places on reformer and 8 on barre and mat.</li><li>Rent is £1,200 and wages £1,500 a month. You wrote £1,100 for total costs, which is less than those two, so I've asked for the full list.</li><li>You can give 4 hours on a Friday and 4 on a Monday to consultations.</li></ul></div></div>
+    <p class="src">Source: our call, 11 Nov 2026; questionnaire, questions 3, 16 to 19, 36 to 38, 57, 62 and 63. £1,200 + £1,500 = £2,700. 16 members a month for 6 months, see "How I worked out £25,000".</p>
+  </div></details>
+<details class="fd"><summary><span class="ft">23 women finish Summit's beginners programme by 7 December, and none are marked as members yet</span><span class="tag p1">Phase 1</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+    <div class="cost"><span class="label">What this costs your goal</span><p>At our 75% benchmark, 17 of them join, which is about +£1,670 MRR (monthly recurring revenue). That's almost half of Summit's growth to May, and it's decided in the next two weeks.</p></div>
+    <div class="block"><span class="label">Evidence</span><div><ul><li>Grow Sales shows 23 women starting the 28 days: 10 on 2 November, 8 on 5 November and 5 on 8 and 9 November. Their 28 days end between 30 November and 7 December.</li><li>None has an outcome marked yet, so intro to recurring shows as not measured.</li><li>You told me about 28 joined this round, some through friends of members, and that Grow Sales doesn't show everything. Anyone not in Grow Sales can't be counted or followed up.</li><li>New members join at £98 a month.</li></ul></div></div>
+    <p class="src">Source: Grow Sales, Summit Training, 24 Aug to 23 Nov 2026; our call, 11 Nov 2026. 23 × 75% = about 17 members. 17 × £98 = £1,666.</p>
+  </div></details>
+<details class="fd"><summary><span class="ft">Most women who asked about Summit's programme never heard from a real person</span><span class="tag p1">Phase 1</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+    <div class="cost"><span class="label">What this costs your goal</span><p>101 local women who asked about training in the last 6 weeks never booked. They're the first people to hear about KONCPT's opening and Summit's January intake. Getting lead to booking from 27% to 30% on your next intake is about 4 more consultations, and at your 68% close rate, about 3 more beginners.</p></div>
+    <div class="block"><span class="label">Evidence</span><div><ul><li>142 new leads came in from 12 October to 23 November, almost all from the ads.</li><li>10 of them got a call or message from you or your team. The middle one waited about 24 hours. The rest only got the automatic reply.</li><li>39 booked a consultation, a lead to booking of 27% against our 30% benchmark.</li><li>101 are still in Grow Sales with no booking, and 96 of them never heard from a person.</li><li>Once women booked, it worked: every consultation with an outcome marked was attended (32 of 40 have one), and 68% signed up.</li><li>My rule is a call from a real person within one working day.</li></ul></div></div>
+    <p class="src">Source: Grow Sales and ads, Summit Training, 24 Aug to 23 Nov 2026 (first lead 12 Oct). Grow Sales only sees calls and messages sent from the platform. 142 × 3% = about 4 more bookings; 4 × 68% = about 3.</p>
+  </div></details>
+<details class="fd"><summary><span class="ft">KONCPT's Instagram shows the build, not what a class feels like, and the bio doesn't say what or where it is</span><span class="tag p1">Phase 1</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+    <div class="cost"><span class="label">What this costs your goal</span><p>Women who've never been to a reformer class will look at your page before they book. Right now it can't show them what KONCPT stands for or what a class is like. I can't put a number on this one, so I'll measure it through new KONCPT members a week.</p></div>
+    <div class="block"><span class="label">Evidence</span><div><ul><li>I checked @bykoncpt on 24 November: 345 followers, and a bio that only says "KONCPT". It doesn't say it's a Pilates studio, that it's in Ulverston, or when it opens, and there's no link.</li><li>The posts show the empty rooms and the build, a mood board ("This, but make it KONCPT"), lifestyle photos and a "Coming soon" reel. There's no instructor, no reformer in use and nobody in a class yet. You told me 1 post went up in the last 30 days.</li><li>Your plan for posts is a strong one: what a class is like, the benefits of Pilates, the community and the instructors. Instagram is for showing women who don't know you yet what KONCPT stands for and what a class feels like, never for selling or member notices. Your ads and your opening offer do the selling.</li><li>Summit's page shows how it's done. @summit.ulverston has 2,510 followers, and recent posts show real members training, your competition team, Movember and Mamas and Babas. Two things to change there: the pinned "Schedule" post is for members, and the pinned "Join us" post asks people to buy.</li><li>You rated your confidence that Instagram brings strangers in as 4 out of 5, and social media is the first job you'd hand over if you found someone good enough.</li></ul></div></div>
+    <p class="src">Source: Instagram, @bykoncpt and @summit.ulverston, checked 24 Nov 2026; questionnaire, questions 45 and 66 to 70.</p>
+  </div></details>
+<details class="fd"><summary><span class="ft">Summit's prices haven't changed in 3 years, while VAT and rent have gone up</span><span class="tag p1">Phase 1</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+    <div class="cost"><span class="label">What this costs your goal</span><p>You told me VAT will take a bit over £2,000 a month, money that could pay a full-time coach. A 5% rise on today's members is about £530 MRR, without one more class.</p></div>
+    <div class="block"><span class="label">Evidence</span><div><ul><li>Summit went over the VAT threshold in January, and you've just registered. You're checking with your new accountant whether the flat rate scheme suits you better.</li><li>Your landlord tried a 17.5% rent rise. You negotiated it down, and it's still about £2,000 a year more.</li><li>You haven't raised prices in 3 years, and you've planned a rise for January.</li><li>You take about £200 a month from Summit, and the rest goes back in or into KONCPT.</li><li>There's no monthly P&amp;L yet, so we can't see what each business makes on its own. My target for every facility is 20% profit after all costs, including your pay.</li></ul></div></div>
+    <p class="src">Source: our call, 11 Nov 2026; questionnaire, questions 39 and 40. 148 members × about £71 × 5% = about £525. The size of the rise is your decision; 5% is only an example.</p>
+  </div></details>
+<details class="fd"><summary><span class="ft">Summit's classes are filling up, and there's no set calendar for beginners intakes</span><span class="tag">Phase 2</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+    <div class="cost"><span class="label">What this costs your goal</span><p>Without set dates, intakes either crowd your members' classes or stop for months. Summit needs about 7 new members a month to reach about 187 by May.</p></div>
+    <div class="block"><span class="label">Evidence</span><div><ul><li>You told me your classes are getting big, though not full, and you need more on the timetable. Your coaches all have other jobs, so you can't add classes without a full-time coach.</li><li>You don't want members to feel there's always a new group of beginners in their class, so you'll pause intakes in December and maybe January or February.</li><li>The ads have been paused since this round filled.</li><li>You haven't said what Summit's members are asked to do to bring friends in. Friends of members already joined this round without an ad.</li></ul></div></div>
+    <p class="src">Source: our call, 11 Nov 2026; ads, Summit Training, campaign paused Nov 2026. 39 more members over 6 months = about 7 a month.</p>
+  </div></details>
+<details class="fd"><summary><span class="ft">Both businesses run through you and Joe, on top of your jobs</span><span class="tag">Phase 1 and 3</span><span class="chev" aria-hidden="true"></span></summary><div class="fb">
+    <div class="cost"><span class="label">What this costs your goal</span><p>Your 6-month goal is a team that runs both, with far less of it on you. A team can only take over jobs that are written down, and you can only coach a business whose numbers you can see in one place.</p></div>
+    <div class="block"><span class="label">Evidence</span><div><ul><li>Your week: at Summit, 4 hours coaching, 21 on admin and 10 to 15 on sales when a programme runs. At KONCPT, about 20 hours setting up.</li><li>You still have your corporate job, and you're dealing with a serious family health issue.</li><li>5 days fully off in the last 12 months.</li><li>None of your main jobs is written down as a step-by-step guide yet.</li><li>Summit runs on PushPress, KONCPT on Arketa, and your leads in Grow Sales, so the numbers live in three places.</li><li>You'd hand over social media and member check-ins first. You worry the passion goes when you step back.</li><li>Calls don't fit your week. You can give an hour on Tuesday to Thursday evenings and a few hours from Friday to Monday.</li></ul></div></div>
+    <p class="src">Source: questionnaire, questions 8, 9, 11, 13, 42 to 46, 61 and 72; our call, 11 Nov 2026.</p>
+  </div></details>
+  </div>
+</section>
+
+<section>
+  <h2>Your roadmap</h2>
+  <p class="quote">You'd never add springs before a new client has the basic movement. First we open KONCPT with members in it and keep Summit's beginners. Then we grow Summit through its members, and hand your jobs over so both businesses run without you.</p>
+  <div class="road">
+    <div class="stop now"><div class="bar"></div><span class="pn">Phase 1 · Now</span><h3>Open KONCPT full, and keep Summit's beginners</h3><p>Fixes: no way to join KONCPT, beginners not marked, enquiries not called, KONCPT's Instagram, Summit's prices</p></div>
+    <div class="stop"><div class="bar"></div><span class="pn">Phase 2</span><h3>Grow Summit through its members</h3><p>Fixes: no set calendar for intakes</p></div>
+    <div class="stop"><div class="bar"></div><span class="pn">Phase 3</span><h3>Make both run without you</h3><p>Fixes: everything running through you and Joe</p></div>
+    <div class="stop"><div class="bar"></div><span class="pn">Phase 4</span><h3>Lock it in and set your next goal</h3><p>Keeps every number where it got to</p></div>
+  </div>
+  <p>Every step, with what to do, the number we track each week and what happens if it doesn't move, is in Your next 6 weeks.</p>
+  <p>Each step also leaves a routine behind, such as calling every new lead within one working day and marking every beginner's outcome. From now on, these are how both businesses run, so the numbers hold after the plan ends.</p>
+</section>
+
+<section>
+  <h2>Who calls your enquiries</h2>
+  <p>Ads for KONCPT's opening and Summit's next intake only work if someone speaks to every lead within one working day. You've got 8 hours a week for consultations, so there are two ways to do it.</p>
+  <div class="opts">
+    <div class="opt rec"><span class="label">Option 1</span><strong>You, or someone on your team, call leads every day</strong><p>One person owns the calls each day, even 20 minutes, and you run consultations on Friday and Monday. This is where I'd start.</p></div>
+    <div class="opt"><span class="label">Option 2</span><strong>A setter calls and books them for you</strong><p>Your own setter, or ours. You only run the consultations. Worth it once both businesses have ads running at once.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>What I need from you this week</h2>
+  <ol class="asks">
+    <li>From PushPress: Summit's paying members today, how many joined and left in each of the last 3 months, and every membership with its price.</li>
+    <li>In Grow Sales: the outcome for each beginner as their 28 days end, and the friends of members who joined this round added as leads.</li>
+    <li>Your KONCPT prices, opening offer and the date the public can book, once you've set them.</li>
+    <li>Summit's Instagram, Facebook and Google links.</li>
+    <li>Your full monthly costs for each business, with VAT shown on its own.</li>
+  </ol>
+  <details><summary>What I'll measure next<span class="chev" aria-hidden="true"></span></summary><div class="fb">
+    <p>Once Summit's member list is in: how many members leave each month and why, and members not in for 30 days or more. Once KONCPT is open: how full each class is, and how many visits a week each member makes. Once your P&amp;L is in: profit for each business after all costs, including your pay.</p>
+  </div></details>
+</section>
+
+<section>
+  <h2>How we work together</h2>
+  <p>You told me you'd like more of it done for you, but you want to understand how it's done. So my team runs your ads, and each step in the platform tells you what to do and gives you the template. You build it yourself, film your ads, call your leads and run your consultations. Calls don't fit your week, so post your work in your Slack channel and my team checks it there. Every Monday I check your numbers, and if one hasn't moved in 2 weeks, I tell you so we can change how you're doing it.</p>
+</section>
+
+<footer>
+  <span class="label">Where every number comes from</span>
+  <p>KONCPT starting-numbers questionnaire, filled in 23 Nov 2026. Our call, 11 Nov 2026. Grow Sales and ads, Summit Training, 24 Aug to 23 Nov 2026. I checked @bykoncpt and @summit.ulverston on 24 November. Summit's member and revenue figures are what you told me on our call; I'll replace them with PushPress numbers once they're in. Plan figures are targets, not forecasts.</p>
+  <p>Prepared by Lewis Clare, GymGrow, 23 November 2026.</p>
+</footer>
+</div>
+</body></html>

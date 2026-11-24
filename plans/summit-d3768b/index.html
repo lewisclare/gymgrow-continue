@@ -1,0 +1,357 @@
+<!doctype html><html lang="en"><head>
+<meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Summit and KONCPT: Your next 6 weeks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>:root{
+  --bg:#121417; --card:#1B1D21; --card2:#22252A; --line:#2E3238; --fg:#F4F5F6; --body:#C3C8CF; --muted:#8B919B;
+  --yel:#F4F262; --grn:#74ED94;
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--body);font-family:var(--font);font-size:18px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:680px;margin:0 auto;padding:56px 0 96px;display:flex;flex-direction:column;gap:88px}
+h1,h2,h3,h4{color:var(--fg);margin:0;line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(34px,7vw,52px);font-weight:800;letter-spacing:-.025em}
+h1 em{font-style:normal;color:var(--yel)}
+h2{font-size:clamp(26px,5vw,34px);font-weight:800;letter-spacing:-.02em}
+h4{font-size:16px;font-weight:700;margin-top:8px}
+p{margin:0}
+strong,b{color:var(--fg);font-weight:600}
+a{color:var(--yel)}
+section{display:flex;flex-direction:column;gap:20px}
+.sub{font-size:20px;color:var(--body);max-width:56ch}
+
+/* hero */
+.hero{display:flex;flex-direction:column;gap:24px}
+.progress{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.bar{height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--yel);border-radius:99px;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.progress p{font-size:15px;color:var(--muted)}
+.progress p b{color:var(--fg)}
+
+/* choice */
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.opt{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.opt h3{font-size:20px;font-weight:700}
+.opt p{font-size:16px}
+.opt .cost{color:var(--yel);font-weight:600;margin-top:auto}
+@media (max-width:620px){.choice{grid-template-columns:1fr}}
+
+/* steps */
+.steps{display:flex;flex-direction:column;gap:10px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;transition:border-color .2s}
+.step>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:18px 20px}
+.step>summary::-webkit-details-marker{display:none}
+.num{flex:none;width:40px;height:40px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;color:var(--fg);font-weight:700;font-size:17px}
+.num i{font-style:normal}
+.st{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.tt{color:var(--fg);font-weight:600;font-size:18px;line-height:1.3}
+.wk{font-size:14px;color:var(--muted)}
+.now-tag{display:none;font-size:14px;font-weight:700;color:var(--yel)}
+.chev{flex:none;width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);margin:0 4px 4px 0;transition:transform .2s}
+.step[open]>summary .chev{transform:rotate(-135deg);margin:4px 4px 0 0}
+.step.now{border-color:var(--yel)}
+.step.now .now-tag{display:block}
+.step.now .num{border-color:var(--yel);color:var(--yel)}
+.step.done .num{background:var(--grn);border-color:var(--grn);color:var(--bg)}
+.step.done .num i{display:none}
+.step.done .num::after{content:"";width:12px;height:7px;border-left:3px solid var(--bg);border-bottom:3px solid var(--bg);transform:rotate(-45deg) translate(1px,-1px)}
+.step.done .tt{color:var(--body)}
+.body{padding:0 20px 22px 76px;display:flex;flex-direction:column;gap:18px}
+@media (max-width:520px){.body{padding:0 18px 20px}}
+.why{color:var(--body)}
+.todo{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.todo label{display:flex;gap:14px;align-items:flex-start;padding:10px 0;cursor:pointer;color:var(--fg)}
+.todo input{appearance:none;-webkit-appearance:none;flex:none;width:24px;height:24px;margin:1px 0 0;border:2px solid var(--muted);border-radius:7px;display:grid;place-items:center;cursor:pointer;transition:background .15s,border-color .15s}
+.todo input::after{content:"";width:10px;height:5px;border-left:2.5px solid var(--bg);border-bottom:2.5px solid var(--bg);transform:rotate(-45deg) translate(1px,-1px);opacity:0}
+.todo input:checked{background:var(--yel);border-color:var(--yel)}
+.todo input:checked::after{opacity:1}
+.todo input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+.todo input:focus-visible,.mark:focus-visible,summary:focus-visible{outline:2px solid var(--yel);outline-offset:3px}
+.done{background:var(--card2);border-radius:12px;padding:14px 16px;font-size:16px}
+.done b{display:block;color:var(--yel);margin-bottom:2px}
+.mark{align-self:flex-start;font:inherit;font-weight:700;font-size:16px;background:var(--yel);color:var(--bg);border:0;border-radius:14px;padding:13px 20px;cursor:pointer}
+.step.done .mark{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.how{border-top:1px solid var(--line);padding-top:14px}
+.how>summary{cursor:pointer;color:var(--muted);font-size:16px;font-weight:600}
+.how dl{margin:12px 0 0;display:flex;flex-direction:column;gap:12px;font-size:16px}
+.how dt{color:var(--fg);font-weight:600}
+.how dd{margin:2px 0 0}
+
+/* monday number */
+.big{display:flex;align-items:baseline;gap:16px;color:var(--fg);font-weight:800;font-size:clamp(56px,14vw,88px);letter-spacing:-.04em;line-height:1}
+.big span{color:var(--muted);font-size:.5em;font-weight:600}
+.big em{font-style:normal;color:var(--yel)}
+.ends{display:flex;justify-content:space-between;font-size:15px;color:var(--muted);margin-top:-8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.card h3{font-size:18px;font-weight:700}
+.card ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* road */
+.road{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.road::before{content:"";position:absolute;left:12.5%;right:12.5%;top:13px;height:2px;background:var(--line)}
+.road li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;position:relative}
+.road li::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--muted);margin:6px 0}
+.road li.on::before{background:var(--yel);border-color:var(--yel)}
+.road b{font-size:clamp(26px,6vw,34px);font-weight:800;color:var(--fg);line-height:1}
+.road li.on b{color:var(--yel)}
+.road li.first::before{border-color:var(--yel)}
+.road{margin:8px 0}
+.road span{font-size:14px;color:var(--muted);line-height:1.3;max-width:13ch}
+
+/* folds */
+.fold>summary{cursor:pointer;color:var(--fg);font-weight:600}
+.fold ol,.fold ul{margin:12px 0 0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:15px;color:var(--muted)}
+.foot{font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--line);padding-top:28px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.stage{font-size:15px;font-weight:700;color:var(--muted);margin:18px 0 2px 4px;letter-spacing:.01em}
+.steps>.stage:first-child{margin-top:0}
+.pause{background:transparent;border:1px dashed var(--line);border-radius:18px;padding:16px 20px;display:flex;flex-direction:column;gap:6px;font-size:16px}
+.pause b{color:var(--fg)} .pause span{color:var(--muted);font-size:14px} .pause ul{margin:4px 0 0;padding-left:20px}
+.howin{margin-top:12px;display:flex;flex-direction:column;gap:12px;font-size:16px}
+.howin *{font-size:inherit!important}
+.howin div,.howin p,.howin span{display:block;margin:0}
+.howin .bn,.howin .bk,.howin b,.howin strong,.howin .label{color:var(--fg);font-weight:600;font-family:var(--font);text-transform:none;letter-spacing:0}
+.howin .betcard,.howin .wbet,.howin .bet{display:flex;flex-direction:column;gap:10px}
+.howin details summary{color:var(--muted);cursor:pointer}
+.why b{color:var(--fg)}
+.card ul,.card ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.card p{margin:0}
+.fold li span{color:var(--muted)}
+
+.big.long{font-size:clamp(40px,10vw,60px);flex-wrap:wrap;gap:4px 14px}
+.big.long span{font-size:.55em}
+</style>
+<style id="gg-tabs-style">
+.gg-tabs{display:flex;gap:8px;max-width:1100px;margin:0 auto;padding:16px 16px 0;font-family:Inter,system-ui,-apple-system,sans-serif;flex-wrap:wrap}
+.gg-tab{flex:0 1 auto;padding:12px 20px;border-radius:999px;border:1px solid #2E3238;background:#1B1D21;color:#E8E8E8;font-weight:600;font-size:16px;text-decoration:none;line-height:1.2}
+.gg-tab[aria-selected="true"]{background:#F4F262;border-color:#F4F262;color:#121417}
+.gg-tab:focus-visible{outline:2px solid #F4F262;outline-offset:2px}
+#gg-report-frame{display:block;width:100%;border:0;min-height:100vh;background:#121417}
+@media (max-width:480px){.gg-tab{flex:1 1 0;text-align:center;padding:12px 6px;font-size:14px;white-space:nowrap}}
+</style>
+</head><body>
+<nav class="gg-tabs" role="tablist" aria-label="Your plan">
+<a class="gg-tab" role="tab" data-tab="plan" href="#plan">Your next 6 weeks</a>
+<a class="gg-tab" role="tab" data-tab="report" href="#report">Your next 6 months</a>
+</nav>
+<div id="gg-plan">
+<main class="wrap">
+<header class="hero">
+  <h1>Hannah, your plan to <em>£25,000 a month</em> by 31 May</h1>
+  <p class="sub">You told me you want freedom: more time with your family and your dogs, travel, and two businesses that run whether you're there or not.</p>
+  <ol class="road"><li class=""><b>£10.5K</b><span>a month today</span></li><li class="first"><b>£19K</b><span>by 28 Feb</span></li><li class="on"><b>£25K</b><span>by 31 May, your 6-month goal</span></li><li class=""><b>£40K</b><span>your big goal</span></li></ol>
+  <p>That's about £15,000 at Summit (about 187 members) and about £10,000 at KONCPT (about 85 members). Your first steps open KONCPT with members in it and keep Summit's 23 beginners. Summit's consultations already work: every woman with an outcome marked turned up, and 68% signed up. Do one step at a time and tick things off as you go.</p>
+  <div class="progress" aria-live="polite"><div class="bar"><i id="pbar"></i></div><p><b id="pcount">0 of 10</b> steps done</p></div>
+</header>
+<section id="choice"><h2>First, choose who calls your enquiries</h2><p>Ads for KONCPT's opening and Summit's next intake only pay off if someone speaks to every enquiry within one working day. Right now only 10 of 142 heard from a person. I need your answer by Friday 4 December, before step 4.</p><div class="choice"><div class="opt"><h3>You, Joe or a coach call</h3><p>One named person owns the calls each day, and you run consultations in your Friday and Monday slots. This is where I'd start.</p><p class="cost">No extra cost</p></div><div class="opt"><h3>A setter calls for you</h3><p>Your own setter, or a GymGrow setter, calls every enquiry within a day and books them in. You only run the consultations. Worth it once both businesses have ads running at the same time.</p><p class="cost">From £247 a month</p></div></div></section>
+<section id="steps">
+  <h2>Your 10 steps</h2>
+  <p>Tap a step to see what to do. When you've done it, tap "I've done this step" and the next one opens.</p>
+  <div class="steps">
+<h3 class="stage">Open KONCPT full, and keep Summit&#x27;s beginners</h3>
+<details class="step" id="step-1" data-n="1" open>
+<summary><span class="num" aria-hidden="true"><i>1</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Open KONCPT for sign-ups</span><span class="wk">Step 1 · week of Monday 23 Nov</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">The test week has started, and nobody can join KONCPT yet: no prices, no opening offer and no way to book online.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s1t0"><span>Go through this plan together on your coaching call, or in your Slack channel if a call doesn't fit your week.</span></label></li><li><label><input type="checkbox" data-k="s1t1"><span>Set KONCPT's prices and memberships from the prices step and template in the platform: what a membership, a class pack and a single class cost. Post them in your Slack channel so my team can check them against your £10,000 goal.</span></label></li><li><label><input type="checkbox" data-k="s1t2"><span>Agree the opening offer with me, as I said I would on our call.</span></label></li><li><label><input type="checkbox" data-k="s1t3"><span>Decide where KONCPT's members, bookings and payments live: Arketa, or GrowHQ next to Summit. Then make sure someone can buy and book a class in under 2 minutes on a phone.</span></label></li><li><label><input type="checkbox" data-k="s1t4"><span>Change @bykoncpt's bio so it says what KONCPT is and where, for example: "Reformer, barre and mat Pilates in Ulverston. Small classes." Add the link where people can book.</span></label></li><li><label><input type="checkbox" data-k="s1t5"><span>Every class in the test week, tell the Summit members there about the offer in person and show them how to sign up there and then. Message every Summit member who doesn't come.</span></label></li><li><label><input type="checkbox" data-k="s1t6"><span>Put every new KONCPT member into Grow Sales with their membership and its monthly price, so they're counted.</span></label></li></ul>
+<p class="done"><b>Done when</b> 4 or more new KONCPT members a week, 2 weeks in a row.</p>
+<button type="button" class="mark" data-step="1">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>A clear opening offer with a way to join in under 2 minutes, told to Summit members in person during the test week, gets KONCPT's first members signed before you open to the public.</div><div><b>What you count each week:</b>Share of Summit's 148 members told about the opening offer by you or your team. Today: 0. Target: all 148 by Monday 7 Dec.</div><div><b>What it should change:</b><strong>New KONCPT members a week</strong>, on a membership or class pack. Today: 0. Target: 4 a week from Monday 30 Nov, 16 by 31 Dec.</div><div><b>If it hasn't changed in 2 weeks:</b>If every member has been told and fewer than 4 a week sign up for 2 weeks, ask 5 people who tried a class and didn't join what stopped them, and post their answers in your Slack channel. We change the offer or how you tell people, never just wait.</div></div></div></details>
+</div></details>
+<details class="step" id="step-2" data-n="2">
+<summary><span class="num" aria-hidden="true"><i>2</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Turn Summit's 23 beginners into members</span><span class="wk">Step 2 · week of Monday 30 Nov</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">23 beginners started on 2 to 9 November. Their 28 days end by 7 December, and none has an outcome marked yet.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s2t0"><span>Write the end-of-programme chat from the intro step and template in the platform: what she came for, what she can do now, and which membership fits.</span></label></li><li><label><input type="checkbox" data-k="s2t1"><span>Book a short chat with each beginner in her last week. A coach can do it at the end of a session.</span></label></li><li><label><input type="checkbox" data-k="s2t2"><span>Offer the membership on the chat, and sign her up there and then.</span></label></li><li><label><input type="checkbox" data-k="s2t3"><span>Mark every outcome in Grow Sales: joined, with her monthly price, or not, with the reason.</span></label></li><li><label><input type="checkbox" data-k="s2t4"><span>Call anyone who says no 7 days later, and write down what she says.</span></label></li></ul>
+<p class="done"><b>Done when</b> 17 or more of the 23 are on a membership, and all 23 have an outcome marked.</p>
+<button type="button" class="mark" data-step="2">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>A one-to-one chat with every beginner in her last week, about what she's achieved and what's next, turns at least 3 in 4 into members.</div><div><b>What you count each week:</b>Share of beginners finishing that week who had an end-of-programme chat, with the outcome marked in Grow Sales. Today: 0 of 23. Target: all 23 by Monday 7 Dec.</div><div><b>What it should change:</b><strong>Intro to recurring</strong> (of the beginners whose 28 days ended, the share who went onto a membership). Today: not measured, 0 of 23 marked. Target: 75%, which is 17 of 23, by Friday 11 Dec.</div><div><b>If it hasn't changed in 2 weeks:</b>If every beginner had a chat and fewer than 3 in 4 join, write down what each one said and post it in your Slack channel. We change the chat, not the programme.</div></div></div></details>
+</div></details>
+<details class="step" id="step-3" data-n="3">
+<summary><span class="num" aria-hidden="true"><i>3</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Set Summit's new prices, and start a P&amp;L for each business</span><span class="wk">Step 3 · week of Monday 7 Dec</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">Summit's prices haven't changed in 3 years, while VAT now takes a bit over £2,000 a month and rent is about £2,000 a year more.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s3t0"><span>From PushPress, list every Summit membership, its price and how many members are on it, and how many joined and left in each of the last 3 months. Post it in your Slack channel.</span></label></li><li><label><input type="checkbox" data-k="s3t1"><span>Decide Summit's new prices from the prices step and template in the platform, and the date they start.</span></label></li><li><label><input type="checkbox" data-k="s3t2"><span>Tell every member at least 30 days before: in person in class first, then by message.</span></label></li><li><label><input type="checkbox" data-k="s3t3"><span>Sell every new Summit membership at the new price from the day you decide it.</span></label></li><li><label><input type="checkbox" data-k="s3t4"><span>Fill in the P&amp;L template in the platform for each business on its own, for September to November, with VAT on its own line. Post both in your Slack channel.</span></label></li><li><label><input type="checkbox" data-k="s3t5"><span>Ask your new accountant whether the flat rate VAT scheme suits Summit, as you planned.</span></label></li></ul>
+<p class="done"><b>Done when</b> The new prices are set, every member has been told, and both P&amp;Ls have 3 months in them.</p>
+<button type="button" class="mark" data-step="3">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>Members who are told in person, at least a month ahead, why prices are going up after 3 years stay at the new price, so Summit earns more from each member without members leaving.</div><div><b>What you count each week:</b>Share of Summit's members told about the new price at least 30 days before it starts. Today: 0 of 148. Target: all of them by the date you choose.</div><div><b>What it should change:</b>Summit's average monthly price per member (MRR ÷ paying members). Today: about £71, an estimate. Target: what your new prices add up to, by 28 Feb.</div><div><b>If it hasn't changed in 2 weeks:</b>If members give notice because of the price, call each one first, find out what matters to them, and post it in your Slack channel before you decide anything. Any offer to keep a member on an older price gets agreed with me first.</div></div></div></details>
+</div></details>
+<details class="step" id="step-4" data-n="4">
+<summary><span class="num" aria-hidden="true"><i>4</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Speak to every enquiry within one working day</span><span class="wk">Step 4 · week of Monday 14 Dec</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">Only 10 of 142 women who asked about Summit heard from a real person. 101 never booked, and 96 of those never heard from anyone.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s4t0"><span>Write your new-lead call from the speed-to-lead step and template in the platform.</span></label></li><li><label><input type="checkbox" data-k="s4t1"><span>Decide who calls leads each day: you, Joe or a coach (see the choice at the top).</span></label></li><li><label><input type="checkbox" data-k="s4t2"><span>Call each new lead the same working day where you can, and the next working day at the latest. If she doesn't answer, send a message and call again the next day. Make every call and message from Grow Sales, so it's counted.</span></label></li><li><label><input type="checkbox" data-k="s4t3"><span>Book consultations into your Friday and Monday slots, within 3 days.</span></label></li><li><label><input type="checkbox" data-k="s4t4"><span>Work through the 101 women who asked about Summit and never booked, newest first. Tell them about KONCPT's opening and Summit's next intake.</span></label></li><li><label><input type="checkbox" data-k="s4t5"><span>Write a note on each call: what was said, and whether she booked.</span></label></li></ul>
+<p class="done"><b>Done when</b> Lead to booking of 30% or more, 2 weeks in a row.</p>
+<button type="button" class="mark" data-step="4">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>Women who speak to a real person within a day of asking book a consultation more often. Once they book with you, they turn up and join.</div><div><b>What you count each week:</b>Share of the week's new leads, for Summit or KONCPT, who got a first call or message from a person within one working day. Today: 10 of 142 got one at all. Target: all of them every week.</div><div><b>What it should change:</b><strong>Lead to booking</strong> (the share of new leads who book a consultation). Today: 27% (39 of 142). Target: 30% every week by 31 Jan.</div><div><b>If it hasn't changed in 2 weeks:</b>If every lead hears from you within a day and lead to booking hasn't gone up in 2 weeks, write down why women didn't book and post it in your Slack channel.</div></div></div></details>
+</div></details>
+<details class="step" id="step-5" data-n="5">
+<summary><span class="num" aria-hidden="true"><i>5</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Make KONCPT's Instagram show what a class feels like</span><span class="wk">Step 5 · week of Monday 4 Jan</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">Women new to Pilates check your Instagram before they book. Right now @bykoncpt shows the build and a mood board, with nobody in a class.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s5t0"><span>Pick 3 values KONCPT stands for, from the content step and template in the platform. Each post shows one of them.</span></label></li><li><label><input type="checkbox" data-k="s5t1"><span>Ask members in the first classes if you can film short clips. Get 3 clips this week.</span></label></li><li><label><input type="checkbox" data-k="s5t2"><span>Pin 3 posts: a real class, you on why you built KONCPT, and one instructor introducing herself.</span></label></li><li><label><input type="checkbox" data-k="s5t3"><span>Post 3 times a week. Leave out "DM us", "link in bio" and offers: your ads and your opening offer do the selling.</span></label></li><li><label><input type="checkbox" data-k="s5t4"><span>On @summit.ulverston, swap the pinned "Schedule" and "Join us" posts for posts that show a class and a member's story. Keep timetables for members in your app and member chat.</span></label></li></ul>
+<p class="done"><b>Done when</b> 6 of your last 9 posts show a real class, an instructor or a member's own words.</p>
+<button type="button" class="mark" data-step="5">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>If women see people like them in a KONCPT class, and the instructors who'll teach them, more of them book.</div><div><b>What you count each week:</b>Posts a week on @bykoncpt that show a real class, an instructor, or a member saying why she came. Today: 0 (checked 24 Nov). Target: 3 a week.</div><div><b>What it should change:</b>Of your last 9 posts, how many show a real class, an instructor or a member's own words, with no sales ask. Today: 0. Target: 6 of 9 by 28 Feb.</div><div><b>If it hasn't changed in 2 weeks:</b>If members don't want to be filmed, film hands and feet on the reformer, or the instructor teaching, and post it in your Slack channel for feedback.</div></div></div></details>
+</div></details>
+<h3 class="stage">Grow Summit through its members</h3>
+<details class="step" id="step-6" data-n="6">
+<summary><span class="num" aria-hidden="true"><i>6</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Set Summit's intake dates, and fill your classes</span><span class="wk">Step 6 · week of Monday 1 Feb</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">Summit's classes are getting big, your coaches all have other jobs, and there's no set calendar for beginners intakes.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s6t0"><span>From PushPress, list each class, its spaces and how many come on average, from the timetable step and template in the platform.</span></label></li><li><label><input type="checkbox" data-k="s6t1"><span>Set the start dates for 3 intakes, every other month, and the capacity of each.</span></label></li><li><label><input type="checkbox" data-k="s6t2"><span>Decide which classes to add and who coaches them.</span></label></li></ul>
+<p class="done"><b>Done when</b> 3 intake dates are set, and the classes they join have room.</p>
+<button type="button" class="mark" data-step="6">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>Set intake dates every other month, with beginners in their own sessions, let Summit grow without crowding members' classes.</div><div><b>What you count each week:</b>Intakes with a start date, a capacity and a coach set, for the next 6 months. Today: 0. Target: 3 by Monday 15 Feb.</div><div><b>What it should change:</b>Average people per class at Summit, from PushPress. First count Monday 1 Feb. Target: I set it with you on Monday 15 Feb, from your class sizes.</div><div><b>If it hasn't changed in 2 weeks:</b>If classes are still too full after an intake, post your class sizes in your Slack channel and we look at the timetable with you.</div></div></div></details>
+</div></details>
+<details class="step" id="step-7" data-n="7">
+<summary><span class="num" aria-hidden="true"><i>7</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Get members to bring their friends, and ask everyone what keeps them</span><span class="wk">Step 7 · week of Monday 15 Feb</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">Friends of members joined Summit's last round without an ad. That fills the months between intakes.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s7t0"><span>Send your member survey from the template in the platform to both businesses, and post the answers in your Slack channel.</span></label></li><li><label><input type="checkbox" data-k="s7t1"><span>Set up a bring-a-friend session from the referrals step and template in the platform.</span></label></li><li><label><input type="checkbox" data-k="s7t2"><span>Every week, ask 5% of members in person, and book their friend in on the spot.</span></label></li><li><label><input type="checkbox" data-k="s7t3"><span>Put every friend into Grow Sales as a lead, marked as a referral.</span></label></li></ul>
+<p class="done"><b>Done when</b> 6 or more new Summit members in a month between intakes.</p>
+<button type="button" class="mark" data-step="7">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>Asking 5% of members a week to bring a friend fills the months between intakes, at both businesses.</div><div><b>What you count each week:</b>Members asked to bring a friend that week. Today: 0. Target: 5% of members every week, about 8 at Summit and 3 at KONCPT in February.</div><div><b>What it should change:</b>Friends booked in from referrals that week. First count Monday 15 Feb. Target: 6 new Summit members a month between intakes.</div><div><b>If it hasn't changed in 2 weeks:</b>If members are asked and nobody books for 2 weeks, ask 5 members what would make them bring a friend, and post it in your Slack channel.</div></div></div></details>
+</div></details>
+<h3 class="stage">Make both run without you</h3>
+<details class="step" id="step-8" data-n="8">
+<summary><span class="num" aria-hidden="true"><i>8</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Write your jobs down and hand them over</span><span class="wk">Step 8 · week of Monday 22 Mar</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">Both businesses run through you and Joe, about 45 to 60 hours a week, with nothing written down. You'd hand over social media and member check-ins first.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s8t0"><span>List every job you do and roughly how long each takes a week: timetables, programming, messages, social media, check-ins and payments.</span></label></li><li><label><input type="checkbox" data-k="s8t1"><span>Write a step-by-step guide for social media first, from the SOP step and template in the platform. Hand it to one named person.</span></label></li><li><label><input type="checkbox" data-k="s8t2"><span>Then member check-ins. Check their work for 2 weeks, then let it go and move on to the next job.</span></label></li><li><label><input type="checkbox" data-k="s8t3"><span>Every Monday, enter your admin hours from last week.</span></label></li></ul>
+<p class="done"><b>Done when</b> Your admin hours are at the target we set, 2 weeks in a row.</p>
+<button type="button" class="mark" data-step="8">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>A job with a written guide can be handed over and stays handed over, so your admin hours fall and stay down.</div><div><b>What you count each week:</b>Jobs handed to someone else with a written guide. Today: 0. Target: one more every 2 weeks.</div><div><b>What it should change:</b>Your admin hours last week, across both businesses. Today: about 41. Target: I set it with you on Monday 22 Mar, once KONCPT's set-up is done.</div><div><b>If it hasn't changed in 2 weeks:</b>If jobs are handed over and your hours haven't fallen in 2 weeks, write down what you still do and why for one week, and post it in your Slack channel.</div></div></div></details>
+</div></details>
+<details class="step" id="step-9" data-n="9">
+<summary><span class="num" aria-hidden="true"><i>9</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Give every number an owner, and run a weekly team meeting</span><span class="wk">Step 9 · week of Monday 12 Apr</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">You need someone more available to manage coaches at Summit, and every number in this plan still comes back to you.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s9t0"><span>List the numbers in this plan and name one owner for each, from the KPI owner step and template in the platform.</span></label></li><li><label><input type="checkbox" data-k="s9t1"><span>Decide who you take on, part-time or full-time, to manage coaches. Write down what they'll own.</span></label></li><li><label><input type="checkbox" data-k="s9t2"><span>Run a 20-minute meeting every week: each owner reports their number and one action.</span></label></li></ul>
+<p class="done"><b>Done when</b> Every number has an owner who reports it, 4 weeks in a row.</p>
+<button type="button" class="mark" data-step="9">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>When each number has a named owner who reports it at a short weekly meeting, the team keeps them on track without you checking each one.</div><div><b>What you count each week:</b>Weekly team meetings held, with every owner reporting their number. Today: 0. Target: every week.</div><div><b>What it should change:</b>Numbers in this plan reported by their owner, not by you. Today: 0. Target: all of them by 31 May.</div><div><b>If it hasn't changed in 2 weeks:</b>If owners don't report, post the meeting notes in your Slack channel and we help you change the meeting.</div></div></div></details>
+</div></details>
+<h3 class="stage">Lock it in and set your next goal</h3>
+<details class="step" id="step-10" data-n="10">
+<summary><span class="num" aria-hidden="true"><i>10</i></span><span class="st"><span class="now-tag">Do this now</span><span class="tt">Check your profit every month, and set your next goal</span><span class="wk">Step 10 · week of Monday 17 May</span></span><span class="chev" aria-hidden="true"></span></summary>
+<div class="body">
+<p class="why">You take about £200 a month from Summit, and your goal is £3,000 to £4,000 a month between you and Joe.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="s10t0"><span>Fill in both P&amp;Ls by the 10th of every month, and check each against 20% profit after all costs, including your pay.</span></label></li><li><label><input type="checkbox" data-k="s10t1"><span>Mark each cost keep, cut or change, and write down what you save.</span></label></li><li><label><input type="checkbox" data-k="s10t2"><span>Go through your 6-month review in the platform, and set your goal for the next 6 months, on the way to £40,000 a month.</span></label></li></ul>
+<p class="done"><b>Done when</b> 3 months of both P&amp;Ls are in, your next 6-month goal is set, and the review is done.</p>
+<button type="button" class="mark" data-step="10">I've done this step</button>
+<details class="how"><summary>How we'll know it's working</summary><div class="howin"><div class="wbet"><div><b>Why this works:</b>When you see each business's profit every month, you and Joe can pay yourselves a set salary instead of what's left.</div><div><b>What you count each week:</b>Months with both P&amp;Ls filled in by the 10th of the next month. Today: 0. Target: every month.</div><div><b>What it should change:</b>Pay for you and Joe a month, from the P&Ls. Today: about £200. Target: £3,000 to £4,000 a month by 31 May.</div><div><b>If it hasn't changed in 2 weeks:</b>If profit is under your goal for 2 months, post both P&amp;Ls in your Slack channel and we look at your biggest costs with you.</div></div></div></details>
+</div></details>
+  </div>
+</section>
+<section id="number">
+  <h2>The one number we check every Monday</h2>
+  <p><strong>How many new members join KONCPT each week.</strong> Every new member goes into Grow Sales with their price, so it's counted.</p>
+  <div class="big">4 <span>a week from Monday 30 Nov</span></div>
+  <div class="bar"><i style="width:0%"></i></div>
+  <div class="ends"><span>Today: 0</span><span>Aim: 4 a week, 16 by 31 Dec</span></div>
+  <p>If every Summit member has heard about the opening offer and this hasn't gone up in 2 weeks, ask 5 people who tried a class and didn't join what stopped them, and post it in your Slack channel. We'll change the offer together.</p>
+</section>
+<section id="monday">
+  <h2>Every Monday</h2>
+  <div class="card"><h3>You report to me every Monday</h3><ul><li>Grow Sales fills these in by itself: new leads, lead to booking, show rate, close rate, intro to recurring, and how fast each lead heard from a person.</li><li>Your part is putting every new KONCPT member in Grow Sales with their price, making every call and message from Grow Sales, and marking every outcome.</li><li>You enter: Summit members told about KONCPT's opening offer.</li><li>From step 5: your posts last week.</li><li>From step 7: members asked to bring a friend, and friends booked in.</li><li>From step 8: your admin hours last week, and jobs handed over.</li></ul></div><div class="card"><h3>What I&#x27;ll do</h3><ul><li>Agree KONCPT's opening offer with you.</li><li>Run your ads with my team. You film them, call your leads and run your consultations.</li><li>Every Monday, check your numbers. If one hasn't moved in 2 weeks, I tell you so we can change how you're doing it.</li></ul></div><div class="card"><h3>Checked in Slack</h3><ul><li>Calls don't fit your week, so post your prices, your end-of-programme chat, your P&amp;Ls, your new-lead call, your posts, your intake dates and your written guides in your Slack channel. My team checks them there.</li></ul></div>
+  <details class="fold"><summary>Habits that keep going after each step</summary><ul><li>Every new KONCPT member goes into Grow Sales with their price. <span>You, every Monday.</span></li><li>A chat with every beginner in her last week, and every outcome marked. <span>You or a coach, every intake.</span></li><li>Every new Summit membership sold at the new price. <span>You, every Monday.</span></li><li>Every new lead hears from a person within one working day, and is booked within 3 days. <span>Whoever owns the calls, every working day.</span></li><li>3 posts a week on @bykoncpt showing a class, an instructor or a member's own words. <span>You, then whoever you hand it to, weekly.</span></li><li>Summit's intake dates set 2 months ahead. <span>You, every intake.</span></li><li>5% of members asked to bring a friend. <span>You and your coaches, weekly.</span></li><li>One more job written down and handed over. <span>You, then your team, every 2 weeks.</span></li><li>The weekly team meeting, every owner reporting their number. <span>Your team, weekly.</span></li><li>Both P&amp;Ls by the 10th of every month. <span>You, monthly.</span></li></ul></details>
+</section>
+<section id="next">
+  <h2>What I need from you this week</h2>
+  <ul><li>From PushPress: Summit's paying members today, how many joined and left in each of the last 3 months, and every membership with its price.</li><li>KONCPT's prices and memberships, so we can agree the opening offer.</li><li>The date the public can book at KONCPT.</li><li>Your full monthly costs for each business, with VAT on its own line.</li></ul>
+  <p>After these 10 steps you set your next goal, on the way to £40,000 a month.</p>
+  <p><a href="#report">See your full 6 months, and why each step is in your plan</a></p>
+</section>
+<footer class="foot">
+  <details class="fold"><summary>Where these numbers come from</summary><ol><li>Your starting-numbers questionnaire for KONCPT, filled in 23 Nov 2026: 0 members and £0 revenue, rent £1,200, wages £1,500, 34 classes a week with 6 places on reformer and 8 on barre and mat, your hours, 5 days off in 12 months, no written guides, the jobs you'd hand over first, and your goals: £15,000 or more at Summit and £10,000 or more at KONCPT, with £3,000 to £4,000 pay between you and Joe, in 6 months; £40,000 a month as your big goal.</li><li>Our call, 11 Nov 2026: Summit has 148 members and takes about £10,000 to £11,000 a month; no KONCPT sign-ups or prices yet; VAT a bit over £2,000 a month; rent about £2,000 a year more; no price rise in 3 years; you take about £200 a month; classes getting big; members rarely leave; 4 hours on a Friday and 4 on a Monday for consultations.</li><li>Grow Sales, Summit Training, 24 Aug to 23 Nov 2026 (first lead 12 Oct): 142 new leads, 39 booked (27%); 10 got a first call or message from a person, the middle one after about 24 hours; 101 with no booking, 96 of them never contacted by a person; 32 consultations with an outcome, all attended; close rate 68%; 23 beginners started on 2 to 9 November, none with an outcome marked.</li><li>Your ads, Summit Training, October 2026 campaign: £257.54 spent, 136 leads, about £1.89 a lead. Paused.</li><li>I checked @bykoncpt and @summit.ulverston on 24 Nov 2026: @bykoncpt has 345 followers and a bio that only says "KONCPT", with posts of the build and a mood board. @summit.ulverston has 2,510 followers, with pinned "Schedule", "Classes" and "Join us" posts.</li><li>GymGrow targets: lead to booking 30%, show rate 50%, close rate 50%, intro to recurring 75%.</li><li>KONCPT, my calculation: 34 classes × about 5 a class = 170 places a week; with members coming about twice a week, that's about 85 members. 85 × about £118 = about £10,000 a month. £118 is an estimate until your prices are set. Joining: Dec 16, Jan 18, Feb 16, then 14 a month; leaving an estimated 3% a month from February. 49 by 28 Feb.</li><li>Summit, my calculation: about £10,500 ÷ 148 = about £71 a member, an estimate. 17 of 23 beginners join in December (75%); intakes add about 17 each; friends of members add about 6 in the months between; leaving an estimated 3% a month until PushPress numbers are in. 148 → 174 by 28 Feb → 187 by 31 May. 39 more members × £98 = about £3,800 MRR, plus about £530 for a 5% price rise, takes Summit to about £15,000.</li><li>By 28 Feb, my calculation: Summit about £10,500 + £530 + 26 more members × £98 = about £13,600, and KONCPT 49 × £118 = about £5,800. Together about £19,000.</li></ol></details>
+  <p>Plan figures are targets and my estimates, not forecasts. Prepared by Lewis Clare, GymGrow. Updated 24 November 2026.</p>
+</footer>
+</main>
+<script>
+(function(){
+  var KEY='gg-plan-summit-d3768b', st={};
+  try{ st=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ st={}; }
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(st)); }catch(e){} }
+  var steps=[].slice.call(document.querySelectorAll('.step'));
+  [].slice.call(document.querySelectorAll('.todo input')).forEach(function(cb){
+    cb.checked=!!st[cb.dataset.k];
+    cb.addEventListener('change',function(){ st[cb.dataset.k]=cb.checked; save(); });
+  });
+  function render(openNow){
+    var done=0, now=null;
+    steps.forEach(function(s){
+      var d=!!st['done'+s.dataset.n]; s.classList.toggle('done',d); s.classList.remove('now');
+      s.querySelector('.mark').textContent=d?'Mark as not done':"I've done this step";
+      if(d) done++; else if(!now) now=s;
+    });
+    if(now){ now.classList.add('now'); if(openNow) now.open=true; }
+    document.getElementById('pcount').textContent=done+' of '+steps.length;
+    document.getElementById('pbar').style.width=(done/steps.length*100)+'%';
+    return now;
+  }
+  steps.forEach(function(s){
+    s.querySelector('.mark').addEventListener('click',function(){
+      var k='done'+s.dataset.n; st[k]=!st[k]; save();
+      if(st[k]){ s.open=false; var n=render(true); if(n) setTimeout(function(){ n.scrollIntoView({behavior:'smooth',block:'start'}); },60); }
+      else render(false);
+    });
+  });
+  var first=render(false);
+  if(first && first.dataset.n!=='1'){ steps[0].open=false; first.open=true; }
+})();
+</script>
+</div>
+<div id="gg-report" style="display:none"><iframe id="gg-report-frame" title="Your next 6 months" loading="eager"></iframe></div>
+<script id="gg-tabs-script">
+(function(){
+  var SRC="/plans/summit-d3768b/report/full.html", PLAN_PATH="/plans/summit-d3768b/";
+  var T_PLAN="Summit and KONCPT: Your next 6 weeks", T_REP="Summit and KONCPT: Your next 6 months";
+  var plan=document.getElementById('gg-plan'), rep=document.getElementById('gg-report'), fr=document.getElementById('gg-report-frame');
+  var tabs=[].slice.call(document.querySelectorAll('.gg-tab')), ready=false, want=null;
+  function size(){ try{ var d=fr.contentDocument; if(d&&d.body) fr.style.height=Math.max(d.documentElement.scrollHeight,d.body.scrollHeight)+'px'; }catch(e){} }
+  function toAnchor(id){
+    if(!id) return;
+    try{ var el=fr.contentDocument.getElementById(id); if(!el) return;
+      for(var p=el;p;p=p.parentElement){ if(p.tagName==='DETAILS') p.open=true; }
+      size(); window.scrollTo(0, fr.getBoundingClientRect().top+window.pageYOffset+el.getBoundingClientRect().top-12);
+    }catch(e){}
+  }
+  function wire(){
+    var d=fr.contentDocument; if(!d) return;
+    [].slice.call(d.querySelectorAll('a[href]')).forEach(function(a){
+      var raw=a.getAttribute('href'), u; try{ u=new URL(raw, d.baseURI); }catch(e){ return; }
+      if(raw.charAt(0)==='#'){ a.addEventListener('click',function(e){ e.preventDefault(); location.hash='report/'+raw.slice(1); }); }
+      else if(u.origin===location.origin && (u.pathname===PLAN_PATH || u.pathname===PLAN_PATH+'index.html' || u.pathname===PLAN_PATH.slice(0,-1))){
+        a.addEventListener('click',function(e){ e.preventDefault(); location.hash=u.hash?u.hash.slice(1):'plan'; });
+      } else if(!a.target) a.target='_top';
+    });
+    if(window.ResizeObserver) new ResizeObserver(size).observe(d.body);
+    d.addEventListener('toggle',size,true);
+  }
+  fr.addEventListener('load',function(){ ready=true; wire(); size(); setTimeout(size,300); if(want!==null){ toAnchor(want); want=null; } });
+  window.addEventListener('resize',size);
+  function route(first){
+    var h=decodeURIComponent(location.hash.slice(1)), isRep=h==='report'||h.indexOf('report/')===0;
+    plan.style.display=isRep?'none':''; rep.style.display=isRep?'':'none';
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String((t.getAttribute('data-tab')==='report')===isRep)); });
+    document.title=isRep?T_REP:T_PLAN;
+    if(isRep){
+      if(!fr.getAttribute('src')) fr.setAttribute('src',SRC);
+      var id=h.indexOf('report/')===0?h.slice(7):'';
+      if(ready){ size(); if(id) toAnchor(id); else if(!first) window.scrollTo(0,0); } else { want=id||null; if(!first) window.scrollTo(0,0); }
+    } else if(h && h!=='plan'){
+      var el=document.getElementById(h); if(el) el.scrollIntoView();
+    } else if(!first) window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',function(){ route(false); });
+  route(true);
+})();
+</script>
+</body></html>

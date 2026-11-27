@@ -41,6 +41,8 @@ p{margin:0}
 /* top */
 .top{position:absolute;inset:0 0 auto;z-index:5;padding-top:env(safe-area-inset-top,0px)}
 .top .wrap{padding-block:22px}
+.top a{display:inline-block}
+.proof:hover span:last-child{text-decoration:underline;text-underline-offset:3px}
 .top img{width:122px;height:auto;filter:brightness(0) invert(1) sepia(.12)}
 
 /* hero */
@@ -49,7 +51,7 @@ p{margin:0}
 .hero h1{font-size:clamp(56px,6.4vw,96px);line-height:.92;letter-spacing:-.01em;color:var(--cream)}
 .hero h1 .price{font-style:italic;color:var(--blush);white-space:nowrap}
 .hero .sub{font-size:clamp(19px,1.7vw,22px);max-width:30ch;margin-top:28px;color:rgba(250,243,230,.86)}
-.proof{display:flex;align-items:center;gap:14px;margin-top:30px;font-size:15px;color:rgba(250,243,230,.75)}
+.proof{text-decoration:none;width:fit-content;display:flex;align-items:center;gap:14px;margin-top:30px;font-size:15px;color:rgba(250,243,230,.75)}
 .faces{display:flex}
 .faces img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--ink);margin-left:-10px}
 .faces img:first-child{margin-left:0}
@@ -206,7 +208,7 @@ details p{padding:0 0 24px;max-width:60ch;color:var(--soft)}
 
 </head>
 <body>
-<header class="top"><div class="wrap"><img src="img/logo.png" alt="MOVA Studios" width="122" height="40"></div></header>
+<header class="top"><div class="wrap"><a href="https://movastudios.co.uk/" aria-label="MOVA Studios website"><img src="img/logo.png" alt="MOVA Studios" width="122" height="40"></a></div></header>
 
 <main>
 <section class="hero">
@@ -214,7 +216,7 @@ details p{padding:0 0 24px;max-width:60ch;color:var(--soft)}
     <div class="hero-copy">
       <h1>Your first 4 reformer classes, <span class="price">£35</span></h1>
       <p class="sub">New to reformer, coming back after a break, or just ready to feel stronger and more mobile?</p>
-      <div class="proof"><span class="stars">★★★★★</span><span>Rated 5.0 on Google in York</span></div>
+      <a class="proof" href="https://www.google.com/maps/search/?api=1&amp;query=MOVA+Studios+York" target="_blank" rel="noopener"><span class="stars">★★★★★</span><span>Rated 5.0 on Google in York</span></a>
       <div class="arches" aria-hidden="true"><img src="img/0388.jpg" alt=""><img src="img/0359.jpg" alt=""><img src="img/0505.jpg" alt=""></div>
     </div>
     <div class="pass"><div class="claim" id="claim">
